@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://6hg1syki30xs"]
+
+[ext_resource type="Script" path="res://Drill Control.gd" id="1_ycj8x"]
+[ext_resource type="Texture2D" uid="uid://bughwqn2jnkop" path="res://Endless Run/Drill - Placeholder.png" id="2_80dua"]
+[ext_resource type="Script" path="res://Drill Sprite.gd" id="3_t5cdd"]
+
+[node name="Drill" type="CharacterBody2D"]
+script = ExtResource("1_ycj8x")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, 104)
+
+[node name="Sprite Drill" type="Sprite2D" parent="."]
+texture = ExtResource("2_80dua")
+script = ExtResource("3_t5cdd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
