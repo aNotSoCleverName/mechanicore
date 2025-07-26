@@ -7,8 +7,8 @@
 
 [sub_resource type="Curve" id="Curve_ktper"]
 max_value = 6.0
-_data = [Vector2(0, 0), 0.0, 16.5135, 0, 0, Vector2(0.252632, 4.21978), 11.958, 11.958, 0, 0, Vector2(0.889474, 6), -0.544672, -0.544672, 0, 0, Vector2(1, 0), -134.671, 0.0, 0, 0]
-point_count = 4
+_data = [Vector2(0, 0), 0.0, 9.09252, 0, 0, Vector2(1, 6), 0.404113, 0.0, 0, 0]
+point_count = 2
 
 [node name="Main" type="HBoxContainer"]
 offset_right = 1284.0
@@ -30,7 +30,6 @@ script = ExtResource("3_1rx8v")
 
 [node name="Drill" parent="Endless Run Container/Endless Run" instance=ExtResource("4_76jrm")]
 position = Vector2(448, 256)
-rotation = 1.5708
 motion_mode = 1
 
 [node name="Shop & Menu Container" type="SubViewportContainer" parent="."]

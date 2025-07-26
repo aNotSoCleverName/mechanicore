@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Drill
 
 const START_VELOCITY: int = 100;
 
@@ -8,6 +9,10 @@ var _isDocked: bool = true:
 		return _isDocked;
 	set(inValue):
 		_isDocked = inValue;
+		
+		SignalBus_EndlessRun.drill_change_dock.emit(_isDocked);
+		if (_isDocked):
+			self._speed = 0;
 
 var _speed: int = 0:
 	get:
@@ -15,6 +20,9 @@ var _speed: int = 0:
 	set(inValue):
 		_speed = inValue;
 		self._UpdateVelocity();
+		
+		if (_speed == 0):
+			self._isDocked = true;
 
 var _directionDeg: SignalBus_EndlessRun.EDrillDirection:
 	get:
@@ -25,17 +33,15 @@ var _directionDeg: SignalBus_EndlessRun.EDrillDirection:
 		if (_directionDeg == inValue):
 			return;
 		_directionDeg = inValue;
+		self.rotation = deg_to_rad(inValue);
+		self._UpdateVelocity();
 		
 		SignalBus_EndlessRun.drill_change_dir.emit(inValue);
-		self._UpdateVelocity();
 #endregion
 
 #region Private functions
 func _UpdateVelocity() -> void:
-	var dirAngle: Vector2 = Vector2.DOWN.rotated(
-		deg_to_rad(self._directionDeg)
-	);
-	velocity = self._speed * dirAngle;
+	velocity = self._speed * Vector2.RIGHT.rotated(self.rotation);
 #endregion
 
 #region Built-in functions
