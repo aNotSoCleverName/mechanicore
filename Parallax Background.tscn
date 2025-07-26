@@ -5,17 +5,16 @@
 [ext_resource type="Texture2D" uid="uid://dy1ic5h5exy3f" path="res://Endless Run/Placeholder - BG - Sky.png" id="3_0crnc"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
-follow_viewport_enabled = true
 
 [node name="Dirt Dark" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2(0, 720)
+motion_mirroring = Vector2(896, 720)
 
 [node name="Sprite2D" type="Sprite2D" parent="Dirt Dark"]
 texture = ExtResource("1_kiol2")
 centered = false
 
 [node name="Dirt Light" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2(0, 720)
+motion_mirroring = Vector2(896, 720)
 
 [node name="Sprite2D" type="Sprite2D" parent="Dirt Light"]
 texture = ExtResource("2_y7bbx")
