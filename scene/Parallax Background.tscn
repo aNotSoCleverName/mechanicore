@@ -17,6 +17,7 @@ centered = false
 motion_mirroring = Vector2(896, 720)
 
 [node name="Sprite2D" type="Sprite2D" parent="Dirt Light"]
+modulate = Color(0.643137, 0.462745, 0.290196, 1)
 texture = ExtResource("2_y7bbx")
 centered = false
 
