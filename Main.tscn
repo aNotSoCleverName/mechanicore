@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://kf4x8f2aj1c7"]
 
-[ext_resource type="PackedScene" uid="uid://qh6srgn7krbr" path="res://Parallax Background.tscn" id="1_tsuhl"]
-[ext_resource type="PackedScene" uid="uid://6hg1syki30xs" path="res://Drill.tscn" id="4_76jrm"]
-[ext_resource type="PackedScene" uid="uid://dx4xl0ya4o52y" path="res://Shop & Menu.tscn" id="5_lg7n8"]
+[ext_resource type="PackedScene" uid="uid://qh6srgn7krbr" path="res://Endless Run/Background/Parallax Background.tscn" id="1_tsuhl"]
+[ext_resource type="PackedScene" uid="uid://6hg1syki30xs" path="res://Endless Run/Drill/Drill.tscn" id="4_76jrm"]
+[ext_resource type="PackedScene" uid="uid://dx4xl0ya4o52y" path="res://Shop & Menu/Shop & Menu.tscn" id="5_lg7n8"]
 
 [node name="Main" type="HBoxContainer"]
 offset_right = 1284.0

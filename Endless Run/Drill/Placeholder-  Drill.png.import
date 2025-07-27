@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cujhhva8rlkq5"
-path="res://.godot/imported/Placeholder - BG - Dirt.png-d2c05f48844e900b6a975077b1f9ec13.ctex"
+uid="uid://bughwqn2jnkop"
+path="res://.godot/imported/Placeholder-  Drill.png-3d0bbe8d77415f77dbf296056ca7e0c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Endless Run/Placeholder - BG - Dirt.png"
-dest_files=["res://.godot/imported/Placeholder - BG - Dirt.png-d2c05f48844e900b6a975077b1f9ec13.ctex"]
+source_file="res://Endless Run/Drill/Placeholder-  Drill.png"
+dest_files=["res://.godot/imported/Placeholder-  Drill.png-3d0bbe8d77415f77dbf296056ca7e0c7.ctex"]
 
 [params]
 

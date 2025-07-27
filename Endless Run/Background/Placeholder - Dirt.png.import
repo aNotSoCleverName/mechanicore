@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy1ic5h5exy3f"
-path="res://.godot/imported/Placeholder - BG - Sky.png-341670ce794adb5965b2e087a3a058ea.ctex"
+uid="uid://cujhhva8rlkq5"
+path="res://.godot/imported/Placeholder - Dirt.png-5dadd60083224792487bd3fafeaa8f4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Endless Run/Placeholder - BG - Sky.png"
-dest_files=["res://.godot/imported/Placeholder - BG - Sky.png-341670ce794adb5965b2e087a3a058ea.ctex"]
+source_file="res://Endless Run/Background/Placeholder - Dirt.png"
+dest_files=["res://.godot/imported/Placeholder - Dirt.png-5dadd60083224792487bd3fafeaa8f4d.ctex"]
 
 [params]
 

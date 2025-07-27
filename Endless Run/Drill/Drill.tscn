@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://6hg1syki30xs"]
 
-[ext_resource type="Script" path="res://Drill Control.gd" id="1_ycj8x"]
-[ext_resource type="Texture2D" uid="uid://bughwqn2jnkop" path="res://Endless Run/Placeholder-  Drill.png" id="2_80dua"]
-[ext_resource type="Script" path="res://Update Drill Pos.gd" id="4_1chj6"]
+[ext_resource type="Script" path="res://Endless Run/Drill/Drill.gd" id="1_ycj8x"]
+[ext_resource type="Texture2D" uid="uid://bughwqn2jnkop" path="res://Endless Run/Drill/Placeholder-  Drill.png" id="2_80dua"]
+[ext_resource type="Script" path="res://Endless Run/Drill/Update Drill Pos.gd" id="4_1chj6"]
 
 [node name="Drill" type="CharacterBody2D"]
 script = ExtResource("1_ycj8x")
