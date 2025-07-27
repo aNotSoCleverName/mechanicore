@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://dllakqtlni1xh"]
+
+[ext_resource type="Script" path="res://Endless Run/Top Bar/Depth Meter.gd" id="1_a2sm2"]
+[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Simple Label.tres" id="1_u3b54"]
+[ext_resource type="PackedScene" uid="uid://qe41hew0ptdg" path="res://Endless Run/Top Bar/Ore Inventory.tscn" id="2_i2tk7"]
+[ext_resource type="Texture2D" uid="uid://kpyugmno047" path="res://Endless Run/Ores/Placeholder - Ore1.png" id="3_boc4g"]
+[ext_resource type="Texture2D" uid="uid://cjhadim1ft6sj" path="res://Endless Run/Ores/Placeholder - Ore2.png" id="4_tto2n"]
+[ext_resource type="Texture2D" uid="uid://bripmml1nnira" path="res://Endless Run/Ores/Placeholder - Ore3.png" id="5_o60eq"]
+
+[node name="Top Bar" type="MarginContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 33.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Depth Meter" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Depth: 0m"
+label_settings = ExtResource("1_u3b54")
+script = ExtResource("1_a2sm2")
+
+[node name="Drill Inventory" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Drill Inventory"]
+layout_mode = 2
+text = "Drill Inventory:"
+label_settings = ExtResource("1_u3b54")
+
+[node name="Ore Inventory" parent="HBoxContainer/Drill Inventory" instance=ExtResource("2_i2tk7")]
+layout_mode = 2
+icon = ExtResource("3_boc4g")
+
+[node name="Ore Inventory2" parent="HBoxContainer/Drill Inventory" instance=ExtResource("2_i2tk7")]
+layout_mode = 2
+icon = ExtResource("4_tto2n")
+
+[node name="Ore Inventory3" parent="HBoxContainer/Drill Inventory" instance=ExtResource("2_i2tk7")]
+layout_mode = 2
+icon = ExtResource("5_o60eq")
