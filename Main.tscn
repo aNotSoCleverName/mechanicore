@@ -1,11 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://kf4x8f2aj1c7"]
+[gd_scene load_steps=9 format=3 uid="uid://kf4x8f2aj1c7"]
 
 [ext_resource type="PackedScene" uid="uid://qh6srgn7krbr" path="res://Parallax Background.tscn" id="1_tsuhl"]
+[ext_resource type="Shader" path="res://Trails.gdshader" id="2_yp2ps"]
 [ext_resource type="Script" path="res://Trails.gd" id="3_1rx8v"]
 [ext_resource type="PackedScene" uid="uid://6hg1syki30xs" path="res://Drill.tscn" id="4_76jrm"]
+[ext_resource type="Texture2D" uid="uid://dwqae6ccfw4cl" path="res://Endless Run/Placeholder - Trails.png" id="4_jc30i"]
 [ext_resource type="PackedScene" uid="uid://dx4xl0ya4o52y" path="res://Shop & Menu.tscn" id="5_lg7n8"]
 
-[sub_resource type="Curve" id="Curve_ktper"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xc6i0"]
+shader = ExtResource("2_yp2ps")
+shader_parameter/drill_pos = null
+shader_parameter/image_texture = ExtResource("4_jc30i")
+
+[sub_resource type="Curve" id="Curve_wn452"]
 max_value = 6.0
 _data = [Vector2(0, 0), 0.0, 16.5135, 0, 0, Vector2(0.252632, 4.21978), 11.958, 11.958, 0, 0, Vector2(0.889474, 6), -0.544672, -0.544672, 0, 0, Vector2(1, 0), -134.671, 0.0, 0, 0]
 point_count = 4
@@ -25,7 +32,8 @@ render_target_update_mode = 4
 [node name="ParallaxBackground" parent="Endless Run Container/Endless Run" instance=ExtResource("1_tsuhl")]
 
 [node name="Trails" type="Line2D" parent="Endless Run Container/Endless Run"]
-width_curve = SubResource("Curve_ktper")
+material = SubResource("ShaderMaterial_xc6i0")
+width_curve = SubResource("Curve_wn452")
 script = ExtResource("3_1rx8v")
 
 [node name="Drill" parent="Endless Run Container/Endless Run" instance=ExtResource("4_76jrm")]
