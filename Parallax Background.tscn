@@ -25,7 +25,10 @@ motion_mirroring = Vector2(896, 720)
 texture = ExtResource("2_y7bbx")
 centered = false
 
-[node name="Trails" type="Line2D" parent="Dirt"]
+[node name="Trails Layer" type="ParallaxLayer" parent="."]
+
+[node name="Trails" type="Line2D" parent="Trails Layer"]
+show_behind_parent = true
 material = SubResource("ShaderMaterial_2mc1u")
 width_curve = SubResource("Curve_0jw7f")
 joint_mode = 2
