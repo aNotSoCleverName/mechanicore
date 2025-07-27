@@ -1,13 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://kf4x8f2aj1c7"]
+[gd_scene load_steps=5 format=3 uid="uid://kf4x8f2aj1c7"]
 
 [ext_resource type="PackedScene" uid="uid://qh6srgn7krbr" path="res://Endless Run/Background/Parallax Background.tscn" id="1_tsuhl"]
-[ext_resource type="Script" path="res://Endless Run/Top Bar/Depth Meter.gd" id="3_66l8e"]
+[ext_resource type="PackedScene" uid="uid://dllakqtlni1xh" path="res://Endless Run/Top Bar/Top Bar.tscn" id="3_3cqpp"]
 [ext_resource type="PackedScene" uid="uid://6hg1syki30xs" path="res://Endless Run/Drill/Drill.tscn" id="4_76jrm"]
-[ext_resource type="PackedScene" uid="uid://qe41hew0ptdg" path="res://Endless Run/Top Bar/Ore Inventory.tscn" id="4_cmmq1"]
-[ext_resource type="Texture2D" uid="uid://kpyugmno047" path="res://Endless Run/Ores/Placeholder - Ore1.png" id="5_gtqkk"]
 [ext_resource type="PackedScene" uid="uid://dx4xl0ya4o52y" path="res://Shop & Menu/Shop & Menu.tscn" id="5_lg7n8"]
-[ext_resource type="Texture2D" uid="uid://cjhadim1ft6sj" path="res://Endless Run/Ores/Placeholder - Ore2.png" id="6_jpq1c"]
-[ext_resource type="Texture2D" uid="uid://bripmml1nnira" path="res://Endless Run/Ores/Placeholder - Ore3.png" id="7_4vrkl"]
 
 [node name="Main" type="HBoxContainer"]
 offset_right = 1284.0
@@ -30,38 +26,7 @@ motion_mode = 1
 
 [node name="UI" type="CanvasLayer" parent="Endless Run Container/Endless Run"]
 
-[node name="Top Bar" type="HBoxContainer" parent="Endless Run Container/Endless Run/UI"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 23.0
-grow_horizontal = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-
-[node name="Depth Meter" type="Label" parent="Endless Run Container/Endless Run/UI/Top Bar"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Depth: 0m"
-script = ExtResource("3_66l8e")
-
-[node name="Drill Inventory" type="HBoxContainer" parent="Endless Run Container/Endless Run/UI/Top Bar"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Endless Run Container/Endless Run/UI/Top Bar/Drill Inventory"]
-layout_mode = 2
-text = "Drill Inventory:"
-
-[node name="Ore Inventory" parent="Endless Run Container/Endless Run/UI/Top Bar/Drill Inventory" instance=ExtResource("4_cmmq1")]
-layout_mode = 2
-icon = ExtResource("5_gtqkk")
-
-[node name="Ore Inventory2" parent="Endless Run Container/Endless Run/UI/Top Bar/Drill Inventory" instance=ExtResource("4_cmmq1")]
-layout_mode = 2
-icon = ExtResource("6_jpq1c")
-
-[node name="Ore Inventory3" parent="Endless Run Container/Endless Run/UI/Top Bar/Drill Inventory" instance=ExtResource("4_cmmq1")]
-layout_mode = 2
-icon = ExtResource("7_4vrkl")
+[node name="Top Bar" parent="Endless Run Container/Endless Run/UI" instance=ExtResource("3_3cqpp")]
 
 [node name="Shop & Menu Container" type="SubViewportContainer" parent="."]
 layout_mode = 2
