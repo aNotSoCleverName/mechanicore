@@ -32,6 +32,7 @@ func _ready() -> void:
 				self.add_point(drillTailPos);
 				self.add_point(inPos);
 				self.add_point(drillHeadPos);
+				return;
 			
 			var prevPoint: Vector2 = self.points[self.points.size() - 1];
 			if (prevPoint.distance_to(drillHeadPos) < self.MIN_DIST_BETWEEN_POINTS):
