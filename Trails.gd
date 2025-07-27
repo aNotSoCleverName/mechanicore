@@ -43,9 +43,13 @@ func _ready() -> void:
 				self.remove_point(0);
 	)
 
-var drillHeadAndTailOffset: int = 60;
+var drillHeadAndTailOffset: int = 60;	# How far head/tail are from drill's center
 func _GetDrillHeadPos(inDrillCenterPos: Vector2):
-	var drillHeadOffset: Vector2 = Vector2(self.drillHeadAndTailOffset, 0).rotated(self._drill.rotation);
+	# Generate squiggle effect
+	var squiggleOffset: float = 3;	# Offset drill head by X px to the sides
+	var squiggleRandom: float = (randf() - 0.5) * 2 * squiggleOffset;	# Convert to random -offset to +offset
+	
+	var drillHeadOffset: Vector2 = Vector2(self.drillHeadAndTailOffset, squiggleRandom).rotated(self._drill.rotation);
 	return inDrillCenterPos + drillHeadOffset;
 func _GetDrillTailPos(inDrillCenterPos: Vector2):
 	var drillTailOffset: Vector2 = Vector2(-self.drillHeadAndTailOffset, 0).rotated(self._drill.rotation);
