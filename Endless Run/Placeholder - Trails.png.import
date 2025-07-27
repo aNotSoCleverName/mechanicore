@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ykyafn2j3yhe"
-path="res://.godot/imported/Placeholder - BG - Dirt Dark.png-94cd9dfe9366ccfd92d0d2d0a4deef41.ctex"
+uid="uid://dwqae6ccfw4cl"
+path="res://.godot/imported/Placeholder - Trails.png-1cbfe1304dcecc9d80a526e46974acad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Endless Run/Placeholder - BG - Dirt Dark.png"
-dest_files=["res://.godot/imported/Placeholder - BG - Dirt Dark.png-94cd9dfe9366ccfd92d0d2d0a4deef41.ctex"]
+source_file="res://Endless Run/Placeholder - Trails.png"
+dest_files=["res://.godot/imported/Placeholder - Trails.png-1cbfe1304dcecc9d80a526e46974acad.ctex"]
 
 [params]
 

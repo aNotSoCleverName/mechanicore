@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Drill Control.gd" id="1_ycj8x"]
 [ext_resource type="Texture2D" uid="uid://bughwqn2jnkop" path="res://Endless Run/Placeholder-  Drill.png" id="2_80dua"]
-[ext_resource type="Script" path="res://Drill Sprite.gd" id="3_t5cdd"]
+[ext_resource type="Script" path="res://Update Drill Pos.gd" id="4_1chj6"]
 
 [node name="Drill" type="CharacterBody2D"]
 script = ExtResource("1_ycj8x")
@@ -11,7 +11,12 @@ script = ExtResource("1_ycj8x")
 offset = Vector2(0, 104)
 
 [node name="Sprite Drill" type="Sprite2D" parent="."]
+rotation = -1.5708
 texture = ExtResource("2_80dua")
-script = ExtResource("3_t5cdd")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="Collision Drill" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(5, 25, 40, 0, 5, -25)
+
+[node name="Update Drill Pos Timer" type="Timer" parent="."]
+wait_time = 0.1
+script = ExtResource("4_1chj6")

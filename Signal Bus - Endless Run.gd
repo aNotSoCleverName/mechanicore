@@ -2,7 +2,11 @@ extends Node
 
 enum EDrillDirection
 {
-	LEFT = 20,		# deg
-	RIGHT = -20,	# deg
+	LEFT = 110,		# deg
+	RIGHT = 70,	# deg
 }
-signal drill_change_dir(inDir: EDrillDirection);
+signal drill_change_dir(inDir: EDrillDirection, inDrill: Drill);
+
+signal drill_change_pos(inPos: Vector2, inDrill: Drill);
+
+signal drill_change_dock(inIsDocked: bool, inDrill: Drill);

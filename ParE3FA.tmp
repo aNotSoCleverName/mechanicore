@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://qh6srgn7krbr"]
+
+[ext_resource type="Texture2D" uid="uid://ykyafn2j3yhe" path="res://Endless Run/Placeholder - BG - Dirt Dark.png" id="1_kiol2"]
+[ext_resource type="Shader" path="res://Dirt Light.gdshader" id="2_4tpr1"]
+[ext_resource type="Texture2D" uid="uid://cujhhva8rlkq5" path="res://Endless Run/Placeholder - BG - Dirt Light.png" id="2_y7bbx"]
+[ext_resource type="Texture2D" uid="uid://dy1ic5h5exy3f" path="res://Endless Run/Placeholder - BG - Sky.png" id="3_0crnc"]
+[ext_resource type="Script" path="res://Trail Mask.gd" id="5_1vtem"]
+[ext_resource type="Texture2D" uid="uid://bughwqn2jnkop" path="res://Endless Run/Placeholder-  Drill.png" id="5_a1m17"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ga8dl"]
+shader = ExtResource("2_4tpr1")
+shader_parameter/trail_mask_texture = null
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="Dirt Dark" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(896, 720)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dirt Dark"]
+texture = ExtResource("1_kiol2")
+centered = false
+
+[node name="Dirt Light" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(896, 720)
+
+[node name="Dirt Light Sprite" type="Sprite2D" parent="Dirt Light"]
+material = SubResource("ShaderMaterial_ga8dl")
+texture = ExtResource("2_y7bbx")
+centered = false
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 896.0
+offset_bottom = 720.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(896, 720)
+render_target_update_mode = 4
+
+[node name="Mock Player" type="Node2D" parent="SubViewportContainer/SubViewport"]
+script = ExtResource("5_1vtem")
+
+[node name="Trail Mask Camera" type="Camera2D" parent="SubViewportContainer/SubViewport/Mock Player"]
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/SubViewport/Mock Player"]
+texture = ExtResource("5_a1m17")
+
+[node name="Sky" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(896, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sky"]
+texture = ExtResource("3_0crnc")
+centered = false
+
+[connection signal="draw" from="SubViewportContainer/SubViewport/Mock Player" to="SubViewportContainer/SubViewport/Mock Player" method="_draw"]

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cujhhva8rlkq5"
-path="res://.godot/imported/Placeholder - BG - Dirt Light.png-5a866222cdc41f6d26e215c6a5dbe6ba.ctex"
+path="res://.godot/imported/Placeholder - BG - Dirt.png-d2c05f48844e900b6a975077b1f9ec13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Endless Run/Placeholder - BG - Dirt Light.png"
-dest_files=["res://.godot/imported/Placeholder - BG - Dirt Light.png-5a866222cdc41f6d26e215c6a5dbe6ba.ctex"]
+source_file="res://Endless Run/Placeholder - BG - Dirt.png"
+dest_files=["res://.godot/imported/Placeholder - BG - Dirt.png-d2c05f48844e900b6a975077b1f9ec13.ctex"]
 
 [params]
 
