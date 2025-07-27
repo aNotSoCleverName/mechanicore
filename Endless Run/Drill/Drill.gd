@@ -24,7 +24,7 @@ var _speed: int = 0:
 		if (_speed == 0):
 			self._isDocked = true;
 
-var _directionDeg: SignalBus_EndlessRun.EDrillDirection:
+var _directionDeg: SignalBus_EndlessRun.EDrillDirection = SignalBus_EndlessRun.EDrillDirection.DOCKED:
 	get:
 		return _directionDeg;
 	set(inValue):
@@ -45,7 +45,7 @@ func _UpdateVelocity() -> void:
 #endregion
 
 #region Built-in functions
-func _physics_process(delta) -> void:
+func _physics_process(_delta) -> void:
 	move_and_slide();
 
 func _input(event: InputEvent) -> void:

@@ -1,12 +1,14 @@
 extends Node
 
-enum EDrillDirection
+enum EDrillDirection	# Value = degree
 {
-	LEFT = 110,		# deg
-	RIGHT = 70,	# deg
+	DOCKED = 90,
+	LEFT = 110,
+	RIGHT = 70,
 }
+@warning_ignore("unused_signal")
 signal drill_change_dir(inDir: EDrillDirection, inDrill: Drill);
-
+@warning_ignore("unused_signal")
 signal drill_change_pos(inPos: Vector2, inDrill: Drill);
-
+@warning_ignore("unused_signal")
 signal drill_change_dock(inIsDocked: bool, inDrill: Drill);
