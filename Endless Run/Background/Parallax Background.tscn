@@ -19,6 +19,7 @@ point_count = 4
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
 [node name="Dirt" type="ParallaxLayer" parent="."]
+position = Vector2(-1, -1)
 motion_mirroring = Vector2(0, 720)
 
 [node name="Sprite2D" type="Sprite2D" parent="Dirt"]
@@ -26,6 +27,7 @@ texture = ExtResource("2_y7bbx")
 centered = false
 
 [node name="Trails Layer" type="ParallaxLayer" parent="."]
+position = Vector2(-1, -1)
 
 [node name="Trails" type="Line2D" parent="Trails Layer"]
 show_behind_parent = true
@@ -35,6 +37,7 @@ joint_mode = 2
 script = ExtResource("4_wxbnv")
 
 [node name="Sky" type="ParallaxLayer" parent="."]
+position = Vector2(-1, -1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sky"]
 texture = ExtResource("3_0crnc")
