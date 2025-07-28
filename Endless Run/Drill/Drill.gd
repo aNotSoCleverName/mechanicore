@@ -32,6 +32,11 @@ var _directionDeg: SignalBus_EndlessRun.EDrillDirection = SignalBus_EndlessRun.E
 			return;
 		if (_directionDeg == inValue):
 			return;
+		
+		if ($"Lock Dir Change Timer"._isLockDirChange):
+			return;
+		$"Lock Dir Change Timer".StartTimer();
+		
 		_directionDeg = inValue;
 		self.rotation = deg_to_rad(inValue);
 		self._UpdateVelocity();
