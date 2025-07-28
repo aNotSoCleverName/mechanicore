@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bripmml1nnira"
-path="res://.godot/imported/Placeholder - Ore3.png-d096caa9e4705702e0ae2b8e39fd6c58.ctex"
+uid="uid://cjhadim1ft6sj"
+path="res://.godot/imported/Ore2.png-679b97eeb4a8832fa078614f59afd482.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Endless Run/Ores/Placeholder - Ore3.png"
-dest_files=["res://.godot/imported/Placeholder - Ore3.png-d096caa9e4705702e0ae2b8e39fd6c58.ctex"]
+source_file="res://Endless Run/Ores/Ore2.png"
+dest_files=["res://.godot/imported/Ore2.png-679b97eeb4a8832fa078614f59afd482.ctex"]
 
 [params]
 
