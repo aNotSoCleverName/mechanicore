@@ -19,7 +19,7 @@ point_count = 4
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
 [node name="Dirt" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2(896, 720)
+motion_mirroring = Vector2(0, 720)
 
 [node name="Sprite2D" type="Sprite2D" parent="Dirt"]
 texture = ExtResource("2_y7bbx")
@@ -35,7 +35,6 @@ joint_mode = 2
 script = ExtResource("4_wxbnv")
 
 [node name="Sky" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2(896, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sky"]
 texture = ExtResource("3_0crnc")
