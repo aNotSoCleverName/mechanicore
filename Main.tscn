@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://kf4x8f2aj1c7"]
+[gd_scene load_steps=7 format=3 uid="uid://kf4x8f2aj1c7"]
 
 [ext_resource type="PackedScene" uid="uid://qh6srgn7krbr" path="res://Endless Run/Background/Parallax Background.tscn" id="1_tsuhl"]
 [ext_resource type="PackedScene" uid="uid://dllakqtlni1xh" path="res://Endless Run/Top Bar/Top Bar.tscn" id="3_3cqpp"]
 [ext_resource type="PackedScene" uid="uid://c0q46edypqnp0" path="res://Endless Run/Wall.tscn" id="4_0aum5"]
 [ext_resource type="PackedScene" uid="uid://6hg1syki30xs" path="res://Endless Run/Drill/Drill.tscn" id="4_76jrm"]
+[ext_resource type="Script" path="res://Endless Run/Drill/Camera.gd" id="4_nr18h"]
 [ext_resource type="PackedScene" uid="uid://dx4xl0ya4o52y" path="res://Shop & Menu/Shop & Menu.tscn" id="5_lg7n8"]
 
 [node name="Main" type="HBoxContainer"]
@@ -33,6 +34,10 @@ bounceDir = 110
 [node name="Drill" parent="Endless Run Container/Endless Run" instance=ExtResource("4_76jrm")]
 position = Vector2(448, 256)
 rotation = 1.5708
+
+[node name="Camera2D" type="Camera2D" parent="Endless Run Container/Endless Run"]
+offset = Vector2(0, 104)
+script = ExtResource("4_nr18h")
 
 [node name="UI" type="CanvasLayer" parent="Endless Run Container/Endless Run"]
 
