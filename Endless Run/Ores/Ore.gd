@@ -1,6 +1,8 @@
 extends Area2D
 class_name Ore;
 
+const oreDir: String = "res://Endless Run/Ores/";
+
 enum EOreType
 {
 	Ore1 = 1,
@@ -9,17 +11,21 @@ enum EOreType
 }
 
 @export var oreType: EOreType = EOreType.Ore1;
-@onready var icon: Texture2D = load(
-	self.scene_file_path.get_base_dir() +
-	"/Ore" + str(self.oreType) + ".png"
-):
-	get:
-		return icon;
 
+#region Public functions
+static func GetOreTexture(inOreType: EOreType) -> Resource:
+	return load(
+		 Ore.oreDir +
+		"Ore" + str(inOreType) + ".png"
+	);
+#endregion
+
+#region Built-in functions
 func _ready() -> void:
-	$Sprite2D.texture = self.icon;
+	$Sprite2D.texture = Ore.GetOreTexture(self.oreType);
 
 func _on_body_entered(_body):
 	if (!(_body is Drill)):
 		return;
 	SignalBus_EndlessRun.ore_pick.emit(self);
+#endregion
