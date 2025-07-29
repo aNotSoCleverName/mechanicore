@@ -1,4 +1,4 @@
-extends ColorRect
+extends Node2D
 class_name OrePlaceholder
 
 @export var oreType: Ore.EOreType = Ore.EOreType.Ore1;

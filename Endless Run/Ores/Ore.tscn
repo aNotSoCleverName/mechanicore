@@ -4,10 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://kpyugmno047" path="res://Endless Run/Ores/Ore1.png" id="2_c1hm6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4rosm"]
-size = Vector2(78, 78)
+size = Vector2(64, 64)
 
 [node name="Ore" type="Area2D"]
-position = Vector2(39, 39)
 collision_layer = 0
 script = ExtResource("1_61034")
 

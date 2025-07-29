@@ -36,10 +36,7 @@ bounceDir = 110
 [node name="Ore Manager" parent="Endless Run Container/Endless Run" instance=ExtResource("3_iqfo5")]
 
 [node name="Ore Placeholder" parent="Endless Run Container/Endless Run/Ore Manager" instance=ExtResource("6_03dvb")]
-offset_left = 496.305
-offset_top = 332.78
-offset_right = 574.305
-offset_bottom = 410.78
+position = Vector2(500, 600)
 
 [node name="Drill" parent="Endless Run Container/Endless Run" instance=ExtResource("4_76jrm")]
 position = Vector2(448, 256)
