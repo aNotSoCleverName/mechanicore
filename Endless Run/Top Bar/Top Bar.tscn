@@ -24,7 +24,7 @@ size_flags_vertical = 0
 [node name="Depth Meter" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Depth: 0m"
+text = "Depth: 0.00m"
 label_settings = ExtResource("1_u3b54")
 script = ExtResource("1_a2sm2")
 
@@ -46,3 +46,5 @@ oreType = 2
 [node name="Ore Inventory3" parent="HBoxContainer/Drill Inventory" instance=ExtResource("2_i2tk7")]
 layout_mode = 2
 oreType = 3
+
+[connection signal="tree_entered" from="HBoxContainer/Depth Meter" to="HBoxContainer/Depth Meter" method="_on_tree_entered"]
