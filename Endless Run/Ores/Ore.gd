@@ -10,7 +10,12 @@ enum EOreType
 	Ore3 = 3,
 }
 
-@export var oreType: EOreType = EOreType.Ore1;
+@export var oreType: EOreType = EOreType.Ore1:
+	get:
+		return oreType;
+	set(inValue):
+		oreType = inValue;
+		$Sprite2D.texture = Ore.GetOreTexture(self.oreType);
 
 #region Public functions
 static func GetOreTexture(inOreType: EOreType) -> Resource:
@@ -21,9 +26,6 @@ static func GetOreTexture(inOreType: EOreType) -> Resource:
 #endregion
 
 #region Built-in functions
-func _ready() -> void:
-	$Sprite2D.texture = Ore.GetOreTexture(self.oreType);
-
 func _on_body_entered(_body):
 	if (!(_body is Drill)):
 		return;

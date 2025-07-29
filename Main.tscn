@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://kf4x8f2aj1c7"]
+[gd_scene load_steps=9 format=3 uid="uid://kf4x8f2aj1c7"]
 
 [ext_resource type="PackedScene" uid="uid://qh6srgn7krbr" path="res://Endless Run/Background/Parallax Background.tscn" id="1_tsuhl"]
 [ext_resource type="PackedScene" uid="uid://dllakqtlni1xh" path="res://Endless Run/Top Bar/Top Bar.tscn" id="3_3cqpp"]
+[ext_resource type="PackedScene" uid="uid://d04i8vreosc5c" path="res://Endless Run/Ores/Ore Manager.tscn" id="3_iqfo5"]
 [ext_resource type="PackedScene" uid="uid://c0q46edypqnp0" path="res://Endless Run/Wall.tscn" id="4_0aum5"]
 [ext_resource type="PackedScene" uid="uid://6hg1syki30xs" path="res://Endless Run/Drill/Drill.tscn" id="4_76jrm"]
 [ext_resource type="Script" path="res://Endless Run/Drill/Camera.gd" id="4_nr18h"]
 [ext_resource type="PackedScene" uid="uid://dx4xl0ya4o52y" path="res://Shop & Menu/Shop & Menu.tscn" id="5_lg7n8"]
-[ext_resource type="PackedScene" uid="uid://c4u3036tg1b76" path="res://Endless Run/Ores/Ore.tscn" id="6_256ks"]
+[ext_resource type="PackedScene" uid="uid://ps23ye6gh703" path="res://Endless Run/Ores/Ore Placeholder.tscn" id="6_03dvb"]
 
 [node name="Main" type="HBoxContainer"]
 offset_right = 1284.0
@@ -32,6 +33,14 @@ bounceDir = 70
 position = Vector2(921, 0)
 bounceDir = 110
 
+[node name="Ore Manager" parent="Endless Run Container/Endless Run" instance=ExtResource("3_iqfo5")]
+
+[node name="Ore Placeholder" parent="Endless Run Container/Endless Run/Ore Manager" instance=ExtResource("6_03dvb")]
+offset_left = 496.305
+offset_top = 332.78
+offset_right = 574.305
+offset_bottom = 410.78
+
 [node name="Drill" parent="Endless Run Container/Endless Run" instance=ExtResource("4_76jrm")]
 position = Vector2(448, 256)
 rotation = 1.5708
@@ -43,10 +52,6 @@ script = ExtResource("4_nr18h")
 [node name="UI" type="CanvasLayer" parent="Endless Run Container/Endless Run"]
 
 [node name="Top Bar" parent="Endless Run Container/Endless Run/UI" instance=ExtResource("3_3cqpp")]
-
-[node name="Ore" parent="Endless Run Container/Endless Run" instance=ExtResource("6_256ks")]
-position = Vector2(530, 400)
-oreType = 3
 
 [node name="Shop & Menu Container" type="SubViewportContainer" parent="."]
 layout_mode = 2
