@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://qh6srgn7krbr"]
+[gd_scene load_steps=9 format=3 uid="uid://qh6srgn7krbr"]
 
+[ext_resource type="Texture2D" uid="uid://v43ldt4naue8" path="res://Endless Run/Background/Placeholder - Dirt Dark.png" id="1_m7uyl"]
 [ext_resource type="Texture2D" uid="uid://cujhhva8rlkq5" path="res://Endless Run/Background/Placeholder - Dirt.png" id="2_y7bbx"]
 [ext_resource type="Texture2D" uid="uid://dy1ic5h5exy3f" path="res://Endless Run/Background/Placeholder - Sky.png" id="3_0crnc"]
 [ext_resource type="Shader" path="res://Endless Run/Background/Trails.gdshader" id="3_tjeuj"]
@@ -22,7 +23,12 @@ point_count = 4
 position = Vector2(-1, -1)
 motion_mirroring = Vector2(0, 720)
 
-[node name="Sprite2D" type="Sprite2D" parent="Dirt"]
+[node name="Dark" type="Sprite2D" parent="Dirt"]
+texture = ExtResource("1_m7uyl")
+centered = false
+
+[node name="Light" type="Sprite2D" parent="Dirt"]
+self_modulate = Color(0.643137, 0.462745, 0.290196, 1)
 texture = ExtResource("2_y7bbx")
 centered = false
 
