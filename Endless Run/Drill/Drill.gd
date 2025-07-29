@@ -42,6 +42,12 @@ var _directionDeg: SignalBus_EndlessRun.EDrillDirection = SignalBus_EndlessRun.E
 		self._UpdateVelocity();
 		
 		SignalBus_EndlessRun.drill_change_dir.emit(inValue);
+
+### Stores ore
+### Key = ore type, value = amount
+var inventory: Dictionary = { }:
+	get:
+		return inventory;
 #endregion
 
 #region Private functions
@@ -50,6 +56,16 @@ func _UpdateVelocity() -> void:
 #endregion
 
 #region Built-in functions
+func _on_tree_entered() -> void:
+	# Initiate dictionary
+	for type in Ore.EOreType.values():
+		self.inventory[type] = 0;
+	
+	SignalBus_EndlessRun.ore_pick.connect(
+		func (inOre: Ore):
+			self.inventory[inOre.oreType] += 1;
+	)
+
 func _physics_process(_delta) -> void:
 	move_and_slide();
 

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ps23ye6gh703"]
+
+[ext_resource type="Script" path="res://Endless Run/Ores/Ore Placeholder.gd" id="1_3vfb2"]
+
+[node name="Ore Placeholder" type="ColorRect"]
+offset_right = 78.0
+offset_bottom = 78.0
+color = Color(0.493505, 0.239306, 1, 1)
+script = ExtResource("1_3vfb2")

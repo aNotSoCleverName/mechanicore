@@ -1,7 +1,18 @@
 extends HBoxContainer
 
-@export var icon: Texture2D;
+@export var oreType: Ore.EOreType = Ore.EOreType.Ore1;
+var _drill: Drill;
+
+func _on_tree_entered():
+	SignalBus_EndlessRun.ore_pick.connect(
+		func (inOre: Ore):
+			if (inOre.oreType != self.oreType):
+				return;
+			$Amount.text = str(self._drill.inventory[inOre.oreType]);
+	)
 
 func _ready() -> void:
 	var iconNode: TextureRect = self.find_child("Icon");
-	iconNode.texture = self.icon;
+	iconNode.texture = Ore.GetOreTexture(self.oreType);
+	
+	self._drill = self.find_parent("Endless Run").find_child("Drill");
