@@ -23,6 +23,9 @@ var _speed: int = 0:
 		
 		if (_speed == 0):
 			self._isDocked = true;
+			$AnimatedSprite2D.stop();
+		else:
+			$AnimatedSprite2D.play("drill_animation")
 
 var _directionDeg: SignalBus_EndlessRun.EDrillDirection = SignalBus_EndlessRun.EDrillDirection.DOCKED:
 	get:
@@ -74,6 +77,16 @@ func _input(event: InputEvent) -> void:
 		return;
 	var keycode: Key = (event as InputEventKey).keycode;
 	
+	if event.is_action_pressed("ui_accept"):
+		self._isDocked = false;
+		self._speed = START_VELOCITY;
+		_directionDeg = SignalBus_EndlessRun.EDrillDirection.RIGHT;
+	if event.is_action_pressed("ui_left"):
+		_directionDeg = SignalBus_EndlessRun.EDrillDirection.LEFT;
+	elif event.is_action_pressed("ui_right"):
+		_directionDeg = SignalBus_EndlessRun.EDrillDirection.RIGHT;
+	
+	"""
 	if (event.pressed):
 		if (keycode == KEY_SPACE):
 			self._isDocked = false;
@@ -83,4 +96,5 @@ func _input(event: InputEvent) -> void:
 			_directionDeg = SignalBus_EndlessRun.EDrillDirection.LEFT;
 		elif (keycode == KEY_D || keycode == KEY_RIGHT):
 			_directionDeg = SignalBus_EndlessRun.EDrillDirection.RIGHT;
+	"""
 #endregion
