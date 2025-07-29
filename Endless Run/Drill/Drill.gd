@@ -77,17 +77,17 @@ func _physics_process(_delta) -> void:
 	move_and_slide();
 
 func _input(event: InputEvent) -> void:
-	if not (event is InputEventKey):
+	if (!(event is InputEventKey)):
 		return;
 		
-	if event.is_action_pressed("ui_accept"):
+	if (event.is_action_pressed("ui_accept")):
 		if (!self._isDocked):
 			return;
 		self._isDocked = false;
 		self._speed = START_VELOCITY;
 		_directionDeg = SignalBus_EndlessRun.EDrillDirection.RIGHT;
-	if event.is_action_pressed("ui_left"):
+	elif (event.is_action_pressed("ui_left")):
 		_directionDeg = SignalBus_EndlessRun.EDrillDirection.LEFT;
-	elif event.is_action_pressed("ui_right"):
+	elif (event.is_action_pressed("ui_right")):
 		_directionDeg = SignalBus_EndlessRun.EDrillDirection.RIGHT;
 #endregion
