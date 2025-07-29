@@ -15,4 +15,4 @@ func _ready() -> void:
 	var iconNode: TextureRect = self.find_child("Icon");
 	iconNode.texture = Ore.GetOreTexture(self.oreType);
 	
-	self._drill = self.find_parent("Endless Run").find_child("Drill");
+	self._drill = GlobalProperty_EndlessRun.GetDrillNode(self);

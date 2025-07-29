@@ -4,7 +4,7 @@ var _drill: Drill;
 var _viewportRect: Rect2;
 
 func _ready() -> void:
-	self._drill = self.find_parent("Endless Run").find_child("Drill");
+	self._drill = GlobalProperty_EndlessRun.GetDrillNode(self);
 	self._viewportRect = get_viewport_rect();
 
 func _process(_delta) -> void:

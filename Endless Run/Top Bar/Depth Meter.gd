@@ -3,7 +3,7 @@ extends Label
 var _drill: Drill;
 
 func _on_tree_entered():
-	self._drill = self.find_parent("Endless Run").find_child("Drill");
+	self._drill = GlobalProperty_EndlessRun.GetDrillNode(self);
 	
 	SignalBus_EndlessRun.drill_change_pos.connect(
 		func (_inPos: Vector2):

@@ -8,7 +8,7 @@ var _drill: Drill;
 var _shaderTexture: Texture2D;
 
 func _ready() -> void:
-	self._drill = self.find_parent("Endless Run").find_child("Drill");
+	self._drill = GlobalProperty_EndlessRun.GetDrillNode(self);
 	
 	var shaderMaterial: ShaderMaterial = self.material;
 	self._shaderTexture = shaderMaterial.get_shader_parameter("image_texture");

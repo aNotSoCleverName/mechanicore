@@ -72,10 +72,9 @@ func _on_tree_entered() -> void:
 	for type in Ore.EOreType.values():
 		self.inventory[type] = 0;
 	
-	const SURFACE_Y_COORD: int = 256;
 	SignalBus_EndlessRun.drill_change_pos.connect(
 		func (inPos: Vector2):
-			self.depth = (inPos.y - SURFACE_Y_COORD) / 100;
+			self.depth = (inPos.y - GlobalProperty_EndlessRun.SURFACE_Y) / 100;
 	)
 	
 	SignalBus_EndlessRun.ore_pick.connect(
