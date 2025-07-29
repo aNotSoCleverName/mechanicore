@@ -1,7 +1,7 @@
 extends Line2D
 
 const MIN_DIST_BETWEEN_POINTS: int = 20;
-const MAX_DIST: int = 200;
+const MAX_DIST: int = 350;
 
 var _drill: Drill;
 
@@ -43,7 +43,7 @@ func _ready() -> void:
 				self.remove_point(0);
 	)
 
-var drillHeadAndTailOffset: int = 60;	# How far head/tail are from drill's center
+var drillHeadAndTailOffset: int = 100;	# How far head/tail are from drill's center
 func _GetDrillHeadPos(inDrillCenterPos: Vector2):
 	# Generate squiggle effect
 	var squiggleOffset: float = 3;	# Offset drill head by X px to the sides

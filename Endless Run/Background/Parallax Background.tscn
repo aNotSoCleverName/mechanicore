@@ -13,8 +13,8 @@ shader_parameter/drill_pos = null
 shader_parameter/image_texture = ExtResource("4_yd1i5")
 
 [sub_resource type="Curve" id="Curve_0jw7f"]
-max_value = 6.0
-_data = [Vector2(0, 0), 0.0, 16.5135, 0, 0, Vector2(0.252632, 4.21978), 11.958, 11.958, 0, 0, Vector2(0.889474, 6), -0.544672, -0.544672, 0, 0, Vector2(1, 0), -134.671, 0.0, 0, 0]
+max_value = 12.0
+_data = [Vector2(0, 0), 0.0, 16.5135, 0, 0, Vector2(0.304813, 11.5165), 11.958, 11.958, 0, 0, Vector2(0.882353, 11.5165), -11.4805, -11.4805, 0, 0, Vector2(1, 0), -134.671, 0.0, 0, 0]
 point_count = 4
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
