@@ -84,16 +84,4 @@ func _input(event: InputEvent) -> void:
 		_directionDeg = SignalBus_EndlessRun.EDrillDirection.LEFT;
 	elif event.is_action_pressed("ui_right"):
 		_directionDeg = SignalBus_EndlessRun.EDrillDirection.RIGHT;
-	
-	"""
-	if (event.pressed):
-		if (keycode == KEY_SPACE):
-			self._isDocked = false;
-			self._speed = START_VELOCITY;
-			_directionDeg = SignalBus_EndlessRun.EDrillDirection.RIGHT;
-		if (keycode == KEY_A || keycode == KEY_LEFT):
-			_directionDeg = SignalBus_EndlessRun.EDrillDirection.LEFT;
-		elif (keycode == KEY_D || keycode == KEY_RIGHT):
-			_directionDeg = SignalBus_EndlessRun.EDrillDirection.RIGHT;
-	"""
 #endregion
