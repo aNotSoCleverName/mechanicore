@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://qh6srgn7krbr"]
 
-[ext_resource type="Texture2D" uid="uid://v43ldt4naue8" path="res://Endless Run/Background/Placeholder - Dirt Dark.png" id="1_m7uyl"]
-[ext_resource type="Texture2D" uid="uid://cujhhva8rlkq5" path="res://Endless Run/Background/Placeholder - Dirt.png" id="2_y7bbx"]
-[ext_resource type="Texture2D" uid="uid://dy1ic5h5exy3f" path="res://Endless Run/Background/Placeholder - Sky.png" id="3_0crnc"]
+[ext_resource type="Texture2D" uid="uid://v43ldt4naue8" path="res://Endless Run/Background/Dirt Dark.png" id="1_m7uyl"]
+[ext_resource type="Texture2D" uid="uid://cujhhva8rlkq5" path="res://Endless Run/Background/Dirt Light.png" id="2_y7bbx"]
+[ext_resource type="Texture2D" uid="uid://dy1ic5h5exy3f" path="res://Endless Run/Background/Sky.png" id="3_0crnc"]
 [ext_resource type="Shader" path="res://Endless Run/Background/Trails.gdshader" id="3_tjeuj"]
 [ext_resource type="Script" path="res://Endless Run/Background/Trails.gd" id="4_wxbnv"]
-[ext_resource type="Texture2D" uid="uid://dwqae6ccfw4cl" path="res://Endless Run/Background/Placeholder - Trails.png" id="4_yd1i5"]
+[ext_resource type="Texture2D" uid="uid://dwqae6ccfw4cl" path="res://Endless Run/Background/Trails.png" id="4_yd1i5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2mc1u"]
 shader = ExtResource("3_tjeuj")

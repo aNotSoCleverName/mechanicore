@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dwqae6ccfw4cl"
-path="res://.godot/imported/Placeholder - Trails.png-5333f72ac2d9f019d0300390ba41c090.ctex"
+path="res://.godot/imported/Trails.png-d82db2880d0888e7b65187c94d3c9c55.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Endless Run/Background/Placeholder - Trails.png"
-dest_files=["res://.godot/imported/Placeholder - Trails.png-5333f72ac2d9f019d0300390ba41c090.ctex"]
+source_file="res://Endless Run/Background/Trails.png"
+dest_files=["res://.godot/imported/Trails.png-d82db2880d0888e7b65187c94d3c9c55.ctex"]
 
 [params]
 
