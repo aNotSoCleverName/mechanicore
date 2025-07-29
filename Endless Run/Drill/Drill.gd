@@ -75,7 +75,6 @@ func _physics_process(_delta) -> void:
 func _input(event: InputEvent) -> void:
 	if not (event is InputEventKey):
 		return;
-	var keycode: Key = (event as InputEventKey).keycode;
 	
 	if event.is_action_pressed("ui_accept"):
 		self._isDocked = false;
