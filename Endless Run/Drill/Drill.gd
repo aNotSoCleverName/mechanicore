@@ -8,6 +8,8 @@ var _isDocked: bool = true:
 	get:
 		return _isDocked;
 	set(inValue):
+		if (_isDocked == inValue):
+			return;
 		_isDocked = inValue;
 		
 		SignalBus_EndlessRun.drill_change_dock.emit(_isDocked);
@@ -18,6 +20,8 @@ var _speed: int = 0:
 	get:
 		return _speed;
 	set(inValue):
+		if (_speed == inValue):
+			return;
 		_speed = inValue;
 		self._UpdateVelocity();
 		
@@ -75,7 +79,7 @@ func _physics_process(_delta) -> void:
 func _input(event: InputEvent) -> void:
 	if not (event is InputEventKey):
 		return;
-	
+		
 	if event.is_action_pressed("ui_accept"):
 		self._isDocked = false;
 		self._speed = START_VELOCITY;
