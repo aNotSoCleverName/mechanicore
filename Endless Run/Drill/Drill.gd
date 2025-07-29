@@ -81,6 +81,8 @@ func _input(event: InputEvent) -> void:
 		return;
 		
 	if event.is_action_pressed("ui_accept"):
+		if (!self._isDocked):
+			return;
 		self._isDocked = false;
 		self._speed = START_VELOCITY;
 		_directionDeg = SignalBus_EndlessRun.EDrillDirection.RIGHT;
