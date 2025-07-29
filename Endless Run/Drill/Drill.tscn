@@ -24,4 +24,5 @@ script = ExtResource("4_1chj6")
 wait_time = 0.1
 script = ExtResource("4_oym0k")
 
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="timeout" from="Lock Dir Change Timer" to="Lock Dir Change Timer" method="_timeout"]
