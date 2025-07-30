@@ -49,7 +49,11 @@ func _on_tree_entered() -> void:
 	
 	const chanceToNotGenerate: float = 0.2;
 	SignalBus_EndlessRun.drill_change_pos.connect(
-		func (_inPos: Vector2):
+		func (inPos: Vector2):
+			# Don't generate too far away from player
+			if (self._prevLoadedChunkY > inPos.y + (2 * GlobalProperty_EndlessRun.VIEWPORT_SIZE.y)):
+				return;
+			
 			if (randf() < chanceToNotGenerate):
 				return;
 			
