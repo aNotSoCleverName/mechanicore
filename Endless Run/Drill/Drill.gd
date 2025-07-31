@@ -50,6 +50,10 @@ var _directionDeg: SignalBus_EndlessRun.EDrillDirection = SignalBus_EndlessRun.E
 		
 		SignalBus_EndlessRun.drill_change_dir.emit(inValue);
 
+var depth: float = 0.0:
+	get:
+		return depth;
+
 ### Stores ore
 ### Key = ore type, value = amount
 var inventory: Dictionary = { }:
@@ -67,6 +71,11 @@ func _on_tree_entered() -> void:
 	# Initiate dictionary
 	for type in Ore.EOreType.values():
 		self.inventory[type] = 0;
+	
+	SignalBus_EndlessRun.drill_change_pos.connect(
+		func (inPos: Vector2):
+			self.depth = (inPos.y - GlobalProperty_EndlessRun.SURFACE_Y) / 100;
+	)
 	
 	SignalBus_EndlessRun.ore_pick.connect(
 		func (inOre: Ore):
