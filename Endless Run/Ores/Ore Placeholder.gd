@@ -23,17 +23,17 @@ func _RandomizeOreType(inDepth: float) -> void:
 		self.oreType = Ore.EOreType.Ore1;
 		return;
 	elif (inDepth < self._ore3Common):
-		oreTypeWeights[Ore.EOreType.Ore1] = self._GetOreTypeWeightFromLerp(inDepth, 0.33, self._ore3Common, 1, self._ore2Start);
+		oreTypeWeights[Ore.EOreType.Ore1] = lerpf(1, 0.33, (inDepth - self._ore2Start)/(self._ore3Common - self._ore2Start));
 	else:
 		oreTypeWeights[Ore.EOreType.Ore1] = 0.33;
 	
 	# Ore2
 	if (inDepth < self._ore2Common):
-		oreTypeWeights[Ore.EOreType.Ore2] = self._GetOreTypeWeightFromLerp(inDepth, 0, self._ore2Start, 1, self._ore2Common);
+		oreTypeWeights[Ore.EOreType.Ore2] = lerpf(0, 1, (inDepth - self._ore2Start)/(self._ore2Common - self._ore2Start));
 	elif (inDepth < self._ore3Start):
 		oreTypeWeights[Ore.EOreType.Ore2] = 1;
 	elif (inDepth < self._ore3Common):
-		oreTypeWeights[Ore.EOreType.Ore2] = self._GetOreTypeWeightFromLerp(inDepth, 0.33, self._ore3Common, 1, self._ore2Common);
+		oreTypeWeights[Ore.EOreType.Ore2] = lerpf(1, 0.33, (inDepth - self._ore3Start)/(self._ore3Common - self._ore3Start));
 	else:
 		oreTypeWeights[Ore.EOreType.Ore2] = 0.33;
 	
@@ -41,10 +41,11 @@ func _RandomizeOreType(inDepth: float) -> void:
 	if (inDepth < self._ore3Start):
 		oreTypeWeights[Ore.EOreType.Ore3] = 0;
 	elif (inDepth < self._ore3Common):
-		oreTypeWeights[Ore.EOreType.Ore3] = self._GetOreTypeWeightFromLerp(inDepth, 0, self._ore3Start, 0.33, self._ore3Common);
+		oreTypeWeights[Ore.EOreType.Ore3] = lerpf(0, 0.33, (inDepth - self._ore3Start)/(self._ore3Common - self._ore3Start));
 	else:
 		oreTypeWeights[Ore.EOreType.Ore3] = 0.33;
 	
+	# Pick type based on weights
 	var totalWeights: float = 0
 	for weight: float in oreTypeWeights.values():
 		totalWeights += weight;
@@ -57,9 +58,6 @@ func _RandomizeOreType(inDepth: float) -> void:
 		if (rolledFloat < accumulatedWeight):
 			self.oreType = key;
 			return;
-
-func _GetOreTypeWeightFromLerp(inDepth: float, inMinWeight: float, inMinWeightDepth: float, inMaxWeight: float, inMaxWeightDepth: float):
-	return (inMinWeight - inMaxWeight)/(inMinWeightDepth - inMaxWeightDepth) * (inDepth - inMaxWeightDepth) + inMaxWeight;
 #endregion
 
 func _on_child_exiting_tree(node):
