@@ -50,3 +50,7 @@ func _on_body_entered(body):
 		if (drill.inventory[lostOreType] == 0):
 			oreTypes.erase(lostOreType);
 	#endregion
+	
+	SignalBus_EndlessRun.drill_explode.emit(drill.inventory, lostOres);
+	for oreType: Ore.EOreType in drill.inventory.keys():
+		drill.inventory[oreType] = 0;

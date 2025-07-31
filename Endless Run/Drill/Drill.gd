@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Drill
 
-const START_SPEED: float = 100;
+const START_SPEED: float = 1000;
 const MAX_MIN_SPEED: float = 1200;	# Maximum value of min speed. As drill gets deeper, min speed increases, but it will never be higher than this value.
 
 #region Properties

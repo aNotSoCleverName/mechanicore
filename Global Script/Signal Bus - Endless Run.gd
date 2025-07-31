@@ -12,6 +12,8 @@ signal drill_change_dir(inDir: EDrillDirection, inDrill: Drill);
 signal drill_change_pos(inPos: Vector2, inDrill: Drill);
 @warning_ignore("unused_signal")
 signal drill_change_dock(inIsDocked: bool, inDrill: Drill);
+@warning_ignore("unused_signal")
+signal drill_explode(inRemainingInventory: Dictionary, inLostInventory: Dictionary);
 
 @warning_ignore("unused_signal")
 signal ore_place(inOrePlaceHolder: OrePlaceholder);

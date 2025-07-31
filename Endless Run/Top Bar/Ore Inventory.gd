@@ -1,4 +1,5 @@
 extends HBoxContainer
+class_name OreInventory;
 
 @export var oreType: Ore.EOreType = Ore.EOreType.Ore1;
 var _drill: Drill;
