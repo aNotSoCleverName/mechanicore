@@ -15,6 +15,9 @@ var _isDocked: bool = true:
 		SignalBus_EndlessRun.drill_change_dock.emit(_isDocked);
 		if (_isDocked):
 			self._speed = 0;
+			$AnimatedSprite2D.stop();
+		else:
+			$AnimatedSprite2D.play("drill_animation");
 
 var _minSpeed: float = self.START_SPEED:
 	get:
@@ -39,9 +42,8 @@ var _speed: float = 0:
 		
 		if (_speed == 0):
 			self._isDocked = true;
-			$AnimatedSprite2D.stop();
 		else:
-			$AnimatedSprite2D.play("drill_animation")
+			$AnimatedSprite2D.speed_scale = 1 + (_speed/self.START_SPEED);
 
 var _directionDeg: SignalBus_EndlessRun.EDrillDirection = SignalBus_EndlessRun.EDrillDirection.DOCKED:
 	get:
