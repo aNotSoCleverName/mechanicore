@@ -10,10 +10,10 @@ func _ready() -> void:
 	SignalBus_EndlessRun.ore_place.emit(self);
 
 #region Randomize ore type
-var _ore2Start: float = 400;
+var _ore2Start: float = 300;
 var _ore2Common: float = 700;
-var _ore3Start: float = 1500;
-var _ore3Common: float = 3000;
+var _ore3Start: float = 1200;
+var _ore3Common: float = 2500;
 func _RandomizeOreType(inDepth: float) -> void:
 	## Key = ore type, value = weight
 	var oreTypeWeights: Dictionary = { };
