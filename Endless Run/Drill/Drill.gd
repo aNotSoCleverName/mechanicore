@@ -13,6 +13,11 @@ var _isDocked: bool = true:
 			return;
 		_isDocked = inValue;
 		
+		self.global_position = Vector2(
+			GlobalProperty_EndlessRun.VIEWPORT_SIZE.x/2,
+			GlobalProperty_EndlessRun.SURFACE_Y
+		);
+		
 		SignalBus_EndlessRun.drill_change_dock.emit(_isDocked);
 		if (_isDocked):
 			self._speed = 0;
@@ -127,8 +132,4 @@ func _input(event: InputEvent) -> void:
 		if (self._isDocked):
 			return;
 		self._isDocked = true;
-		self.global_position = Vector2(
-			GlobalProperty_EndlessRun.VIEWPORT_SIZE.x/2,
-			GlobalProperty_EndlessRun.SURFACE_Y
-		);
 #endregion
