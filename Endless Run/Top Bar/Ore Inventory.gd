@@ -1,4 +1,5 @@
 extends HBoxContainer
+class_name OreInventory;
 
 @export var oreType: Ore.EOreType = Ore.EOreType.Ore1;
 var _drill: Drill;
@@ -9,6 +10,13 @@ func _on_tree_entered():
 			if (inOre.oreType != self.oreType):
 				return;
 			$Amount.text = str(self._drill.inventory[inOre.oreType]);
+	)
+	
+	SignalBus_EndlessRun.drill_change_dock.connect(
+		func (inIsDocked: bool):
+			if (!inIsDocked):
+				return;
+			$Amount.text = "0";
 	)
 
 func _ready() -> void:
