@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Drill
 
-const START_VELOCITY: int = 100;
+const START_SPEED: float = 100;
 
 #region Properties
 var _isDocked: bool = true:
@@ -16,13 +16,25 @@ var _isDocked: bool = true:
 		if (_isDocked):
 			self._speed = 0;
 
-var _speed: int = 0:
+var _minSpeed: float = self.START_SPEED:
+	get:
+		return _minSpeed;
+	set(inValue):
+		if (_minSpeed == inValue):
+			return;
+		_minSpeed = inValue;
+		
+		self._speed = max(self._speed, _minSpeed);
+
+var _speed: float = 0:
 	get:
 		return _speed;
 	set(inValue):
-		if (_speed == inValue):
+		var newSpeed: float = max(inValue, _minSpeed);
+		if (_speed == newSpeed):
 			return;
-		_speed = inValue;
+		_speed = newSpeed;
+		
 		self._UpdateVelocity();
 		
 		if (_speed == 0):
@@ -75,6 +87,7 @@ func _on_tree_entered() -> void:
 	SignalBus_EndlessRun.drill_change_pos.connect(
 		func (inPos: Vector2):
 			self.depth = (inPos.y - GlobalProperty_EndlessRun.SURFACE_Y) / 100;
+			self._minSpeed = min(1200, self.START_SPEED + self.depth);
 	)
 	
 	SignalBus_EndlessRun.ore_pick.connect(
@@ -93,7 +106,7 @@ func _input(event: InputEvent) -> void:
 		if (!self._isDocked):
 			return;
 		self._isDocked = false;
-		self._speed = START_VELOCITY;
+		self._speed = self.START_SPEED;
 		_directionDeg = SignalBus_EndlessRun.EDrillDirection.RIGHT;
 	elif (event.is_action_pressed("ui_left")):
 		_directionDeg = SignalBus_EndlessRun.EDrillDirection.LEFT;
