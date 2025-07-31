@@ -10,6 +10,13 @@ func _on_tree_entered():
 				return;
 			$Amount.text = str(self._drill.inventory[inOre.oreType]);
 	)
+	
+	SignalBus_EndlessRun.drill_change_dock.connect(
+		func (inIsDocked: bool):
+			if (!inIsDocked):
+				return;
+			$Amount.text = "0";
+	)
 
 func _ready() -> void:
 	var iconNode: TextureRect = self.find_child("Icon");
