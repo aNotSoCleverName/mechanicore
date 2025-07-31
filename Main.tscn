@@ -33,7 +33,7 @@ bounceDir = 70
 position = Vector2(921, 0)
 bounceDir = 110
 
-[node name="Ore Manager2" type="Node2D" parent="Endless Run Container/Endless Run"]
+[node name="Ore Manager" type="Node2D" parent="Endless Run Container/Endless Run"]
 script = ExtResource("3_7444x")
 
 [node name="Drill" parent="Endless Run Container/Endless Run" instance=ExtResource("4_76jrm")]
@@ -62,5 +62,5 @@ render_target_update_mode = 4
 
 [node name="Shop & Menu" parent="Shop & Menu Container/Shop & Menu" instance=ExtResource("5_lg7n8")]
 
-[connection signal="tree_entered" from="Endless Run Container/Endless Run/Ore Manager2" to="Endless Run Container/Endless Run/Ore Manager2" method="_on_tree_entered"]
+[connection signal="tree_entered" from="Endless Run Container/Endless Run/Ore Manager" to="Endless Run Container/Endless Run/Ore Manager" method="_on_tree_entered"]
 [connection signal="tree_entered" from="Endless Run Container/Endless Run/Camera2D/Timer" to="Endless Run Container/Endless Run/Camera2D/Timer" method="_on_tree_entered"]

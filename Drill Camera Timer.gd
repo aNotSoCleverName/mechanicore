@@ -23,4 +23,7 @@ func _on_tree_entered():
 		func (inIsDocked: bool):
 			if (!inIsDocked):
 				self.start();
+			else:
+				camera.offset.y = self._dockedYOffset;
+				self.stop();
 	)

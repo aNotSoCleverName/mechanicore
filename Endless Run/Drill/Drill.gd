@@ -16,8 +16,10 @@ var _isDocked: bool = true:
 		SignalBus_EndlessRun.drill_change_dock.emit(_isDocked);
 		if (_isDocked):
 			self._speed = 0;
+			self._directionDeg = SignalBus_EndlessRun.EDrillDirection.DOCKED;
 			$AnimatedSprite2D.stop();
 		else:
+			self._directionDeg = SignalBus_EndlessRun.EDrillDirection.RIGHT;
 			$AnimatedSprite2D.play("drill_animation");
 
 var _minSpeed: float = self.START_SPEED:
@@ -34,10 +36,13 @@ var _speed: float = 0:
 	get:
 		return _speed;
 	set(inValue):
-		var newSpeed: float = max(inValue, _minSpeed);
-		if (_speed == newSpeed):
-			return;
-		_speed = newSpeed;
+		if (self._isDocked):
+			_speed = 0;
+		else:
+			var newSpeed: float = max(inValue, _minSpeed);
+			if (_speed == newSpeed):
+				return;
+			_speed = newSpeed;
 		
 		self._UpdateVelocity();
 		
@@ -50,8 +55,6 @@ var _directionDeg: SignalBus_EndlessRun.EDrillDirection = SignalBus_EndlessRun.E
 	get:
 		return _directionDeg;
 	set(inValue):
-		if (self._isDocked):
-			return;
 		if (_directionDeg == inValue):
 			return;
 		
@@ -104,15 +107,28 @@ func _physics_process(_delta) -> void:
 func _input(event: InputEvent) -> void:
 	if (!(event is InputEventKey)):
 		return;
+	var keycode: Key = (event as InputEventKey).keycode;
 		
 	if (event.is_action_pressed("ui_accept")):
 		if (!self._isDocked):
 			return;
 		self._isDocked = false;
 		self._speed = self.START_SPEED;
-		_directionDeg = SignalBus_EndlessRun.EDrillDirection.RIGHT;
 	elif (event.is_action_pressed("ui_left")):
-		_directionDeg = SignalBus_EndlessRun.EDrillDirection.LEFT;
+		if (self._isDocked):
+			return;
+		self._directionDeg = SignalBus_EndlessRun.EDrillDirection.LEFT;
 	elif (event.is_action_pressed("ui_right")):
-		_directionDeg = SignalBus_EndlessRun.EDrillDirection.RIGHT;
+		if (self._isDocked):
+			return;
+		self._directionDeg = SignalBus_EndlessRun.EDrillDirection.RIGHT;
+	
+	elif (keycode == KEY_R):
+		if (self._isDocked):
+			return;
+		self._isDocked = true;
+		self.global_position = Vector2(
+			GlobalProperty_EndlessRun.VIEWPORT_SIZE.x/2,
+			GlobalProperty_EndlessRun.SURFACE_Y
+		);
 #endregion
