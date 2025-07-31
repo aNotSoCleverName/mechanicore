@@ -1,0 +1,127 @@
+[gd_scene load_steps=15 format=3 uid="uid://dq4qkupby85t"]
+
+[ext_resource type="Script" path="res://Shop & Menu/Menu/Craft/Craft Item Node.gd" id="1_7c14f"]
+[ext_resource type="Texture2D" uid="uid://c10vafu7ah2us" path="res://Shop & Menu/Menu/Craft/Craft Item - Placeholder.png" id="2_qg6nw"]
+[ext_resource type="Texture2D" uid="uid://dud446r0i8vm" path="res://Shop & Menu/Menu/Craft/Stock.png" id="3_gta4k"]
+[ext_resource type="Texture2D" uid="uid://bptr6byvokmow" path="res://Shop & Menu/Money.png" id="3_xw0m5"]
+[ext_resource type="Texture2D" uid="uid://ctavnwfpqdo87" path="res://Shop & Menu/Time.png" id="4_cfie2"]
+[ext_resource type="PackedScene" uid="uid://ccirx7362q0ar" path="res://Shop & Menu/Menu/Craft/Craft Item Property.tscn" id="4_pkhi4"]
+[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Simple Label.tres" id="4_qra5k"]
+[ext_resource type="Texture2D" uid="uid://kpyugmno047" path="res://Endless Run/Ores/Ore1.png" id="5_3meuh"]
+[ext_resource type="Texture2D" uid="uid://cjhadim1ft6sj" path="res://Endless Run/Ores/Ore2.png" id="6_d6pru"]
+[ext_resource type="Texture2D" uid="uid://bripmml1nnira" path="res://Endless Run/Ores/Ore3.png" id="7_flb3l"]
+[ext_resource type="Texture2D" uid="uid://by6jv4i7kl48d" path="res://Shop & Menu/Menu/Craft/Craft.png" id="8_kdpct"]
+
+[sub_resource type="Theme" id="Theme_6nuoc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_noi7c"]
+bg_color = Color(8.30255e-07, 0.201942, 0.289833, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_oq7r2"]
+font_size = 12
+font_color = Color(0.733005, 0.733005, 0.733005, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Craft Item" type="Panel"]
+custom_minimum_size = Vector2(0, 140)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 140.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_6nuoc")
+theme_override_styles/panel = SubResource("StyleBoxFlat_noi7c")
+script = ExtResource("1_7c14f")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 140.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_qg6nw")
+stretch_mode = 2
+
+[node name="Stock" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Stock"]
+layout_mode = 2
+texture = ExtResource("3_gta4k")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Stock"]
+layout_mode = 2
+text = "0
+"
+label_settings = ExtResource("4_qra5k")
+
+[node name="Details" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Price" parent="MarginContainer/HBoxContainer/Details" instance=ExtResource("4_pkhi4")]
+layout_mode = 2
+icon = ExtResource("3_xw0m5")
+
+[node name="Time" parent="MarginContainer/HBoxContainer/Details" instance=ExtResource("4_pkhi4")]
+layout_mode = 2
+icon = ExtResource("4_cfie2")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/Details"]
+layout_mode = 2
+
+[node name="Materials" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Details"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Details/Materials"]
+layout_mode = 2
+text = "Materials"
+label_settings = SubResource("LabelSettings_oq7r2")
+
+[node name="Ore1" parent="MarginContainer/HBoxContainer/Details/Materials" instance=ExtResource("4_pkhi4")]
+layout_mode = 2
+icon = ExtResource("5_3meuh")
+
+[node name="Ore2" parent="MarginContainer/HBoxContainer/Details/Materials" instance=ExtResource("4_pkhi4")]
+layout_mode = 2
+icon = ExtResource("6_d6pru")
+
+[node name="Ore3" parent="MarginContainer/HBoxContainer/Details/Materials" instance=ExtResource("4_pkhi4")]
+layout_mode = 2
+icon = ExtResource("7_flb3l")
+
+[node name="Craft Button" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("8_kdpct")
+flat = true

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccirx7362q0ar"]
+
+[ext_resource type="Script" path="res://Shop & Menu/Menu/Craft/Craft Item Property.gd" id="1_v8v38"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_is3ay"]
+font_size = 12
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Craft Item Property" type="HBoxContainer"]
+offset_right = 37.0
+offset_bottom = 17.0
+script = ExtResource("1_v8v38")
+text = "0"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+expand_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "0
+"
+label_settings = SubResource("LabelSettings_is3ay")
