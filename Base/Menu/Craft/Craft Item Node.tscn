@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dq4qkupby85t"]
+[gd_scene load_steps=16 format=3 uid="uid://dq4qkupby85t"]
 
 [ext_resource type="Script" path="res://Base/Menu/Craft/Craft Item Node.gd" id="1_7c14f"]
 [ext_resource type="Texture2D" uid="uid://c10vafu7ah2us" path="res://Base/Menu/Craft/Craft Item - Placeholder.png" id="2_qg6nw"]
@@ -30,6 +30,10 @@ font_size = 12
 font_color = Color(0.733005, 0.733005, 0.733005, 1)
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_adn48"]
+outline_size = 5
+outline_color = Color(0.133333, 0.694118, 0.298039, 1)
 
 [node name="Craft Item" type="Panel"]
 custom_minimum_size = Vector2(0, 140)
@@ -120,8 +124,20 @@ icon = ExtResource("6_d6pru")
 layout_mode = 2
 icon = ExtResource("7_flb3l")
 
-[node name="Craft Button" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="Craft" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/Craft"]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("8_kdpct")
 flat = true
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Craft"]
+layout_mode = 2
+text = "CRAFT"
+label_settings = SubResource("LabelSettings_adn48")
+horizontal_alignment = 1
