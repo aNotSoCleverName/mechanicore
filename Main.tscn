@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://kf4x8f2aj1c7"]
+[gd_scene load_steps=10 format=3 uid="uid://kf4x8f2aj1c7"]
 
 [ext_resource type="PackedScene" uid="uid://qh6srgn7krbr" path="res://Endless Run/Background/Parallax Background.tscn" id="1_tsuhl"]
 [ext_resource type="PackedScene" uid="uid://dllakqtlni1xh" path="res://Endless Run/Top Bar/Top Bar.tscn" id="3_3cqpp"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Endless Run/Drill/Camera.gd" id="4_nr18h"]
 [ext_resource type="PackedScene" uid="uid://dx4xl0ya4o52y" path="res://Shop & Menu/Shop & Menu.tscn" id="5_lg7n8"]
 [ext_resource type="PackedScene" uid="uid://ps23ye6gh703" path="res://Endless Run/Ores/Ore Placeholder.tscn" id="6_03dvb"]
+[ext_resource type="Script" path="res://Drill Camera Timer.gd" id="7_cbo1j"]
 
 [node name="Main" type="HBoxContainer"]
 offset_right = 1284.0
@@ -46,6 +47,10 @@ rotation = 1.5708
 offset = Vector2(0, 104)
 script = ExtResource("4_nr18h")
 
+[node name="Timer" type="Timer" parent="Endless Run Container/Endless Run/Camera2D"]
+wait_time = 0.05
+script = ExtResource("7_cbo1j")
+
 [node name="UI" type="CanvasLayer" parent="Endless Run Container/Endless Run"]
 
 [node name="Top Bar" parent="Endless Run Container/Endless Run/UI" instance=ExtResource("3_3cqpp")]
@@ -59,3 +64,5 @@ size = Vector2i(384, 720)
 render_target_update_mode = 4
 
 [node name="Shop & Menu" parent="Shop & Menu Container/Shop & Menu" instance=ExtResource("5_lg7n8")]
+
+[connection signal="tree_entered" from="Endless Run Container/Endless Run/Camera2D/Timer" to="Endless Run Container/Endless Run/Camera2D/Timer" method="_on_tree_entered"]
