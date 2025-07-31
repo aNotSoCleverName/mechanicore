@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dx4xl0ya4o52y"]
 
-[ext_resource type="PackedScene" uid="uid://dq4qkupby85t" path="res://Shop & Menu/Menu/Craft/Craft Item Node.tscn" id="1_6eggy"]
-[ext_resource type="Texture2D" uid="uid://c10vafu7ah2us" path="res://Shop & Menu/Menu/Craft/Craft Item - Placeholder.png" id="2_1cdam"]
-[ext_resource type="Script" path="res://Shop & Menu/Craft Item.gd" id="2_36thw"]
+[ext_resource type="PackedScene" uid="uid://dq4qkupby85t" path="res://Base/Menu/Craft/Craft Item Node.tscn" id="1_6eggy"]
+[ext_resource type="Texture2D" uid="uid://c10vafu7ah2us" path="res://Base/Menu/Craft/Craft Item - Placeholder.png" id="2_1cdam"]
+[ext_resource type="Script" path="res://Base/Craft Item.gd" id="2_36thw"]
 
 [sub_resource type="Resource" id="Resource_fwhfh"]
 script = ExtResource("2_36thw")
@@ -16,7 +16,7 @@ materials = {
 3: 5
 }
 
-[node name="Shop & Menu" type="VBoxContainer"]
+[node name="Base" type="VBoxContainer"]
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0

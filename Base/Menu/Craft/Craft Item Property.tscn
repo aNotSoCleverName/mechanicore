@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ccirx7362q0ar"]
 
-[ext_resource type="Script" path="res://Shop & Menu/Menu/Craft/Craft Item Property.gd" id="1_v8v38"]
+[ext_resource type="Script" path="res://Base/Menu/Craft/Craft Item Property.gd" id="1_v8v38"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_is3ay"]
 font_size = 12
@@ -19,6 +19,5 @@ expand_mode = 2
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
-text = "0
-"
+text = "0"
 label_settings = SubResource("LabelSettings_is3ay")

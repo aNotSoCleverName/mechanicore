@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by6jv4i7kl48d"
-path="res://.godot/imported/Craft.png-baff67130005272eb8871f4f6e9cc2ce.ctex"
+uid="uid://ctavnwfpqdo87"
+path="res://.godot/imported/Time.png-1c4d9cda36bb5abf4bca984ace443421.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Shop & Menu/Menu/Craft/Craft.png"
-dest_files=["res://.godot/imported/Craft.png-baff67130005272eb8871f4f6e9cc2ce.ctex"]
+source_file="res://Base/Time.png"
+dest_files=["res://.godot/imported/Time.png-1c4d9cda36bb5abf4bca984ace443421.ctex"]
 
 [params]
 
