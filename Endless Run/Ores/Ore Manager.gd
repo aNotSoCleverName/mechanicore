@@ -93,8 +93,6 @@ func _generateOreChunk(inTopLeft: Vector2) -> OreChunk:
 	loadedChunk.position = inTopLeft;
 	loadedChunk.rotation_degrees = self._possibleRotations[randi_range(0, self._possibleRotations.size() - 1)];
 	
-	#TODO: Randomize ore type
-	
 	self.add_child(loadedChunk);
 	return loadedChunk;
 #endregion
