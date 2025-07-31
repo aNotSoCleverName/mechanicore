@@ -14,5 +14,11 @@ func _ready() -> void:
 			if (chunkBottom >= viewportTopY):
 				return;
 			
+			for node: Node in self.get_children(true):
+				if !(node is Ore):
+					continue;
+				OreManager.addToPool(node);
+				node.get_parent().remove_child(node);
+			
 			self.queue_free();
 	)

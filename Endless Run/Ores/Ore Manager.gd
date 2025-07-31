@@ -1,4 +1,5 @@
 extends Node2D
+class_name OreManager
 
 #region Properties
 const ORE_CHUNK_DIR_PATH: String = "res://Endless Run/Ores/Ore Chunk";
@@ -7,14 +8,12 @@ var _oreChunkFilePaths: PackedStringArray = [];
 var _drill: Drill;
 
 # key = Ore.EOreType, value = Array[Ore]
-var orePools: Dictionary = { }:
-	get:
-		return orePools;
-func _addToPool(inOre: Ore) -> void:
-	var orePool: Array[Ore] = self.orePools[inOre.oreType];
+static var orePools: Dictionary = { };
+static func addToPool(inOre: Ore) -> void:
+	var orePool: Array[Ore] = OreManager.orePools[inOre.oreType];
 	orePool.append(inOre);
-func _popFromPool(inOreType: Ore.EOreType) -> Ore:
-	var orePool: Array[Ore] = self.orePools[inOreType];
+static func popFromPool(inOreType: Ore.EOreType) -> Ore:
+	var orePool: Array[Ore] = OreManager.orePools[inOreType];
 	return orePool.pop_back();
 #endregion
 
@@ -25,11 +24,11 @@ func _on_tree_entered() -> void:
 	# Initiate dictionary
 	for type in Ore.EOreType.values():
 		var tempArrOfOre: Array[Ore] = [];	# To set static type
-		orePools[type] = tempArrOfOre;
+		OreManager.orePools[type] = tempArrOfOre;
 	
 	SignalBus_EndlessRun.ore_pick.connect(
 		func (inOre: Ore):
-			self._addToPool(inOre);
+			self.addToPool(inOre);
 			var orePlaceholder: OrePlaceholder = inOre.get_parent();
 			orePlaceholder.call_deferred("remove_child", inOre);
 			orePlaceholder.queue_free();
@@ -37,7 +36,7 @@ func _on_tree_entered() -> void:
 	
 	SignalBus_EndlessRun.ore_place.connect(
 		func (inOrePlaceholder: OrePlaceholder):
-			var ore: Ore = self._popFromPool(inOrePlaceholder.oreType);
+			var ore: Ore = self.popFromPool(inOrePlaceholder.oreType);
 			if (ore == null):
 				ore = preload("res://Endless Run/Ores/Ore.tscn").instantiate();
 				ore.oreType = inOrePlaceholder.oreType;
