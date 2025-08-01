@@ -145,6 +145,7 @@ alignment = 1
 [node name="Button" type="Button" parent="MarginContainer/HBoxContainer/Craft"]
 layout_mode = 2
 size_flags_vertical = 4
+focus_mode = 0
 mouse_default_cursor_shape = 2
 disabled = true
 icon = ExtResource("8_kdpct")
