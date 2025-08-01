@@ -8,7 +8,6 @@ func _on_body_entered(body):
 		return;
 	var drill: Drill = body;
 	
-	drill._isDocked = true;
 	self.get_parent().call_deferred("remove_child", self);
 	BombManager.addToPool(self);
 	
@@ -51,6 +50,7 @@ func _on_body_entered(body):
 			oreTypes.erase(lostOreType);
 	#endregion
 	
+	drill._isDocked = true;
 	SignalBus_EndlessRun.drill_explode.emit(lostOres);
 	for oreType: Ore.EOreType in drill.inventory.keys():
 		drill.inventory[oreType] = 0;
