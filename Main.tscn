@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://6hg1syki30xs" path="res://Endless Run/Drill/Drill.tscn" id="4_76jrm"]
 [ext_resource type="Script" path="res://Endless Run/Drill/Camera.gd" id="4_nr18h"]
 [ext_resource type="Script" path="res://Endless Run/Bomb/Bomb Manager.gd" id="4_reryw"]
-[ext_resource type="PackedScene" uid="uid://dx4xl0ya4o52y" path="res://Base/Shop & Menu.tscn" id="5_lg7n8"]
+[ext_resource type="PackedScene" uid="uid://dx4xl0ya4o52y" path="res://Base/Base.tscn" id="5_lg7n8"]
 [ext_resource type="Script" path="res://Drill Camera Timer.gd" id="7_cbo1j"]
 
 [node name="Main" type="HBoxContainer"]
