@@ -9,7 +9,7 @@ func _on_tree_entered():
 	var oreInventory: OreInventory = ancestorNode;
 	
 	SignalBus_EndlessRun.drill_explode.connect(
-		func (_inRemainingInventory: Dictionary, inLostInventory: Dictionary):
+		func (inLostInventory: Dictionary):
 			self.text = str(-inLostInventory[oreInventory.oreType]);
 			self.self_modulate.a = 1;
 			

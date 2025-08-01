@@ -14,7 +14,7 @@ func _ready() -> void:
 	self._shaderTexture = shaderMaterial.get_shader_parameter("image_texture");
 	
 	SignalBus_EndlessRun.drill_change_dock.connect(
-		func (inIsDocked: bool):
+		func (inIsDocked: bool, _inDrill: Drill):
 			if (!inIsDocked):
 				return;
 			

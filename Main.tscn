@@ -7,12 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://6hg1syki30xs" path="res://Endless Run/Drill/Drill.tscn" id="4_76jrm"]
 [ext_resource type="Script" path="res://Endless Run/Drill/Camera.gd" id="4_nr18h"]
 [ext_resource type="Script" path="res://Endless Run/Bomb/Bomb Manager.gd" id="4_reryw"]
-[ext_resource type="PackedScene" uid="uid://dx4xl0ya4o52y" path="res://Shop & Menu/Shop & Menu.tscn" id="5_lg7n8"]
+[ext_resource type="PackedScene" uid="uid://dx4xl0ya4o52y" path="res://Base/Base.tscn" id="5_lg7n8"]
 [ext_resource type="Script" path="res://Drill Camera Timer.gd" id="7_cbo1j"]
 
 [node name="Main" type="HBoxContainer"]
 offset_right = 1284.0
 offset_bottom = 720.0
+theme_override_constants/separation = 0
 
 [node name="Endless Run Container" type="SubViewportContainer" parent="."]
 layout_mode = 2
@@ -56,15 +57,15 @@ script = ExtResource("7_cbo1j")
 
 [node name="Top Bar" parent="Endless Run Container/Endless Run/UI" instance=ExtResource("3_3cqpp")]
 
-[node name="Shop & Menu Container" type="SubViewportContainer" parent="."]
+[node name="Base Container" type="SubViewportContainer" parent="."]
 layout_mode = 2
 
-[node name="Shop & Menu" type="SubViewport" parent="Shop & Menu Container"]
+[node name="Base" type="SubViewport" parent="Base Container"]
 handle_input_locally = false
 size = Vector2i(384, 720)
 render_target_update_mode = 4
 
-[node name="Shop & Menu" parent="Shop & Menu Container/Shop & Menu" instance=ExtResource("5_lg7n8")]
+[node name="Base" parent="Base Container/Base" instance=ExtResource("5_lg7n8")]
 
 [connection signal="tree_entered" from="Endless Run Container/Endless Run/Ore Manager" to="Endless Run Container/Endless Run/Ore Manager" method="_on_tree_entered"]
 [connection signal="tree_entered" from="Endless Run Container/Endless Run/Bomb Manager" to="Endless Run Container/Endless Run/Bomb Manager" method="_on_tree_entered"]

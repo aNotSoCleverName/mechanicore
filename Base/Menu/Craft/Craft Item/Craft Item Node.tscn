@@ -1,0 +1,162 @@
+[gd_scene load_steps=17 format=3 uid="uid://dq4qkupby85t"]
+
+[ext_resource type="Script" path="res://Base/Menu/Craft/Craft Item/Craft Item Node.gd" id="1_7c14f"]
+[ext_resource type="StyleBox" uid="uid://d2kigmst2mqxx" path="res://Base/Menu/Craft/Panel.tres" id="1_rjrbv"]
+[ext_resource type="Texture2D" uid="uid://c10vafu7ah2us" path="res://Base/Menu/Craft/Craft Item - Placeholder.png" id="2_qg6nw"]
+[ext_resource type="Texture2D" uid="uid://dud446r0i8vm" path="res://Base/Menu/Craft/Craft Item/Stock.png" id="3_gta4k"]
+[ext_resource type="Texture2D" uid="uid://bptr6byvokmow" path="res://Base/Money.png" id="3_xw0m5"]
+[ext_resource type="Texture2D" uid="uid://ctavnwfpqdo87" path="res://Base/Time.png" id="4_cfie2"]
+[ext_resource type="PackedScene" uid="uid://ccirx7362q0ar" path="res://Base/Menu/Craft/Craft Item/Craft Item Material.tscn" id="4_pkhi4"]
+[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Simple Label.tres" id="4_qra5k"]
+[ext_resource type="Texture2D" uid="uid://kpyugmno047" path="res://Endless Run/Ores/Ore1.png" id="5_3meuh"]
+[ext_resource type="Texture2D" uid="uid://cjhadim1ft6sj" path="res://Endless Run/Ores/Ore2.png" id="6_d6pru"]
+[ext_resource type="Script" path="res://Base/Menu/Craft/Craft Item/Stock.gd" id="6_mhem6"]
+[ext_resource type="Texture2D" uid="uid://bripmml1nnira" path="res://Endless Run/Ores/Ore3.png" id="7_flb3l"]
+[ext_resource type="Texture2D" uid="uid://by6jv4i7kl48d" path="res://Base/Menu/Craft/Craft Item/Craft.png" id="8_kdpct"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ocgbb"]
+font_size = 12
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oq7r2"]
+font_size = 12
+font_color = Color(0.733005, 0.733005, 0.733005, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_adn48"]
+outline_size = 5
+outline_color = Color(0.133333, 0.694118, 0.298039, 1)
+
+[node name="Craft Item" type="Panel"]
+custom_minimum_size = Vector2(0, 140)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 140.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("1_rjrbv")
+script = ExtResource("1_7c14f")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 140.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_qg6nw")
+stretch_mode = 2
+
+[node name="Stock" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Stock"]
+layout_mode = 2
+texture = ExtResource("3_gta4k")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Stock"]
+layout_mode = 2
+text = "0
+"
+label_settings = ExtResource("4_qra5k")
+script = ExtResource("6_mhem6")
+
+[node name="Details" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Price" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Details"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Details/Price"]
+layout_mode = 2
+texture = ExtResource("3_xw0m5")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Details/Price"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_ocgbb")
+
+[node name="Time" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Details"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Details/Time"]
+layout_mode = 2
+texture = ExtResource("4_cfie2")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Details/Time"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_ocgbb")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/Details"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Details"]
+layout_mode = 2
+text = "Materials"
+label_settings = SubResource("LabelSettings_oq7r2")
+
+[node name="Materials" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Details"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Ore1" parent="MarginContainer/HBoxContainer/Details/Materials" instance=ExtResource("4_pkhi4")]
+layout_mode = 2
+icon = ExtResource("5_3meuh")
+
+[node name="Ore2" parent="MarginContainer/HBoxContainer/Details/Materials" instance=ExtResource("4_pkhi4")]
+layout_mode = 2
+icon = ExtResource("6_d6pru")
+
+[node name="Ore3" parent="MarginContainer/HBoxContainer/Details/Materials" instance=ExtResource("4_pkhi4")]
+layout_mode = 2
+icon = ExtResource("7_flb3l")
+
+[node name="Craft" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/Craft"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+mouse_default_cursor_shape = 2
+disabled = true
+icon = ExtResource("8_kdpct")
+flat = true
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Craft"]
+layout_mode = 2
+text = "CRAFT"
+label_settings = SubResource("LabelSettings_adn48")
+horizontal_alignment = 1
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="tree_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Stock/Label" to="MarginContainer/HBoxContainer/VBoxContainer/Stock/Label" method="_on_tree_entered"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Craft/Button" to="." method="_on_button_pressed"]

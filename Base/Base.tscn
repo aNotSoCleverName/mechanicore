@@ -1,0 +1,109 @@
+[gd_scene load_steps=8 format=3 uid="uid://dx4xl0ya4o52y"]
+
+[ext_resource type="Script" path="res://Base/Base.gd" id="1_4gdcv"]
+[ext_resource type="PackedScene" uid="uid://dq4qkupby85t" path="res://Base/Menu/Craft/Craft Item/Craft Item Node.tscn" id="1_6eggy"]
+[ext_resource type="Script" path="res://Base/Craft Item.gd" id="2_36thw"]
+[ext_resource type="Script" path="res://Base/Menu/Craft/Queue.gd" id="2_muuji"]
+[ext_resource type="Resource" uid="uid://do7o06fuk17rd" path="res://Base/Menu/Craft/Craft Item/Resources/Test.tres" id="4_1pni4"]
+[ext_resource type="Texture2D" uid="uid://bripmml1nnira" path="res://Endless Run/Ores/Ore3.png" id="5_ju8iy"]
+
+[sub_resource type="Resource" id="Resource_hecib"]
+script = ExtResource("2_36thw")
+image = ExtResource("5_ju8iy")
+price = 500
+timeSec = 3.14
+materials = {
+1: 5,
+2: 1,
+3: 0
+}
+
+[node name="Base" type="VBoxContainer"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -384.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_4gdcv")
+
+[node name="Shop" type="SubViewportContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Shop" type="SubViewport" parent="Shop"]
+handle_input_locally = false
+size = Vector2i(384, 256)
+render_target_update_mode = 4
+
+[node name="Menu" type="TabContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="Craft" type="VBoxContainer" parent="Menu"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Menu/Craft"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/Craft/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Queue" type="HBoxContainer" parent="Menu/Craft/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2_muuji")
+
+[node name="HSeparator" type="HSeparator" parent="Menu/Craft"]
+layout_mode = 2
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="Menu/Craft"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/Craft/ScrollContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Craft Items" type="VBoxContainer" parent="Menu/Craft/ScrollContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Craft Item" parent="Menu/Craft/ScrollContainer2/MarginContainer/Craft Items" instance=ExtResource("1_6eggy")]
+layout_mode = 2
+craftItem = ExtResource("4_1pni4")
+
+[node name="Craft Item2" parent="Menu/Craft/ScrollContainer2/MarginContainer/Craft Items" instance=ExtResource("1_6eggy")]
+layout_mode = 2
+craftItem = SubResource("Resource_hecib")
+
+[node name="Craft Item3" parent="Menu/Craft/ScrollContainer2/MarginContainer/Craft Items" instance=ExtResource("1_6eggy")]
+layout_mode = 2
+craftItem = SubResource("Resource_hecib")
+
+[node name="Drill" type="VBoxContainer" parent="Menu"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="child_order_changed" from="Menu/Craft/ScrollContainer/MarginContainer/Queue" to="Menu/Craft/ScrollContainer/MarginContainer/Queue" method="_on_child_order_changed"]
+[connection signal="tree_entered" from="Menu/Craft/ScrollContainer/MarginContainer/Queue" to="Menu/Craft/ScrollContainer/MarginContainer/Queue" method="_on_tree_entered"]

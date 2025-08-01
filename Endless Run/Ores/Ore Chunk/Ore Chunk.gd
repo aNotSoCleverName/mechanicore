@@ -4,8 +4,13 @@ class_name OreChunk
 @export var width: int = 0;
 @export var height: int = 0;
 
+func _addOresToPool() -> void:
+	for orePlaceholder: OrePlaceholder in self.get_children() as Array[OrePlaceholder]:
+		var ore: Ore = orePlaceholder.get_child(1);
+		OreManager.addToPool(ore);
+		orePlaceholder.remove_child(ore);
+
 func _ready() -> void:
-	# queue_free() when no longer visible
 	SignalBus_EndlessRun.drill_change_pos.connect(
 		func (inPos: Vector2):
 			var chunkBottom: float = self.position.y + self.height;
@@ -14,11 +19,15 @@ func _ready() -> void:
 			if (chunkBottom >= viewportTopY):
 				return;
 			
-			for node: Node in self.get_children(true):
-				if !(node is Ore):
-					continue;
-				OreManager.addToPool(node);
-				node.get_parent().remove_child(node);
+			self._addOresToPool();
+			self.queue_free();
+	)
+	
+	SignalBus_EndlessRun.drill_change_dock.connect(
+		func (inIsDocked: bool, _inDrill: Drill):
+			if (!inIsDocked):
+				return;
 			
+			self._addOresToPool();
 			self.queue_free();
 	)
