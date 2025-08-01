@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ccirx7362q0ar"]
 
-[ext_resource type="Script" path="res://Base/Menu/Craft/Craft Item Property.gd" id="1_v8v38"]
+[ext_resource type="Script" path="res://Base/Menu/Craft/Craft Item/Craft Item Property.gd" id="1_v8v38"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_is3ay"]
 font_size = 12

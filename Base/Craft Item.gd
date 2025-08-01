@@ -1,7 +1,6 @@
 extends Resource
 class_name CraftItem
 
-@export var id: int = 0;
 @export var image: Texture2D;
 @export var price: int;
 @export var timeSec: float;

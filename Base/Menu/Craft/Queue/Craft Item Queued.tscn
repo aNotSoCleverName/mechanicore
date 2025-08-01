@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://crth2iav4sjc8"]
+
+[ext_resource type="StyleBox" uid="uid://d2kigmst2mqxx" path="res://Base/Menu/Craft/Panel.tres" id="1_5ircq"]
+[ext_resource type="Shader" path="res://Base/Menu/Craft/Queue/Craft Item Queued.gdshader" id="1_cniir"]
+[ext_resource type="Script" path="res://Base/Menu/Craft/Queue/Craft Item Queued.gd" id="1_eu14e"]
+[ext_resource type="Texture2D" uid="uid://c10vafu7ah2us" path="res://Base/Menu/Craft/Craft Item - Placeholder.png" id="2_8b4af"]
+[ext_resource type="Texture2D" uid="uid://d0cmtdkgp1f43" path="res://Base/Menu/Craft/Queue/Cancel Craft.png" id="4_ghy2o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gdw7j"]
+shader = ExtResource("1_cniir")
+shader_parameter/progress = 1.0
+
+[node name="Craft Item Queued" type="Panel"]
+material = SubResource("ShaderMaterial_gdw7j")
+custom_minimum_size = Vector2(78, 48)
+offset_right = 72.0
+offset_bottom = 48.0
+theme_override_styles/panel = ExtResource("1_5ircq")
+script = ExtResource("1_eu14e")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 78.0
+offset_bottom = 48.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_8b4af")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+icon = ExtResource("4_ghy2o")
+flat = true

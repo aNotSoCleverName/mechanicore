@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dud446r0i8vm"
-path="res://.godot/imported/Stock.png-0186622a83e29eacae493225c366a489.ctex"
+uid="uid://by6jv4i7kl48d"
+path="res://.godot/imported/Craft.png-dd60bd3f06c331d23219d03e07ff7e10.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Base/Menu/Craft/Stock.png"
-dest_files=["res://.godot/imported/Stock.png-0186622a83e29eacae493225c366a489.ctex"]
+source_file="res://Base/Menu/Craft/Craft Item/Craft.png"
+dest_files=["res://.godot/imported/Craft.png-dd60bd3f06c331d23219d03e07ff7e10.ctex"]
 
 [params]
 

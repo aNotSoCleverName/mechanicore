@@ -1,4 +1,5 @@
 extends Panel
+class_name CraftItemNode;
 
 @export var craftItem: CraftItem;
 
@@ -17,3 +18,7 @@ func _ready() -> void:
 		
 		var label: Label = matNode.get_child(1);
 		label.text = str(self.craftItem.materials[oreType]);
+
+
+func _on_button_pressed():
+	SignalBus_Base.craft_queue.emit(self.craftItem);
