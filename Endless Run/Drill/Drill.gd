@@ -18,7 +18,7 @@ var _isDocked: bool = true:
 			GlobalProperty_EndlessRun.SURFACE_Y
 		);
 		
-		SignalBus_EndlessRun.drill_change_dock.emit(_isDocked);
+		SignalBus_EndlessRun.drill_change_dock.emit(_isDocked, self);
 		if (_isDocked):
 			self._speed = 0;
 			self._directionDeg = SignalBus_EndlessRun.EDrillDirection.DOCKED;

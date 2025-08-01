@@ -37,3 +37,7 @@ func _process(_delta):
 	var progress: float = 1 - (self._timer.time_left / self._timer.wait_time);
 	shader.set_shader_parameter(self.SHADER_PARAM_PROGRESS, progress);
 #endregion
+
+func _on_cancel_pressed():
+	SignalBus_Base.craft_cancel.emit(self._craftItem);
+	self.queue_free();

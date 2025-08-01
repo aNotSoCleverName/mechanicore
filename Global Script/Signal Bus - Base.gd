@@ -8,4 +8,7 @@ signal craft_finished(inCraftItem: CraftItem);
 signal craft_cancel(inCraftItem: CraftItem);
 
 @warning_ignore("unused_signal")
+signal update_ore_inventory(inCurrentInventory: Dictionary);
+
+@warning_ignore("unused_signal")
 signal sell(inCraftItemId: int);

@@ -20,7 +20,7 @@ func _on_tree_entered():
 	)
 	
 	SignalBus_EndlessRun.drill_change_dock.connect(
-		func (inIsDocked: bool):
+		func (inIsDocked: bool, _inDrill: Drill):
 			if (!inIsDocked):
 				self.start();
 			else:

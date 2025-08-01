@@ -8,7 +8,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gdw7j"]
 shader = ExtResource("1_cniir")
-shader_parameter/progress = 1.0
+shader_parameter/progress = 0.514405
 
 [node name="Craft Item Queued" type="Panel"]
 material = SubResource("ShaderMaterial_gdw7j")
@@ -38,10 +38,12 @@ layout_mode = 2
 texture = ExtResource("2_8b4af")
 expand_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="Cancel" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 icon = ExtResource("4_ghy2o")
 flat = true
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Cancel" to="." method="_on_cancel_pressed"]
