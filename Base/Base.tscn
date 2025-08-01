@@ -105,4 +105,5 @@ layout_mode = 2
 metadata/_tab_index = 1
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="child_order_changed" from="Menu/Craft/ScrollContainer/MarginContainer/Queue" to="Menu/Craft/ScrollContainer/MarginContainer/Queue" method="_on_child_order_changed"]
 [connection signal="tree_entered" from="Menu/Craft/ScrollContainer/MarginContainer/Queue" to="Menu/Craft/ScrollContainer/MarginContainer/Queue" method="_on_tree_entered"]
