@@ -18,7 +18,7 @@ static func popFromPool(inOreType: Ore.EOreType) -> Ore:
 #endregion
 
 #region Built-in functions
-var _prevLoadedChunkY: float = GlobalProperty_EndlessRun.VIEWPORT_SIZE.y + GlobalProperty_EndlessRun.SURFACE_Y;
+var _prevLoadedChunkY: float = 0;
 func _on_tree_entered() -> void:
 	#region Handle ore pooling
 	# Initiate dictionary
@@ -44,6 +44,7 @@ func _on_tree_entered() -> void:
 	)
 	#endregion
 	
+	#region Handle ore generation
 	self._initOreChunkFilePaths();
 	
 	const chanceToNotGenerate: float = 0.2;
@@ -58,7 +59,7 @@ func _on_tree_entered() -> void:
 			
 			var chunkCenter: Vector2 = Vector2(
 				randf() * GlobalProperty_EndlessRun.VIEWPORT_SIZE.x,
-				self._prevLoadedChunkY,
+				GlobalProperty_EndlessRun.VIEWPORT_SIZE.y + GlobalProperty_EndlessRun.SURFACE_Y + self._prevLoadedChunkY,
 			);
 			
 			var loadedChunk: OreChunk = self._generateOreChunk(chunkCenter);
@@ -66,6 +67,13 @@ func _on_tree_entered() -> void:
 				return;
 			self._prevLoadedChunkY += loadedChunk.height;
 	)
+	SignalBus_EndlessRun.drill_change_dock.connect(	# Reset ore generation when docking
+		func (inIsDocked: bool, _inDrill: Drill):
+			if (inIsDocked):
+				return;
+			self._prevLoadedChunkY = 0;
+	)
+	#endregion
 #endregion
 
 #region Private functions
