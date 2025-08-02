@@ -46,5 +46,5 @@ func _ready() -> void:
 	SignalBus_Base.update_ore_inventory.emit(Base.ores);	# This triggers the code that checks if craft item text should be red/white depending on stock
 	
 	# Initiate craftItems
-	for craftItemNode: CraftItemNode in $"Menu/Craft/ScrollContainer2/MarginContainer/Craft Items".get_children() as Array[CraftItemNode]:
+	for craftItemNode: CraftItemNode in $"Menu/Craft/Craft Items ScrollContainer/MarginContainer/Craft Items".get_children() as Array[CraftItemNode]:
 		Base.craftItems[craftItemNode.craftItem] = 0;
