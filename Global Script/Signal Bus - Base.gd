@@ -11,4 +11,13 @@ signal craft_cancel(inCraftItem: CraftItem);
 signal update_ore_inventory(inCurrentInventory: Dictionary);
 
 @warning_ignore("unused_signal")
-signal sell(inCraftItemId: int);
+signal shop_make_order(inAlienNode: AlienNode);
+@warning_ignore("unused_signal")
+signal shop_sell(inCraftItem: CraftItem);
+@warning_ignore("unused_signal")
+signal shop_decline();
+@warning_ignore("unused_signal")
+signal shop_leave_angry();
+
+@warning_ignore("unused_signal")
+signal shop_queue_empty();

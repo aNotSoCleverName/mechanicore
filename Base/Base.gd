@@ -38,6 +38,11 @@ func _on_tree_entered() -> void:
 		func (inCraftItem: CraftItem):
 			Base._addOres(inCraftItem.materials);
 	);
+	
+	SignalBus_Base.shop_sell.connect(
+		func (inCraftItem: CraftItem):
+			Base.craftItems[inCraftItem] -= 1;
+	)
 
 func _ready() -> void:
 	# Initiate ores

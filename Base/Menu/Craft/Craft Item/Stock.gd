@@ -11,3 +11,8 @@ func _on_tree_entered():
 			if (inCraftItem == craftItemNode.craftItem):
 				self.text = str(Base.craftItems[inCraftItem]);
 	)
+	
+	SignalBus_Base.shop_sell.connect(
+		func (inCraftItem: CraftItem):
+			self.text = str(Base.craftItems[inCraftItem]);
+	)

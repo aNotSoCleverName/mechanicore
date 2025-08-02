@@ -1,0 +1,148 @@
+[gd_scene load_steps=11 format=3 uid="uid://dxewdcl3yp1eo"]
+
+[ext_resource type="Script" path="res://Base/Shop/Order.gd" id="1_10qyi"]
+[ext_resource type="Texture2D" uid="uid://dsdwvywljesxa" path="res://Base/Shop/Alien/Sprite/Bubble.png" id="2_o4xe1"]
+[ext_resource type="Texture2D" uid="uid://ctavnwfpqdo87" path="res://Base/Time.png" id="3_eoni4"]
+[ext_resource type="Script" path="res://Base/Shop/Alien/Time Bar.gd" id="4_ssiqo"]
+[ext_resource type="Script" path="res://Base/Shop/Alien/Sell Button.gd" id="5_ttcwc"]
+[ext_resource type="Script" path="res://Base/Shop/Alien/Decline Button.gd" id="6_1r3aw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6oc1c"]
+bg_color = Color(0.581, 0.7, 0.590917, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.728587, 0.913859, 0, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ybpy"]
+bg_color = Color(9.3855e-07, 0.700584, 0.0586491, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.729412, 0.913725, 0, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2yfyq"]
+bg_color = Color(0.933393, 0, 0.213245, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.380468, 0.287108, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n7dxn"]
+bg_color = Color(0.933333, 0, 0.211765, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 0.380392, 0.286275, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Order" type="HBoxContainer"]
+offset_right = 307.0
+offset_bottom = 160.0
+theme_override_constants/separation = 0
+script = ExtResource("1_10qyi")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Bubble" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_o4xe1")
+
+[node name="Item" type="TextureRect" parent="Bubble"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -9.73
+offset_bottom = -9.73
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="Wait Time" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Wait Time"]
+layout_mode = 2
+texture = ExtResource("3_eoni4")
+expand_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/Wait Time"]
+custom_minimum_size = Vector2(100, 27)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+value = 1.0
+show_percentage = false
+script = ExtResource("4_ssiqo")
+
+[node name="Label" type="Label" parent="VBoxContainer/Wait Time/ProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "0.00s"
+
+[node name="Tick Timer" type="Timer" parent="VBoxContainer/Wait Time/ProgressBar"]
+wait_time = 0.1
+
+[node name="Sell Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/disabled = SubResource("StyleBoxFlat_6oc1c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6ybpy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2yfyq")
+text = "Sell"
+script = ExtResource("5_ttcwc")
+
+[node name="Decline Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_n7dxn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2yfyq")
+text = "Decline"
+script = ExtResource("6_1r3aw")
+
+[connection signal="pressed" from="VBoxContainer/Sell Button" to="VBoxContainer/Sell Button" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Decline Button" to="VBoxContainer/Decline Button" method="_on_pressed"]
