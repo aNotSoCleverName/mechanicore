@@ -8,10 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://ctavnwfpqdo87" path="res://Base/Time.png" id="4_cfie2"]
 [ext_resource type="PackedScene" uid="uid://ccirx7362q0ar" path="res://Base/Menu/Craft/Craft Item/Craft Item Material.tscn" id="4_pkhi4"]
 [ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Simple Label.tres" id="4_qra5k"]
-[ext_resource type="Texture2D" uid="uid://kpyugmno047" path="res://Endless Run/Ores/Ore1.png" id="5_3meuh"]
+[ext_resource type="Texture2D" uid="uid://kpyugmno047" path="res://Endless Run/Ores/Ore3.png" id="5_3meuh"]
 [ext_resource type="Texture2D" uid="uid://cjhadim1ft6sj" path="res://Endless Run/Ores/Ore2.png" id="6_d6pru"]
 [ext_resource type="Script" path="res://Base/Menu/Craft/Craft Item/Stock.gd" id="6_mhem6"]
-[ext_resource type="Texture2D" uid="uid://bripmml1nnira" path="res://Endless Run/Ores/Ore3.png" id="7_flb3l"]
+[ext_resource type="Texture2D" uid="uid://bripmml1nnira" path="res://Endless Run/Ores/Ore1.png" id="7_flb3l"]
 [ext_resource type="Texture2D" uid="uid://by6jv4i7kl48d" path="res://Base/Menu/Craft/Craft Item/Craft.png" id="8_kdpct"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ocgbb"]

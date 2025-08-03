@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Base/Craft Item.gd" id="2_36thw"]
 [ext_resource type="Script" path="res://Base/Menu/Craft/Queue.gd" id="2_muuji"]
 [ext_resource type="Resource" uid="uid://do7o06fuk17rd" path="res://Base/Menu/Craft/Craft Item/Resources/Test.tres" id="4_1pni4"]
-[ext_resource type="Texture2D" uid="uid://bripmml1nnira" path="res://Endless Run/Ores/Ore3.png" id="5_ju8iy"]
+[ext_resource type="Texture2D" uid="uid://bripmml1nnira" path="res://Endless Run/Ores/Ore1.png" id="5_ju8iy"]
 
 [sub_resource type="Resource" id="Resource_hecib"]
 script = ExtResource("2_36thw")
