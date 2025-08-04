@@ -1,14 +1,17 @@
 extends HBoxContainer
 
-const DEFAULT_REPUTATION = 20;
+const DEFAULT_REPUTATION = 2;
 
 var _reputation: int:
 	get:
 		return _reputation;
 	set(inValue):
-		_reputation = inValue;
+		_reputation = clampi(inValue, 0, 100);
 		$ProgressBar.value = _reputation;
 		$ProgressBar/Label.text = str(_reputation);
+		
+		if (_reputation <= 0):
+			SignalBus_Base.game_over.emit();
 
 func _on_tree_entered():
 	SignalBus_Base.shop_sell.connect(

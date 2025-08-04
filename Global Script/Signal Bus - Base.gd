@@ -23,3 +23,6 @@ signal shop_leave_angry();
 
 @warning_ignore("unused_signal")
 signal shop_queue_empty();
+
+@warning_ignore("unused_signal")
+signal game_over();

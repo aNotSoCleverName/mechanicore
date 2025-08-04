@@ -3,8 +3,8 @@ class_name ShopQueue;
 
 const MAX_QUEUE: int = 1;
 
-static var _alienPool: Array[AlienNode] = [];
-static var alienQueues: Array[AlienNode] = [];
+var _alienPool: Array[AlienNode] = [];
+var alienQueues: Array[AlienNode] = [];
 
 @onready var _spawnTimer: Timer = $Timer;
 
@@ -13,13 +13,13 @@ func _ResetSpawnTimer() -> void:
 	self._spawnTimer.wait_time = 1;
 
 func _ExitQueue() -> void:
-	ShopQueue.alienQueues.remove_at(0);
+	self.alienQueues.remove_at(0);
 	
 	var firstInQueue: AlienNode = self.get_child(1); # Index 0 is timer
 	self.remove_child(firstInQueue);
 	self._alienPool.append(firstInQueue);
 	
-	if (ShopQueue.alienQueues.size() == 0):
+	if (self.alienQueues.size() == 0):
 		SignalBus_Base.shop_queue_empty.emit();
 
 func _ready() -> void:
@@ -31,7 +31,7 @@ func _ready() -> void:
 			var alienNode: AlienNode = self._alienPool.pop_back();
 			if (alienNode == null):
 				alienNode = preload("res://Base/Shop/Alien/Alien Node.tscn").instantiate();
-			ShopQueue.alienQueues.append(alienNode);
+			self.alienQueues.append(alienNode);
 			self.add_child(alienNode);
 	)
 	self._spawnTimer.start();
@@ -50,15 +50,18 @@ func _ready() -> void:
 	)
 
 func _on_child_entered_tree(_node):
-	if (ShopQueue.alienQueues.size() >= ShopQueue.MAX_QUEUE):
+	if (self.alienQueues.size() >= ShopQueue.MAX_QUEUE):
 		self._spawnTimer.stop();
 
 func _on_child_exiting_tree(_node):
 	# Only start timer again if queue was full because it means the timer was stopped
-	if (ShopQueue.alienQueues.size() + 1 >= ShopQueue.MAX_QUEUE):
+	if (self.alienQueues.size() + 1 >= ShopQueue.MAX_QUEUE):
 		self._ResetSpawnTimer();
 		self._spawnTimer.start();
 
 func _on_child_order_changed():
-	if (ShopQueue.alienQueues.size() > 0):
-		SignalBus_Base.shop_make_order.emit(ShopQueue.alienQueues[0]);
+	if (!self.is_inside_tree()):
+		return;
+	
+	if (self.alienQueues.size() > 0):
+		SignalBus_Base.shop_make_order.emit(self.alienQueues[0]);

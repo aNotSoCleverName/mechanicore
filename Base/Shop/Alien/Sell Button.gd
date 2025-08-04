@@ -1,5 +1,6 @@
 extends Button
 
+@onready var _base: Base = self.find_parent("Base");
 var _alienNode: AlienNode;
 
 func _Disable(inIsDisabled: bool) -> void:
@@ -16,7 +17,7 @@ func _ready() -> void:
 		func (inAlienNode: AlienNode):
 			self._alienNode = inAlienNode;
 			
-			self._Disable(Base.craftItems[self._alienNode.orderedItem] == 0);
+			self._Disable(self._base.craftItems[self._alienNode.orderedItem] == 0);
 			
 	)
 	

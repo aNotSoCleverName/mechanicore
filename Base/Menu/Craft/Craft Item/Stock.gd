@@ -1,5 +1,7 @@
 extends Label
 
+var _base: Base = self.find_parent("Base");
+
 func _on_tree_entered():
 	SignalBus_Base.craft_finished.connect(
 		func (inCraftItem: CraftItem):
@@ -9,10 +11,10 @@ func _on_tree_entered():
 			var craftItemNode: CraftItemNode = ancestorNode;
 			
 			if (inCraftItem == craftItemNode.craftItem):
-				self.text = str(Base.craftItems[inCraftItem]);
+				self.text = str(self._base.craftItems[inCraftItem]);
 	)
 	
 	SignalBus_Base.shop_sell.connect(
 		func (inCraftItem: CraftItem):
-			self.text = str(Base.craftItems[inCraftItem]);
+			self.text = str(self._base.craftItems[inCraftItem]);
 	)

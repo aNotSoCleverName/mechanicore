@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4jew4c3jev84"]
+
+[ext_resource type="Script" path="res://Game Over.gd" id="1_tm8js"]
+[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Simple Label.tres" id="2_1kh76"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8hnsg"]
+font_size = 136
+font_color = Color(1, 0, 0.147364, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktxum"]
+bg_color = Color(0, 0.495304, 0.765625, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="GameOver" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tm8js")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_8hnsg")
+horizontal_alignment = 1
+
+[node name="Play Again Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(112, 42)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ktxum")
+
+[node name="Label" type="Label" parent="VBoxContainer/Play Again Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play Again"
+label_settings = ExtResource("2_1kh76")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Play Again Button" to="." method="_on_play_again_button_pressed"]
