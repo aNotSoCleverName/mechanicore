@@ -17,6 +17,12 @@ signal drill_change_dock(inIsDocked: bool, inDrill: Drill);
 signal drill_explode(inLostInventory: Dictionary);
 
 @warning_ignore("unused_signal")
+signal update_drill_armor(inDrill: Drill);
+
+@warning_ignore("unused_signal")
 signal ore_place(inOrePlaceHolder: OrePlaceholder);
 @warning_ignore("unused_signal")
 signal ore_pick(inOre: Ore);
+
+@warning_ignore("unused_signal")
+signal bomb_explode();

@@ -1,6 +1,8 @@
 extends PanelContainer
 class_name DrillUpgradeNode
 
+static var _drill: Drill;
+
 @export var drillUpgrade: DrillUpgrade;
 
 @onready var nameLabel: Label = $MarginContainer/HBoxContainer/VBoxContainer/Name;
@@ -28,9 +30,16 @@ func _ready():
 		"drillUpgrade must not be null"
 	);
 	assert(
+		self.drillUpgrade.statChange.size() == self.drillUpgrade.maxLevel,
+		"drillUpgrade.statChange size must be equal to max level"
+	);
+	assert(
 		self.drillUpgrade.prices.size() == self.drillUpgrade.maxLevel,
 		"drillUpgrade.prices size must be equal to max level"
 	);
+	
+	if (DrillUpgradeNode._drill == null):
+		DrillUpgradeNode._drill = get_tree().root.find_child("Drill", true);
 	
 	self.nameLabel.text = self.drillUpgrade.name;
 	self.price = self.drillUpgrade.prices[0];
@@ -44,11 +53,10 @@ func _ready():
 
 func _on_upgrade_button_pressed():
 	var currentPrice: int = self.price;
+	var currentLevel: int = self.drillUpgrade.level;
 	
 	self.drillUpgrade.level += 1;
 	self.levelLabel.text = str(self.drillUpgrade.level);
-	
-	#TODO: Call upgrade function
 	
 	if (self.drillUpgrade.level >= self.drillUpgrade.maxLevel):
 		self.priceLabel.visible = false;
@@ -57,4 +65,4 @@ func _on_upgrade_button_pressed():
 		self.price = self.drillUpgrade.prices[self.drillUpgrade.level];
 		self.priceLabel.text = str(self.price);
 	
-	SignalBus_Base.upgrade_drill.emit(currentPrice);
+	SignalBus_Base.upgrade_drill.emit(currentPrice, self.drillUpgrade.stats, self.drillUpgrade.statChange[currentLevel]);

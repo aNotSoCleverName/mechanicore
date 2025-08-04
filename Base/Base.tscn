@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://Base/Shop/Reputation.gd" id="6_jwxte"]
 [ext_resource type="Texture2D" uid="uid://ues24mh5krya" path="res://Base/Shop/Reputation.png" id="7_6bvwc"]
 [ext_resource type="PackedScene" uid="uid://ca7dxk7h7lqt" path="res://Base/Menu/Drill/Drill Upgrade Node/Drill Upgrade Node.tscn" id="15_1nhla"]
-[ext_resource type="Resource" uid="uid://6vfi5b45quru" path="res://Base/Menu/Drill/Resource/Drill Upgrade.tres" id="16_qfilx"]
+[ext_resource type="Resource" uid="uid://bphf43yah6k8p" path="res://Base/Menu/Drill/Resource/Max Armor.tres" id="16_3qowb"]
 
 [sub_resource type="Resource" id="Resource_hecib"]
 script = ExtResource("2_36thw")
@@ -217,7 +217,7 @@ theme_override_constants/margin_bottom = 5
 
 [node name="DrillUpgrade" parent="Menu/Drill/MarginContainer/ScrollContainer/MarginContainer" instance=ExtResource("15_1nhla")]
 layout_mode = 2
-drillUpgrade = ExtResource("16_qfilx")
+drillUpgrade = ExtResource("16_3qowb")
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_entered" from="Shop/Shop/Top Bar/HBoxContainer/Money/Label" to="Shop/Shop/Top Bar/HBoxContainer/Money/Label" method="_on_tree_entered"]

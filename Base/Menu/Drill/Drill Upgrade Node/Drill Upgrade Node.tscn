@@ -108,6 +108,7 @@ alignment = 1
 
 [node name="Upgrade Button" type="TextureButton" parent="MarginContainer/HBoxContainer/Upgrade"]
 layout_mode = 2
+focus_mode = 0
 mouse_default_cursor_shape = 8
 disabled = true
 texture_normal = ExtResource("3_f02wx")
