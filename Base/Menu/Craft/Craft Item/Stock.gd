@@ -1,8 +1,12 @@
 extends Label
 
-var _base: Base = self.find_parent("Base");
+var _base: Base:
+	get:
+		if (_base == null):
+			return self.find_parent("Base");
+		return _base;
 
-func _on_tree_entered():
+func _ready():
 	SignalBus_Base.craft_finished.connect(
 		func (inCraftItem: CraftItem):
 			var ancestorNode: Node = self.get_parent();
