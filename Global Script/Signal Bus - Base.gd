@@ -9,6 +9,8 @@ signal craft_cancel(inCraftItem: CraftItem);
 
 @warning_ignore("unused_signal")
 signal update_ore_inventory(inCurrentInventory: Dictionary);
+@warning_ignore("unused_signal")
+signal update_inventory_money(inMoney: int);
 
 @warning_ignore("unused_signal")
 signal shop_make_order(inAlienNode: AlienNode);
