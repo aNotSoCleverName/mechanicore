@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Endless Run/Bomb/Bomb Manager.gd" id="4_8v42n"]
 [ext_resource type="PackedScene" uid="uid://6hg1syki30xs" path="res://Endless Run/Drill/Drill.tscn" id="5_1yks2"]
 [ext_resource type="Script" path="res://Endless Run/Drill/Camera.gd" id="6_d74gh"]
-[ext_resource type="Script" path="res://Drill Camera Timer.gd" id="7_giktt"]
+[ext_resource type="Script" path="res://Endless Run/Drill/Drill Camera Timer.gd" id="7_giktt"]
 [ext_resource type="PackedScene" uid="uid://dllakqtlni1xh" path="res://Endless Run/Top Bar/Top Bar.tscn" id="8_d308r"]
 [ext_resource type="PackedScene" uid="uid://dx4xl0ya4o52y" path="res://Base/Base.tscn" id="9_0jxyd"]
 
