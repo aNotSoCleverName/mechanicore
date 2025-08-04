@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dx4xl0ya4o52y"]
+[gd_scene load_steps=18 format=3 uid="uid://dx4xl0ya4o52y"]
 
 [ext_resource type="Script" path="res://Base/Base.gd" id="1_4gdcv"]
 [ext_resource type="PackedScene" uid="uid://dq4qkupby85t" path="res://Base/Menu/Craft/Craft Item/Craft Item Node.tscn" id="1_6eggy"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://bripmml1nnira" path="res://Endless Run/Ores/Ore3.png" id="5_ju8iy"]
 [ext_resource type="Script" path="res://Base/Shop/Reputation.gd" id="6_jwxte"]
 [ext_resource type="Texture2D" uid="uid://ues24mh5krya" path="res://Base/Shop/Reputation.png" id="7_6bvwc"]
+[ext_resource type="PackedScene" uid="uid://ca7dxk7h7lqt" path="res://Base/Menu/Drill/Drill Upgrade Node/Drill Upgrade Node.tscn" id="15_1nhla"]
+[ext_resource type="Resource" uid="uid://bphf43yah6k8p" path="res://Base/Menu/Drill/Resource/Max Armor.tres" id="16_3qowb"]
 
 [sub_resource type="Resource" id="Resource_hecib"]
 script = ExtResource("2_36thw")
@@ -127,9 +129,11 @@ script = ExtResource("3_qc2vo")
 [node name="Menu" type="TabContainer" parent="."]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 0
+current_tab = 1
+tab_focus_mode = 0
 
 [node name="Craft" type="VBoxContainer" parent="Menu"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -189,9 +193,31 @@ layout_mode = 2
 craftItem = SubResource("Resource_hecib")
 
 [node name="Drill" type="VBoxContainer" parent="Menu"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/Drill"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Menu/Drill/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/Drill/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="DrillUpgrade" parent="Menu/Drill/MarginContainer/ScrollContainer/MarginContainer" instance=ExtResource("15_1nhla")]
+layout_mode = 2
+drillUpgrade = ExtResource("16_3qowb")
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_entered" from="Shop/Shop/Top Bar/HBoxContainer/Money/Label" to="Shop/Shop/Top Bar/HBoxContainer/Money/Label" method="_on_tree_entered"]

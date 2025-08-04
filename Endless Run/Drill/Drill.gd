@@ -4,6 +4,14 @@ class_name Drill
 const START_SPEED: float = 500;
 const MAX_MIN_SPEED: float = 1200;	# Maximum value of min speed. As drill gets deeper, min speed increases, but it will never be higher than this value.
 
+@onready var upgradeComponentContainer: UpgradeComponentContainer = $"Upgrade Component Container";
+var armor: int = 0:
+	get:
+		return armor;
+	set(inValue):
+		armor = inValue;
+		SignalBus_EndlessRun.update_drill_armor.emit(self);
+
 #region Properties
 var _isDocked: bool = true:
 	get:
@@ -20,6 +28,7 @@ var _isDocked: bool = true:
 		
 		SignalBus_EndlessRun.drill_change_dock.emit(_isDocked, self);
 		if (_isDocked):
+			self.armor = self.upgradeComponentContainer._stats[UpgradeComponentContainer.EStatsKeys.maxArmor];
 			self._speed = 0;
 			self._directionDeg = SignalBus_EndlessRun.EDrillDirection.DOCKED;
 			$AnimatedSprite2D.stop();
@@ -104,6 +113,11 @@ func _on_tree_entered() -> void:
 	SignalBus_EndlessRun.ore_pick.connect(
 		func (inOre: Ore):
 			self.inventory[inOre.oreType] += 1;
+	)
+	
+	SignalBus_EndlessRun.bomb_explode.connect(
+		func ():
+			self.armor -= 1;
 	)
 
 func _physics_process(_delta) -> void:
