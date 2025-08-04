@@ -7,8 +7,9 @@ class_name DrillUpgradeNode
 
 @onready var levelLabel: Label = $MarginContainer/HBoxContainer/VBoxContainer/Details/Level/Label;
 
-@onready var priceLabel: Label = $MarginContainer/HBoxContainer/VBoxContainer/Details/Price/Label;
+@onready var priceLabel: Label = $MarginContainer/HBoxContainer/VBoxContainer/Details/Price/Price;
 var price: int = 0;
+@onready var moneyLabel: Label = $MarginContainer/HBoxContainer/VBoxContainer/Details/Price/Money;
 
 @onready var upgradeButton: TextureButton = $"MarginContainer/HBoxContainer/Upgrade/Upgrade Button";
 
@@ -38,6 +39,7 @@ func _ready():
 	SignalBus_Base.update_inventory_money.connect(
 		func (inMoney: int):
 			self._UpdateAffordablityUi(inMoney >= self.price);
+			self.moneyLabel.text = str(inMoney);
 	)
 
 func _on_upgrade_button_pressed():
