@@ -63,7 +63,7 @@ var _directionDeg: SignalBus_EndlessRun.EDrillDirection = SignalBus_EndlessRun.E
 		if (_directionDeg == inValue):
 			return;
 		
-		if ($"Lock Dir Change Timer"._isLockDirChange):
+		if ($"Lock Dir Change Timer"._isLockDirChange && !self._isDocked):
 			return;
 		$"Lock Dir Change Timer".StartTimer();
 		
