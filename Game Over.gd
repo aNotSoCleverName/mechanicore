@@ -4,11 +4,16 @@ var targetY: Array[int] = [0, -180, 0, -90, 0];
 var changeY: Array[int] = [30, 20, 20, 10, 10]
 var stageIndex: int = 0;
 
+var gameNode: Node;
+
 func _ready():
 	self.position.y = -self.size.y;
+	self.gameNode = self.get_parent().get_child(0);
 
 func _process(_delta: float):
 	if (self.stageIndex >= self.targetY.size()):
+		if (is_instance_valid(self.gameNode)):
+			self.gameNode.queue_free();
 		return;
 	
 	if (self.position.y == self.targetY[self.stageIndex]):
@@ -19,10 +24,4 @@ func _process(_delta: float):
 		self.position.y = max(self.position.y - self.changeY[self.stageIndex], self.targetY[self.stageIndex]);
 
 func _on_play_again_button_pressed():
-	var main: Control = self.get_parent();
-	main.get_child(0).queue_free();
-	
-	var newGame: HBoxContainer = preload("res://Game.tscn").instantiate();
-	main.add_child(newGame);
-	
-	self.queue_free();
+	get_tree().reload_current_scene();
