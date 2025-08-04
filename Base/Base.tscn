@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dx4xl0ya4o52y"]
+[gd_scene load_steps=16 format=3 uid="uid://dx4xl0ya4o52y"]
 
 [ext_resource type="Script" path="res://Base/Base.gd" id="1_4gdcv"]
 [ext_resource type="PackedScene" uid="uid://dq4qkupby85t" path="res://Base/Menu/Craft/Craft Item/Craft Item Node.tscn" id="1_6eggy"]
@@ -12,6 +12,8 @@
 [ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Simple Label.tres" id="4_g8vcw"]
 [ext_resource type="Script" path="res://Base/Shop/Money.gd" id="4_m4g0m"]
 [ext_resource type="Texture2D" uid="uid://bripmml1nnira" path="res://Endless Run/Ores/Ore3.png" id="5_ju8iy"]
+[ext_resource type="Script" path="res://Base/Shop/Reputation.gd" id="6_jwxte"]
+[ext_resource type="Texture2D" uid="uid://ues24mh5krya" path="res://Base/Shop/Reputation.png" id="7_6bvwc"]
 
 [sub_resource type="Resource" id="Resource_hecib"]
 script = ExtResource("2_36thw")
@@ -64,6 +66,7 @@ layout_mode = 2
 
 [node name="Money" type="HBoxContainer" parent="Shop/Shop/Top Bar/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="Shop/Shop/Top Bar/HBoxContainer/Money"]
 layout_mode = 2
@@ -75,6 +78,39 @@ layout_mode = 2
 text = "0"
 label_settings = ExtResource("4_g8vcw")
 script = ExtResource("4_m4g0m")
+
+[node name="Reputation" type="HBoxContainer" parent="Shop/Shop/Top Bar/HBoxContainer"]
+layout_mode = 2
+script = ExtResource("6_jwxte")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/Shop/Top Bar/HBoxContainer/Reputation"]
+layout_mode = 2
+texture = ExtResource("7_6bvwc")
+expand_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Shop/Shop/Top Bar/HBoxContainer/Reputation"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 1
+step = 1.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Shop/Shop/Top Bar/HBoxContainer/Reputation/ProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "50"
+label_settings = ExtResource("4_g8vcw")
+horizontal_alignment = 1
 
 [node name="Order" parent="Shop/Shop" instance=ExtResource("3_l61gs")]
 offset_left = 58.0
@@ -159,6 +195,7 @@ metadata/_tab_index = 1
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_entered" from="Shop/Shop/Top Bar/HBoxContainer/Money/Label" to="Shop/Shop/Top Bar/HBoxContainer/Money/Label" method="_on_tree_entered"]
+[connection signal="tree_entered" from="Shop/Shop/Top Bar/HBoxContainer/Reputation" to="Shop/Shop/Top Bar/HBoxContainer/Reputation" method="_on_tree_entered"]
 [connection signal="child_entered_tree" from="Shop/Shop/Queue" to="Shop/Shop/Queue" method="_on_child_entered_tree"]
 [connection signal="child_exiting_tree" from="Shop/Shop/Queue" to="Shop/Shop/Queue" method="_on_child_exiting_tree"]
 [connection signal="child_order_changed" from="Shop/Shop/Queue" to="Shop/Shop/Queue" method="_on_child_order_changed"]
