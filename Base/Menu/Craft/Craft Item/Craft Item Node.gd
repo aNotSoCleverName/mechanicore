@@ -9,7 +9,7 @@ func _ready() -> void:
 	$MarginContainer/HBoxContainer/VBoxContainer/Icon.texture = self.craftItem.image;
 	
 	$MarginContainer/HBoxContainer/Details/Price/Label.text = str(self.craftItem.price);
-	$MarginContainer/HBoxContainer/Details/Time/Label.text = str(self.craftItem.timeSec).pad_decimals(2) + "s"
+	$MarginContainer/HBoxContainer/Details/Time/Label.text = str(self.craftItem.timeSec).pad_decimals(1) + "s"
 	
 	var materialsNode: VBoxContainer = $MarginContainer/HBoxContainer/Details/Materials;
 	
