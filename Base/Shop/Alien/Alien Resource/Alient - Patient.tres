@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Alien" load_steps=3 format=3 uid="uid://b6mpwi2u8v3kb"]
+
+[ext_resource type="Texture2D" uid="uid://ba16is6f3e6ua" path="res://Base/Shop/Alien/Sprite/Body/Body1.png" id="1_8kaas"]
+[ext_resource type="Script" path="res://Base/Shop/Alien/Alien.gd" id="1_dcutq"]
+
+[resource]
+script = ExtResource("1_dcutq")
+bodySprite = ExtResource("1_8kaas")
+waitTimeSec = 10.0

@@ -1,72 +1,23 @@
-[gd_scene load_steps=10 format=3 uid="uid://kf4x8f2aj1c7"]
+[gd_scene load_steps=3 format=3 uid="uid://kf4x8f2aj1c7"]
 
-[ext_resource type="PackedScene" uid="uid://qh6srgn7krbr" path="res://Endless Run/Background/Parallax Background.tscn" id="1_tsuhl"]
-[ext_resource type="PackedScene" uid="uid://dllakqtlni1xh" path="res://Endless Run/Top Bar/Top Bar.tscn" id="3_3cqpp"]
-[ext_resource type="Script" path="res://Endless Run/Ores/Ore Manager.gd" id="3_7444x"]
-[ext_resource type="PackedScene" uid="uid://c0q46edypqnp0" path="res://Endless Run/Wall.tscn" id="4_0aum5"]
-[ext_resource type="PackedScene" uid="uid://6hg1syki30xs" path="res://Endless Run/Drill/Drill.tscn" id="4_76jrm"]
-[ext_resource type="Script" path="res://Endless Run/Drill/Camera.gd" id="4_nr18h"]
-[ext_resource type="Script" path="res://Endless Run/Bomb/Bomb Manager.gd" id="4_reryw"]
-[ext_resource type="PackedScene" uid="uid://dx4xl0ya4o52y" path="res://Base/Base.tscn" id="5_lg7n8"]
-[ext_resource type="Script" path="res://Drill Camera Timer.gd" id="7_cbo1j"]
+[ext_resource type="Script" path="res://Main.gd" id="1_r3yx1"]
+[ext_resource type="PackedScene" uid="uid://dij236dtc6ebs" path="res://Game.tscn" id="2_dtcds"]
 
-[node name="Main" type="HBoxContainer"]
-offset_right = 1284.0
-offset_bottom = 720.0
-theme_override_constants/separation = 0
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r3yx1")
 
-[node name="Endless Run Container" type="SubViewportContainer" parent="."]
-layout_mode = 2
+[node name="Game" parent="." instance=ExtResource("2_dtcds")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
-[node name="Endless Run" type="SubViewport" parent="Endless Run Container"]
-handle_input_locally = false
-size = Vector2i(896, 720)
-render_target_update_mode = 4
-
-[node name="ParallaxBackground" parent="Endless Run Container/Endless Run" instance=ExtResource("1_tsuhl")]
-
-[node name="Walls" type="Node2D" parent="Endless Run Container/Endless Run"]
-
-[node name="Left" parent="Endless Run Container/Endless Run/Walls" instance=ExtResource("4_0aum5")]
-position = Vector2(-25, 0)
-bounceDir = 70
-
-[node name="Right" parent="Endless Run Container/Endless Run/Walls" instance=ExtResource("4_0aum5")]
-position = Vector2(921, 0)
-bounceDir = 110
-
-[node name="Ore Manager" type="Node2D" parent="Endless Run Container/Endless Run"]
-script = ExtResource("3_7444x")
-
-[node name="Bomb Manager" type="Node2D" parent="Endless Run Container/Endless Run"]
-script = ExtResource("4_reryw")
-
-[node name="Drill" parent="Endless Run Container/Endless Run" instance=ExtResource("4_76jrm")]
-position = Vector2(448, 256)
-rotation = 1.5708
-
-[node name="Camera2D" type="Camera2D" parent="Endless Run Container/Endless Run"]
-offset = Vector2(0, 104)
-script = ExtResource("4_nr18h")
-
-[node name="Timer" type="Timer" parent="Endless Run Container/Endless Run/Camera2D"]
-wait_time = 0.05
-script = ExtResource("7_cbo1j")
-
-[node name="UI" type="CanvasLayer" parent="Endless Run Container/Endless Run"]
-
-[node name="Top Bar" parent="Endless Run Container/Endless Run/UI" instance=ExtResource("3_3cqpp")]
-
-[node name="Base Container" type="SubViewportContainer" parent="."]
-layout_mode = 2
-
-[node name="Base" type="SubViewport" parent="Base Container"]
-handle_input_locally = false
-size = Vector2i(384, 720)
-render_target_update_mode = 4
-
-[node name="Base" parent="Base Container/Base" instance=ExtResource("5_lg7n8")]
-
-[connection signal="tree_entered" from="Endless Run Container/Endless Run/Ore Manager" to="Endless Run Container/Endless Run/Ore Manager" method="_on_tree_entered"]
-[connection signal="tree_entered" from="Endless Run Container/Endless Run/Bomb Manager" to="Endless Run Container/Endless Run/Bomb Manager" method="_on_tree_entered"]
-[connection signal="tree_entered" from="Endless Run Container/Endless Run/Camera2D/Timer" to="Endless Run Container/Endless Run/Camera2D/Timer" method="_on_tree_entered"]
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

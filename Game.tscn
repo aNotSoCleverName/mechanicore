@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://dij236dtc6ebs"]
+
+[ext_resource type="PackedScene" uid="uid://qh6srgn7krbr" path="res://Endless Run/Background/Parallax Background.tscn" id="1_py67n"]
+[ext_resource type="PackedScene" uid="uid://c0q46edypqnp0" path="res://Endless Run/Wall.tscn" id="2_3lbd5"]
+[ext_resource type="Script" path="res://Endless Run/Ores/Ore Manager.gd" id="3_q1us5"]
+[ext_resource type="Script" path="res://Endless Run/Bomb/Bomb Manager.gd" id="4_8v42n"]
+[ext_resource type="PackedScene" uid="uid://6hg1syki30xs" path="res://Endless Run/Drill/Drill.tscn" id="5_1yks2"]
+[ext_resource type="Script" path="res://Endless Run/Drill/Camera.gd" id="6_d74gh"]
+[ext_resource type="Script" path="res://Drill Camera Timer.gd" id="7_giktt"]
+[ext_resource type="PackedScene" uid="uid://dllakqtlni1xh" path="res://Endless Run/Top Bar/Top Bar.tscn" id="8_d308r"]
+[ext_resource type="PackedScene" uid="uid://dx4xl0ya4o52y" path="res://Base/Base.tscn" id="9_0jxyd"]
+
+[node name="Game" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Endless Run Container" type="SubViewportContainer" parent="."]
+layout_mode = 2
+
+[node name="Endless Run" type="SubViewport" parent="Endless Run Container"]
+handle_input_locally = false
+size = Vector2i(896, 720)
+render_target_update_mode = 4
+
+[node name="ParallaxBackground" parent="Endless Run Container/Endless Run" instance=ExtResource("1_py67n")]
+
+[node name="Walls" type="Node2D" parent="Endless Run Container/Endless Run"]
+
+[node name="Left" parent="Endless Run Container/Endless Run/Walls" instance=ExtResource("2_3lbd5")]
+position = Vector2(-25, 0)
+bounceDir = 70
+
+[node name="Right" parent="Endless Run Container/Endless Run/Walls" instance=ExtResource("2_3lbd5")]
+position = Vector2(921, 0)
+bounceDir = 110
+
+[node name="Ore Manager" type="Node2D" parent="Endless Run Container/Endless Run"]
+script = ExtResource("3_q1us5")
+
+[node name="Bomb Manager" type="Node2D" parent="Endless Run Container/Endless Run"]
+script = ExtResource("4_8v42n")
+
+[node name="Drill" parent="Endless Run Container/Endless Run" instance=ExtResource("5_1yks2")]
+position = Vector2(448, 256)
+rotation = 1.5708
+
+[node name="Camera2D" type="Camera2D" parent="Endless Run Container/Endless Run"]
+offset = Vector2(0, 104)
+script = ExtResource("6_d74gh")
+
+[node name="Timer" type="Timer" parent="Endless Run Container/Endless Run/Camera2D"]
+wait_time = 0.05
+script = ExtResource("7_giktt")
+
+[node name="UI" type="CanvasLayer" parent="Endless Run Container/Endless Run"]
+
+[node name="Top Bar" parent="Endless Run Container/Endless Run/UI" instance=ExtResource("8_d308r")]
+
+[node name="Base Container" type="SubViewportContainer" parent="."]
+layout_mode = 2
+
+[node name="Base" type="SubViewport" parent="Base Container"]
+handle_input_locally = false
+size = Vector2i(384, 720)
+render_target_update_mode = 4
+
+[node name="Base" parent="Base Container/Base" instance=ExtResource("9_0jxyd")]
+
+[connection signal="tree_entered" from="Endless Run Container/Endless Run/Ore Manager" to="Endless Run Container/Endless Run/Ore Manager" method="_on_tree_entered"]
+[connection signal="tree_entered" from="Endless Run Container/Endless Run/Bomb Manager" to="Endless Run Container/Endless Run/Bomb Manager" method="_on_tree_entered"]
+[connection signal="tree_entered" from="Endless Run Container/Endless Run/Camera2D/Timer" to="Endless Run Container/Endless Run/Camera2D/Timer" method="_on_tree_entered"]
