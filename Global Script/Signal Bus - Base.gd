@@ -15,6 +15,8 @@ signal update_inventory_money(inMoney: int);
 @warning_ignore("unused_signal")
 signal shop_make_order(inAlienNode: AlienNode);
 @warning_ignore("unused_signal")
+signal shop_customer_leave();
+@warning_ignore("unused_signal")
 signal shop_sell(inCraftItem: CraftItem);
 @warning_ignore("unused_signal")
 signal shop_decline();

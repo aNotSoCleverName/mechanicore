@@ -29,3 +29,4 @@ func _ready() -> void:
 
 func _on_pressed():
 	SignalBus_Base.shop_sell.emit(self._alienNode.orderedItem);
+	SignalBus_Base.shop_customer_leave.emit();
