@@ -3,7 +3,7 @@ class_name CraftItemNode;
 
 @export var craftItem: CraftItem;
 
-@onready var _craftButton: Button = $MarginContainer/HBoxContainer/Craft/Button;
+@onready var _craftButton: TextureButton = $MarginContainer/HBoxContainer/Craft/Button;
 
 func _ready() -> void:
 	$MarginContainer/HBoxContainer/VBoxContainer/Icon.texture = self.craftItem.image;

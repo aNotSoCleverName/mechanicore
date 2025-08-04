@@ -1,10 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://brycenawfpw5w"]
+[gd_scene load_steps=7 format=3 uid="uid://brycenawfpw5w"]
 
 [ext_resource type="Script" path="res://Endless Run/Bomb/Bomb.gd" id="1_jriji"]
 [ext_resource type="Texture2D" uid="uid://bhjnwgg33dlhm" path="res://Endless Run/Bomb/Bomb.png" id="2_5koad"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wibqe"]
 size = Vector2(64, 64)
+
+[sub_resource type="Animation" id="Animation_s7tkc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jkv7f"]
+resource_name = "spinning"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -3.14159, -6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jpoo4"]
+_data = {
+"RESET": SubResource("Animation_s7tkc"),
+"spinning": SubResource("Animation_jkv7f")
+}
 
 [node name="Bomb" type="Area2D"]
 script = ExtResource("1_jriji")
@@ -14,5 +52,11 @@ texture = ExtResource("2_5koad")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wibqe")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jpoo4")
+}
+autoplay = "spinning"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

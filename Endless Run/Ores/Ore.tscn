@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c4u3036tg1b76"]
 
 [ext_resource type="Script" path="res://Endless Run/Ores/Ore.gd" id="1_61034"]
-[ext_resource type="Texture2D" uid="uid://kpyugmno047" path="res://Endless Run/Ores/Ore3.png" id="2_c1hm6"]
+[ext_resource type="Texture2D" uid="uid://kpyugmno047" path="res://Endless Run/Ores/Ore1.png" id="2_c1hm6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4rosm"]
 size = Vector2(64, 64)
