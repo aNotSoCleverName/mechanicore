@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DrillUpgrade" load_steps=3 format=3 uid="uid://6vfi5b45quru"]
+
+[ext_resource type="Texture2D" uid="uid://ijln68w0typ1" path="res://Base/Menu/Drill/Drill Upgrade Node/Upgrade - Placeholder.png" id="1_nloc6"]
+[ext_resource type="Script" path="res://Base/Menu/Drill/Drill Upgrade.gd" id="2_44140"]
+
+[resource]
+script = ExtResource("2_44140")
+icon = ExtResource("1_nloc6")
+name = "Name"
+maxLevel = 3
+prices = Array[int]([600, 200, 300])

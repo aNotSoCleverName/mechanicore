@@ -15,7 +15,12 @@ func _takeOres(inOres: Dictionary):
 # Key = craftItem, value = amount
 var craftItems: Dictionary = { };
 
-var money: int = 0;
+var money: int = 0:
+	get:
+		return money;
+	set(inValue):
+		money = inValue;
+		SignalBus_Base.update_inventory_money.emit(money);
 
 func _on_tree_entered() -> void:
 	SignalBus_EndlessRun.drill_change_dock.connect(
@@ -45,8 +50,11 @@ func _on_tree_entered() -> void:
 		func (inCraftItem: CraftItem):
 			self.craftItems[inCraftItem] -= 1;
 			self.money += inCraftItem.price;
-			
-			SignalBus_Base.update_inventory_money.emit(self.money);
+	)
+	
+	SignalBus_Base.upgrade_drill.connect(
+		func (inPrice: int):
+			self.money -= inPrice;
 	)
 
 func _ready() -> void:
