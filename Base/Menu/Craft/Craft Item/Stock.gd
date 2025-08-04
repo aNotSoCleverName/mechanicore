@@ -3,7 +3,7 @@ extends Label
 var _base: Base:
 	get:
 		if (_base == null):
-			return self.find_parent("Base");
+			_base = self.find_parent("Base");
 		return _base;
 
 func _ready():
