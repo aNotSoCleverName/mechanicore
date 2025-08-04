@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dxewdcl3yp1eo"]
+[gd_scene load_steps=12 format=3 uid="uid://dxewdcl3yp1eo"]
 
 [ext_resource type="Script" path="res://Base/Shop/Order.gd" id="1_10qyi"]
 [ext_resource type="Texture2D" uid="uid://dsdwvywljesxa" path="res://Base/Shop/Alien/Sprite/Bubble.png" id="2_o4xe1"]
@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Base/Shop/Alien/Sell Button.gd" id="5_ttcwc"]
 [ext_resource type="Script" path="res://Base/Shop/Alien/Decline Button.gd" id="6_1r3aw"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6oc1c"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ne34m"]
 bg_color = Color(0.581, 0.7, 0.590917, 1)
 border_width_left = 3
 border_width_top = 3
@@ -20,7 +20,7 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ybpy"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msjuk"]
 bg_color = Color(9.3855e-07, 0.700584, 0.0586491, 1)
 border_width_left = 6
 border_width_top = 6
@@ -33,8 +33,8 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2yfyq"]
-bg_color = Color(0.933393, 0, 0.213245, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icd4k"]
+bg_color = Color(0, 0.701961, 0.0588235, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -53,6 +53,19 @@ border_width_top = 6
 border_width_right = 6
 border_width_bottom = 6
 border_color = Color(1, 0.380392, 0.286275, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2yfyq"]
+bg_color = Color(0.933393, 0, 0.213245, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.380468, 0.287108, 1)
 border_blend = true
 corner_radius_top_left = 4
 corner_radius_top_right = 4
@@ -129,9 +142,9 @@ wait_time = 0.1
 layout_mode = 2
 focus_mode = 0
 mouse_default_cursor_shape = 2
-theme_override_styles/disabled = SubResource("StyleBoxFlat_6oc1c")
-theme_override_styles/hover = SubResource("StyleBoxFlat_6ybpy")
-theme_override_styles/normal = SubResource("StyleBoxFlat_2yfyq")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ne34m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_msjuk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_icd4k")
 text = "Sell"
 script = ExtResource("5_ttcwc")
 
