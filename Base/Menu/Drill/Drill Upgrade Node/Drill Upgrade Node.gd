@@ -5,6 +5,7 @@ static var _drill: Drill;
 
 @export var drillUpgrade: DrillUpgrade;
 
+@onready var icon: TextureRect = $MarginContainer/HBoxContainer/Icon;
 @onready var nameLabel: Label = $MarginContainer/HBoxContainer/VBoxContainer/Name;
 
 @onready var levelContainer: HBoxContainer = $MarginContainer/HBoxContainer/VBoxContainer/Details/Level;
@@ -44,6 +45,7 @@ func _ready():
 	if (DrillUpgradeNode._drill == null):
 		DrillUpgradeNode._drill = get_tree().root.find_child("Drill", true);
 	
+	self.icon.texture = self.drillUpgrade.icon;
 	self.nameLabel.text = self.drillUpgrade.name;
 	self.price = self.drillUpgrade.prices[0];
 	self.priceLabel.text = str(self.price);

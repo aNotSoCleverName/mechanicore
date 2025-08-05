@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://6hg1syki30xs"]
+[gd_scene load_steps=13 format=3 uid="uid://6hg1syki30xs"]
 
 [ext_resource type="Script" path="res://Endless Run/Drill/Drill.gd" id="1_ycj8x"]
 [ext_resource type="Texture2D" uid="uid://b2b8bsgeo78gj" path="res://Endless Run/Drill/Drill[2].png" id="2_4x1dp"]
 [ext_resource type="Texture2D" uid="uid://k8vxo846yxm4" path="res://Endless Run/Drill/Drill[1].png" id="3_gu84l"]
 [ext_resource type="Script" path="res://Endless Run/Drill/Update Drill Pos.gd" id="4_1chj6"]
+[ext_resource type="Script" path="res://Endless Run/Drill/Acceleration Timer.gd" id="4_23soa"]
 [ext_resource type="Script" path="res://Endless Run/Drill/Lock Dir Change.gd" id="4_oym0k"]
 [ext_resource type="Script" path="res://Endless Run/Drill/Upgrade Components.gd" id="6_7oxkb"]
 [ext_resource type="Script" path="res://Endless Run/Drill/Shield.gd" id="6_ak4na"]
@@ -45,6 +46,10 @@ script = ExtResource("4_1chj6")
 [node name="Lock Dir Change Timer" type="Timer" parent="."]
 wait_time = 0.1
 script = ExtResource("4_oym0k")
+
+[node name="Acceleration Timer" type="Timer" parent="."]
+wait_time = 0.05
+script = ExtResource("4_23soa")
 
 [node name="Upgrade Component Container" type="Node2D" parent="."]
 script = ExtResource("6_7oxkb")
