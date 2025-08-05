@@ -1,9 +1,9 @@
 extends PanelContainer
-class_name DrillUpgradeNode
+class_name UpgradeNode
 
 static var _drill: Drill;
 
-@export var drillUpgrade: DrillUpgrade;
+@export var upgrade: Upgrade;
 
 @onready var icon: TextureRect = $MarginContainer/HBoxContainer/Icon;
 @onready var nameLabel: Label = $MarginContainer/HBoxContainer/VBoxContainer/Name;
@@ -30,26 +30,26 @@ func _UpdateAffordablityUi(inCanAfford: bool) -> void:
 
 func _ready():
 	assert(
-		self.drillUpgrade != null,
-		"drillUpgrade must not be null"
+		self.upgrade != null,
+		"upgrade must not be null"
 	);
 	assert(
-		self.drillUpgrade.statChange.size() == self.drillUpgrade.maxLevel,
-		"drillUpgrade.statChange size must be equal to max level"
+		self.upgrade.statChange.size() == self.upgrade.maxLevel,
+		"upgrade.statChange size must be equal to max level"
 	);
 	assert(
-		self.drillUpgrade.prices.size() == self.drillUpgrade.maxLevel,
-		"drillUpgrade.prices size must be equal to max level"
+		self.upgrade.prices.size() == self.upgrade.maxLevel,
+		"upgrade.prices size must be equal to max level"
 	);
 	
-	if (DrillUpgradeNode._drill == null):
-		DrillUpgradeNode._drill = get_tree().root.find_child("Drill", true);
+	if (UpgradeNode._drill == null):
+		UpgradeNode._drill = get_tree().root.find_child("Drill", true);
 	
-	self.icon.texture = self.drillUpgrade.icon;
-	self.nameLabel.text = self.drillUpgrade.name;
-	self.price = self.drillUpgrade.prices[0];
+	self.icon.texture = self.upgrade.icon;
+	self.nameLabel.text = self.upgrade.name;
+	self.price = self.upgrade.prices[0];
 	self.priceLabel.text = str(self.price);
-	self.maxLevelLabel.text = str(self.drillUpgrade.maxLevel);
+	self.maxLevelLabel.text = str(self.upgrade.maxLevel);
 	
 	SignalBus_Base.update_inventory_money.connect(
 		func (inMoney: int):
@@ -59,16 +59,16 @@ func _ready():
 
 func _on_upgrade_button_pressed():
 	var currentPrice: int = self.price;
-	var currentLevel: int = self.drillUpgrade.level;
+	var currentLevel: int = self.upgrade.level;
 	
-	self.drillUpgrade.level += 1;
-	self.levelLabel.text = str(self.drillUpgrade.level);
+	self.upgrade.level += 1;
+	self.levelLabel.text = str(self.upgrade.level);
 	
-	if (self.drillUpgrade.level >= self.drillUpgrade.maxLevel):
+	if (self.upgrade.level >= self.upgrade.maxLevel):
 		self.priceContainer.visible = false;
 		self.upgradeButton.get_parent().visible = false;
 	else:
-		self.price = self.drillUpgrade.prices[self.drillUpgrade.level];
+		self.price = self.upgrade.prices[self.upgrade.level];
 		self.priceLabel.text = str(self.price);
 	
-	SignalBus_Base.upgrade_drill.emit(currentPrice, self.drillUpgrade.stats, self.drillUpgrade.statChange[currentLevel]);
+	SignalBus_Base.upgrade_drill.emit(currentPrice, self.upgrade.stats, self.upgrade.statChange[currentLevel]);

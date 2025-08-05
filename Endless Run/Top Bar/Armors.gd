@@ -9,7 +9,7 @@ func _ready():
 				var shield: TextureRect = self._shieldPool.pop_back();
 				if (shield == null):
 					shield = TextureRect.new();
-					shield.texture = preload("res://Base/Menu/Drill/Drill Upgrade Node/Shield.png");
+					shield.texture = preload("res://Base/Menu/Upgrade/Upgrade Node/Shield.png");
 					shield.expand_mode = TextureRect.EXPAND_FIT_WIDTH;
 				
 				self.add_child(shield);
