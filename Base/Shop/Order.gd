@@ -11,10 +11,6 @@ func _ready() -> void:
 			SignalBus_Base.shop_customer_leave.emit();
 			timer.stop();
 	)
-	SignalBus_Base.shop_customer_leave.connect(
-		func ():
-			timer.stop();
-	)
 	
 	SignalBus_Base.shop_make_order.connect(
 		func (inAlienNode: AlienNode):
