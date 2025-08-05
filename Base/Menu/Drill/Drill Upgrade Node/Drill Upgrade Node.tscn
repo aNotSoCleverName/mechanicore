@@ -61,17 +61,17 @@ layout_mode = 2
 texture = ExtResource("3_f02wx")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Level"]
+[node name="Level" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Level"]
 layout_mode = 2
 text = "0"
 label_settings = ExtResource("4_y1nxe")
 
-[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Level"]
+[node name="Slash" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Level"]
 layout_mode = 2
 text = "/"
 label_settings = ExtResource("4_y1nxe")
 
-[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Level"]
+[node name="Max Level" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Level"]
 layout_mode = 2
 text = "3"
 label_settings = ExtResource("4_y1nxe")
@@ -91,7 +91,7 @@ layout_mode = 2
 text = "500"
 label_settings = ExtResource("4_y1nxe")
 
-[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Price"]
+[node name="Slash" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Price"]
 layout_mode = 2
 text = "/"
 label_settings = ExtResource("4_y1nxe")

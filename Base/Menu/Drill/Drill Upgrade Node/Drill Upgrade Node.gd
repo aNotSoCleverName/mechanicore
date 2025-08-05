@@ -7,11 +7,14 @@ static var _drill: Drill;
 
 @onready var nameLabel: Label = $MarginContainer/HBoxContainer/VBoxContainer/Name;
 
-@onready var levelLabel: Label = $MarginContainer/HBoxContainer/VBoxContainer/Details/Level/Label;
+@onready var levelContainer: HBoxContainer = $MarginContainer/HBoxContainer/VBoxContainer/Details/Level;
+@onready var levelLabel: Label = levelContainer.find_child("Level");
+@onready var maxLevelLabel: Label = levelContainer.find_child("Max Level");
 
-@onready var priceLabel: Label = $MarginContainer/HBoxContainer/VBoxContainer/Details/Price/Price;
+@onready var priceContainer: HBoxContainer = $MarginContainer/HBoxContainer/VBoxContainer/Details/Price;
+@onready var priceLabel: Label = priceContainer.find_child("Price");
+@onready var moneyLabel: Label = priceContainer.find_child("Money");
 var price: int = 0;
-@onready var moneyLabel: Label = $MarginContainer/HBoxContainer/VBoxContainer/Details/Price/Money;
 
 @onready var upgradeButton: TextureButton = $"MarginContainer/HBoxContainer/Upgrade/Upgrade Button";
 
@@ -44,6 +47,7 @@ func _ready():
 	self.nameLabel.text = self.drillUpgrade.name;
 	self.price = self.drillUpgrade.prices[0];
 	self.priceLabel.text = str(self.price);
+	self.maxLevelLabel.text = str(self.drillUpgrade.maxLevel);
 	
 	SignalBus_Base.update_inventory_money.connect(
 		func (inMoney: int):
@@ -59,7 +63,7 @@ func _on_upgrade_button_pressed():
 	self.levelLabel.text = str(self.drillUpgrade.level);
 	
 	if (self.drillUpgrade.level >= self.drillUpgrade.maxLevel):
-		self.priceLabel.visible = false;
+		self.priceContainer.visible = false;
 		self.upgradeButton.get_parent().visible = false;
 	else:
 		self.price = self.drillUpgrade.prices[self.drillUpgrade.level];
