@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://qe41hew0ptdg"]
 
 [ext_resource type="Script" path="res://Endless Run/Top Bar/Ore Inventory.gd" id="1_4i217"]
-[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Simple Label.tres" id="2_4j0hc"]
+[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Label Style - Outline Size16.tres" id="2_4j0hc"]
 [ext_resource type="Script" path="res://Endless Run/Top Bar/Lost Amount.gd" id="3_43b44"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5oesj"]

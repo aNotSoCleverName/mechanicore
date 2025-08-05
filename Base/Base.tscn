@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Base/Shop/Queue.gd" id="3_qc2vo"]
 [ext_resource type="Texture2D" uid="uid://bptr6byvokmow" path="res://Base/Money.png" id="3_vkntu"]
 [ext_resource type="Resource" uid="uid://do7o06fuk17rd" path="res://Base/Menu/Craft/Craft Item/Resources/Test.tres" id="4_1pni4"]
-[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Simple Label.tres" id="4_g8vcw"]
+[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Label Style - Outline Size16.tres" id="4_g8vcw"]
 [ext_resource type="Script" path="res://Base/Shop/Money.gd" id="4_m4g0m"]
 [ext_resource type="Texture2D" uid="uid://bripmml1nnira" path="res://Endless Run/Ores/Ore3.png" id="5_ju8iy"]
 [ext_resource type="Script" path="res://Base/Shop/Reputation.gd" id="6_jwxte"]

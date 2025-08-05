@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bptr6byvokmow" path="res://Base/Money.png" id="3_xw0m5"]
 [ext_resource type="Texture2D" uid="uid://ctavnwfpqdo87" path="res://Base/Time.png" id="4_cfie2"]
 [ext_resource type="PackedScene" uid="uid://ccirx7362q0ar" path="res://Base/Menu/Craft/Craft Item/Craft Item Material.tscn" id="4_pkhi4"]
-[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Simple Label.tres" id="4_qra5k"]
+[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Label Style - Outline Size16.tres" id="4_qra5k"]
 [ext_resource type="Texture2D" uid="uid://kpyugmno047" path="res://Endless Run/Ores/Ore1.png" id="5_3meuh"]
 [ext_resource type="Texture2D" uid="uid://cjhadim1ft6sj" path="res://Endless Run/Ores/Ore2.png" id="6_d6pru"]
 [ext_resource type="Script" path="res://Base/Menu/Craft/Craft Item/Stock.gd" id="6_mhem6"]
