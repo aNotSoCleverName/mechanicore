@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfqm8wfkt5pfi"
-path="res://.godot/imported/Armor.png-19bc6db53b37a4bbc497ce1cc8d9d51a.ctex"
+uid="uid://cng5mjgiplejr"
+path="res://.godot/imported/Shield Mask.png-98e604ea7912bd194bffa76aa943d109.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Base/Menu/Drill/Drill Upgrade Node/Armor.png"
-dest_files=["res://.godot/imported/Armor.png-19bc6db53b37a4bbc497ce1cc8d9d51a.ctex"]
+source_file="res://Endless Run/Drill/Shield Mask.png"
+dest_files=["res://.godot/imported/Shield Mask.png-98e604ea7912bd194bffa76aa943d109.ctex"]
 
 [params]
 

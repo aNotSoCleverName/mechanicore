@@ -53,7 +53,7 @@ func _on_tree_entered() -> void:
 	)
 	
 	SignalBus_Base.upgrade_drill.connect(
-		func (inPrice: int):
+		func (inPrice: int, _inStatsKey: UpgradeComponentContainer.EStatsKeys, _inStatsChange: float):
 			self.money -= inPrice;
 	)
 

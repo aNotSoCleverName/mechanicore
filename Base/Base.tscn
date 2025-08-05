@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://Base/Shop/Reputation.gd" id="6_jwxte"]
 [ext_resource type="Texture2D" uid="uid://ues24mh5krya" path="res://Base/Shop/Reputation.png" id="7_6bvwc"]
 [ext_resource type="PackedScene" uid="uid://ca7dxk7h7lqt" path="res://Base/Menu/Drill/Drill Upgrade Node/Drill Upgrade Node.tscn" id="15_1nhla"]
-[ext_resource type="Resource" uid="uid://bphf43yah6k8p" path="res://Base/Menu/Drill/Resource/Max Armor.tres" id="16_3qowb"]
+[ext_resource type="Resource" uid="uid://bphf43yah6k8p" path="res://Base/Menu/Drill/Resource/Max Shield.tres" id="16_3qowb"]
 
 [sub_resource type="Resource" id="Resource_hecib"]
 script = ExtResource("2_36thw")
