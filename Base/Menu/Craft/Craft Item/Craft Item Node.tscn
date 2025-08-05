@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bripmml1nnira" path="res://Endless Run/Ores/Ore3.png" id="7_flb3l"]
 [ext_resource type="Texture2D" uid="uid://by6jv4i7kl48d" path="res://Base/Menu/Craft/Craft Item/Craft.png" id="8_kdpct"]
 [ext_resource type="Texture2D" uid="uid://cbkgfu5vs62df" path="res://Base/Menu/Craft/Craft Item/Craft Disabled.png" id="14_0lsng"]
+[ext_resource type="LabelSettings" uid="uid://c6li64bqsr42t" path="res://Base/Menu/Label Style - Neon.tres" id="15_43xx5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ocgbb"]
 font_size = 12
@@ -25,10 +26,6 @@ font_size = 12
 font_color = Color(0.733005, 0.733005, 0.733005, 1)
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_adn48"]
-outline_size = 5
-outline_color = Color(0.133333, 0.694118, 0.298039, 1)
 
 [node name="Craft Item" type="Panel"]
 custom_minimum_size = Vector2(0, 140)
@@ -162,7 +159,7 @@ texture_disabled = ExtResource("14_0lsng")
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Craft"]
 layout_mode = 2
 text = "CRAFT"
-label_settings = SubResource("LabelSettings_adn48")
+label_settings = ExtResource("15_43xx5")
 horizontal_alignment = 1
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

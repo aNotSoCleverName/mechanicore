@@ -11,6 +11,11 @@ func _on_body_entered(body):
 	self.get_parent().call_deferred("remove_child", self);
 	BombManager.addToPool(self);
 	
+	SignalBus_EndlessRun.bomb_explode.emit();
+	
+	if (drill.shield >= 0):
+		return;
+	
 	var oreTypes: Array[Ore.EOreType] = [];		# This will be used when randomizing which ores are lost
 	var totalOres: int = 0;
 	for oreType: Ore.EOreType in drill.inventory.keys():

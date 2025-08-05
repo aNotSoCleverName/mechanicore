@@ -36,15 +36,7 @@ func _ready() -> void:
 	)
 	self._spawnTimer.start();
 	
-	SignalBus_Base.shop_sell.connect(
-		func (_inCraftItem: CraftItem):
-			self._ExitQueue();
-	)
-	SignalBus_Base.shop_decline.connect(
-		func ():
-			self._ExitQueue();
-	)
-	SignalBus_Base.shop_leave_angry.connect(
+	SignalBus_Base.shop_customer_leave.connect(
 		func ():
 			self._ExitQueue();
 	)

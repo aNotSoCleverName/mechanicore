@@ -8,6 +8,10 @@ func _ready() -> void:
 	timer.timeout.connect(
 		func ():
 			SignalBus_Base.shop_leave_angry.emit();
+			SignalBus_Base.shop_customer_leave.emit();
+	)
+	SignalBus_Base.shop_customer_leave.connect(
+		func ():
 			timer.stop();
 	)
 	

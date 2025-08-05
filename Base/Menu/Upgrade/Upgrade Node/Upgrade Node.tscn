@@ -1,0 +1,122 @@
+[gd_scene load_steps=9 format=3 uid="uid://ca7dxk7h7lqt"]
+
+[ext_resource type="Script" path="res://Base/Menu/Upgrade/Upgrade Node/Upgrade Node.gd" id="1_853dm"]
+[ext_resource type="StyleBox" uid="uid://d2kigmst2mqxx" path="res://Base/Menu/Craft/Panel.tres" id="2_ewf7v"]
+[ext_resource type="Texture2D" uid="uid://ijln68w0typ1" path="res://Base/Menu/Upgrade/Upgrade Node/Upgrade - Placeholder.png" id="3_u02rg"]
+[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Simple Label.tres" id="4_mto0m"]
+[ext_resource type="Texture2D" uid="uid://dwn1v2brn8bhp" path="res://Base/Menu/Upgrade/Upgrade Node/Upgrade.png" id="5_be4bu"]
+[ext_resource type="Texture2D" uid="uid://bptr6byvokmow" path="res://Base/Money.png" id="6_ivqgv"]
+[ext_resource type="LabelSettings" uid="uid://c6li64bqsr42t" path="res://Base/Menu/Label Style - Neon.tres" id="7_bp36w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mehxf"]
+
+[node name="Drill Upgrade Node" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 140)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mehxf")
+script = ExtResource("1_853dm")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_ewf7v")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_u02rg")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Name"
+label_settings = ExtResource("4_mto0m")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Details" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Level" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Details"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Level"]
+layout_mode = 2
+texture = ExtResource("5_be4bu")
+expand_mode = 2
+
+[node name="Level" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Level"]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("4_mto0m")
+
+[node name="Slash" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Level"]
+layout_mode = 2
+text = "/"
+label_settings = ExtResource("4_mto0m")
+
+[node name="Max Level" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Level"]
+layout_mode = 2
+text = "3"
+label_settings = ExtResource("4_mto0m")
+
+[node name="Price" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Details"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Price"]
+layout_mode = 2
+texture = ExtResource("6_ivqgv")
+expand_mode = 2
+
+[node name="Price" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Price"]
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+text = "500"
+label_settings = ExtResource("4_mto0m")
+
+[node name="Slash" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Price"]
+layout_mode = 2
+text = "/"
+label_settings = ExtResource("4_mto0m")
+
+[node name="Money" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Price"]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("4_mto0m")
+
+[node name="Upgrade" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Upgrade Button" type="TextureButton" parent="MarginContainer/HBoxContainer/Upgrade"]
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 8
+disabled = true
+texture_normal = ExtResource("5_be4bu")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Upgrade"]
+layout_mode = 2
+text = "UPGRADE"
+label_settings = ExtResource("7_bp36w")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Upgrade/Upgrade Button" to="." method="_on_upgrade_button_pressed"]

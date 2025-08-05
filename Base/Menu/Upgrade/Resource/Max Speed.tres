@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DrillUpgrade" load_steps=3 format=3 uid="uid://cddvaa6tybrd8"]
+
+[ext_resource type="Texture2D" uid="uid://b3flhfg7opk2j" path="res://Base/Menu/Upgrade/Upgrade Node/Max Speed.png" id="1_joaxk"]
+[ext_resource type="Script" path="res://Base/Menu/Upgrade/Upgrade.gd" id="2_xengp"]
+
+[resource]
+script = ExtResource("2_xengp")
+stats = 1
+icon = ExtResource("1_joaxk")
+name = "Max Speed"
+maxLevel = 3
+statChange = Array[float]([100.0, 200.0, 300.0])
+prices = Array[int]([100, 100, 100])
