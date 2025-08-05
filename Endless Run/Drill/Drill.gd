@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Drill
 
+const PX_PER_METER: float = 100;
+
 const START_SPEED: float = 500;
 const MAX_MIN_SPEED: float = 1200;	# Maximum value of min speed. As drill gets deeper, min speed increases, but it will never be higher than this value.
 
@@ -61,6 +63,7 @@ var _speed: float = 0:
 			_speed = newSpeed;
 		
 		self._UpdateVelocity();
+		SignalBus_EndlessRun.drill_change_speed.emit(self);
 		
 		if (_speed == 0):
 			self._isDocked = true;
@@ -114,7 +117,7 @@ func _on_tree_entered() -> void:
 	
 	SignalBus_EndlessRun.drill_change_pos.connect(
 		func (inPos: Vector2):
-			self.depth = (inPos.y - GlobalProperty_EndlessRun.SURFACE_Y) / 100;
+			self.depth = (inPos.y - GlobalProperty_EndlessRun.SURFACE_Y) / Drill.PX_PER_METER;
 	)
 	
 	SignalBus_EndlessRun.ore_pick.connect(

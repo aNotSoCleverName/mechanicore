@@ -11,6 +11,8 @@ signal drill_change_dir(inDir: EDrillDirection, inDrill: Drill);
 @warning_ignore("unused_signal")
 signal drill_change_pos(inPos: Vector2, inDrill: Drill);
 @warning_ignore("unused_signal")
+signal drill_change_speed(inDrill: Drill);
+@warning_ignore("unused_signal")
 signal drill_change_dock(inIsDocked: bool, inDrill: Drill);
 
 @warning_ignore("unused_signal")
