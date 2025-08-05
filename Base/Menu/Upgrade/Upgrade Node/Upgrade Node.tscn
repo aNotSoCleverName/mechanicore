@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ca7dxk7h7lqt"]
+[gd_scene load_steps=10 format=3 uid="uid://ca7dxk7h7lqt"]
 
 [ext_resource type="Script" path="res://Base/Menu/Upgrade/Upgrade Node/Upgrade Node.gd" id="1_853dm"]
 [ext_resource type="StyleBox" uid="uid://d2kigmst2mqxx" path="res://Base/Menu/Craft/Panel.tres" id="2_ewf7v"]
@@ -6,6 +6,7 @@
 [ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Simple Label.tres" id="4_mto0m"]
 [ext_resource type="Texture2D" uid="uid://dwn1v2brn8bhp" path="res://Base/Menu/Upgrade/Upgrade Node/Upgrade.png" id="5_be4bu"]
 [ext_resource type="Texture2D" uid="uid://bptr6byvokmow" path="res://Base/Money.png" id="6_ivqgv"]
+[ext_resource type="LabelSettings" uid="uid://c83ljliopp2nx" path="res://Label Style - Outline Size12.tres" id="6_mxc43"]
 [ext_resource type="LabelSettings" uid="uid://c6li64bqsr42t" path="res://Base/Menu/Label Style - Neon.tres" id="7_bp36w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mehxf"]
@@ -65,17 +66,17 @@ expand_mode = 2
 [node name="Level" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Level"]
 layout_mode = 2
 text = "0"
-label_settings = ExtResource("4_mto0m")
+label_settings = ExtResource("6_mxc43")
 
 [node name="Slash" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Level"]
 layout_mode = 2
 text = "/"
-label_settings = ExtResource("4_mto0m")
+label_settings = ExtResource("6_mxc43")
 
 [node name="Max Level" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Level"]
 layout_mode = 2
 text = "3"
-label_settings = ExtResource("4_mto0m")
+label_settings = ExtResource("6_mxc43")
 
 [node name="Price" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Details"]
 layout_mode = 2
@@ -90,17 +91,17 @@ expand_mode = 2
 self_modulate = Color(1, 0, 0, 1)
 layout_mode = 2
 text = "500"
-label_settings = ExtResource("4_mto0m")
+label_settings = ExtResource("6_mxc43")
 
 [node name="Slash" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Price"]
 layout_mode = 2
 text = "/"
-label_settings = ExtResource("4_mto0m")
+label_settings = ExtResource("6_mxc43")
 
 [node name="Money" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Price"]
 layout_mode = 2
 text = "0"
-label_settings = ExtResource("4_mto0m")
+label_settings = ExtResource("6_mxc43")
 
 [node name="Upgrade" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
