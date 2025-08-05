@@ -8,10 +8,12 @@ enum EStatsKeys
 {
 	maxShield,
 	maxSpeed,
+	doubleOreChance,
 }
 var _stats: Dictionary = {
 	EStatsKeys.maxShield: 0,
 	EStatsKeys.maxSpeed: 0,
+	EStatsKeys.doubleOreChance: 0,
 }
 func _updateStats(inKey: EStatsKeys, inValue: float):
 	self._stats[inKey] = inValue;

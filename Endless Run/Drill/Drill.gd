@@ -122,7 +122,11 @@ func _on_tree_entered() -> void:
 	
 	SignalBus_EndlessRun.ore_pick.connect(
 		func (inOre: Ore):
-			self.inventory[inOre.oreType] += 1;
+			var doubleOreChance: float = self.upgradeComponentContainer._stats[UpgradeComponentContainer.EStatsKeys.doubleOreChance];
+			if (randf() < doubleOreChance):
+				self.inventory[inOre.oreType] += 2;
+			else:
+				self.inventory[inOre.oreType] += 1;
 	)
 	
 	SignalBus_EndlessRun.bomb_explode.connect(
