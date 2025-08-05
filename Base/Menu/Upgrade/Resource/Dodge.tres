@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://b71ivg3dtriu0"]
+
+[ext_resource type="Texture2D" uid="uid://dshhx07kwrja" path="res://Base/Menu/Upgrade/Upgrade Node/Dodge.png" id="1_7p6ep"]
+[ext_resource type="Script" path="res://Base/Menu/Upgrade/Upgrade.gd" id="2_hrilp"]
+
+[resource]
+script = ExtResource("2_hrilp")
+stats = 3
+icon = ExtResource("1_7p6ep")
+name = "Dodge"
+maxLevel = 1
+statChange = Array[float]([1.0])
+prices = Array[int]([0])

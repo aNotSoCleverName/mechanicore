@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dx4xl0ya4o52y"]
+[gd_scene load_steps=21 format=3 uid="uid://dx4xl0ya4o52y"]
 
 [ext_resource type="Script" path="res://Base/Base.gd" id="1_4gdcv"]
 [ext_resource type="PackedScene" uid="uid://dq4qkupby85t" path="res://Base/Menu/Craft/Craft Item/Craft Item Node.tscn" id="1_6eggy"]
@@ -18,6 +18,7 @@
 [ext_resource type="Resource" uid="uid://bphf43yah6k8p" path="res://Base/Menu/Upgrade/Resource/Max Shield.tres" id="16_3qowb"]
 [ext_resource type="Resource" uid="uid://cddvaa6tybrd8" path="res://Base/Menu/Upgrade/Resource/Max Speed.tres" id="17_w2vqp"]
 [ext_resource type="Resource" uid="uid://dfdmjp7jvnf2j" path="res://Base/Menu/Upgrade/Resource/Double Ore Chance.tres" id="18_1j1fr"]
+[ext_resource type="Resource" uid="uid://b71ivg3dtriu0" path="res://Base/Menu/Upgrade/Resource/Dodge.tres" id="19_4d4if"]
 
 [sub_resource type="Resource" id="Resource_hecib"]
 script = ExtResource("2_36thw")
@@ -232,6 +233,11 @@ upgrade = ExtResource("17_w2vqp")
 layout_mode = 2
 size_flags_horizontal = 3
 upgrade = ExtResource("18_1j1fr")
+
+[node name="Dodge" parent="Menu/Drill/MarginContainer/ScrollContainer/MarginContainer/Upgrades" instance=ExtResource("15_1nhla")]
+layout_mode = 2
+size_flags_horizontal = 3
+upgrade = ExtResource("19_4d4if")
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_entered" from="Shop/Shop/Top Bar/HBoxContainer/Money/Label" to="Shop/Shop/Top Bar/HBoxContainer/Money/Label" method="_on_tree_entered"]
