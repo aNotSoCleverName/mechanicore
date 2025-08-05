@@ -6,18 +6,18 @@ var _drill: Drill;
 #region Stats
 enum EStatsKeys
 {
-	maxArmor,
+	maxShield,
 }
 var _stats: Dictionary = {
-	EStatsKeys.maxArmor: 0,
+	EStatsKeys.maxShield: 0,
 }
 func _updateStats(inKey: EStatsKeys, inValue: float):
 	self._stats[inKey] = inValue;
 	
 	match (inKey):
-		EStatsKeys.maxArmor:
+		EStatsKeys.maxShield:
 			if (self._drill._isDocked):
-				self._drill.armor = int(inValue);
+				self._drill.shield = int(inValue);
 #endregion
 
 func _ready():

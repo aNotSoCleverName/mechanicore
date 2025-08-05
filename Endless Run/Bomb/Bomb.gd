@@ -13,7 +13,7 @@ func _on_body_entered(body):
 	
 	SignalBus_EndlessRun.bomb_explode.emit();
 	
-	if (drill.armor >= 0):
+	if (drill.shield >= 0):
 		return;
 	
 	var oreTypes: Array[Ore.EOreType] = [];		# This will be used when randomizing which ores are lost
