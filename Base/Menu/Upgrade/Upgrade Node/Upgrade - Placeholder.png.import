@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3flhfg7opk2j"
-path="res://.godot/imported/Max Speed.png-5727bfaf0f9dd0ef8558a13d4cfe6682.ctex"
+uid="uid://ijln68w0typ1"
+path="res://.godot/imported/Upgrade - Placeholder.png-d6041cbe0d52065e24ba012be1b55aa3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Base/Menu/Drill/Drill Upgrade Node/Max Speed.png"
-dest_files=["res://.godot/imported/Max Speed.png-5727bfaf0f9dd0ef8558a13d4cfe6682.ctex"]
+source_file="res://Base/Menu/Upgrade/Upgrade Node/Upgrade - Placeholder.png"
+dest_files=["res://.godot/imported/Upgrade - Placeholder.png-d6041cbe0d52065e24ba012be1b55aa3.ctex"]
 
 [params]
 

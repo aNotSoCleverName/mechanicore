@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://dfdmjp7jvnf2j"]
+
+[ext_resource type="Texture2D" uid="uid://cv1aysv28yyfh" path="res://Base/Menu/Upgrade/Upgrade Node/Double Ore Chance.png" id="1_j46dk"]
+[ext_resource type="Script" path="res://Base/Menu/Upgrade/Upgrade.gd" id="2_jahi8"]
+
+[resource]
+script = ExtResource("2_jahi8")
+stats = 2
+icon = ExtResource("1_j46dk")
+name = "Double Ore Chance"
+maxLevel = 4
+statChange = Array[float]([0.1, 0.2, 0.3, 0.4])
+prices = Array[int]([100, 100, 100, 100])

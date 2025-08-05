@@ -1,5 +1,5 @@
 extends Resource
-class_name DrillUpgrade
+class_name Upgrade
 
 @export var stats: UpgradeComponentContainer.EStatsKeys;
 
