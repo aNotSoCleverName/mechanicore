@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DrillUpgrade" load_steps=3 format=3 uid="uid://cddvaa6tybrd8"]
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://cddvaa6tybrd8"]
 
 [ext_resource type="Texture2D" uid="uid://b3flhfg7opk2j" path="res://Base/Menu/Upgrade/Upgrade Node/Max Speed.png" id="1_joaxk"]
 [ext_resource type="Script" path="res://Base/Menu/Upgrade/Upgrade.gd" id="2_xengp"]

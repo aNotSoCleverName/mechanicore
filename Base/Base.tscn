@@ -208,28 +208,29 @@ theme_override_constants/margin_bottom = 5
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Menu/Drill/MarginContainer"]
 layout_mode = 2
+horizontal_scroll_mode = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu/Drill/MarginContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
 
 [node name="Upgrades" type="VBoxContainer" parent="Menu/Drill/MarginContainer/ScrollContainer/MarginContainer"]
 layout_mode = 2
 
 [node name="Max Shield" parent="Menu/Drill/MarginContainer/ScrollContainer/MarginContainer/Upgrades" instance=ExtResource("15_1nhla")]
 layout_mode = 2
+size_flags_horizontal = 3
 upgrade = ExtResource("16_3qowb")
 
 [node name="Max Speed" parent="Menu/Drill/MarginContainer/ScrollContainer/MarginContainer/Upgrades" instance=ExtResource("15_1nhla")]
 layout_mode = 2
+size_flags_horizontal = 3
 upgrade = ExtResource("17_w2vqp")
 
 [node name="Double Ore Chance" parent="Menu/Drill/MarginContainer/ScrollContainer/MarginContainer/Upgrades" instance=ExtResource("15_1nhla")]
 layout_mode = 2
+size_flags_horizontal = 3
 upgrade = ExtResource("18_1j1fr")
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
