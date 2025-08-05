@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bripmml1nnira" path="res://Endless Run/Ores/Ore3.png" id="7_flb3l"]
 [ext_resource type="Texture2D" uid="uid://by6jv4i7kl48d" path="res://Base/Menu/Craft/Craft Item/Craft.png" id="8_kdpct"]
 [ext_resource type="Texture2D" uid="uid://cbkgfu5vs62df" path="res://Base/Menu/Craft/Craft Item/Craft Disabled.png" id="14_0lsng"]
-[ext_resource type="LabelSettings" uid="uid://c6li64bqsr42t" path="res://Base/Menu/Label Style - Neon.tres" id="15_43xx5"]
+[ext_resource type="LabelSettings" path="res://Base/Menu/Label Style - Neon.tres" id="15_43xx5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ocgbb"]
 font_size = 12
