@@ -26,8 +26,8 @@ animations = [{
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_38bcw"]
 shader = ExtResource("7_32tsk")
-shader_parameter/maxShield = 2
-shader_parameter/shield = 2
+shader_parameter/maxShield = 0
+shader_parameter/shield = 0
 
 [node name="Drill" type="CharacterBody2D"]
 collision_mask = 2
