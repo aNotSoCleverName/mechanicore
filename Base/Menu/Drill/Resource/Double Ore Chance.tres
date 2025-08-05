@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DrillUpgrade" load_steps=3 format=3 uid="uid://dfdmjp7jvnf2j"]
+
+[ext_resource type="Texture2D" uid="uid://cv1aysv28yyfh" path="res://Base/Menu/Drill/Drill Upgrade Node/Double Ore Chance.png" id="1_7t43y"]
+[ext_resource type="Script" path="res://Base/Menu/Drill/Drill Upgrade.gd" id="2_dhbxa"]
+
+[resource]
+script = ExtResource("2_dhbxa")
+stats = 2
+icon = ExtResource("1_7t43y")
+name = "Double Ore Chance"
+maxLevel = 4
+statChange = Array[float]([0.1, 0.2, 0.3, 0.4])
+prices = Array[int]([100, 100, 100, 100])
