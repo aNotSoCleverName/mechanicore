@@ -195,11 +195,11 @@ craftItem = SubResource("Resource_hecib")
 layout_mode = 2
 craftItem = SubResource("Resource_hecib")
 
-[node name="Drill" type="VBoxContainer" parent="Menu"]
+[node name="Upgrade" type="VBoxContainer" parent="Menu"]
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Drill"]
+[node name="MarginContainer" type="MarginContainer" parent="Menu/Upgrade"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 5
@@ -207,34 +207,34 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Menu/Drill/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Menu/Upgrade/MarginContainer"]
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Drill/MarginContainer/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Menu/Upgrade/MarginContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_right = 5
 
-[node name="Upgrades" type="VBoxContainer" parent="Menu/Drill/MarginContainer/ScrollContainer/MarginContainer"]
+[node name="Upgrades" type="VBoxContainer" parent="Menu/Upgrade/MarginContainer/ScrollContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Max Shield" parent="Menu/Drill/MarginContainer/ScrollContainer/MarginContainer/Upgrades" instance=ExtResource("15_1nhla")]
+[node name="Max Shield" parent="Menu/Upgrade/MarginContainer/ScrollContainer/MarginContainer/Upgrades" instance=ExtResource("15_1nhla")]
 layout_mode = 2
 size_flags_horizontal = 3
 upgrade = ExtResource("16_3qowb")
 
-[node name="Max Speed" parent="Menu/Drill/MarginContainer/ScrollContainer/MarginContainer/Upgrades" instance=ExtResource("15_1nhla")]
+[node name="Max Speed" parent="Menu/Upgrade/MarginContainer/ScrollContainer/MarginContainer/Upgrades" instance=ExtResource("15_1nhla")]
 layout_mode = 2
 size_flags_horizontal = 3
 upgrade = ExtResource("17_w2vqp")
 
-[node name="Double Ore Chance" parent="Menu/Drill/MarginContainer/ScrollContainer/MarginContainer/Upgrades" instance=ExtResource("15_1nhla")]
+[node name="Double Ore Chance" parent="Menu/Upgrade/MarginContainer/ScrollContainer/MarginContainer/Upgrades" instance=ExtResource("15_1nhla")]
 layout_mode = 2
 size_flags_horizontal = 3
 upgrade = ExtResource("18_1j1fr")
 
-[node name="Dodge" parent="Menu/Drill/MarginContainer/ScrollContainer/MarginContainer/Upgrades" instance=ExtResource("15_1nhla")]
+[node name="Dodge" parent="Menu/Upgrade/MarginContainer/ScrollContainer/MarginContainer/Upgrades" instance=ExtResource("15_1nhla")]
 layout_mode = 2
 size_flags_horizontal = 3
 upgrade = ExtResource("19_4d4if")
