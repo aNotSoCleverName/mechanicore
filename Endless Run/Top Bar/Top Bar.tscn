@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dllakqtlni1xh"]
+[gd_scene load_steps=6 format=3 uid="uid://dllakqtlni1xh"]
 
 [ext_resource type="Script" path="res://Endless Run/Top Bar/Depth Meter.gd" id="1_a2sm2"]
 [ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Simple Label.tres" id="1_u3b54"]
 [ext_resource type="PackedScene" uid="uid://qe41hew0ptdg" path="res://Endless Run/Top Bar/Ore Inventory.tscn" id="2_i2tk7"]
+[ext_resource type="Script" path="res://Endless Run/Top Bar/Speedometer.gd" id="4_16q42"]
 [ext_resource type="Script" path="res://Endless Run/Top Bar/Armors.gd" id="4_xdlb0"]
 
 [node name="Top Bar" type="MarginContainer"]
@@ -50,6 +51,25 @@ oreType = 2
 [node name="Ore Inventory3" parent="VBoxContainer/HBoxContainer/Drill Inventory" instance=ExtResource("2_i2tk7")]
 layout_mode = 2
 oreType = 3
+
+[node name="Speed" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Speed"]
+layout_mode = 2
+text = "Speed:"
+label_settings = ExtResource("1_u3b54")
+
+[node name="Number" type="Label" parent="VBoxContainer/Speed"]
+layout_mode = 2
+text = "0.00"
+label_settings = ExtResource("1_u3b54")
+script = ExtResource("4_16q42")
+
+[node name="Unit" type="Label" parent="VBoxContainer/Speed"]
+layout_mode = 2
+text = "m/s"
+label_settings = ExtResource("1_u3b54")
 
 [node name="Armors" type="HBoxContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 23)

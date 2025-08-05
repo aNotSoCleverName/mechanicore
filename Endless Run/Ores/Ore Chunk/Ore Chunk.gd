@@ -7,6 +7,8 @@ class_name OreChunk
 func _addOresToPool() -> void:
 	for orePlaceholder: OrePlaceholder in self.get_children() as Array[OrePlaceholder]:
 		var ore: Ore = orePlaceholder.get_child(1);
+		if !(ore is Ore):
+			continue;
 		OreManager.addToPool(ore);
 		orePlaceholder.remove_child(ore);
 

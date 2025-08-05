@@ -7,9 +7,11 @@ var _drill: Drill;
 enum EStatsKeys
 {
 	maxShield,
+	maxSpeed,
 }
 var _stats: Dictionary = {
 	EStatsKeys.maxShield: 0,
+	EStatsKeys.maxSpeed: 0,
 }
 func _updateStats(inKey: EStatsKeys, inValue: float):
 	self._stats[inKey] = inValue;
