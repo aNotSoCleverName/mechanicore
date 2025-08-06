@@ -131,7 +131,7 @@ func _on_tree_entered() -> void:
 	)
 	
 	SignalBus_EndlessRun.bomb_explode.connect(
-		func ():
+		func (_inBomb: Bomb):
 			self.shield -= 1;
 	)
 

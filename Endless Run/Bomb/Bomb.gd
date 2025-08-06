@@ -8,12 +8,11 @@ func _on_body_entered(body):
 		return;
 	var drill: Drill = body;
 	
-	self.get_parent().call_deferred("remove_child", self);
-	BombManager.addToPool(self);
-	
-	SignalBus_EndlessRun.bomb_explode.emit();
+	SignalBus_EndlessRun.bomb_explode.emit(self);
 	
 	if (drill.shield >= 0):
+		var bombManager: BombManager = self.get_parent();
+		bombManager.addToPool(self);	# Only add to pool if drill hasn't exploded because if it has exploded, add to pool is handled by drill dock signal
 		return;
 	
 	var oreTypes: Array[Ore.EOreType] = [];		# This will be used when randomizing which ores are lost
