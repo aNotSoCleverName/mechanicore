@@ -13,3 +13,5 @@ texture = ExtResource("2_lb2gl")
 
 [node name="Clothes" type="Sprite2D" parent="Alien"]
 texture = ExtResource("3_bsi5l")
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

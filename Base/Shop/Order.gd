@@ -19,7 +19,7 @@ func _ready() -> void:
 		func (inAlienNode: AlienNode):
 			self.visible = true;
 			$Bubble/Item.texture = inAlienNode.orderedItem.image;
-			timer.start(inAlienNode.alien.waitTimeSec);
+			timer.start(inAlienNode.waitTime);
 	)
 	
 	SignalBus_Base.shop_queue_empty.connect(
