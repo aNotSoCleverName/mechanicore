@@ -67,6 +67,9 @@ func _on_upgrade_button_pressed():
 	if (self.upgrade.level >= self.upgrade.maxLevel):
 		self.priceContainer.visible = false;
 		self.upgradeButton.get_parent().visible = false;
+		
+		var parent: Node = self.get_parent();
+		parent.move_child(self, parent.get_child_count());
 	else:
 		self.price = self.upgrade.prices[self.upgrade.level];
 		self.priceLabel.text = str(self.price);

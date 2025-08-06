@@ -5,6 +5,9 @@ enum EDrillDirection	# Value = degree
 	DOCKED = 90,
 	LEFT = 110,
 	RIGHT = 70,
+	
+	DODGE_LEFT = 180,
+	DODGE_RIGHT = 0,
 }
 @warning_ignore("unused_signal")
 signal drill_change_dir(inDir: EDrillDirection, inDrill: Drill);

@@ -9,11 +9,13 @@ enum EStatsKeys
 	maxShield,
 	maxSpeed,
 	doubleOreChance,
+	dodge,
 }
 var _stats: Dictionary = {
 	EStatsKeys.maxShield: 0,
 	EStatsKeys.maxSpeed: 0,
 	EStatsKeys.doubleOreChance: 0,
+	EStatsKeys.dodge: 0,
 }
 func _updateStats(inKey: EStatsKeys, inValue: float):
 	self._stats[inKey] = inValue;
@@ -22,6 +24,9 @@ func _updateStats(inKey: EStatsKeys, inValue: float):
 		EStatsKeys.maxShield:
 			if (self._drill._isDocked):
 				self._drill.shield = int(inValue);
+		EStatsKeys.dodge:
+			var dodgeComponent: DodgeComponent = preload("res://Base/Menu/Upgrade/Resource/Dodge.tscn").instantiate();
+			self.add_child(dodgeComponent);
 #endregion
 
 func _ready():
