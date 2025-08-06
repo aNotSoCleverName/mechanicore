@@ -10,7 +10,6 @@ func _addOresToPool() -> void:
 		if !(ore is Ore):
 			continue;
 		OreManager.addToPool(ore);
-		orePlaceholder.remove_child(ore);
 
 func _ready() -> void:
 	SignalBus_EndlessRun.drill_change_pos.connect(

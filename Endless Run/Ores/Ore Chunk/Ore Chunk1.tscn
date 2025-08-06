@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dg3unjqcp36q1"]
 
 [ext_resource type="Script" path="res://Endless Run/Ores/Ore Chunk/Ore Chunk.gd" id="1_1iuiu"]
-[ext_resource type="PackedScene" uid="uid://ps23ye6gh703" path="res://Endless Run/Ores/Ore Placeholder.tscn" id="2_tguq0"]
+[ext_resource type="PackedScene" uid="uid://bmr1kui5bina6" path="res://Endless Run/Ores/Ore Placeholder.tscn" id="2_tguq0"]
 
 [node name="OreChunk1" type="Node2D"]
 script = ExtResource("1_1iuiu")

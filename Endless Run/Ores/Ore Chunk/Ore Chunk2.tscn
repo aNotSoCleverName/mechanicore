@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dns2ie868j1w2"]
 
-[ext_resource type="PackedScene" uid="uid://ps23ye6gh703" path="res://Endless Run/Ores/Ore Placeholder.tscn" id="1_16vmx"]
+[ext_resource type="PackedScene" uid="uid://bmr1kui5bina6" path="res://Endless Run/Ores/Ore Placeholder.tscn" id="1_16vmx"]
 [ext_resource type="Script" path="res://Endless Run/Ores/Ore Chunk/Ore Chunk.gd" id="1_qymst"]
 
 [node name="OreChunk2" type="Node2D"]
