@@ -47,6 +47,7 @@ func _on_tree_entered():
 	
 	var bodySprite: Texture2D = Alien.bodySprites[randi_range(0, Alien.bodySprites.size() - 1)];
 	$Body.texture = bodySprite;
+	$Body.self_modulate = Color.WHITE;
 	self.waitTime = Alien.waitTimeBasedOnBodySprite[bodySprite.resource_path];
 	
 	$Body/Clothes.texture = Alien.clothesSprites[randi_range(0, Alien.clothesSprites.size() - 1)];
