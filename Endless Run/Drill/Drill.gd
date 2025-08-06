@@ -34,6 +34,7 @@ var _isDocked: bool = true:
 			self.shield = self.upgradeComponentContainer._stats[UpgradeComponentContainer.EStatsKeys.maxShield];
 			self._speed = 0;
 			self._directionDeg = SignalBus_EndlessRun.EDrillDirection.DOCKED;
+			self.velocity = Vector2(0, 0);	# When dodging TO bomb and docking, this stops the drill from sliding in base
 			$AnimatedSprite2D.stop();
 		else:
 			self._directionDeg = SignalBus_EndlessRun.EDrillDirection.RIGHT;
