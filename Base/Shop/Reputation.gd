@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-const DEFAULT_REPUTATION = 50;
+const DEFAULT_REPUTATION = 0;
 
 var _reputation: int:
 	get:

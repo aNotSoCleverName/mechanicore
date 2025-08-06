@@ -1,5 +1,6 @@
 extends PanelContainer
 
+var _isGameOver: bool = false;
 var _isPaused: bool = false;
 
 func _TogglePause():
@@ -13,11 +14,20 @@ func _TogglePause():
 	
 	self.get_tree().paused = self._isPaused;
 
+func _ready():
+	SignalBus_Base.game_over.connect(
+		func ():
+			self._isGameOver = true;
+	)
+
 func _input(event: InputEvent):
 	if !(event is InputEventKey):
 		return;
 	
 	if (event.is_pressed()):
+		return;
+	
+	if (self._isGameOver):
 		return;
 	
 	var key: Key = (event as InputEventKey).keycode;
