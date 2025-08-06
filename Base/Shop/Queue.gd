@@ -3,9 +3,9 @@ class_name ShopQueue;
 
 const MAX_QUEUE: int = 5;
 
-var _alienPool: Array[AlienNode] = [];
-var alienQueues: Array[AlienNode] = [];
-var firstInQueue: AlienNode;
+var _alienPool: Array[Alien] = [];
+var alienQueues: Array[Alien] = [];
+var firstInQueue: Alien;
 
 @onready var _spawnTimer: Timer = $Timer;
 
@@ -27,11 +27,11 @@ func _ready() -> void:
 		func ():
 			self._ResetSpawnTimer();
 			
-			var alienNode: AlienNode = self._alienPool.pop_back();
-			if (alienNode == null):
-				alienNode = preload("res://Base/Shop/Alien/Alien Node.tscn").instantiate();
-			self.alienQueues.append(alienNode);
-			self.add_child(alienNode);
+			var alien: Alien = self._alienPool.pop_back();
+			if (alien == null):
+				alien = preload("res://Base/Shop/Alien/Alien.tscn").instantiate();
+			self.alienQueues.append(alien);
+			self.add_child(alien);
 	)
 	self._spawnTimer.start();
 	
@@ -64,5 +64,5 @@ func _on_child_order_changed():
 		SignalBus_Base.shop_make_order.emit(self.firstInQueue);
 	
 	for i: int in self.alienQueues.size():
-		var alienNode: AlienNode = self.alienQueues[i];
-		alienNode.position.x = 0 + self.DISTANCE_BETWEEN_CUSTOMERS * i;
+		var alien: Alien = self.alienQueues[i];
+		alien.position.x = 0 + self.DISTANCE_BETWEEN_CUSTOMERS * i;

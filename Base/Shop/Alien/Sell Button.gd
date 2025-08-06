@@ -1,7 +1,7 @@
 extends Button
 
 @onready var _base: Base = self.find_parent("Base");
-var _alienNode: AlienNode;
+var _alien: Alien;
 
 func _Disable(inIsDisabled: bool) -> void:
 	self.disabled = inIsDisabled;
@@ -14,19 +14,18 @@ func _Disable(inIsDisabled: bool) -> void:
 
 func _ready() -> void:
 	SignalBus_Base.shop_make_order.connect(
-		func (inAlienNode: AlienNode):
-			self._alienNode = inAlienNode;
+		func (inAlien: Alien):
+			self._alien = inAlien;
 			
-			self._Disable(self._base.craftItems[self._alienNode.orderedItem] == 0);
-			
+			self._Disable(self._base.craftItems[self._alien.orderedItem] == 0);
 	)
 	
 	SignalBus_Base.craft_finished.connect(
 		func (inCraftItem: CraftItem) -> void:
-			if (inCraftItem == self._alienNode.orderedItem):
+			if (inCraftItem == self._alien.orderedItem):
 				self._Disable(false);
 	)
 
 func _on_pressed():
-	SignalBus_Base.shop_sell.emit(self._alienNode.orderedItem);
+	SignalBus_Base.shop_sell.emit(self._alien.orderedItem);
 	SignalBus_Base.shop_customer_leave.emit();

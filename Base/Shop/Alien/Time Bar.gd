@@ -17,6 +17,6 @@ func _ready() -> void:
 	)
 	
 	SignalBus_Base.shop_make_order.connect(
-		func (_inAlienNode: AlienNode):
+		func (_inAlien: Alien):
 			self._tickTimer.start();
 	)
