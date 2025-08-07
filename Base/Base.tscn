@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://dx4xl0ya4o52y"]
+[gd_scene load_steps=17 format=3 uid="uid://dx4xl0ya4o52y"]
 
 [ext_resource type="Script" path="res://Base/Base.gd" id="1_4gdcv"]
+[ext_resource type="Script" path="res://Base/Craft Item Unlock Timers.gd" id="2_8kck5"]
 [ext_resource type="Texture2D" uid="uid://iwd3uobibsu3" path="res://Base/Shop/Shop.png" id="2_fxc1h"]
 [ext_resource type="Script" path="res://Base/Menu/Craft/Queue.gd" id="2_muuji"]
 [ext_resource type="PackedScene" uid="uid://dxewdcl3yp1eo" path="res://Base/Shop/Order.tscn" id="3_l61gs"]
@@ -27,6 +28,13 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_4gdcv")
+
+[node name="Craft Item Unlock Timers" type="Node2D" parent="."]
+script = ExtResource("2_8kck5")
+
+[node name="Ore2 Timer" type="Timer" parent="Craft Item Unlock Timers"]
+
+[node name="Ore3 Timer" type="Timer" parent="Craft Item Unlock Timers"]
 
 [node name="Shop" type="SubViewportContainer" parent="."]
 layout_mode = 2
