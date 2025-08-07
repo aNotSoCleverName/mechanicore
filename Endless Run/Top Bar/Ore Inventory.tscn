@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://qe41hew0ptdg"]
+[gd_scene load_steps=6 format=3 uid="uid://qe41hew0ptdg"]
 
 [ext_resource type="Script" path="res://Endless Run/Top Bar/Ore Inventory.gd" id="1_4i217"]
 [ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Label Style - Outline Size16.tres" id="2_4j0hc"]
-[ext_resource type="Script" path="res://Endless Run/Top Bar/Lost Amount.gd" id="3_43b44"]
+[ext_resource type="Script" path="res://Endless Run/Top Bar/Inventory Change.gd" id="3_43b44"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ktmi8"]
+font_color = Color(0, 0.999818, 0.234432, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5oesj"]
 font_color = Color(0.999818, 0.136995, 0.204151, 1)
@@ -23,22 +28,31 @@ text = "0"
 label_settings = ExtResource("2_4j0hc")
 horizontal_alignment = 2
 
-[node name="Lost Amount" type="Label" parent="Amount"]
-layout_mode = 1
+[node name="Inventory Change" type="VBoxContainer" parent="Amount"]
+layout_mode = 0
 offset_left = 45.0
 offset_top = 23.0
 offset_right = 85.0
-offset_bottom = 46.0
+offset_bottom = 73.0
+script = ExtResource("3_43b44")
+
+[node name="Onscreen Timer" type="Timer" parent="Amount/Inventory Change"]
+wait_time = 3.0
+
+[node name="Fade Timer" type="Timer" parent="Amount/Inventory Change"]
+wait_time = 0.05
+
+[node name="Gained Amount" type="Label" parent="Amount/Inventory Change"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_ktmi8")
+horizontal_alignment = 2
+
+[node name="Lost Amount" type="Label" parent="Amount/Inventory Change"]
+layout_mode = 2
 text = "-0"
 label_settings = SubResource("LabelSettings_5oesj")
 horizontal_alignment = 2
-script = ExtResource("3_43b44")
-
-[node name="Onscreen Timer" type="Timer" parent="Amount/Lost Amount"]
-wait_time = 3.0
-
-[node name="Fade Timer" type="Timer" parent="Amount/Lost Amount"]
-wait_time = 0.1
 
 [node name="Icon" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(20, 20)
@@ -46,4 +60,3 @@ layout_mode = 2
 expand_mode = 2
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
-[connection signal="tree_entered" from="Amount/Lost Amount" to="Amount/Lost Amount" method="_on_tree_entered"]
