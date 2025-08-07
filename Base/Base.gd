@@ -13,11 +13,7 @@ func _takeOres(inOres: Dictionary):
 	SignalBus_Base.update_ore_inventory.emit(ores);
 
 # Key = craftItem, value = amount
-var craftItems: Dictionary = {
-	preload("res://Base/Menu/Craft/Craft Item/Resources/Item1.tres"): 0,
-	preload("res://Base/Menu/Craft/Craft Item/Resources/Item2.tres"): 0,
-	preload("res://Base/Menu/Craft/Craft Item/Resources/Item3.tres"): 0,
-};
+var craftItems: Dictionary = { };
 
 var money: int = 100000:
 	get:
@@ -68,8 +64,21 @@ func _ready() -> void:
 	SignalBus_Base.update_ore_inventory.emit(self.ores);	# This triggers the code that checks if craft item text should be red/white depending on stock
 	
 	# Initiate craftItems
+	const CRAFT_ITEM_RESOURCES_DIR: String = "res://Base/Menu/Craft/Craft Item/Resources/";
 	var craftItemContainer: VBoxContainer = $"Menu/Craft/Craft Items MarginContainer/ScrollContainer/MarginContainer/Craft Items";
-	for craftItem: CraftItem in self.craftItems:
+	for filePath: String in DirAccess.open(CRAFT_ITEM_RESOURCES_DIR).get_files():
+		if (!filePath.ends_with(".tres")):
+			continue;
+		
+		var fullPath: String = CRAFT_ITEM_RESOURCES_DIR + filePath;
+		var craftItem: CraftItem = load(fullPath);
+		if (
+			craftItem.materials[Ore.EOreType.Ore2] > 0 ||
+			craftItem.materials[Ore.EOreType.Ore3] > 0
+		):
+			continue;
+		self.craftItems[craftItem] = 0;
+		
 		var craftItemNode: CraftItemNode = preload("res://Base/Menu/Craft/Craft Item/Craft Item Node.tscn").instantiate();
 		craftItemNode.craftItem = craftItem;
 		craftItemContainer.add_child(craftItemNode);
