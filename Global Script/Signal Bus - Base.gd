@@ -13,7 +13,7 @@ signal update_ore_inventory(inCurrentInventory: Dictionary);
 signal update_inventory_money(inMoney: int);
 
 @warning_ignore("unused_signal")
-signal shop_make_order(inAlien: Alien);
+signal shop_make_order(inAlien: Alien, inOrderedItem: CraftItem);
 @warning_ignore("unused_signal")
 signal shop_customer_leave();
 @warning_ignore("unused_signal")

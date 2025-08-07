@@ -1,8 +1,6 @@
 extends HBoxContainer
 class_name Order;
 
-var alienBody: Sprite2D;
-
 func _ready() -> void:
 	self.visible = false;
 	
@@ -18,11 +16,10 @@ func _ready() -> void:
 	)
 	
 	SignalBus_Base.shop_make_order.connect(
-		func (inAlien: Alien):
-			self.alienBody = inAlien.get_child(0);
-			
+		func (inAlien: Alien, inOrderedItem: CraftItem):
 			self.visible = true;
-			$Bubble/Item.texture = inAlien.orderedItem.image;
+			
+			$Bubble/Item.texture = inOrderedItem.image;
 			timer.start(inAlien.waitTime);
 	)
 	

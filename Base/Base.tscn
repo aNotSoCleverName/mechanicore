@@ -1,17 +1,14 @@
-[gd_scene load_steps=21 format=3 uid="uid://dx4xl0ya4o52y"]
+[gd_scene load_steps=17 format=3 uid="uid://dx4xl0ya4o52y"]
 
 [ext_resource type="Script" path="res://Base/Base.gd" id="1_4gdcv"]
-[ext_resource type="PackedScene" uid="uid://dq4qkupby85t" path="res://Base/Menu/Craft/Craft Item/Craft Item Node.tscn" id="1_6eggy"]
-[ext_resource type="Script" path="res://Base/Craft Item.gd" id="2_36thw"]
+[ext_resource type="Script" path="res://Base/Craft Item Unlock Timers.gd" id="2_8kck5"]
 [ext_resource type="Texture2D" uid="uid://iwd3uobibsu3" path="res://Base/Shop/Shop.png" id="2_fxc1h"]
 [ext_resource type="Script" path="res://Base/Menu/Craft/Queue.gd" id="2_muuji"]
 [ext_resource type="PackedScene" uid="uid://dxewdcl3yp1eo" path="res://Base/Shop/Order.tscn" id="3_l61gs"]
 [ext_resource type="Script" path="res://Base/Shop/Queue.gd" id="3_qc2vo"]
 [ext_resource type="Texture2D" uid="uid://bptr6byvokmow" path="res://Base/Money.png" id="3_vkntu"]
-[ext_resource type="Resource" uid="uid://do7o06fuk17rd" path="res://Base/Menu/Craft/Craft Item/Resources/Item1.tres" id="4_1pni4"]
 [ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Label Style - Outline Size16.tres" id="4_g8vcw"]
 [ext_resource type="Script" path="res://Base/Shop/Money.gd" id="4_m4g0m"]
-[ext_resource type="Texture2D" uid="uid://bripmml1nnira" path="res://Endless Run/Ores/Ore3.png" id="5_ju8iy"]
 [ext_resource type="Script" path="res://Base/Shop/Reputation.gd" id="6_jwxte"]
 [ext_resource type="Texture2D" uid="uid://ues24mh5krya" path="res://Base/Shop/Reputation.png" id="7_6bvwc"]
 [ext_resource type="PackedScene" uid="uid://ca7dxk7h7lqt" path="res://Base/Menu/Upgrade/Upgrade Node/Upgrade Node.tscn" id="15_1nhla"]
@@ -19,17 +16,6 @@
 [ext_resource type="Resource" uid="uid://cddvaa6tybrd8" path="res://Base/Menu/Upgrade/Resource/Max Speed.tres" id="17_w2vqp"]
 [ext_resource type="Resource" uid="uid://dfdmjp7jvnf2j" path="res://Base/Menu/Upgrade/Resource/Double Ore Chance.tres" id="18_1j1fr"]
 [ext_resource type="Resource" uid="uid://b71ivg3dtriu0" path="res://Base/Menu/Upgrade/Resource/Dodge.tres" id="19_4d4if"]
-
-[sub_resource type="Resource" id="Resource_hecib"]
-script = ExtResource("2_36thw")
-image = ExtResource("5_ju8iy")
-price = 500
-timeSec = 2.0
-materials = {
-1: 5,
-2: 1,
-3: 0
-}
 
 [node name="Base" type="VBoxContainer"]
 anchors_preset = 11
@@ -42,6 +28,13 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_4gdcv")
+
+[node name="Craft Item Unlock Timers" type="Node2D" parent="."]
+script = ExtResource("2_8kck5")
+
+[node name="Ore2 Timer" type="Timer" parent="Craft Item Unlock Timers"]
+
+[node name="Ore3 Timer" type="Timer" parent="Craft Item Unlock Timers"]
 
 [node name="Shop" type="SubViewportContainer" parent="."]
 layout_mode = 2
@@ -132,11 +125,10 @@ script = ExtResource("3_qc2vo")
 [node name="Menu" type="TabContainer" parent="."]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 1
+current_tab = 0
 tab_focus_mode = 0
 
 [node name="Craft" type="VBoxContainer" parent="Menu"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -183,19 +175,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Craft Item" parent="Menu/Craft/Craft Items MarginContainer/ScrollContainer/MarginContainer/Craft Items" instance=ExtResource("1_6eggy")]
-layout_mode = 2
-craftItem = ExtResource("4_1pni4")
-
-[node name="Craft Item2" parent="Menu/Craft/Craft Items MarginContainer/ScrollContainer/MarginContainer/Craft Items" instance=ExtResource("1_6eggy")]
-layout_mode = 2
-craftItem = SubResource("Resource_hecib")
-
-[node name="Craft Item3" parent="Menu/Craft/Craft Items MarginContainer/ScrollContainer/MarginContainer/Craft Items" instance=ExtResource("1_6eggy")]
-layout_mode = 2
-craftItem = SubResource("Resource_hecib")
-
 [node name="Upgrade" type="VBoxContainer" parent="Menu"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 

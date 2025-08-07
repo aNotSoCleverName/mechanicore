@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CraftItem" load_steps=3 format=3 uid="uid://cxgcgmka1wgr8"]
+
+[ext_resource type="Texture2D" uid="uid://bj4vo7nr03p3n" path="res://Base/Menu/Craft/Craft Item/Resources/Item7.png" id="1_38ny3"]
+[ext_resource type="Script" path="res://Base/Craft Item.gd" id="1_jeehr"]
+
+[resource]
+script = ExtResource("1_jeehr")
+image = ExtResource("1_38ny3")
+price = 2700
+timeSec = 7.0
+materials = {
+1: 3,
+2: 0,
+3: 1
+}
