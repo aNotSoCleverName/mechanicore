@@ -1,9 +1,11 @@
 extends ProgressBar
 
+const MODULATE_THRESHOLD: float = 0.4;
+
 var _orderTimer: Timer;
 @onready var _tickTimer: Timer = $"Tick Timer";
 
-const MODULATE_THRESHOLD: float = 0.4;
+var _alienBody: Sprite2D;
 
 func _ready() -> void:
 	var ancestorNode: Node = self.get_parent();
@@ -21,10 +23,11 @@ func _ready() -> void:
 				return;
 			else:
 				var mood: float = lerpf(0.3, 1, self.value/self.MODULATE_THRESHOLD);
-				order.alienBody.self_modulate = Color(1, mood, mood);
+				self._alienBody.self_modulate = Color(1, mood, mood);
 	)
 	
 	SignalBus_Base.shop_make_order.connect(
-		func (_inAlien: Alien):
+		func (inAlien: Alien, _inOrderedItem: CraftItem):
+			self._alienBody = inAlien.find_child("Body");
 			self._tickTimer.start();
 	)

@@ -18,11 +18,7 @@ static var bodySprites: Array[Texture2D] = [];
 const DIR_PATH_CLOTHES_SPRITE: String = "res://Base/Shop/Alien/Sprite/Clothes/";
 static var clothesSprites: Array[Texture2D] = [];
 
-const DIR_PATH_CRAFT_ITEM_RESOURCE: String = "res://Base/Menu/Craft/Craft Item/Resources/";
-static var craftItems: Array[CraftItem] = [];
-
 var waitTime: float;
-var orderedItem: CraftItem;
 
 static func _InitArray(inArray: Array, inDirPath: String, inExtension: String):
 	if (inArray.size() > 0):	# If already initialized
@@ -37,7 +33,6 @@ static func _InitArray(inArray: Array, inDirPath: String, inExtension: String):
 
 func _on_tree_entered():
 	Alien._InitArray(Alien.clothesSprites, Alien.DIR_PATH_CLOTHES_SPRITE, ".png");
-	Alien._InitArray(Alien.craftItems, Alien.DIR_PATH_CRAFT_ITEM_RESOURCE, ".tres");
 	
 	if (Alien.bodySprites.size() == 0):
 		Alien.waitTimeBasedOnBodySprite.keys().map(
@@ -51,4 +46,3 @@ func _on_tree_entered():
 	self.waitTime = Alien.waitTimeBasedOnBodySprite[bodySprite.resource_path];
 	
 	$Body/Clothes.texture = Alien.clothesSprites[randi_range(0, Alien.clothesSprites.size() - 1)];
-	self.orderedItem = Alien.craftItems[randi_range(0, Alien.craftItems.size() - 1)];
