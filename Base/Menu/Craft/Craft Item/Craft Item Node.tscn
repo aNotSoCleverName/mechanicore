@@ -7,19 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://bptr6byvokmow" path="res://Base/Money.png" id="3_xw0m5"]
 [ext_resource type="Texture2D" uid="uid://ctavnwfpqdo87" path="res://Base/Time.png" id="4_cfie2"]
 [ext_resource type="PackedScene" uid="uid://ccirx7362q0ar" path="res://Base/Menu/Craft/Craft Item/Craft Item Material.tscn" id="4_pkhi4"]
-[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Simple Label.tres" id="4_qra5k"]
+[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Label Style - Outline Size16.tres" id="4_qra5k"]
 [ext_resource type="Texture2D" uid="uid://kpyugmno047" path="res://Endless Run/Ores/Ore1.png" id="5_3meuh"]
 [ext_resource type="Texture2D" uid="uid://cjhadim1ft6sj" path="res://Endless Run/Ores/Ore2.png" id="6_d6pru"]
 [ext_resource type="Script" path="res://Base/Menu/Craft/Craft Item/Stock.gd" id="6_mhem6"]
 [ext_resource type="Texture2D" uid="uid://bripmml1nnira" path="res://Endless Run/Ores/Ore3.png" id="7_flb3l"]
 [ext_resource type="Texture2D" uid="uid://by6jv4i7kl48d" path="res://Base/Menu/Craft/Craft Item/Craft.png" id="8_kdpct"]
+[ext_resource type="LabelSettings" uid="uid://c83ljliopp2nx" path="res://Label Style - Outline Size12.tres" id="9_p3sw4"]
 [ext_resource type="Texture2D" uid="uid://cbkgfu5vs62df" path="res://Base/Menu/Craft/Craft Item/Craft Disabled.png" id="14_0lsng"]
 [ext_resource type="LabelSettings" path="res://Base/Menu/Label Style - Neon.tres" id="15_43xx5"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_ocgbb"]
-font_size = 12
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_oq7r2"]
 font_size = 12
@@ -101,7 +97,7 @@ expand_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Details/Price"]
 layout_mode = 2
 text = "0"
-label_settings = SubResource("LabelSettings_ocgbb")
+label_settings = ExtResource("9_p3sw4")
 
 [node name="Time" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Details"]
 layout_mode = 2
@@ -114,7 +110,7 @@ expand_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Details/Time"]
 layout_mode = 2
 text = "0"
-label_settings = SubResource("LabelSettings_ocgbb")
+label_settings = ExtResource("9_p3sw4")
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/Details"]
 layout_mode = 2

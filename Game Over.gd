@@ -7,13 +7,12 @@ var stageIndex: int = 0;
 var gameNode: Node;
 
 func _ready():
+	self.get_tree().paused = true;
 	self.position.y = -self.size.y;
 	self.gameNode = self.get_parent().get_child(0);
 
 func _process(_delta: float):
 	if (self.stageIndex >= self.targetY.size()):
-		if (is_instance_valid(self.gameNode)):
-			self.gameNode.queue_free();
 		return;
 	
 	if (self.position.y == self.targetY[self.stageIndex]):

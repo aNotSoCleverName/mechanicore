@@ -63,4 +63,5 @@ func _RandomizeOreType(inDepth: float) -> void:
 func _on_child_exiting_tree(node):
 	if (!(node is Ore)):
 		return;
+	
 	self.queue_free();

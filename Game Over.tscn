@@ -1,24 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://c4jew4c3jev84"]
 
 [ext_resource type="Script" path="res://Game Over.gd" id="1_tm8js"]
-[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Simple Label.tres" id="2_1kh76"]
+[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Label Style - Outline Size16.tres" id="2_1kh76"]
+[ext_resource type="StyleBox" uid="uid://kom6gkjk8s2e" path="res://Button Style - Blue.tres" id="2_rples"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8hnsg"]
 font_size = 136
 font_color = Color(1, 0, 0.147364, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktxum"]
-bg_color = Color(0, 0.495304, 0.765625, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-
 [node name="GameOver" type="PanelContainer"]
+process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -46,7 +37,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
 mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_ktxum")
+theme_override_styles/normal = ExtResource("2_rples")
 
 [node name="Label" type="Label" parent="VBoxContainer/Play Again Button"]
 layout_mode = 1

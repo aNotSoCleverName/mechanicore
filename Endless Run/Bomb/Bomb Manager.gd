@@ -7,15 +7,25 @@ const BOMB_START_CHANCE: float = 0.05;
 const BOMB_COMMON_DEPTH: float = 1000;
 const BOMB_COMMON_CHANCE: float = 0.15;
 
-static var bombPool: Array[Bomb] = [];
-static func addToPool(inBomb: Bomb) -> void:
-	BombManager.bombPool.append(inBomb);
-static func popFromPool() -> Bomb:
-	return BombManager.bombPool.pop_back();
+var bombPool: Array[Bomb] = [];
+func addToPool(inBomb: Bomb) -> void:
+	self.call_deferred("remove_child", inBomb);
+	self.bombPool.append(inBomb);
+func _popFromPool() -> Bomb:
+	return self.bombPool.pop_back();
 
 #var _prevBombY: float = 0;
 func _on_tree_entered():
 	var drill: Drill = GlobalProperty_EndlessRun.GetDrillNode(self);
+	
+	SignalBus_EndlessRun.drill_change_dock.connect(
+		func (inIsDocked: bool, _inDrill: Drill):
+			if (!inIsDocked):
+				return;
+			
+			for bomb: Bomb in self.get_children() as Array[Bomb]:
+				self.addToPool(bomb);
+	)
 	
 	SignalBus_EndlessRun.drill_change_pos.connect(
 		func (inPos: Vector2):
@@ -33,7 +43,7 @@ func _on_tree_entered():
 			if (randf() > spawnChance):
 				return;
 			
-			var bomb: Bomb = BombManager.popFromPool();
+			var bomb: Bomb = self._popFromPool();
 			if (bomb == null):
 				bomb = preload("res://Endless Run/Bomb/Bomb.tscn").instantiate();
 			

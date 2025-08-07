@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DrillUpgrade" load_steps=3 format=3 uid="uid://bphf43yah6k8p"]
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://bphf43yah6k8p"]
 
 [ext_resource type="Texture2D" uid="uid://ijln68w0typ1" path="res://Base/Menu/Upgrade/Upgrade Node/Upgrade - Placeholder.png" id="1_8dtqk"]
 [ext_resource type="Script" path="res://Base/Menu/Upgrade/Upgrade.gd" id="2_38521"]
@@ -7,7 +7,7 @@
 script = ExtResource("2_38521")
 stats = 0
 icon = ExtResource("1_8dtqk")
-name = "Armor"
+name = "Max Shield"
 maxLevel = 2
 statChange = Array[float]([1.0, 1.0])
 prices = Array[int]([600, 200])

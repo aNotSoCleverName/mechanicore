@@ -12,6 +12,8 @@ static var orePools: Dictionary = { };
 static func addToPool(inOre: Ore) -> void:
 	var orePool: Array[Ore] = OreManager.orePools[inOre.oreType];
 	orePool.append(inOre);
+	
+	inOre.get_parent().call_deferred("remove_child", inOre);
 static func popFromPool(inOreType: Ore.EOreType) -> Ore:
 	var orePool: Array[Ore] = OreManager.orePools[inOreType];
 	return orePool.pop_back();
@@ -29,9 +31,6 @@ func _on_tree_entered() -> void:
 	SignalBus_EndlessRun.ore_pick.connect(
 		func (inOre: Ore):
 			self.addToPool(inOre);
-			var orePlaceholder: OrePlaceholder = inOre.get_parent();
-			orePlaceholder.call_deferred("remove_child", inOre);
-			orePlaceholder.queue_free();
 	)
 	
 	SignalBus_EndlessRun.ore_place.connect(
@@ -69,8 +68,9 @@ func _on_tree_entered() -> void:
 	)
 	SignalBus_EndlessRun.drill_change_dock.connect(	# Reset ore generation when docking
 		func (inIsDocked: bool, _inDrill: Drill):
-			if (inIsDocked):
+			if (!inIsDocked):
 				return;
+			
 			self._prevLoadedChunkY = 0;
 	)
 	#endregion

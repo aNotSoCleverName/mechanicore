@@ -34,6 +34,7 @@ var _isDocked: bool = true:
 			self.shield = self.upgradeComponentContainer._stats[UpgradeComponentContainer.EStatsKeys.maxShield];
 			self._speed = 0;
 			self._directionDeg = SignalBus_EndlessRun.EDrillDirection.DOCKED;
+			self.velocity = Vector2(0, 0);	# When dodging TO bomb and docking, this stops the drill from sliding in base
 			$AnimatedSprite2D.stop();
 		else:
 			self._directionDeg = SignalBus_EndlessRun.EDrillDirection.RIGHT;
@@ -62,7 +63,6 @@ var _speed: float = 0:
 				return;
 			_speed = newSpeed;
 		
-		self._UpdateVelocity();
 		SignalBus_EndlessRun.drill_change_speed.emit(self);
 		
 		if (_speed == 0):
@@ -85,7 +85,6 @@ var _directionDeg: SignalBus_EndlessRun.EDrillDirection = SignalBus_EndlessRun.E
 		
 		_directionDeg = inValue;
 		self.rotation = deg_to_rad(inValue);
-		self._UpdateVelocity();
 		
 		SignalBus_EndlessRun.drill_change_dir.emit(inValue);
 
@@ -105,7 +104,10 @@ var inventory: Dictionary = { }:
 #endregion
 
 #region Private functions
+var isDodging: bool = false;
 func _UpdateVelocity() -> void:
+	if (self.isDodging):
+		return;
 	velocity = self._speed * Vector2.RIGHT.rotated(self.rotation);
 #endregion
 
@@ -130,12 +132,13 @@ func _on_tree_entered() -> void:
 	)
 	
 	SignalBus_EndlessRun.bomb_explode.connect(
-		func ():
+		func (_inBomb: Bomb):
 			self.shield -= 1;
 	)
 
 func _physics_process(_delta) -> void:
 	move_and_slide();
+	self._UpdateVelocity();
 
 func _input(event: InputEvent) -> void:
 	if (!(event is InputEventKey)):

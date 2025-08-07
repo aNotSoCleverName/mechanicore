@@ -15,7 +15,7 @@ func _takeOres(inOres: Dictionary):
 # Key = craftItem, value = amount
 var craftItems: Dictionary = { };
 
-var money: int = 0:
+var money: int = 100000:
 	get:
 		return money;
 	set(inValue):

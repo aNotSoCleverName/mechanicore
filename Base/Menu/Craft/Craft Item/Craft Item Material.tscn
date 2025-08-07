@@ -1,21 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccirx7362q0ar"]
+[gd_scene load_steps=3 format=3 uid="uid://ccirx7362q0ar"]
 
 [ext_resource type="Script" path="res://Base/Menu/Craft/Craft Item/Craft Item Material.gd" id="1_xmrfw"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_is3ay"]
-font_size = 12
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_v6gft"]
-font_size = 12
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_2yk70"]
-font_size = 12
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
+[ext_resource type="LabelSettings" uid="uid://c83ljliopp2nx" path="res://Label Style - Outline Size12.tres" id="2_unxqx"]
 
 [node name="Craft Item Material" type="HBoxContainer"]
 offset_right = 37.0
@@ -29,15 +15,15 @@ expand_mode = 2
 [node name="Requirement" type="Label" parent="."]
 layout_mode = 2
 text = "0"
-label_settings = SubResource("LabelSettings_is3ay")
+label_settings = ExtResource("2_unxqx")
 horizontal_alignment = 2
 
 [node name="Slash" type="Label" parent="."]
 layout_mode = 2
 text = "/"
-label_settings = SubResource("LabelSettings_v6gft")
+label_settings = ExtResource("2_unxqx")
 
 [node name="Stock" type="Label" parent="."]
 layout_mode = 2
 text = "0"
-label_settings = SubResource("LabelSettings_2yk70")
+label_settings = ExtResource("2_unxqx")

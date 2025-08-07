@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://kf4x8f2aj1c7"]
+[gd_scene load_steps=8 format=3 uid="uid://kf4x8f2aj1c7"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_r3yx1"]
 [ext_resource type="PackedScene" uid="uid://dij236dtc6ebs" path="res://Game.tscn" id="2_dtcds"]
+[ext_resource type="Script" path="res://Pause Screen.gd" id="2_emyiw"]
+[ext_resource type="StyleBox" uid="uid://kom6gkjk8s2e" path="res://Button Style - Blue.tres" id="3_l7pgt"]
+[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Label Style - Outline Size16.tres" id="3_s1mpv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8tan"]
+bg_color = Color(0, 0, 0, 0.898039)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jwsxi"]
+font_size = 106
+outline_size = 35
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -12,6 +23,49 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_r3yx1")
 
+[node name="Pause Screen" type="PanelContainer" parent="."]
+process_mode = 3
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_a8tan")
+script = ExtResource("2_emyiw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause Screen"]
+custom_minimum_size = Vector2(1280, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Pause Screen/VBoxContainer"]
+layout_mode = 2
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_jwsxi")
+horizontal_alignment = 1
+
+[node name="Continue Button" type="Button" parent="Pause Screen/VBoxContainer"]
+custom_minimum_size = Vector2(112, 42)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = ExtResource("3_l7pgt")
+
+[node name="Label" type="Label" parent="Pause Screen/VBoxContainer/Continue Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -11.5
+offset_right = 35.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Continue"
+label_settings = ExtResource("3_s1mpv")
+
 [node name="Game" parent="." instance=ExtResource("2_dtcds")]
 layout_mode = 0
 anchors_preset = 0
@@ -21,3 +75,4 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="pressed" from="Pause Screen/VBoxContainer/Continue Button" to="Pause Screen" method="_on_continue_button_pressed"]

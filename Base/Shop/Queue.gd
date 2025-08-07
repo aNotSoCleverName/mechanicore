@@ -1,10 +1,11 @@
 extends Node2D
 class_name ShopQueue;
 
-const MAX_QUEUE: int = 1;
+const MAX_QUEUE: int = 5;
 
-var _alienPool: Array[AlienNode] = [];
-var alienQueues: Array[AlienNode] = [];
+var _alienPool: Array[Alien] = [];
+var alienQueues: Array[Alien] = [];
+var firstInQueue: Alien;
 
 @onready var _spawnTimer: Timer = $Timer;
 
@@ -14,10 +15,8 @@ func _ResetSpawnTimer() -> void:
 
 func _ExitQueue() -> void:
 	self.alienQueues.remove_at(0);
-	
-	var firstInQueue: AlienNode = self.get_child(1); # Index 0 is timer
-	self.remove_child(firstInQueue);
 	self._alienPool.append(firstInQueue);
+	self.remove_child(firstInQueue);
 	
 	if (self.alienQueues.size() == 0):
 		SignalBus_Base.shop_queue_empty.emit();
@@ -28,11 +27,11 @@ func _ready() -> void:
 		func ():
 			self._ResetSpawnTimer();
 			
-			var alienNode: AlienNode = self._alienPool.pop_back();
-			if (alienNode == null):
-				alienNode = preload("res://Base/Shop/Alien/Alien Node.tscn").instantiate();
-			self.alienQueues.append(alienNode);
-			self.add_child(alienNode);
+			var alien: Alien = self._alienPool.pop_back();
+			if (alien == null):
+				alien = preload("res://Base/Shop/Alien/Alien.tscn").instantiate();
+			self.alienQueues.append(alien);
+			self.add_child(alien);
 	)
 	self._spawnTimer.start();
 	
@@ -51,9 +50,19 @@ func _on_child_exiting_tree(_node):
 		self._ResetSpawnTimer();
 		self._spawnTimer.start();
 
+const DISTANCE_BETWEEN_CUSTOMERS: float = 60;
 func _on_child_order_changed():
 	if (!self.is_inside_tree()):
 		return;
 	
-	if (self.alienQueues.size() > 0):
-		SignalBus_Base.shop_make_order.emit(self.alienQueues[0]);
+	if (self.alienQueues.size() == 0):
+		self.firstInQueue = null;
+		return;
+	
+	if (self.firstInQueue != self.alienQueues[0]):
+		self.firstInQueue = self.alienQueues[0];
+		SignalBus_Base.shop_make_order.emit(self.firstInQueue);
+	
+	for i: int in self.alienQueues.size():
+		var alien: Alien = self.alienQueues[i];
+		alien.position.x = 0 + self.DISTANCE_BETWEEN_CUSTOMERS * i;

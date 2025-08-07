@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dxewdcl3yp1eo"]
+[gd_scene load_steps=13 format=3 uid="uid://dxewdcl3yp1eo"]
 
 [ext_resource type="Script" path="res://Base/Shop/Order.gd" id="1_10qyi"]
 [ext_resource type="Texture2D" uid="uid://dsdwvywljesxa" path="res://Base/Shop/Alien/Sprite/Bubble.png" id="2_o4xe1"]
 [ext_resource type="Texture2D" uid="uid://ctavnwfpqdo87" path="res://Base/Time.png" id="3_eoni4"]
 [ext_resource type="Script" path="res://Base/Shop/Alien/Time Bar.gd" id="4_ssiqo"]
 [ext_resource type="Script" path="res://Base/Shop/Alien/Sell Button.gd" id="5_ttcwc"]
+[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Label Style - Outline Size16.tres" id="5_u5gvo"]
 [ext_resource type="Script" path="res://Base/Shop/Alien/Decline Button.gd" id="6_1r3aw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ne34m"]
@@ -134,6 +135,7 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "0.00s"
+label_settings = ExtResource("5_u5gvo")
 
 [node name="Tick Timer" type="Timer" parent="VBoxContainer/Wait Time/ProgressBar"]
 wait_time = 0.1
