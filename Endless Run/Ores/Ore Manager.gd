@@ -44,7 +44,7 @@ func _on_tree_entered() -> void:
 	#endregion
 	
 	#region Handle ore generation
-	self._initOreChunkFilePaths();
+	self._InitOreChunkFilePaths();
 	
 	const chanceToNotGenerate: float = 0.2;
 	SignalBus_EndlessRun.drill_change_pos.connect(
@@ -61,7 +61,7 @@ func _on_tree_entered() -> void:
 				GlobalProperty_EndlessRun.VIEWPORT_SIZE.y + GlobalProperty_EndlessRun.SURFACE_Y + self._prevLoadedChunkY,
 			);
 			
-			var loadedChunk: OreChunk = self._generateOreChunk(chunkCenter);
+			var loadedChunk: OreChunk = self._GenerateOreChunk(chunkCenter);
 			if (loadedChunk == null):
 				return;
 			self._prevLoadedChunkY += loadedChunk.height;
@@ -77,7 +77,7 @@ func _on_tree_entered() -> void:
 #endregion
 
 #region Private functions
-func _initOreChunkFilePaths():
+func _InitOreChunkFilePaths():
 	var dir: DirAccess = DirAccess.open(self.ORE_CHUNK_DIR_PATH);
 	var fileNames: PackedStringArray = dir.get_files();
 	
@@ -93,7 +93,7 @@ func _initOreChunkFilePaths():
 	self._oreChunkFilePaths = fileNames;
 	
 var _possibleRotations: Array[int] = [0, 90, 180, 270];
-func _generateOreChunk(inTopLeft: Vector2) -> OreChunk:
+func _GenerateOreChunk(inTopLeft: Vector2) -> OreChunk:
 	var loadedChunkIndex: int = randi_range(0, self._oreChunkFilePaths.size() - 1);
 	var loadedChunk: OreChunk = load(self._oreChunkFilePaths[loadedChunkIndex]).instantiate();
 	
@@ -105,11 +105,4 @@ func _generateOreChunk(inTopLeft: Vector2) -> OreChunk:
 #endregion
 
 func _ready() -> void:
-	self._drill = self.find_parent("Endless Run").find_child("Drill");
-
-#func _placeOre(inOrePlaceholder: OrePlaceholder) -> void:
-	#var ore: Ore = self._popFromPool(inOrePlaceholder.oreType);
-	#if (ore == null):
-		#ore = preload("res://Endless Run/Ores/Ore.tscn").instantiate();
-		#ore.oreType = inOrePlaceholder.oreType;
-	#inOrePlaceholder.add_child(ore);
+	self._drill = GlobalProperty_EndlessRun.GetDrillNode(self);
