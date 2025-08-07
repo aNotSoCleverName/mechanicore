@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dx4xl0ya4o52y"]
+[gd_scene load_steps=19 format=3 uid="uid://dx4xl0ya4o52y"]
 
 [ext_resource type="Script" path="res://Base/Base.gd" id="1_4gdcv"]
 [ext_resource type="Script" path="res://Base/Craft Item Unlock Timers.gd" id="2_8kck5"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" path="res://Base/Shop/Money.gd" id="4_m4g0m"]
 [ext_resource type="Script" path="res://Base/Shop/Reputation.gd" id="6_jwxte"]
 [ext_resource type="Texture2D" uid="uid://ues24mh5krya" path="res://Base/Shop/Reputation.png" id="7_6bvwc"]
+[ext_resource type="StyleBox" uid="uid://dccupfiusww5a" path="res://Global Style/ProgressBar Style - Background.tres" id="9_0082q"]
+[ext_resource type="StyleBox" uid="uid://cpmrxg5w8c1kw" path="res://Global Style/ProgressBar Style - Fill.tres" id="10_fu7ka"]
 [ext_resource type="PackedScene" uid="uid://ca7dxk7h7lqt" path="res://Base/Menu/Upgrade/Upgrade Node/Upgrade Node.tscn" id="15_1nhla"]
 [ext_resource type="Resource" uid="uid://bphf43yah6k8p" path="res://Base/Menu/Upgrade/Resource/Max Shield.tres" id="16_3qowb"]
 [ext_resource type="Resource" uid="uid://cddvaa6tybrd8" path="res://Base/Menu/Upgrade/Resource/Max Speed.tres" id="17_w2vqp"]
@@ -90,7 +92,10 @@ expand_mode = 2
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_styles/background = ExtResource("9_0082q")
+theme_override_styles/fill = ExtResource("10_fu7ka")
 step = 1.0
+value = 50.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="Shop/Shop/Top Bar/HBoxContainer/Reputation/ProgressBar"]
