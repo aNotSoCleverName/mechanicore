@@ -8,10 +8,7 @@ var _orderTimer: Timer;
 var _alienBody: Sprite2D;
 
 func _ready() -> void:
-	var ancestorNode: Node = self.get_parent();
-	while !(ancestorNode is Order):
-		ancestorNode = ancestorNode.get_parent();
-	var order: Order = ancestorNode;
+	var order: Order = self.find_parent("Order");
 	self._orderTimer = order.get_node("Timer");
 	
 	self._tickTimer.timeout.connect(
