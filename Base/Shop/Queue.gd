@@ -62,8 +62,7 @@ func _on_child_order_changed():
 		return;
 	
 	if (self.firstInQueue != self.alienQueues[0]):
-		self.firstInQueue = self.alienQueues[0];
-		
+		self.firstInQueue = self.alienQueues[0];		
 		var orderedItem: CraftItem = self._base.craftItems.keys()[randi_range(0, self._base.craftItems.size() - 1)];
 		SignalBus_Base.shop_make_order.emit(self.firstInQueue, orderedItem);
 	

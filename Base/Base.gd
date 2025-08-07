@@ -15,6 +15,8 @@ func _takeOres(inOres: Dictionary):
 # Key = craftItem, value = amount
 var craftItems: Dictionary = {
 	preload("res://Base/Menu/Craft/Craft Item/Resources/Item1.tres"): 0,
+	preload("res://Base/Menu/Craft/Craft Item/Resources/Item2.tres"): 0,
+	preload("res://Base/Menu/Craft/Craft Item/Resources/Item3.tres"): 0,
 };
 
 var money: int = 100000:
