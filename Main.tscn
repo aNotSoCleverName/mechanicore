@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Main.gd" id="1_r3yx1"]
 [ext_resource type="PackedScene" uid="uid://dij236dtc6ebs" path="res://Game.tscn" id="2_dtcds"]
 [ext_resource type="Script" path="res://Pause Screen.gd" id="2_emyiw"]
-[ext_resource type="StyleBox" uid="uid://kom6gkjk8s2e" path="res://Button Style - Blue.tres" id="3_l7pgt"]
-[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Label Style - Outline Size16.tres" id="3_s1mpv"]
+[ext_resource type="StyleBox" uid="uid://kom6gkjk8s2e" path="res://Global Style/Button Style - Blue.tres" id="3_l7pgt"]
+[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Global Style/Label Style - Outline Size16.tres" id="3_s1mpv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8tan"]
 bg_color = Color(0, 0, 0, 0.898039)

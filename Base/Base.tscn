@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dxewdcl3yp1eo" path="res://Base/Shop/Order.tscn" id="3_l61gs"]
 [ext_resource type="Script" path="res://Base/Shop/Queue.gd" id="3_qc2vo"]
 [ext_resource type="Texture2D" uid="uid://bptr6byvokmow" path="res://Base/Money.png" id="3_vkntu"]
-[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Label Style - Outline Size16.tres" id="4_g8vcw"]
+[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Global Style/Label Style - Outline Size16.tres" id="4_g8vcw"]
 [ext_resource type="Script" path="res://Base/Shop/Money.gd" id="4_m4g0m"]
 [ext_resource type="Script" path="res://Base/Shop/Reputation.gd" id="6_jwxte"]
 [ext_resource type="Texture2D" uid="uid://ues24mh5krya" path="res://Base/Shop/Reputation.png" id="7_6bvwc"]

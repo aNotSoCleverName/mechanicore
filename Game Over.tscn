@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://c4jew4c3jev84"]
 
 [ext_resource type="Script" path="res://Game Over.gd" id="1_tm8js"]
-[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Label Style - Outline Size16.tres" id="2_1kh76"]
-[ext_resource type="StyleBox" uid="uid://kom6gkjk8s2e" path="res://Button Style - Blue.tres" id="2_rples"]
+[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Global Style/Label Style - Outline Size16.tres" id="2_1kh76"]
+[ext_resource type="StyleBox" uid="uid://kom6gkjk8s2e" path="res://Global Style/Button Style - Blue.tres" id="2_rples"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8hnsg"]
 font_size = 136

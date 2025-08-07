@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ccirx7362q0ar"]
 
 [ext_resource type="Script" path="res://Base/Menu/Craft/Craft Item/Craft Item Material.gd" id="1_xmrfw"]
-[ext_resource type="LabelSettings" uid="uid://c83ljliopp2nx" path="res://Label Style - Outline Size12.tres" id="2_unxqx"]
+[ext_resource type="LabelSettings" uid="uid://c83ljliopp2nx" path="res://Global Style/Label Style - Outline Size12.tres" id="2_unxqx"]
 
 [node name="Craft Item Material" type="HBoxContainer"]
 offset_right = 37.0

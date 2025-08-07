@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dllakqtlni1xh"]
 
 [ext_resource type="Script" path="res://Endless Run/Top Bar/Depth Meter.gd" id="1_a2sm2"]
-[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Label Style - Outline Size16.tres" id="1_u3b54"]
+[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Global Style/Label Style - Outline Size16.tres" id="1_u3b54"]
 [ext_resource type="PackedScene" uid="uid://qe41hew0ptdg" path="res://Endless Run/Top Bar/Ore Inventory.tscn" id="2_i2tk7"]
 [ext_resource type="Script" path="res://Endless Run/Top Bar/Speedometer.gd" id="4_16q42"]
 [ext_resource type="Script" path="res://Endless Run/Top Bar/Armors.gd" id="4_xdlb0"]

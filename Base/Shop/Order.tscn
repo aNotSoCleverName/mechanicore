@@ -6,7 +6,7 @@
 [ext_resource type="StyleBox" uid="uid://dccupfiusww5a" path="res://Global Style/ProgressBar Style - Background.tres" id="4_hcloc"]
 [ext_resource type="Script" path="res://Base/Shop/Alien/Time Bar.gd" id="4_ssiqo"]
 [ext_resource type="Script" path="res://Base/Shop/Alien/Sell Button.gd" id="5_ttcwc"]
-[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Label Style - Outline Size16.tres" id="5_u5gvo"]
+[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Global Style/Label Style - Outline Size16.tres" id="5_u5gvo"]
 [ext_resource type="Script" path="res://Base/Shop/Alien/Decline Button.gd" id="6_1r3aw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3l8ag"]
