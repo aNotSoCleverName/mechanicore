@@ -13,7 +13,9 @@ func _takeOres(inOres: Dictionary):
 	SignalBus_Base.update_ore_inventory.emit(ores);
 
 # Key = craftItem, value = amount
-var craftItems: Dictionary = { };
+var craftItems: Dictionary = {
+	preload("res://Base/Menu/Craft/Craft Item/Resources/Item1.tres"): 0,
+};
 
 var money: int = 100000:
 	get:
@@ -64,5 +66,8 @@ func _ready() -> void:
 	SignalBus_Base.update_ore_inventory.emit(self.ores);	# This triggers the code that checks if craft item text should be red/white depending on stock
 	
 	# Initiate craftItems
-	for craftItemNode: CraftItemNode in $"Menu/Craft/Craft Items MarginContainer/ScrollContainer/MarginContainer/Craft Items".get_children() as Array[CraftItemNode]:
-		self.craftItems[craftItemNode.craftItem] = 0;
+	var craftItemContainer: VBoxContainer = $"Menu/Craft/Craft Items MarginContainer/ScrollContainer/MarginContainer/Craft Items";
+	for craftItem: CraftItem in self.craftItems:
+		var craftItemNode: CraftItemNode = preload("res://Base/Menu/Craft/Craft Item/Craft Item Node.tscn").instantiate();
+		craftItemNode.craftItem = craftItem;
+		craftItemContainer.add_child(craftItemNode);
