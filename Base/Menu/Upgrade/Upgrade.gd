@@ -1,7 +1,14 @@
 extends Resource
 class_name Upgrade
 
-@export var stats: UpgradeComponentContainer.EStatsKeys;
+enum EStatsKeys
+{
+	maxShield,
+	maxSpeed,
+	doubleOreChance,
+	dodge,
+}
+@export var stats: Upgrade.EStatsKeys;
 
 @export var icon: Texture2D;
 @export var name: String = "Name";

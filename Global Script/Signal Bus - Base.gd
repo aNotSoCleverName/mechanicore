@@ -26,7 +26,7 @@ signal shop_leave_angry();
 signal shop_queue_empty();
 
 @warning_ignore("unused_signal")
-signal upgrade_drill(inPrice: int, inStatsKey: UpgradeComponentContainer.EStatsKeys, inStatsChange: float);
+signal upgrade_drill(inPrice: int, inStatsKey: Upgrade.EStatsKeys, inStatsChange: float);
 
 @warning_ignore("unused_signal")
 signal game_over();
