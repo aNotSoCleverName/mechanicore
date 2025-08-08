@@ -5,7 +5,8 @@
 
 [resource]
 script = ExtResource("2_38521")
-stats = 0
+upgradeTarget = 1
+stats = 1
 icon = ExtResource("1_g8l43")
 name = "Max Shield"
 maxLevel = 2

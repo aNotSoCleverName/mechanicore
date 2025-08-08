@@ -5,7 +5,8 @@
 
 [resource]
 script = ExtResource("2_jahi8")
-stats = 2
+upgradeTarget = 1
+stats = 3
 icon = ExtResource("1_j46dk")
 name = "Double Ore Chance"
 maxLevel = 4

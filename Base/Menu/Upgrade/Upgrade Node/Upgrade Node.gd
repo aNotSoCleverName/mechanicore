@@ -34,6 +34,14 @@ func _ready():
 		"upgrade must not be null"
 	);
 	assert(
+		self.upgrade.upgradeTarget != Upgrade.EUpgradeTarget.none,
+		"upgrade must have a target"
+	);
+	assert(
+		self.upgrade.stats != Upgrade.EStatsKeys.none,
+		"upgrade must have stats that it upgrades"
+	);
+	assert(
 		self.upgrade.statChange.size() == self.upgrade.maxLevel,
 		"upgrade.statChange size must be equal to max level"
 	);

@@ -1,14 +1,24 @@
 extends Resource
 class_name Upgrade
 
+enum EUpgradeTarget
+{
+	none,
+	drill,
+	base,
+}
+@export var upgradeTarget: EUpgradeTarget;
+
 enum EStatsKeys
 {
+	none,
+	
 	drill_MaxShield,
 	drill_MaxSpeed,
 	drill_DoubleOreChance,
 	drill_Dodge,
 }
-@export var stats: Upgrade.EStatsKeys;
+@export var stats: EStatsKeys;
 
 @export var icon: Texture2D;
 @export var name: String = "Name";
