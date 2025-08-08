@@ -14,10 +14,10 @@
 [ext_resource type="StyleBox" uid="uid://dccupfiusww5a" path="res://Global Style/ProgressBar Style - Background.tres" id="9_0082q"]
 [ext_resource type="StyleBox" uid="uid://cpmrxg5w8c1kw" path="res://Global Style/ProgressBar Style - Fill.tres" id="10_fu7ka"]
 [ext_resource type="PackedScene" uid="uid://ca7dxk7h7lqt" path="res://Base/Menu/Upgrade/Upgrade Node/Upgrade Node.tscn" id="15_1nhla"]
-[ext_resource type="Resource" uid="uid://bphf43yah6k8p" path="res://Base/Menu/Upgrade/Resource/Max Shield.tres" id="16_3qowb"]
-[ext_resource type="Resource" uid="uid://cddvaa6tybrd8" path="res://Base/Menu/Upgrade/Resource/Max Speed.tres" id="17_w2vqp"]
-[ext_resource type="Resource" uid="uid://dfdmjp7jvnf2j" path="res://Base/Menu/Upgrade/Resource/Double Ore Chance.tres" id="18_1j1fr"]
-[ext_resource type="Resource" uid="uid://b71ivg3dtriu0" path="res://Base/Menu/Upgrade/Resource/Dodge.tres" id="19_4d4if"]
+[ext_resource type="Resource" uid="uid://bphf43yah6k8p" path="res://Base/Menu/Upgrade/Resource/Drill/Max Shield.tres" id="16_3qowb"]
+[ext_resource type="Resource" uid="uid://cddvaa6tybrd8" path="res://Base/Menu/Upgrade/Resource/Drill/Max Speed.tres" id="17_w2vqp"]
+[ext_resource type="Resource" uid="uid://dfdmjp7jvnf2j" path="res://Base/Menu/Upgrade/Resource/Drill/Double Ore Chance.tres" id="18_1j1fr"]
+[ext_resource type="Resource" uid="uid://b71ivg3dtriu0" path="res://Base/Menu/Upgrade/Resource/Drill/Dodge.tres" id="19_4d4if"]
 
 [node name="Base" type="VBoxContainer"]
 anchors_preset = 11

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv1aysv28yyfh"
-path="res://.godot/imported/Double Ore Chance.png-494477f2b7c750a889a1267d42e562bc.ctex"
+uid="uid://dfqm8wfkt5pfi"
+path="res://.godot/imported/Max Shield.png-6dc8137f5abd6f075cfe5da535df8944.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Base/Menu/Upgrade/Upgrade Node/Double Ore Chance.png"
-dest_files=["res://.godot/imported/Double Ore Chance.png-494477f2b7c750a889a1267d42e562bc.ctex"]
+source_file="res://Base/Menu/Upgrade/Resource/Drill/Max Shield.png"
+dest_files=["res://.godot/imported/Max Shield.png-6dc8137f5abd6f075cfe5da535df8944.ctex"]
 
 [params]
 

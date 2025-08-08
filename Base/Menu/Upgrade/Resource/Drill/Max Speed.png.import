@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dshhx07kwrja"
-path="res://.godot/imported/Dodge.png-b61712c24d3192b6c2a824b59d0c3b5c.ctex"
+uid="uid://b3flhfg7opk2j"
+path="res://.godot/imported/Max Speed.png-981be3362ef769c586c28937fbd100d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Base/Menu/Upgrade/Upgrade Node/Dodge.png"
-dest_files=["res://.godot/imported/Dodge.png-b61712c24d3192b6c2a824b59d0c3b5c.ctex"]
+source_file="res://Base/Menu/Upgrade/Resource/Drill/Max Speed.png"
+dest_files=["res://.godot/imported/Max Speed.png-981be3362ef769c586c28937fbd100d6.ctex"]
 
 [params]
 

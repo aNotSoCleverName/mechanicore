@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Base/Menu/Upgrade/Upgrade Node/Upgrade Node.gd" id="1_853dm"]
 [ext_resource type="StyleBox" uid="uid://d2kigmst2mqxx" path="res://Base/Menu/Craft/Panel.tres" id="2_ewf7v"]
-[ext_resource type="Texture2D" uid="uid://ijln68w0typ1" path="res://Base/Menu/Upgrade/Upgrade Node/Upgrade - Placeholder.png" id="3_u02rg"]
+[ext_resource type="Texture2D" uid="uid://k6hyd8wclmpp" path="res://Base/Menu/Upgrade/Upgrade Node/Upgrade - Placeholder.png" id="3_6he6d"]
 [ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Global Style/Label Style - Outline Size16.tres" id="4_mto0m"]
 [ext_resource type="Texture2D" uid="uid://dwn1v2brn8bhp" path="res://Base/Menu/Upgrade/Upgrade Node/Upgrade.png" id="5_be4bu"]
 [ext_resource type="Texture2D" uid="uid://bptr6byvokmow" path="res://Base/Money.png" id="6_ivqgv"]
@@ -37,7 +37,7 @@ layout_mode = 2
 [node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("3_u02rg")
+texture = ExtResource("3_6he6d")
 stretch_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]

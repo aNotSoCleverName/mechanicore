@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfqm8wfkt5pfi"
-path="res://.godot/imported/Shield.png-828a2edbe7d0b75db166d5fb83a4555b.ctex"
+uid="uid://dshhx07kwrja"
+path="res://.godot/imported/Dodge.png-6a8546e69456f3a7b0311e97ab4bde19.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Base/Menu/Upgrade/Upgrade Node/Shield.png"
-dest_files=["res://.godot/imported/Shield.png-828a2edbe7d0b75db166d5fb83a4555b.ctex"]
+source_file="res://Base/Menu/Upgrade/Resource/Drill/Dodge.png"
+dest_files=["res://.godot/imported/Dodge.png-6a8546e69456f3a7b0311e97ab4bde19.ctex"]
 
 [params]
 

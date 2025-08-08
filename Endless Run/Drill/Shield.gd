@@ -7,7 +7,7 @@ func _ready():
 	self.self_modulate.a = 0;
 	var shader: ShaderMaterial = self.material;
 	
-	var maxShieldUpgrade: Resource = preload("res://Base/Menu/Upgrade/Resource/Max Shield.tres");
+	var maxShieldUpgrade: Resource = preload("res://Base/Menu/Upgrade/Resource/Drill/Max Shield.tres");
 	shader.set_shader_parameter(
 		SHADER_KEY_MAX_SHIELD,
 		maxShieldUpgrade.maxLevel,

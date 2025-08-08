@@ -25,7 +25,7 @@ func _updateStats(inKey: EStatsKeys, inValue: float):
 			if (self._drill._isDocked):
 				self._drill.shield = int(inValue);
 		EStatsKeys.dodge:
-			var dodgeComponent: DodgeComponent = preload("res://Base/Menu/Upgrade/Resource/Dodge.tscn").instantiate();
+			var dodgeComponent: DodgeComponent = preload("res://Base/Menu/Upgrade/Resource/Drill/Dodge.tscn").instantiate();
 			self.add_child(dodgeComponent);
 #endregion
 

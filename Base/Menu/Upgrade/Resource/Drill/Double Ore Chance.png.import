@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3flhfg7opk2j"
-path="res://.godot/imported/Max Speed.png-56fa9bc43d913efc865b58be516e00c6.ctex"
+uid="uid://cv1aysv28yyfh"
+path="res://.godot/imported/Double Ore Chance.png-36c45e51ee02926ac0069c5c7a2537d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Base/Menu/Upgrade/Upgrade Node/Max Speed.png"
-dest_files=["res://.godot/imported/Max Speed.png-56fa9bc43d913efc865b58be516e00c6.ctex"]
+source_file="res://Base/Menu/Upgrade/Resource/Drill/Double Ore Chance.png"
+dest_files=["res://.godot/imported/Double Ore Chance.png-36c45e51ee02926ac0069c5c7a2537d1.ctex"]
 
 [params]
 
