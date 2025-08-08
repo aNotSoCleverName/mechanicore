@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 SignalBus_EndlessRun="*res://Global Script/Signal Bus - Endless Run.gd"
 GlobalProperty_EndlessRun="*res://Global Script/Global Property - Endless Run.gd"
 SignalBus_Base="*res://Global Script/Signal Bus - Base.gd"
+UtilityInit="*res://Global Script/Utility Init.gd"
 
 [display]
 

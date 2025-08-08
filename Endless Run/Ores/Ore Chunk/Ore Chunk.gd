@@ -4,8 +4,7 @@ class_name OreChunk
 @export var width: int = 0;
 @export var height: int = 0;
 
-const ORE_CHUNK_DIR_PATH: String = "res://Endless Run/Ores/Ore Chunk/";
-static var _oreChunkFilePaths: PackedStringArray = [];
+static var _oreChunkResources: Array[Resource] = [];
 
 #region Public functions
 enum EPossibleChunkRotation
@@ -16,10 +15,10 @@ enum EPossibleChunkRotation
 	deg270 = 270,
 }
 static func GenerateOreChunk(inPos: Vector2) -> OreChunk:
-	OreChunk._InitOreChunkFilePaths();
+	UtilityInit.InitArrayFromFiles(OreChunk._oreChunkResources, "res://Endless Run/Ores/Ore Chunk/", ".tscn", true, false);
 	
-	var loadedChunkIndex: int = randi_range(0, OreChunk._oreChunkFilePaths.size() - 1);
-	var loadedChunk: OreChunk = load(OreChunk._oreChunkFilePaths[loadedChunkIndex]).instantiate();
+	var loadedChunkIndex: int = randi_range(0, OreChunk._oreChunkResources.size() - 1);
+	var loadedChunk: OreChunk = OreChunk._oreChunkResources[loadedChunkIndex].instantiate();
 	
 	loadedChunk.position = inPos;
 	loadedChunk.rotation_degrees = OreChunk.EPossibleChunkRotation.values()[randi_range(0, OreChunk.EPossibleChunkRotation.values().size() - 1)];
@@ -35,24 +34,6 @@ static func GenerateOreChunk(inPos: Vector2) -> OreChunk:
 #endregion
 
 #region Private functions
-static func _InitOreChunkFilePaths():
-	if (OreChunk._oreChunkFilePaths.size() > 0):	# If already initiated
-		return;
-	
-	var dir: DirAccess = DirAccess.open(OreChunk.ORE_CHUNK_DIR_PATH);
-	var fileNames: PackedStringArray = dir.get_files();
-	
-	var i: int = 0;
-	while i < fileNames.size():
-		var fileName: String = fileNames[i];
-		if (fileName.ends_with(".tscn")):
-			fileNames[i] = OreChunk.ORE_CHUNK_DIR_PATH + fileName;
-			i += 1;
-			continue;
-		
-		fileNames.remove_at(i);
-	OreChunk._oreChunkFilePaths = fileNames;
-
 func _addOresToPool() -> void:
 	for orePlaceholder: OrePlaceholder in self.get_children() as Array[OrePlaceholder]:
 		var ore: Ore = orePlaceholder.get_child(1);
