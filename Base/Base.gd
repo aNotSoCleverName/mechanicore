@@ -18,6 +18,10 @@ var stats: Dictionary = {
 }
 func _UpdateStats(inKey: Upgrade.EStatsKeys, inValue: float):
 	self.stats[inKey] = inValue;
+	
+	match inKey:
+		Upgrade.EStatsKeys.base_MindReader:
+			SignalBus_Base.upgrade_base_mind_reader_unlocked.emit();
 
 # Key = ore type, value = amount
 var ores: Dictionary = { };
