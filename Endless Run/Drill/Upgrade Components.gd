@@ -5,19 +5,19 @@ var _drill: Drill;
 
 #region Stats
 var _stats: Dictionary = {
-	Upgrade.EStatsKeys.maxShield: 0,
-	Upgrade.EStatsKeys.maxSpeed: 0,
-	Upgrade.EStatsKeys.doubleOreChance: 0,
-	Upgrade.EStatsKeys.dodge: 0,
+	Upgrade.EStatsKeys.drill_MaxShield: 0,
+	Upgrade.EStatsKeys.drill_MaxSpeed: 0,
+	Upgrade.EStatsKeys.drill_DoubleOreChance: 0,
+	Upgrade.EStatsKeys.drill_Dodge: 0,
 }
 func _updateStats(inKey: Upgrade.EStatsKeys, inValue: float):
 	self._stats[inKey] = inValue;
 	
 	match (inKey):
-		Upgrade.EStatsKeys.maxShield:
+		Upgrade.EStatsKeys.drill_MaxShield:
 			if (self._drill._isDocked):
 				self._drill.shield = int(inValue);
-		Upgrade.EStatsKeys.dodge:
+		Upgrade.EStatsKeys.drill_Dodge:
 			var dodgeComponent: DodgeComponent = preload("res://Base/Menu/Upgrade/Resource/Drill/Dodge.tscn").instantiate();
 			self.add_child(dodgeComponent);
 #endregion

@@ -3,10 +3,10 @@ class_name Upgrade
 
 enum EStatsKeys
 {
-	maxShield,
-	maxSpeed,
-	doubleOreChance,
-	dodge,
+	drill_MaxShield,
+	drill_MaxSpeed,
+	drill_DoubleOreChance,
+	drill_Dodge,
 }
 @export var stats: Upgrade.EStatsKeys;
 

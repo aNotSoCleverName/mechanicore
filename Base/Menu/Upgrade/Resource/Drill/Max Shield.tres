@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://bphf43yah6k8p"]
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://4nnkyj6nvrlj"]
 
 [ext_resource type="Texture2D" uid="uid://dfqm8wfkt5pfi" path="res://Base/Menu/Upgrade/Resource/Drill/Max Shield.png" id="1_g8l43"]
 [ext_resource type="Script" path="res://Base/Menu/Upgrade/Upgrade.gd" id="2_38521"]

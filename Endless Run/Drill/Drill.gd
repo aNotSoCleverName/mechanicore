@@ -31,7 +31,7 @@ var _isDocked: bool = true:
 		
 		SignalBus_EndlessRun.drill_change_dock.emit(_isDocked, self);
 		if (_isDocked):
-			self.shield = self.upgradeComponentContainer._stats[Upgrade.EStatsKeys.maxShield];
+			self.shield = self.upgradeComponentContainer._stats[Upgrade.EStatsKeys.drill_MaxShield];
 			self._speed = 0;
 			self._directionDeg = SignalBus_EndlessRun.EDrillDirection.DOCKED;
 			self.velocity = Vector2(0, 0);	# When dodging TO bomb and docking, this stops the drill from sliding in base
@@ -94,7 +94,7 @@ var depth: float = 0.0:
 	set(inValue):
 		depth = inValue;
 		self._minSpeed = min(self.MAX_MIN_SPEED, self.START_SPEED + self.depth);
-		self._maxSpeed = self._minSpeed + self.upgradeComponentContainer._stats[Upgrade.EStatsKeys.maxSpeed];
+		self._maxSpeed = self._minSpeed + self.upgradeComponentContainer._stats[Upgrade.EStatsKeys.drill_MaxSpeed];
 
 ### Stores ore
 ### Key = ore type, value = amount
@@ -124,7 +124,7 @@ func _on_tree_entered() -> void:
 	
 	SignalBus_EndlessRun.ore_pick.connect(
 		func (inOre: Ore):
-			var doubleOreChance: float = self.upgradeComponentContainer._stats[Upgrade.EStatsKeys.doubleOreChance];
+			var doubleOreChance: float = self.upgradeComponentContainer._stats[Upgrade.EStatsKeys.drill_DoubleOreChance];
 			if (randf() < doubleOreChance):
 				self.inventory[inOre.oreType] += 2;
 			else:
