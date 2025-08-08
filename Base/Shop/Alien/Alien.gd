@@ -18,6 +18,9 @@ static var bodySprites: Array[Texture2D] = [];
 static var clothesSprites: Array[Texture2D] = [];
 
 static var _base: Base;
+static var _isMindReaderUnlocked: bool = false;
+
+var bubbleNode: Sprite2D;
 
 var orderedItem: CraftItem: 
 	get:
@@ -49,9 +52,15 @@ func _on_tree_entered():
 	
 	$Body/Clothes.texture = Alien.clothesSprites[randi_range(0, Alien.clothesSprites.size() - 1)];
 	
-	$Bubble.visible = true;
+	SignalBus_Base.upgrade_base_mind_reader_unlocked.connect(
+		func ():
+			Alien._isMindReaderUnlocked = true;
+	)
+	
+	self.bubbleNode = $Bubble;
+	self.bubbleNode.visible = Alien._isMindReaderUnlocked;
 	SignalBus_Base.shop_make_order.connect(
 		func (inAlien: Alien):
 			if (inAlien == self):
-				$Bubble.visible = false;
+				self.bubbleNode.visible = false;
 	)

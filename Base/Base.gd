@@ -2,6 +2,26 @@ extends VBoxContainer
 class_name Base
 
 const CRAFT_ITEM_RESOURCES_DIR: String = "res://Base/Menu/Craft/Craft Item/Resources/";
+const DEFAULT_MAX_CRAFT_QUEUE: int = 3;
+
+var _currentCraftQueueCount: int = 0:
+	get:
+		return _currentCraftQueueCount;
+	set(inValue):
+		_currentCraftQueueCount = inValue;
+		SignalBus_Base.update_craft_queue.emit(_currentCraftQueueCount);
+
+# Key = Upgrade.EStatsKey, value = stats from upgrade
+var stats: Dictionary = {
+	Upgrade.EStatsKeys.base_MaxCraftQueue: 0,
+	Upgrade.EStatsKeys.base_MindReader: 0,
+}
+func _UpdateStats(inKey: Upgrade.EStatsKeys, inValue: float):
+	self.stats[inKey] = inValue;
+	
+	match inKey:
+		Upgrade.EStatsKeys.base_MindReader:
+			SignalBus_Base.upgrade_base_mind_reader_unlocked.emit();
 
 # Key = ore type, value = amount
 var ores: Dictionary = { };
@@ -42,16 +62,19 @@ func _on_tree_entered() -> void:
 	
 	SignalBus_Base.craft_queue.connect(
 		func (inCraftItem: CraftItem):
+			self._currentCraftQueueCount += 1;
 			self._takeOres(inCraftItem.materials);
 	);
 	
 	SignalBus_Base.craft_finished.connect(
 		func (inCraftItem: CraftItem):
+			self._currentCraftQueueCount -= 1;
 			self.craftItems[inCraftItem] += 1;
 	);
 	
 	SignalBus_Base.craft_cancel.connect(
 		func (inCraftItem: CraftItem):
+			self._currentCraftQueueCount -= 1;
 			self._addOres(inCraftItem.materials);
 	);
 	
@@ -62,8 +85,14 @@ func _on_tree_entered() -> void:
 	)
 	
 	SignalBus_Base.upgrade_drill.connect(
-		func (inPrice: int, _inStatsKey: UpgradeComponentContainer.EStatsKeys, _inStatsChange: float):
+		func (inPrice: int, _inStatsKey: Upgrade.EStatsKeys, _inStatsChange: float):
 			self.money -= inPrice;
+	)
+	
+	SignalBus_Base.upgrade_base.connect(
+		func (inPrice: int, inStatsKey: Upgrade.EStatsKeys, inStatsChange: float):
+			self.money -= inPrice;
+			self._UpdateStats(inStatsKey, self.stats[inStatsKey] + inStatsChange);
 	)
 
 func _ready() -> void:

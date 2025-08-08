@@ -5,7 +5,8 @@
 
 [resource]
 script = ExtResource("2_xengp")
-stats = 1
+upgradeTarget = 1
+stats = 2
 icon = ExtResource("1_joaxk")
 name = "Max Speed"
 maxLevel = 3

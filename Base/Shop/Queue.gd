@@ -39,6 +39,13 @@ func _ready() -> void:
 		func ():
 			self._ExitQueue();
 	)
+	
+	SignalBus_Base.upgrade_base_mind_reader_unlocked.connect(
+		func ():
+			for i: int in range(1, self.alienQueues.size()):
+				var alien: Alien = self.alienQueues[i];
+				alien.bubbleNode.visible = true;
+	)
 
 func _on_child_entered_tree(_node):
 	if (self.alienQueues.size() >= ShopQueue.MAX_QUEUE):

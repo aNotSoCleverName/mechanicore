@@ -34,6 +34,14 @@ func _ready():
 		"upgrade must not be null"
 	);
 	assert(
+		self.upgrade.upgradeTarget != Upgrade.EUpgradeTarget.none,
+		"upgrade must have a target"
+	);
+	assert(
+		self.upgrade.stats != Upgrade.EStatsKeys.none,
+		"upgrade must have stats that it upgrades"
+	);
+	assert(
 		self.upgrade.statChange.size() == self.upgrade.maxLevel,
 		"upgrade.statChange size must be equal to max level"
 	);
@@ -74,4 +82,9 @@ func _on_upgrade_button_pressed():
 		self.price = self.upgrade.prices[self.upgrade.level];
 		self.priceLabel.text = str(self.price);
 	
-	SignalBus_Base.upgrade_drill.emit(currentPrice, self.upgrade.stats, self.upgrade.statChange[currentLevel]);
+	if (self.upgrade.upgradeTarget == Upgrade.EUpgradeTarget.drill):
+		SignalBus_Base.upgrade_drill.emit(currentPrice, self.upgrade.stats, self.upgrade.statChange[currentLevel]);
+	elif (self.upgrade.upgradeTarget == Upgrade.EUpgradeTarget.base):
+		SignalBus_Base.upgrade_base.emit(currentPrice, self.upgrade.stats, self.upgrade.statChange[currentLevel]);
+	else:
+		assert(false, "Upgrade target unhandled");

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://2vvsab2ub6dp"]
+
+[ext_resource type="Texture2D" uid="uid://cks8ncmfgwoje" path="res://Base/Menu/Upgrade/Resource/Base/Mind Reader.png" id="1_4plsm"]
+[ext_resource type="Script" path="res://Base/Menu/Upgrade/Upgrade.gd" id="1_b147m"]
+
+[resource]
+script = ExtResource("1_b147m")
+upgradeTarget = 2
+stats = 6
+icon = ExtResource("1_4plsm")
+name = "Mind Reader"
+maxLevel = 1
+statChange = Array[float]([1.0])
+prices = Array[int]([2500])
