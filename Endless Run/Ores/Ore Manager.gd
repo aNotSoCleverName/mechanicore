@@ -2,9 +2,6 @@ extends Node2D
 class_name OreManager
 
 #region Properties
-const ORE_CHUNK_DIR_PATH: String = "res://Endless Run/Ores/Ore Chunk/";
-var _oreChunkFilePaths: PackedStringArray = [];
-
 var _drill: Drill;
 
 # key = Ore.EOreType, value = Array[Ore]
@@ -17,47 +14,6 @@ static func addToPool(inOre: Ore) -> void:
 static func popFromPool(inOreType: Ore.EOreType) -> Ore:
 	var orePool: Array[Ore] = OreManager.orePools[inOreType];
 	return orePool.pop_back();
-#endregion
-
-#region Private functions
-func _InitOreChunkFilePaths():
-	var dir: DirAccess = DirAccess.open(self.ORE_CHUNK_DIR_PATH);
-	var fileNames: PackedStringArray = dir.get_files();
-	
-	var i: int = 0;
-	while i < fileNames.size():
-		var fileName: String = fileNames[i];
-		if (fileName.ends_with(".tscn")):
-			fileNames[i] = self.ORE_CHUNK_DIR_PATH + fileName;
-			i += 1;
-			continue;
-		
-		fileNames.remove_at(i);
-	self._oreChunkFilePaths = fileNames;
-
-enum EPossibleChunkRotation
-{
-	deg0 = 0,
-	deg90 = 90,
-	deg180 = 180,
-	deg270 = 270,
-}
-func _GenerateOreChunk(inTopLeft: Vector2) -> OreChunk:
-	var loadedChunkIndex: int = randi_range(0, self._oreChunkFilePaths.size() - 1);
-	var loadedChunk: OreChunk = load(self._oreChunkFilePaths[loadedChunkIndex]).instantiate();
-	
-	loadedChunk.position = inTopLeft;
-	loadedChunk.rotation_degrees = self.EPossibleChunkRotation.values()[randi_range(0, self.EPossibleChunkRotation.values().size() - 1)];
-	if (
-		loadedChunk.rotation_degrees == self.EPossibleChunkRotation.deg90 ||
-		loadedChunk.rotation_degrees == self.EPossibleChunkRotation.deg270
-	):
-		var tempWidth: int = loadedChunk.width;
-		loadedChunk.width = loadedChunk.height;
-		loadedChunk.height = tempWidth;
-	
-	self.add_child(loadedChunk);
-	return loadedChunk;
 #endregion
 
 #region Built-in functions
@@ -85,8 +41,6 @@ func _on_tree_entered() -> void:
 	#endregion
 	
 	#region Handle ore generation
-	self._InitOreChunkFilePaths();
-	
 	const chanceToNotGenerate: float = 0.2;
 	SignalBus_EndlessRun.drill_change_pos.connect(
 		func (inPos: Vector2):
@@ -102,9 +56,10 @@ func _on_tree_entered() -> void:
 				GlobalProperty_EndlessRun.VIEWPORT_SIZE.y + GlobalProperty_EndlessRun.SURFACE_Y + self._prevLoadedChunkY,
 			);
 			
-			var loadedChunk: OreChunk = self._GenerateOreChunk(chunkCenter);
+			var loadedChunk: OreChunk = OreChunk.GenerateOreChunk(chunkCenter);
 			if (loadedChunk == null):
 				return;
+			self.add_child(loadedChunk);
 			self._prevLoadedChunkY += loadedChunk.height;
 	)
 	SignalBus_EndlessRun.drill_change_dock.connect(	# Reset ore generation when docking
