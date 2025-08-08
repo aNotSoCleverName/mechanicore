@@ -1,14 +1,6 @@
 extends Node2D
 class_name OreManager
 
-enum EPossibleChunkRotation
-{
-	deg0 = 0,
-	deg90 = 90,
-	deg180 = 180,
-	deg270 = 270,
-}
-
 #region Properties
 const ORE_CHUNK_DIR_PATH: String = "res://Endless Run/Ores/Ore Chunk/";
 var _oreChunkFilePaths: PackedStringArray = [];
@@ -42,13 +34,27 @@ func _InitOreChunkFilePaths():
 		
 		fileNames.remove_at(i);
 	self._oreChunkFilePaths = fileNames;
-	
+
+enum EPossibleChunkRotation
+{
+	deg0 = 0,
+	deg90 = 90,
+	deg180 = 180,
+	deg270 = 270,
+}
 func _GenerateOreChunk(inTopLeft: Vector2) -> OreChunk:
 	var loadedChunkIndex: int = randi_range(0, self._oreChunkFilePaths.size() - 1);
 	var loadedChunk: OreChunk = load(self._oreChunkFilePaths[loadedChunkIndex]).instantiate();
 	
 	loadedChunk.position = inTopLeft;
 	loadedChunk.rotation_degrees = self.EPossibleChunkRotation.values()[randi_range(0, self.EPossibleChunkRotation.values().size() - 1)];
+	if (
+		loadedChunk.rotation_degrees == self.EPossibleChunkRotation.deg90 ||
+		loadedChunk.rotation_degrees == self.EPossibleChunkRotation.deg270
+	):
+		var tempWidth: int = loadedChunk.width;
+		loadedChunk.width = loadedChunk.height;
+		loadedChunk.height = tempWidth;
 	
 	self.add_child(loadedChunk);
 	return loadedChunk;
