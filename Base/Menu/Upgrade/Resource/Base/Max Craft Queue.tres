@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://c0cjcuvmfbsju"]
+
+[ext_resource type="Texture2D" uid="uid://5cwat140ydl8" path="res://Base/Menu/Upgrade/Resource/Base/Max Craft Queue.png" id="1_eqs8n"]
+[ext_resource type="Script" path="res://Base/Menu/Upgrade/Upgrade.gd" id="2_bn0id"]
+
+[resource]
+script = ExtResource("2_bn0id")
+upgradeTarget = 2
+stats = 5
+icon = ExtResource("1_eqs8n")
+name = "Max Craft Queue"
+maxLevel = 2
+statChange = Array[float]([2.0, 5.0])
+prices = Array[int]([500, 1500])

@@ -17,6 +17,9 @@ enum EStatsKeys
 	drill_MaxSpeed,
 	drill_DoubleOreChance,
 	drill_Dodge,
+	
+	base_MaxCraftQueue,
+	base_MindReader,
 }
 @export var stats: EStatsKeys;
 

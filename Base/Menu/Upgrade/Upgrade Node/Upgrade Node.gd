@@ -82,4 +82,9 @@ func _on_upgrade_button_pressed():
 		self.price = self.upgrade.prices[self.upgrade.level];
 		self.priceLabel.text = str(self.price);
 	
-	SignalBus_Base.upgrade_drill.emit(currentPrice, self.upgrade.stats, self.upgrade.statChange[currentLevel]);
+	if (self.upgrade.upgradeTarget == Upgrade.EUpgradeTarget.drill):
+		SignalBus_Base.upgrade_drill.emit(currentPrice, self.upgrade.stats, self.upgrade.statChange[currentLevel]);
+	elif (self.upgrade.upgradeTarget == Upgrade.EUpgradeTarget.base):
+		SignalBus_Base.upgrade_base.emit(currentPrice, self.upgrade.stats, self.upgrade.statChange[currentLevel]);
+	else:
+		assert(false, "Upgrade target unhandled");
