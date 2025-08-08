@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbqeyiok0c4rs"]
+
+[ext_resource type="Script" path="res://Endless Run/Ores/Ore Chunk/Ore Chunk.gd" id="1_iouhm"]
+[ext_resource type="PackedScene" uid="uid://bmr1kui5bina6" path="res://Endless Run/Ores/Ore Placeholder.tscn" id="2_ccg7w"]
+
+[node name="OreChunk6" type="Node2D"]
+script = ExtResource("1_iouhm")
+width = 192
+height = 192
+metadata/_edit_lock_ = true
+
+[node name="Ore Placeholder" parent="." instance=ExtResource("2_ccg7w")]
+position = Vector2(0, -64)
+
+[node name="Ore Placeholder2" parent="." instance=ExtResource("2_ccg7w")]
+position = Vector2(-64, 0)
+
+[node name="Ore Placeholder3" parent="." instance=ExtResource("2_ccg7w")]
+position = Vector2(0, 64)
+
+[node name="Ore Placeholder4" parent="." instance=ExtResource("2_ccg7w")]
+position = Vector2(64, 0)
