@@ -9,8 +9,8 @@ static var orePools: Dictionary = { };
 static func addToPool(inOre: Ore) -> void:
 	var orePool: Array[Ore] = OreManager.orePools[inOre.oreType];
 	orePool.append(inOre);
-	
 	inOre.get_parent().call_deferred("remove_child", inOre);
+
 static func popFromPool(inOreType: Ore.EOreType) -> Ore:
 	var orePool: Array[Ore] = OreManager.orePools[inOreType];
 	return orePool.pop_back();
@@ -36,7 +36,8 @@ func _on_tree_entered() -> void:
 			if (ore == null):
 				ore = preload("res://Endless Run/Ores/Ore.tscn").instantiate();
 				ore.oreType = inOrePlaceholder.oreType;
-			inOrePlaceholder.add_child(ore);
+			#inOrePlaceholder.add_child(ore);
+			inOrePlaceholder.call_deferred("add_child", ore);
 	)
 	#endregion
 	
