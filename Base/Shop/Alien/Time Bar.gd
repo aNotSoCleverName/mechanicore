@@ -24,7 +24,7 @@ func _ready() -> void:
 	)
 	
 	SignalBus_Base.shop_make_order.connect(
-		func (inAlien: Alien, _inOrderedItem: CraftItem):
+		func (inAlien: Alien):
 			self._alienBody = inAlien.find_child("Body");
 			self._tickTimer.start();
 	)

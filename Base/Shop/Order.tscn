@@ -88,8 +88,7 @@ corner_radius_bottom_left = 4
 
 [node name="Order" type="HBoxContainer"]
 offset_right = 307.0
-offset_bottom = 160.0
-theme_override_constants/separation = 0
+offset_bottom = 180.0
 script = ExtResource("1_10qyi")
 
 [node name="Timer" type="Timer" parent="."]
@@ -113,7 +112,7 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 4
+size_flags_vertical = 0
 theme_override_constants/separation = 15
 
 [node name="Wait Time" type="HBoxContainer" parent="VBoxContainer"]

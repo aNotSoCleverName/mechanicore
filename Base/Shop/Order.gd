@@ -16,10 +16,10 @@ func _ready() -> void:
 	)
 	
 	SignalBus_Base.shop_make_order.connect(
-		func (inAlien: Alien, inOrderedItem: CraftItem):
+		func (inAlien: Alien):
 			self.visible = true;
 			
-			$Bubble/Item.texture = inOrderedItem.image;
+			$Bubble/Item.texture = inAlien.orderedItem.image;
 			timer.start(inAlien.waitTime);
 	)
 	

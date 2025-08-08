@@ -14,8 +14,8 @@ func _Disable(inIsDisabled: bool) -> void:
 
 func _ready() -> void:
 	SignalBus_Base.shop_make_order.connect(
-		func (_inAlien: Alien, inOrderedItem: CraftItem):
-			self._orderedItem = inOrderedItem;
+		func (inAlien: Alien):
+			self._orderedItem = inAlien.orderedItem;
 			self._Disable(self._base.craftItems[self._orderedItem] == 0);
 	)
 	

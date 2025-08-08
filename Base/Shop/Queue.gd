@@ -3,8 +3,6 @@ class_name ShopQueue;
 
 const MAX_QUEUE: int = 5;
 
-@onready var _base: Base = self.find_parent("Base");
-
 var _alienPool: Array[Alien] = [];
 var alienQueues: Array[Alien] = [];
 var firstInQueue: Alien;
@@ -63,8 +61,7 @@ func _on_child_order_changed():
 	
 	if (self.firstInQueue != self.alienQueues[0]):
 		self.firstInQueue = self.alienQueues[0];		
-		var orderedItem: CraftItem = self._base.craftItems.keys()[randi_range(0, self._base.craftItems.size() - 1)];
-		SignalBus_Base.shop_make_order.emit(self.firstInQueue, orderedItem);
+		SignalBus_Base.shop_make_order.emit(self.firstInQueue);
 	
 	for i: int in self.alienQueues.size():
 		var alien: Alien = self.alienQueues[i];
