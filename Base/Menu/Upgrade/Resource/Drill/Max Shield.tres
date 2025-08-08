@@ -12,3 +12,6 @@ name = "Max Shield"
 maxLevel = 2
 statChange = Array[float]([1.0, 1.0])
 prices = Array[int]([600, 200])
+descStatUnit = ""
+descStatMult = 1.0
+desc = "Increases drill's max shield by ${totalStatChange} ${statChange}"

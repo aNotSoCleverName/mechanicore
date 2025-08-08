@@ -12,3 +12,6 @@ name = "Mind Reader"
 maxLevel = 1
 statChange = Array[float]([1.0])
 prices = Array[int]([2500])
+descStatUnit = ""
+descStatMult = 1.0
+desc = "Can see what customers in the back will order."

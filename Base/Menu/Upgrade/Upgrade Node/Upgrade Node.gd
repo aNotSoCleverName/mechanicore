@@ -5,14 +5,15 @@ static var _drill: Drill;
 
 @export var upgrade: Upgrade;
 
-@onready var icon: TextureRect = $MarginContainer/HBoxContainer/Icon;
-@onready var nameLabel: Label = $MarginContainer/HBoxContainer/VBoxContainer/Name;
+@onready var icon: TextureRect = $MarginContainer/HBoxContainer/VBoxContainer/Icon;
+@onready var nameLabel: RichTextLabel = $MarginContainer/HBoxContainer/VBoxContainer/Name;
+@onready var descLabel: RichTextLabel = $MarginContainer/HBoxContainer/VBoxContainer2/Description;
 
-@onready var levelContainer: HBoxContainer = $MarginContainer/HBoxContainer/VBoxContainer/Details/Level;
+@onready var levelContainer: HBoxContainer = $MarginContainer/HBoxContainer/VBoxContainer2/Details/Level;
 @onready var levelLabel: Label = levelContainer.find_child("Level");
 @onready var maxLevelLabel: Label = levelContainer.find_child("Max Level");
 
-@onready var priceContainer: HBoxContainer = $MarginContainer/HBoxContainer/VBoxContainer/Details/Price;
+@onready var priceContainer: HBoxContainer = $MarginContainer/HBoxContainer/VBoxContainer2/Details/Price;
 @onready var priceLabel: Label = priceContainer.find_child("Price");
 @onready var moneyLabel: Label = priceContainer.find_child("Money");
 var price: int = 0;
@@ -54,7 +55,8 @@ func _ready():
 		UpgradeNode._drill = get_tree().root.find_child("Drill", true);
 	
 	self.icon.texture = self.upgrade.icon;
-	self.nameLabel.text = self.upgrade.name;
+	self.nameLabel.text = "[center][u]" + self.upgrade.name + "[/u][/center]";
+	self.descLabel.text = self.upgrade.desc;
 	self.price = self.upgrade.prices[0];
 	self.priceLabel.text = str(self.price);
 	self.maxLevelLabel.text = str(self.upgrade.maxLevel);
@@ -79,6 +81,7 @@ func _on_upgrade_button_pressed():
 		var parent: Node = self.get_parent();
 		parent.move_child(self, parent.get_child_count());
 	else:
+		self.descLabel.text = self.upgrade.desc;
 		self.price = self.upgrade.prices[self.upgrade.level];
 		self.priceLabel.text = str(self.price);
 	

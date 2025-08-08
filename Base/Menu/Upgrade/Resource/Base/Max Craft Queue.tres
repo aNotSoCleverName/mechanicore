@@ -12,3 +12,6 @@ name = "Max Craft Queue"
 maxLevel = 2
 statChange = Array[float]([2.0, 5.0])
 prices = Array[int]([500, 1500])
+descStatUnit = ""
+descStatMult = 1.0
+desc = "Increases crafting max queue by ${totalStatChange} ${statChange}."

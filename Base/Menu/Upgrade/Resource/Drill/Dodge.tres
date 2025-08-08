@@ -12,3 +12,6 @@ name = "Dodge"
 maxLevel = 1
 statChange = Array[float]([1.0])
 prices = Array[int]([0])
+descStatUnit = ""
+descStatMult = 1.0
+desc = "Enables dodging. Double tap the A or D key."
