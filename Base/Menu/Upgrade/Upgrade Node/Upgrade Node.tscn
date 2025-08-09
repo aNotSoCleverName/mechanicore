@@ -11,7 +11,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mehxf"]
 
-[node name="Drill Upgrade Node" type="PanelContainer"]
+[node name="Upgrade Node" type="PanelContainer"]
 custom_minimum_size = Vector2(0, 140)
 anchors_preset = 10
 anchor_right = 1.0
