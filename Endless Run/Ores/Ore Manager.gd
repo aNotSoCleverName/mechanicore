@@ -8,6 +8,8 @@ var _drill: Drill;
 static var orePools: Dictionary = { };
 static func addToPool(inOre: Ore) -> void:
 	var orePool: Array[Ore] = OreManager.orePools[inOre.oreType];
+	if (orePool.has(inOre)):
+		return;
 	orePool.append(inOre);
 	inOre.get_parent().call_deferred("remove_child", inOre);
 
