@@ -7,7 +7,7 @@ var _alienPool: Array[Alien] = [];
 var alienQueues: Array[Alien] = [];
 var firstInQueue: Alien;
 
-@onready var _spawnTimer: Timer = $Timer;
+@onready var _spawnTimer: Timer = $"Spawn Timer";
 
 func _ResetSpawnTimer() -> void:
 	#self._spawnTimer.wait_time = randi_range(5, 15);

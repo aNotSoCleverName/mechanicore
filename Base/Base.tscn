@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dx4xl0ya4o52y"]
+[gd_scene load_steps=19 format=3 uid="uid://dx4xl0ya4o52y"]
 
 [ext_resource type="Script" path="res://Base/Base.gd" id="1_4gdcv"]
 [ext_resource type="Script" path="res://Base/Craft Item Unlock Timers.gd" id="2_8kck5"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ues24mh5krya" path="res://Base/Shop/Reputation.png" id="7_6bvwc"]
 [ext_resource type="StyleBox" uid="uid://dccupfiusww5a" path="res://Global Style/ProgressBar Style - Background.tres" id="9_0082q"]
 [ext_resource type="StyleBox" uid="uid://cpmrxg5w8c1kw" path="res://Global Style/ProgressBar Style - Fill.tres" id="10_fu7ka"]
+[ext_resource type="Script" path="res://Base/Shop/Alien/Alien Body Sprite Manager.gd" id="13_7ykbt"]
 [ext_resource type="LabelSettings" uid="uid://c83ljliopp2nx" path="res://Global Style/Label Style - Outline Size12.tres" id="13_tbq6l"]
 [ext_resource type="Script" path="res://Base/Menu/Craft/Queue/Current Queue Label.gd" id="14_byyfn"]
 [ext_resource type="Script" path="res://Base/Menu/Craft/Queue/Max Queue Label.gd" id="15_4xstl"]
@@ -124,7 +125,10 @@ offset_bottom = 196.0
 position = Vector2(110, 256)
 script = ExtResource("3_qc2vo")
 
-[node name="Timer" type="Timer" parent="Shop/Shop/Queue"]
+[node name="Spawn Timer" type="Timer" parent="Shop/Shop/Queue"]
+
+[node name="Alien Body Sprite Manager" type="Timer" parent="Shop/Shop/Queue"]
+script = ExtResource("13_7ykbt")
 
 [node name="Menu" type="TabContainer" parent="."]
 layout_mode = 2
