@@ -32,8 +32,11 @@ signal upgrade_drill(inPrice: int, inStatsKey: Upgrade.EStatsKeys, inStatsChange
 @warning_ignore("unused_signal")
 signal upgrade_base(inPrice: int, inStatsKey: Upgrade.EStatsKeys, inStatsChange: float);
 
+# Upgrade stat
 @warning_ignore("unused_signal")
 signal upgrade_base_mind_reader_unlocked();
+@warning_ignore("unused_signal")
+signal upgrade_base_shorten_craft_time();
 
 @warning_ignore("unused_signal")
 signal game_over();

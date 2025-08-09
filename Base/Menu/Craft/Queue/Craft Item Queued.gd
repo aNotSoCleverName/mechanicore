@@ -3,6 +3,7 @@ class_name CraftItemQueued
 
 const SHADER_PARAM_PROGRESS: String = "progress";
 
+@onready var _base: Base = self.find_parent("Base");
 @onready var _timer: Timer = $Timer;
 
 var _craftItem: CraftItem;
@@ -17,7 +18,7 @@ func _ready() -> void:
 	self.material = self.material.duplicate();
 	(self.material as ShaderMaterial).set_shader_parameter(self.SHADER_PARAM_PROGRESS, 0);
 	
-	self._timer.wait_time = self._craftItem.timeSec;
+	self._timer.wait_time = self._craftItem.timeSec * (1 - self._base.stats[Upgrade.EStatsKeys.base_ShortenCraftTime]);
 	self._timer.timeout.connect(
 		func ():
 			self._timer.stop();

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dx4xl0ya4o52y"]
+[gd_scene load_steps=25 format=3 uid="uid://dx4xl0ya4o52y"]
 
 [ext_resource type="Script" path="res://Base/Base.gd" id="1_4gdcv"]
 [ext_resource type="Script" path="res://Base/Craft Item Unlock Timers.gd" id="2_8kck5"]
@@ -23,6 +23,7 @@
 [ext_resource type="Resource" uid="uid://b71ivg3dtriu0" path="res://Base/Menu/Upgrade/Resource/Drill/Dodge.tres" id="19_4d4if"]
 [ext_resource type="Resource" uid="uid://c0cjcuvmfbsju" path="res://Base/Menu/Upgrade/Resource/Base/Max Craft Queue.tres" id="22_3g4e3"]
 [ext_resource type="Resource" uid="uid://2vvsab2ub6dp" path="res://Base/Menu/Upgrade/Resource/Base/Mind Reader.tres" id="23_qr6aa"]
+[ext_resource type="Resource" uid="uid://cmr2ob7lv72vm" path="res://Base/Menu/Upgrade/Resource/Base/Shorten Craft Time.tres" id="24_yk1yy"]
 
 [node name="Base" type="VBoxContainer"]
 anchors_preset = 11
@@ -292,6 +293,11 @@ upgrade = ExtResource("22_3g4e3")
 layout_mode = 2
 size_flags_horizontal = 3
 upgrade = ExtResource("23_qr6aa")
+
+[node name="Shorten Craft Time" parent="Menu/Upgrade Base/MarginContainer/ScrollContainer/MarginContainer/Upgrades" instance=ExtResource("15_1nhla")]
+layout_mode = 2
+size_flags_horizontal = 3
+upgrade = ExtResource("24_yk1yy")
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_entered" from="Shop/Shop/Top Bar/HBoxContainer/Money/Label" to="Shop/Shop/Top Bar/HBoxContainer/Money/Label" method="_on_tree_entered"]

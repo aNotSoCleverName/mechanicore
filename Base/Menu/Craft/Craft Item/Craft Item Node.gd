@@ -26,11 +26,16 @@ func _DetermineCraftable():
 			self._craftButton.disabled = true;
 			return;
 
+func _RefreshTimeLabel():
+	$MarginContainer/HBoxContainer/Details/Time/Label.text = str(
+		self.craftItem.timeSec * (1 - self._base.stats[Upgrade.EStatsKeys.base_ShortenCraftTime])
+	).pad_decimals(1) + "s";
+
 func _ready() -> void:
 	$MarginContainer/HBoxContainer/VBoxContainer/Icon.texture = self.craftItem.image;
 	
 	$MarginContainer/HBoxContainer/Details/Price/Label.text = str(self.craftItem.price);
-	$MarginContainer/HBoxContainer/Details/Time/Label.text = str(self.craftItem.timeSec).pad_decimals(1) + "s"
+	self._RefreshTimeLabel();
 	
 	# Show material requirement on UI
 	for oreType: Ore.EOreType in self.craftItem.materials.keys():
@@ -56,6 +61,10 @@ func _ready() -> void:
 	SignalBus_Base.update_craft_queue.connect(
 		func (_inCurrentQueueCount: int):
 			self._DetermineCraftable();
+	)
+	SignalBus_Base.upgrade_base_shorten_craft_time.connect(
+		func ():
+			self._RefreshTimeLabel();
 	)
 
 func _on_button_pressed():

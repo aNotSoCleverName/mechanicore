@@ -20,6 +20,7 @@ enum EStatsKeys
 	
 	base_MaxCraftQueue,
 	base_MindReader,
+	base_ShortenCraftTime,
 }
 @export var stats: EStatsKeys;
 

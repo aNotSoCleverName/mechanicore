@@ -15,6 +15,7 @@ var _currentCraftQueueCount: int = 0:
 var stats: Dictionary = {
 	Upgrade.EStatsKeys.base_MaxCraftQueue: 0,
 	Upgrade.EStatsKeys.base_MindReader: 0,
+	Upgrade.EStatsKeys.base_ShortenCraftTime: 0,
 }
 func _UpdateStats(inKey: Upgrade.EStatsKeys, inValue: float):
 	self.stats[inKey] = inValue;
@@ -22,6 +23,8 @@ func _UpdateStats(inKey: Upgrade.EStatsKeys, inValue: float):
 	match inKey:
 		Upgrade.EStatsKeys.base_MindReader:
 			SignalBus_Base.upgrade_base_mind_reader_unlocked.emit();
+		Upgrade.EStatsKeys.base_ShortenCraftTime:
+			SignalBus_Base.upgrade_base_shorten_craft_time.emit();
 
 # Key = ore type, value = amount
 var ores: Dictionary = { };
