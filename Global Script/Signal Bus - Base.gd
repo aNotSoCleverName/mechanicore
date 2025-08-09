@@ -10,7 +10,7 @@ signal craft_cancel(inCraftItem: CraftItem);
 signal update_craft_queue(inCurrentQueueCount: int);
 
 @warning_ignore("unused_signal")
-signal update_ore_inventory(inCurrentInventory: Dictionary);
+signal update_inventory_ore(inCurrentInventory: Dictionary);
 @warning_ignore("unused_signal")
 signal update_inventory_money(inMoney: int);
 

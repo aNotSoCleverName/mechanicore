@@ -31,11 +31,11 @@ var ores: Dictionary = { };
 func _addOres(inOres: Dictionary):
 	for oreType: Ore.EOreType in ores.keys():
 		self.ores[oreType] += inOres[oreType];
-	SignalBus_Base.update_ore_inventory.emit(ores);
+	SignalBus_Base.update_inventory_ore.emit(ores);
 func _takeOres(inOres: Dictionary):
 	for oreType: Ore.EOreType in ores.keys():
 		self.ores[oreType] -= inOres[oreType];
-	SignalBus_Base.update_ore_inventory.emit(ores);
+	SignalBus_Base.update_inventory_ore.emit(ores);
 
 @onready var _craftItemContainer: VBoxContainer = $"Menu/Craft/Craft Items MarginContainer/ScrollContainer/MarginContainer/Craft Items";
 # Key = craftItem, value = amount
@@ -102,7 +102,7 @@ func _ready() -> void:
 	# Initiate ores
 	for oreType: Ore.EOreType in Ore.EOreType.values():
 		self.ores[oreType] = 0;
-	SignalBus_Base.update_ore_inventory.emit(self.ores);	# This triggers the code that checks if craft item text should be red/white depending on stock
+	SignalBus_Base.update_inventory_ore.emit(self.ores);	# This triggers the code that checks if craft item text should be red/white depending on stock
 	
 	# Initiate craftItems
 	for filePath: String in DirAccess.open(CRAFT_ITEM_RESOURCES_DIR).get_files():
