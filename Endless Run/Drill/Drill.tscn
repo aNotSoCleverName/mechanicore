@@ -34,11 +34,6 @@ shader_parameter/shield = 0
 collision_mask = 2
 script = ExtResource("1_ycj8x")
 
-[node name="Collision Drill" type="CollisionPolygon2D" parent="."]
-position = Vector2(4.76339, 0)
-scale = Vector2(1.86607, 1)
-polygon = PackedVector2Array(-3.08852, 44, -3.089, -44, 41.3899, 0)
-
 [node name="Update Drill Pos Timer" type="Timer" parent="."]
 wait_time = 0.1
 script = ExtResource("4_1chj6")
@@ -55,6 +50,7 @@ script = ExtResource("4_23soa")
 script = ExtResource("6_7oxkb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -0.5)
 rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_pegmy")
 animation = &"drill_animation"
@@ -67,6 +63,11 @@ script = ExtResource("6_ak4na")
 
 [node name="Turn On Timer" type="Timer" parent="Shield"]
 wait_time = 0.1
+
+[node name="Collision Drill" type="CollisionPolygon2D" parent="."]
+position = Vector2(4.76339, 0)
+scale = Vector2(1.86607, 1)
+polygon = PackedVector2Array(-1.774, 36.9, -1.774, -36.9, 38.82, 0)
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="timeout" from="Lock Dir Change Timer" to="Lock Dir Change Timer" method="_timeout"]
