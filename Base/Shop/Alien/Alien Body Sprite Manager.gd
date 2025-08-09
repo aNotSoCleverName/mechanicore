@@ -21,9 +21,9 @@ func _UnlockBodySprites(inWaitTimeBasedOnBodySpriteDict: Dictionary):
 # Key = Minutes that must pass to unlock value (measured from start of game), value = waitTimeBasedOnBodySprite Dictionary
 var _bodySpriteUnlockStages: Dictionary = {
 	5: {
-		"res://Base/Shop/Alien/Sprite/Body/Body3.png": 7,
-		"res://Base/Shop/Alien/Sprite/Body/Body4.png": 8,
-		"res://Base/Shop/Alien/Sprite/Body/Body6.png": 9,
+		"res://Base/Shop/Alien/Sprite/Body/Body5.png": 7,
+		"res://Base/Shop/Alien/Sprite/Body/Body6.png": 8,
+		"res://Base/Shop/Alien/Sprite/Body/Body7.png": 9,
 	},
 	10: {
 		"res://Base/Shop/Alien/Sprite/Body/Body8.png": 3,
@@ -34,10 +34,10 @@ var _unlockStage: int = 0;	# Which index to unlock of the above Dictionary
 
 func _ready():
 	self._UnlockBodySprites({
-		"res://Base/Shop/Alien/Sprite/Body/Body1.png": 10,
-		"res://Base/Shop/Alien/Sprite/Body/Body2.png": 12,
-		"res://Base/Shop/Alien/Sprite/Body/Body5.png": 11,
-		"res://Base/Shop/Alien/Sprite/Body/Body7.png": 10,
+		"res://Base/Shop/Alien/Sprite/Body/Body1.png": 12,
+		"res://Base/Shop/Alien/Sprite/Body/Body2.png": 11,
+		"res://Base/Shop/Alien/Sprite/Body/Body3.png": 10,
+		"res://Base/Shop/Alien/Sprite/Body/Body4.png": 10,
 	});
 	
 	self.wait_time = self._bodySpriteUnlockStages.keys()[self._unlockStage] * 60;
