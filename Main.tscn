@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://kf4x8f2aj1c7"]
+[gd_scene load_steps=12 format=3 uid="uid://kf4x8f2aj1c7"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_r3yx1"]
 [ext_resource type="PackedScene" uid="uid://dij236dtc6ebs" path="res://Game.tscn" id="2_dtcds"]
 [ext_resource type="Script" path="res://Pause Screen.gd" id="2_emyiw"]
 [ext_resource type="StyleBox" uid="uid://kom6gkjk8s2e" path="res://Global Style/Button Style - Blue.tres" id="3_l7pgt"]
 [ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Global Style/Label Style - Outline Size16.tres" id="3_s1mpv"]
+[ext_resource type="Shader" path="res://Tutorial Screen.gdshader" id="6_m1cvv"]
+[ext_resource type="Script" path="res://Tutorial Screen.gd" id="7_3w5jr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8tan"]
 bg_color = Color(0, 0, 0, 0.898039)
@@ -13,6 +15,14 @@ bg_color = Color(0, 0, 0, 0.898039)
 font_size = 106
 outline_size = 35
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qy17a"]
+shader = ExtResource("6_m1cvv")
+shader_parameter/spotlightedRectPos = Vector2(0, 0)
+shader_parameter/spotlightedRectSize = Vector2(50, 50)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nkyrp"]
+bg_color = Color(0.0705882, 0.0705882, 0.0705882, 0.72549)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -73,6 +83,27 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="Tutorial Screen" type="Panel" parent="."]
+process_mode = 3
+material = SubResource("ShaderMaterial_qy17a")
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nkyrp")
+script = ExtResource("7_3w5jr")
+
+[node name="Text" type="RichTextLabel" parent="Tutorial Screen"]
+layout_mode = 2
+offset_right = 470.0
+offset_bottom = 23.0
+theme_override_colors/selection_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+bbcode_enabled = true
+text = "test"
+fit_content = true
+
+[node name="Delay Timer" type="Timer" parent="Tutorial Screen"]
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="pressed" from="Pause Screen/VBoxContainer/Continue Button" to="Pause Screen" method="_on_continue_button_pressed"]
