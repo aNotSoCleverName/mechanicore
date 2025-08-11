@@ -90,7 +90,7 @@ func _DetermineBestPositionForText(inSpotlight: Rect2):
 	
 	self._SetTextPositionRelativeToSpotlight(bestPos, inSpotlight);
 
-const TEXT_OFFSET_FROM_SPOTLIGHT: int = 10;
+const TEXT_OFFSET_FROM_SPOTLIGHT: int = 15;
 func _SetTextPositionRelativeToSpotlight(inPos: ETextPosRelativeToSpotlight, inSpotlight: Rect2) -> void:
 	match inPos:
 		ETextPosRelativeToSpotlight.up:
