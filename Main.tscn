@@ -118,8 +118,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0.367188, 0.367188, 0.367188, 1)
 
-[node name="Delay Timer" type="Timer" parent="Tutorial Screen"]
-
 [node name="Label" type="Label" parent="Tutorial Screen"]
 layout_mode = 0
 offset_top = 688.0

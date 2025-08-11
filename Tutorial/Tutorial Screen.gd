@@ -5,7 +5,6 @@ const SPOTLIGHT_POS_KEY: String = "spotlightedRectPos";
 const SPOTLIGHT_SIZE_KEY: String = "spotlightedRectSize";
 
 @onready var _textNode: TutorialText = $Text;
-@onready var _delayTimer: Timer = $"Delay Timer";
 
 var _spotLightRect: Rect2;
 
@@ -13,13 +12,13 @@ func _ready():
 	var shaderMaterial: ShaderMaterial = self.material;
 	
 	SignalBus_Tutorial.show_tutorial.connect(
-		func (inNode: Node, inText: String, inDelaySec: float):
+		func (inNode: Node, inText: String):
 			assert(
 				(inNode is Node2D) || (inNode is Control),
 				"inNode must be Node2D or Control so it has position and size"
 			);
 			
-			# Determine inNode's rect
+			#region Determine inNode's rect
 			var rect: Rect2;
 			if (inNode is Control):
 				rect.position = UtilityNode.GetNodeWindowPos(inNode);;
@@ -47,17 +46,11 @@ func _ready():
 				rect.position = UtilityNode.GetNodeWindowPos(spriteNode);
 				if (spriteNode.centered):
 					rect.position -= 0.5 * rect.size
+			#endregion
+			
 			self._spotLightRect = rect;
 			self._textNode.text = inText;
 			self._textNode.OnTextChanged();
-			
-			self._delayTimer.wait_time = max(0.05, inDelaySec);
-			self._delayTimer.start();
-	)
-	
-	self._delayTimer.timeout.connect(
-		func ():
-			self._delayTimer.stop();
 			
 			self.visible = true;
 			self.get_tree().paused = true;

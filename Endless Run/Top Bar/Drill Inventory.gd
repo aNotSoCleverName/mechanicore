@@ -16,5 +16,4 @@ func _ShowPickOreTutorial(_inOre: Ore):
 	SignalBus_Tutorial.show_tutorial.emit(
 		self,
 		"You just picked an ore. It is now stored in the drill's inventory",
-		0.0
 	);

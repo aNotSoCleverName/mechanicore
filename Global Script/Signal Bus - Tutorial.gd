@@ -8,6 +8,6 @@ var hasMadeOrder: bool;
 var isShowReputation: bool;
 
 @warning_ignore("unused_signal")
-signal show_tutorial(inNode: Node, inText: String, inDelaySec: float);
+signal show_tutorial(inNode: Node, inText: String);
 @warning_ignore("unused_signal")
 signal hide_tutorial();
