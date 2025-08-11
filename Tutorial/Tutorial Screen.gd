@@ -22,7 +22,7 @@ func _ready():
 			# Determine inNode's rect
 			var rect: Rect2;
 			if (inNode is Control):
-				rect.position = inNode.global_position;
+				rect.position = UtilityNode.GetNodeWindowPos(inNode);;
 				rect.size = (inNode.get_rect() as Rect2).size;
 			elif (inNode is Node2D):
 				var spriteNode;
@@ -44,10 +44,9 @@ func _ready():
 					var spriteTexture: Texture2D = (spriteNode as AnimatedSprite2D).sprite_frames.get_frame_texture(spriteNode.animation, spriteNode.frame);
 					rect.size = spriteTexture.get_size() * spriteNode.scale * inNode.scale;
 				
-				rect.position = spriteNode.global_position;
+				rect.position = UtilityNode.GetNodeWindowPos(spriteNode);
 				if (spriteNode.centered):
 					rect.position -= 0.5 * rect.size
-			
 			self._spotLightRect = rect;
 			self._textNode.text = inText;
 			self._textNode.OnTextChanged();
