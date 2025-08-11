@@ -56,5 +56,3 @@ func _on_body_entered(body):
 	
 	SignalBus_EndlessRun.drill_explode.emit(lostOres);
 	drill._isDocked = true;
-	for oreType: Ore.EOreType in drill.inventory.keys():
-		drill.inventory[oreType] = 0;

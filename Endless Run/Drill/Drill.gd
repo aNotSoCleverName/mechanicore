@@ -31,6 +31,9 @@ var _isDocked: bool = true:
 		
 		SignalBus_EndlessRun.drill_change_dock.emit(_isDocked, self);
 		if (_isDocked):
+			for oreType: Ore.EOreType in self.inventory.keys():
+				self.inventory[oreType] = 0;
+			
 			self.shield = self.upgradeComponentContainer._stats[Upgrade.EStatsKeys.drill_MaxShield];
 			
 			self._minSpeed = self.START_SPEED;
