@@ -87,6 +87,7 @@ grow_vertical = 1
 
 [node name="Tutorial Screen" type="Panel" parent="."]
 process_mode = 3
+visible = false
 material = SubResource("ShaderMaterial_qy17a")
 layout_mode = 0
 offset_right = 1280.0
