@@ -159,6 +159,7 @@ func _input(event: InputEvent):
 		SignalBus_Tutorial.hide_tutorial.emit();
 	elif (
 		event is InputEventKey &&
-		event.is_pressed()
+		event.is_pressed() &&
+		event.is_action_pressed("ui_accept")
 	):
 		SignalBus_Tutorial.hide_tutorial.emit();
