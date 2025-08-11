@@ -13,8 +13,41 @@ func _ready():
 	var shaderMaterial: ShaderMaterial = self.material;
 	
 	SignalBus_Tutorial.show_tutorial.connect(
-		func (inPos: Vector2, inSize: Vector2, inText: String, inDelaySec):
-			self._spotLightRect = Rect2(inPos, inSize);
+		func (inNode: Node, inText: String, inDelaySec: float):
+			assert(
+				(inNode is Node2D) || (inNode is Control),
+				"inNode must be Node2D or Control so it has position and size"
+			);
+			
+			# Determine inNode's rect
+			var rect: Rect2;
+			if (inNode is Control):
+				rect = (inNode as Control).get_rect();
+			elif (inNode is Node2D):
+				var spriteNode;
+				if (inNode is Sprite2D || inNode is AnimatedSprite2D):
+					spriteNode = inNode;
+				else:
+					for childNode: Node in inNode.get_children():
+						if (childNode is Sprite2D || childNode is AnimatedSprite2D):
+							spriteNode = childNode;
+							break;
+				assert(
+					spriteNode != null,
+					"No sprite node found"
+				)
+				
+				if (spriteNode is Sprite2D):
+					rect.size = (spriteNode.get_rect() as Rect2).size * spriteNode.scale * inNode.scale;
+				elif (spriteNode is AnimatedSprite2D):
+					var spriteTexture: Texture2D = (spriteNode as AnimatedSprite2D).sprite_frames.get_frame_texture(spriteNode.animation, spriteNode.frame);
+					rect.size = spriteTexture.get_size() * spriteNode.scale * inNode.scale;
+				
+				rect.position = spriteNode.global_position;
+				if (spriteNode.centered):
+					rect.position -= 0.5 * rect.size
+			
+			self._spotLightRect = rect;
 			self._textNode.text = inText;
 			
 			self._delayTimer.wait_time = inDelaySec;
@@ -26,7 +59,7 @@ func _ready():
 			self._delayTimer.stop();
 			
 			self.visible = true;
-			#self.get_tree().paused = true;
+			self.get_tree().paused = true;
 			
 			shaderMaterial.set_shader_parameter(SPOTLIGHT_POS_KEY, self._spotLightRect.position);
 			shaderMaterial.set_shader_parameter(SPOTLIGHT_SIZE_KEY, self._spotLightRect.size);
@@ -37,7 +70,7 @@ func _ready():
 	SignalBus_Tutorial.hide_tutorial.connect(
 		func ():
 			self.visible = false;
-			#self.get_tree().paused = false;
+			self.get_tree().paused = false;
 	)
 
 #region Determine best position for text node

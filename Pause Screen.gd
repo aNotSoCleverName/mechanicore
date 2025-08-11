@@ -22,7 +22,7 @@ func _ready():
 	)
 	
 	SignalBus_Tutorial.show_tutorial.connect(
-		func (_inPos: Vector2, _inSize: Vector2, _inText: String, _inDelaySec: float):
+		func (_inNode: Node, _inText: String, _inDelaySec: float):
 			self._isShowingTutorial = true;
 	)
 	SignalBus_Tutorial.hide_tutorial.connect(

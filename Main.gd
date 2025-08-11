@@ -11,8 +11,7 @@ func _on_tree_entered():
 
 func _ready():
 	SignalBus_Tutorial.show_tutorial.emit(
-		self._drill.position,
-		Vector2.ZERO,
+		self._drill,
 		"Press SPACE to start digging",
 		0.1
 	);
