@@ -40,14 +40,7 @@ func _ready() -> void:
 	self._DetermineCraftable();
 	
 	SignalBus_Base.update_inventory_ore.connect(
-		func (inCurrentInventory: Dictionary):
-			# Update stock
-			for oreType: Ore.EOreType in self.craftItem.materials.keys():
-				var oreNode: CraftItemMaterial = materialsNode.find_child("Ore" + str(oreType));
-				if (oreNode == null):
-					continue;
-				oreNode.stock = inCurrentInventory[oreType];
-			
+		func (_inCurrentInventory: Dictionary):
 			self._DetermineCraftable();
 	)
 	SignalBus_Base.update_craft_queue.connect(

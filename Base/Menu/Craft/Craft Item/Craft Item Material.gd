@@ -47,3 +47,8 @@ func _ready() -> void:
 	self._textureRect.texture = load("res://Endless Run/Ores/Ore" + str(self.oreType) + ".png");
 	
 	self._AdjustRequirementColor();
+	
+	SignalBus_Base.update_inventory_ore.connect(
+		func (inCurrentInventory: Dictionary):
+			self.stock = inCurrentInventory[self.oreType];
+	)
