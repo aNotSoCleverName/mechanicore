@@ -2,12 +2,7 @@
 extends HBoxContainer
 class_name CraftItemMaterial
 
-@export var icon: Texture2D:
-	set(inValue):
-		icon = inValue;
-		
-		if (self._textureRect != null):
-			self._textureRect.texture = icon;
+@export var oreType: Ore.EOreType = Ore.EOreType.Ore1;
 
 var requirement: int:
 	set(inValue):
@@ -28,6 +23,9 @@ var stock: int:
 @onready var _requirementNode: Label = $Requirement;
 @onready var _stockNode: Label = $Stock;
 
+@onready var _base: Base = self.find_parent("Base");
+var _craftItemNode: CraftItemNode;
+
 func _AdjustRequirementColor() -> void:
 	if (self.stock < self.requirement):
 		self._requirementNode.self_modulate = Color.RED;
@@ -35,8 +33,17 @@ func _AdjustRequirementColor() -> void:
 		self._requirementNode.self_modulate = Color.WHITE;
 
 func _ready() -> void:
-	self._textureRect.texture = self.icon;
-	self._requirementNode.text = str(self.requirement);
-	self._stockNode.text = str(self.stock);
+	var ancestorNode: Node = self.get_parent();
+	while !(ancestorNode is CraftItemNode):
+		ancestorNode = ancestorNode.get_parent();
+	self._craftItemNode = ancestorNode;
+	
+	self.requirement = self._craftItemNode.craftItem.materials[self.oreType];
+	if (self.requirement == 0):
+		self.queue_free();
+	
+	self.stock = self._base.ores[self.oreType];
+	
+	self._textureRect.texture = load("res://Endless Run/Ores/Ore" + str(self.oreType) + ".png");
 	
 	self._AdjustRequirementColor();

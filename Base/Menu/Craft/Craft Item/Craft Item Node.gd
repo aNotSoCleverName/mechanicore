@@ -37,14 +37,6 @@ func _ready() -> void:
 	$MarginContainer/HBoxContainer/Details/Price/Label.text = str(self.craftItem.price);
 	self._RefreshTimeLabel();
 	
-	# Show material requirement on UI
-	for oreType: Ore.EOreType in self.craftItem.materials.keys():
-		var oreNode: CraftItemMaterial = materialsNode.find_child("Ore" + str(oreType));
-		if (self.craftItem.materials[oreType] == 0):
-			oreNode.queue_free();
-		else:
-			oreNode.requirement = self.craftItem.materials[oreType];
-	
 	self._DetermineCraftable();
 	
 	SignalBus_Base.update_inventory_ore.connect(
