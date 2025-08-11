@@ -1,23 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://dx4xl0ya4o52y"]
+[gd_scene load_steps=3 format=3 uid="uid://dx4xl0ya4o52y"]
 
 [ext_resource type="Script" path="res://Base/Base.gd" id="1_4gdcv"]
-[ext_resource type="Script" path="res://Base/Craft Item Unlock Timers.gd" id="2_8kck5"]
-[ext_resource type="Texture2D" uid="uid://iwd3uobibsu3" path="res://Base/Shop/Shop.png" id="2_fxc1h"]
-[ext_resource type="Script" path="res://Base/Menu/Craft/Queue.gd" id="2_muuji"]
-[ext_resource type="PackedScene" uid="uid://dxewdcl3yp1eo" path="res://Base/Shop/Order.tscn" id="3_l61gs"]
-[ext_resource type="Script" path="res://Base/Shop/Queue.gd" id="3_qc2vo"]
-[ext_resource type="Texture2D" uid="uid://bptr6byvokmow" path="res://Base/Money.png" id="3_vkntu"]
-[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Global Style/Label Style - Outline Size16.tres" id="4_g8vcw"]
-[ext_resource type="Script" path="res://Base/Shop/Money.gd" id="4_m4g0m"]
-[ext_resource type="Script" path="res://Base/Shop/Reputation.gd" id="6_jwxte"]
-[ext_resource type="Texture2D" uid="uid://ues24mh5krya" path="res://Base/Shop/Reputation.png" id="7_6bvwc"]
-[ext_resource type="StyleBox" uid="uid://dccupfiusww5a" path="res://Global Style/ProgressBar Style - Background.tres" id="9_0082q"]
-[ext_resource type="StyleBox" uid="uid://cpmrxg5w8c1kw" path="res://Global Style/ProgressBar Style - Fill.tres" id="10_fu7ka"]
-[ext_resource type="Script" path="res://Base/Shop/Alien/Alien Body Sprite Manager.gd" id="13_7ykbt"]
-[ext_resource type="LabelSettings" uid="uid://c83ljliopp2nx" path="res://Global Style/Label Style - Outline Size12.tres" id="13_tbq6l"]
-[ext_resource type="Script" path="res://Base/Menu/Craft/Queue/Current Queue Label.gd" id="14_byyfn"]
-[ext_resource type="Script" path="res://Base/Menu/Craft/Queue/Max Queue Label.gd" id="15_4xstl"]
-[ext_resource type="PackedScene" uid="uid://b0xr3eksu7r7b" path="res://Base/Menu/Upgrade/Upgrade Tab.tscn" id="17_vjhii"]
+[ext_resource type="Script" path="res://Base/Menu/Menu.gd" id="14_qhtai"]
 
 [node name="Base" type="VBoxContainer"]
 anchors_preset = 11
@@ -31,202 +15,15 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_4gdcv")
 
-[node name="Craft Item Unlock Timers" type="Node2D" parent="."]
-script = ExtResource("2_8kck5")
-
-[node name="Ore2 Timer" type="Timer" parent="Craft Item Unlock Timers"]
-
-[node name="Ore3 Timer" type="Timer" parent="Craft Item Unlock Timers"]
-
 [node name="Shop" type="SubViewportContainer" parent="."]
+custom_minimum_size = Vector2(0, 256)
 layout_mode = 2
 size_flags_vertical = 0
-
-[node name="Shop" type="SubViewport" parent="Shop"]
-handle_input_locally = false
-size = Vector2i(384, 256)
-render_target_update_mode = 4
-
-[node name="Background" type="Sprite2D" parent="Shop/Shop"]
-texture = ExtResource("2_fxc1h")
-centered = false
-
-[node name="Top Bar" type="MarginContainer" parent="Shop/Shop"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 33.0
-grow_horizontal = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Shop/Shop/Top Bar"]
-layout_mode = 2
-
-[node name="Money" type="HBoxContainer" parent="Shop/Shop/Top Bar/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureRect" type="TextureRect" parent="Shop/Shop/Top Bar/HBoxContainer/Money"]
-layout_mode = 2
-texture = ExtResource("3_vkntu")
-expand_mode = 2
-
-[node name="Label" type="Label" parent="Shop/Shop/Top Bar/HBoxContainer/Money"]
-layout_mode = 2
-text = "0"
-label_settings = ExtResource("4_g8vcw")
-script = ExtResource("4_m4g0m")
-
-[node name="Reputation" type="HBoxContainer" parent="Shop/Shop/Top Bar/HBoxContainer"]
-layout_mode = 2
-script = ExtResource("6_jwxte")
-
-[node name="TextureRect" type="TextureRect" parent="Shop/Shop/Top Bar/HBoxContainer/Reputation"]
-layout_mode = 2
-texture = ExtResource("7_6bvwc")
-expand_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="Shop/Shop/Top Bar/HBoxContainer/Reputation"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_vertical = 1
-theme_override_styles/background = ExtResource("9_0082q")
-theme_override_styles/fill = ExtResource("10_fu7ka")
-step = 1.0
-value = 50.0
-show_percentage = false
-
-[node name="Label" type="Label" parent="Shop/Shop/Top Bar/HBoxContainer/Reputation/ProgressBar"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "50"
-label_settings = ExtResource("4_g8vcw")
-horizontal_alignment = 1
-
-[node name="Order" parent="Shop/Shop" instance=ExtResource("3_l61gs")]
-offset_left = 62.0
-offset_top = 36.0
-offset_right = 369.0
-offset_bottom = 196.0
-
-[node name="Queue" type="Node2D" parent="Shop/Shop"]
-position = Vector2(110, 256)
-script = ExtResource("3_qc2vo")
-
-[node name="Spawn Timer" type="Timer" parent="Shop/Shop/Queue"]
-
-[node name="Alien Body Sprite Manager" type="Timer" parent="Shop/Shop/Queue"]
-script = ExtResource("13_7ykbt")
 
 [node name="Menu" type="TabContainer" parent="."]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 0
 tab_focus_mode = 0
-
-[node name="Craft" type="VBoxContainer" parent="Menu"]
-layout_mode = 2
-metadata/_tab_index = 0
-
-[node name="Queue MarginContainer" type="MarginContainer" parent="Menu/Craft"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Craft/Queue MarginContainer"]
-layout_mode = 2
-
-[node name="Queue Labels" type="HBoxContainer" parent="Menu/Craft/Queue MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Menu/Craft/Queue MarginContainer/VBoxContainer/Queue Labels"]
-layout_mode = 2
-text = "Queue: "
-label_settings = ExtResource("13_tbq6l")
-
-[node name="Current" type="Label" parent="Menu/Craft/Queue MarginContainer/VBoxContainer/Queue Labels"]
-layout_mode = 2
-text = "0"
-label_settings = ExtResource("13_tbq6l")
-script = ExtResource("14_byyfn")
-
-[node name="Label2" type="Label" parent="Menu/Craft/Queue MarginContainer/VBoxContainer/Queue Labels"]
-layout_mode = 2
-text = "/"
-label_settings = ExtResource("13_tbq6l")
-
-[node name="Max" type="Label" parent="Menu/Craft/Queue MarginContainer/VBoxContainer/Queue Labels"]
-layout_mode = 2
-text = "0"
-label_settings = ExtResource("13_tbq6l")
-script = ExtResource("15_4xstl")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Menu/Craft/Queue MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 58)
-layout_mode = 2
-vertical_scroll_mode = 0
-
-[node name="Queue" type="HBoxContainer" parent="Menu/Craft/Queue MarginContainer/VBoxContainer/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-script = ExtResource("2_muuji")
-
-[node name="HSeparator" type="HSeparator" parent="Menu/Craft"]
-layout_mode = 2
-
-[node name="Craft Items MarginContainer" type="MarginContainer" parent="Menu/Craft"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Menu/Craft/Craft Items MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Craft/Craft Items MarginContainer/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/margin_right = 5
-
-[node name="Craft Items" type="VBoxContainer" parent="Menu/Craft/Craft Items MarginContainer/ScrollContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Upgrade Drill" parent="Menu" instance=ExtResource("17_vjhii")]
-visible = false
-layout_mode = 2
-upgradeTarget = 1
-
-[node name="Upgrade Base" parent="Menu" instance=ExtResource("17_vjhii")]
-visible = false
-layout_mode = 2
-upgradeTarget = 2
-metadata/_tab_index = 2
+script = ExtResource("14_qhtai")
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
-[connection signal="tree_entered" from="Shop/Shop/Top Bar/HBoxContainer/Money/Label" to="Shop/Shop/Top Bar/HBoxContainer/Money/Label" method="_on_tree_entered"]
-[connection signal="tree_entered" from="Shop/Shop/Top Bar/HBoxContainer/Reputation" to="Shop/Shop/Top Bar/HBoxContainer/Reputation" method="_on_tree_entered"]
-[connection signal="child_entered_tree" from="Shop/Shop/Queue" to="Shop/Shop/Queue" method="_on_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Shop/Shop/Queue" to="Shop/Shop/Queue" method="_on_child_exiting_tree"]
-[connection signal="child_order_changed" from="Shop/Shop/Queue" to="Shop/Shop/Queue" method="_on_child_order_changed"]
-[connection signal="child_order_changed" from="Menu/Craft/Queue MarginContainer/VBoxContainer/ScrollContainer/Queue" to="Menu/Craft/Queue MarginContainer/VBoxContainer/ScrollContainer/Queue" method="_on_child_order_changed"]
-[connection signal="tree_entered" from="Menu/Craft/Queue MarginContainer/VBoxContainer/ScrollContainer/Queue" to="Menu/Craft/Queue MarginContainer/VBoxContainer/ScrollContainer/Queue" method="_on_tree_entered"]

@@ -12,4 +12,6 @@ func _input(event: InputEvent):
 	if (!event.is_action_pressed("ui_left") && !event.is_action_released("ui_right")):
 		return;
 	
+	SignalBus_Tutorial.hasChangedDirection = true;
+	
 	self.queue_free();

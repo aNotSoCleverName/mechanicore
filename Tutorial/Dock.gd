@@ -22,4 +22,6 @@ func _input(event: InputEvent):
 	if (key != Drill.DOCK_KEY):
 		return;
 	
+	SignalBus_Tutorial.hasDocked = true;
+	
 	self.queue_free();
