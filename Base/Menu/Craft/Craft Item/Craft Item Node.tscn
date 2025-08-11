@@ -65,13 +65,6 @@ layout_mode = 2
 texture = ExtResource("3_gta4k")
 expand_mode = 2
 
-[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Stock"]
-visible = false
-layout_mode = 2
-text = "Stock"
-label_settings = ExtResource("4_qra5k")
-script = ExtResource("6_mhem6")
-
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Stock"]
 layout_mode = 2
 text = "0
@@ -155,6 +148,5 @@ label_settings = ExtResource("15_43xx5")
 horizontal_alignment = 1
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
-[connection signal="tree_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Stock/Label2" to="MarginContainer/HBoxContainer/VBoxContainer/Stock/Label2" method="_on_tree_entered"]
 [connection signal="tree_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Stock/Label" to="MarginContainer/HBoxContainer/VBoxContainer/Stock/Label" method="_on_tree_entered"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Craft/Button" to="." method="_on_button_pressed"]
