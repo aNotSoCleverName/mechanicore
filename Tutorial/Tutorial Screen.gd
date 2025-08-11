@@ -22,7 +22,8 @@ func _ready():
 			# Determine inNode's rect
 			var rect: Rect2;
 			if (inNode is Control):
-				rect = (inNode as Control).get_rect();
+				rect.position = inNode.global_position;
+				rect.size = (inNode.get_rect() as Rect2).size;
 			elif (inNode is Node2D):
 				var spriteNode;
 				if (inNode is Sprite2D || inNode is AnimatedSprite2D):
