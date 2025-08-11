@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://kf4x8f2aj1c7"]
+[gd_scene load_steps=13 format=3 uid="uid://kf4x8f2aj1c7"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_r3yx1"]
 [ext_resource type="PackedScene" uid="uid://dij236dtc6ebs" path="res://Game.tscn" id="2_dtcds"]
@@ -23,6 +23,10 @@ shader_parameter/spotlightedRectSize = Vector2(50, 50)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nkyrp"]
 bg_color = Color(0.0705882, 0.0705882, 0.0705882, 0.72549)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bqhh1"]
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Control"]
 process_mode = 3
@@ -106,6 +110,15 @@ text = "test"
 fit_content = true
 
 [node name="Delay Timer" type="Timer" parent="Tutorial Screen"]
+
+[node name="Label" type="Label" parent="Tutorial Screen"]
+layout_mode = 0
+offset_top = 688.0
+offset_right = 1280.0
+offset_bottom = 711.0
+text = "Press any key or click any where to close tutorial"
+label_settings = SubResource("LabelSettings_bqhh1")
+horizontal_alignment = 1
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="pressed" from="Pause Screen/VBoxContainer/Continue Button" to="Pause Screen" method="_on_continue_button_pressed"]

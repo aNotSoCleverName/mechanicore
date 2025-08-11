@@ -50,7 +50,7 @@ func _ready():
 			self._spotLightRect = rect;
 			self._textNode.text = inText;
 			
-			self._delayTimer.wait_time = inDelaySec;
+			self._delayTimer.wait_time = max(0.05, inDelaySec);
 			self._delayTimer.start();
 	)
 	
@@ -146,3 +146,16 @@ func _GetTextNodeVisibleArea() -> float:
 	
 	return visibleSize.x * visibleSize.y;
 #endregion
+
+func _input(event: InputEvent):
+	if (
+		event is InputEventMouseButton &&
+		event.pressed &&
+		event.button_index == MOUSE_BUTTON_LEFT
+	):
+		SignalBus_Tutorial.hide_tutorial.emit();
+	elif (
+		event is InputEventKey &&
+		event.is_pressed()
+	):
+		SignalBus_Tutorial.hide_tutorial.emit();
