@@ -4,7 +4,7 @@ class_name Tutorial
 const SPOTLIGHT_POS_KEY: String = "spotlightedRectPos";
 const SPOTLIGHT_SIZE_KEY: String = "spotlightedRectSize";
 
-@onready var _textNode: RichTextLabel = $Text;
+@onready var _textNode: TutorialText = $Text;
 @onready var _delayTimer: Timer = $"Delay Timer";
 
 var _spotLightRect: Rect2;
@@ -50,6 +50,7 @@ func _ready():
 			
 			self._spotLightRect = rect;
 			self._textNode.text = inText;
+			self._textNode.OnTextChanged();
 			
 			self._delayTimer.wait_time = max(0.05, inDelaySec);
 			self._delayTimer.start();
@@ -97,26 +98,27 @@ func _DetermineBestPositionForText(inSpotlight: Rect2):
 	
 	self._SetTextPositionRelativeToSpotlight(bestPos, inSpotlight);
 
+const TEXT_OFFSET_FROM_SPOTLIGHT: int = 10;
 func _SetTextPositionRelativeToSpotlight(inPos: ETextPosRelativeToSpotlight, inSpotlight: Rect2) -> void:
 	match inPos:
 		ETextPosRelativeToSpotlight.up:
 			self._textNode.position = Vector2(
 				inSpotlight.position.x,
-				inSpotlight.position.y - self._textNode.size.y
+				inSpotlight.position.y - self._textNode.size.y - Tutorial.TEXT_OFFSET_FROM_SPOTLIGHT
 			);
 		ETextPosRelativeToSpotlight.right:
 			self._textNode.position = Vector2(
-				inSpotlight.position.x + inSpotlight.size.x,
+				inSpotlight.position.x + inSpotlight.size.x + Tutorial.TEXT_OFFSET_FROM_SPOTLIGHT,
 				inSpotlight.position.y
 			);
 		ETextPosRelativeToSpotlight.down:
 			self._textNode.position = Vector2(
 				inSpotlight.position.x,
-				inSpotlight.position.y + inSpotlight.size.y
+				inSpotlight.position.y + inSpotlight.size.y + Tutorial.TEXT_OFFSET_FROM_SPOTLIGHT
 			);
 		ETextPosRelativeToSpotlight.left:
 			self._textNode.position = Vector2(
-				inSpotlight.position.x - self._textNode.size.x,
+				inSpotlight.position.x - self._textNode.size.x - Tutorial.TEXT_OFFSET_FROM_SPOTLIGHT,
 				inSpotlight.position.y
 			);
 		_:
