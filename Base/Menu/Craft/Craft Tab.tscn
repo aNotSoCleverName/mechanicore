@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=3 uid="uid://2e7hkktrvi2e"]
+
+[ext_resource type="Script" path="res://Base/Menu/Craft/Craft Tab.gd" id="1_t7mhw"]
+[ext_resource type="LabelSettings" uid="uid://c83ljliopp2nx" path="res://Global Style/Label Style - Outline Size12.tres" id="1_vqmal"]
+[ext_resource type="Script" path="res://Base/Menu/Craft/Queue/Current Queue Label.gd" id="2_g4700"]
+[ext_resource type="Script" path="res://Base/Menu/Craft/Queue/Max Queue Label.gd" id="3_mtgi8"]
+[ext_resource type="Script" path="res://Base/Menu/Craft/Queue.gd" id="4_ag4ug"]
+[ext_resource type="Script" path="res://Base/Craft Item Unlock Timers.gd" id="6_yl5iq"]
+
+[node name="Craft" type="VBoxContainer"]
+script = ExtResource("1_t7mhw")
+metadata/_tab_index = 0
+
+[node name="Queue MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Queue MarginContainer"]
+layout_mode = 2
+
+[node name="Queue Labels" type="HBoxContainer" parent="Queue MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Queue MarginContainer/VBoxContainer/Queue Labels"]
+layout_mode = 2
+text = "Queue: "
+label_settings = ExtResource("1_vqmal")
+
+[node name="Current" type="Label" parent="Queue MarginContainer/VBoxContainer/Queue Labels"]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("1_vqmal")
+script = ExtResource("2_g4700")
+
+[node name="Label2" type="Label" parent="Queue MarginContainer/VBoxContainer/Queue Labels"]
+layout_mode = 2
+text = "/"
+label_settings = ExtResource("1_vqmal")
+
+[node name="Max" type="Label" parent="Queue MarginContainer/VBoxContainer/Queue Labels"]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("1_vqmal")
+script = ExtResource("3_mtgi8")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Queue MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="Queue" type="HBoxContainer" parent="Queue MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("4_ag4ug")
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 2
+
+[node name="Craft Items MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Craft Items MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Craft Items MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_right = 5
+
+[node name="Craft Items" type="VBoxContainer" parent="Craft Items MarginContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Craft Item Unlock Timers" type="Node2D" parent="Craft Items MarginContainer/ScrollContainer/MarginContainer/Craft Items"]
+script = ExtResource("6_yl5iq")
+
+[node name="Ore2 Timer" type="Timer" parent="Craft Items MarginContainer/ScrollContainer/MarginContainer/Craft Items/Craft Item Unlock Timers"]
+
+[node name="Ore3 Timer" type="Timer" parent="Craft Items MarginContainer/ScrollContainer/MarginContainer/Craft Items/Craft Item Unlock Timers"]
+
+[connection signal="child_order_changed" from="Queue MarginContainer/VBoxContainer/ScrollContainer/Queue" to="Queue MarginContainer/VBoxContainer/ScrollContainer/Queue" method="_on_child_order_changed"]
+[connection signal="tree_entered" from="Queue MarginContainer/VBoxContainer/ScrollContainer/Queue" to="Queue MarginContainer/VBoxContainer/ScrollContainer/Queue" method="_on_tree_entered"]

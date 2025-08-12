@@ -27,3 +27,25 @@ func _ready() -> void:
 		func ():
 			self.visible = false;
 	)
+	
+	SignalBus_Base.shop_make_order.connect(
+		self._ShowTutorial
+	)
+
+func _ShowTutorial(_inFirstInQueue: Alien):
+	SignalBus_Base.shop_make_order.disconnect(
+		self._ShowTutorial
+	)
+	
+	SignalBus_Tutorial.show_tutorial.emit(
+		self,
+		"We've got our first customer! We can sell our items to earn money. Be careful, the customer won't wait forever!"
+	)
+	
+	await SignalBus_Tutorial.hide_tutorial;
+	
+	var reputation: HBoxContainer = self.get_parent().find_child("Reputation");
+	SignalBus_Tutorial.show_tutorial.emit(
+		reputation,
+		"This is our reputation bar. When we sell our item, we gain reputation. If we keep our customer waiting too long, they'll get angry and bring our reputation down! If we decline them instead, we'll lose less reputation. Once reputation reaches 0, no one would come to our shop, so we need to pay attention!"
+	)
