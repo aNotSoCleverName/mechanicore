@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dx4xl0ya4o52y"]
+[gd_scene load_steps=4 format=3 uid="uid://dx4xl0ya4o52y"]
 
 [ext_resource type="Script" path="res://Base/Base.gd" id="1_4gdcv"]
+[ext_resource type="Script" path="res://Base/Shop/Shop SubViewportContainer.gd" id="2_keufj"]
 [ext_resource type="Script" path="res://Base/Menu/Menu.gd" id="14_qhtai"]
 
 [node name="Base" type="VBoxContainer"]
@@ -19,6 +20,7 @@ script = ExtResource("1_4gdcv")
 custom_minimum_size = Vector2(0, 256)
 layout_mode = 2
 size_flags_vertical = 0
+script = ExtResource("2_keufj")
 
 [node name="Menu" type="TabContainer" parent="."]
 layout_mode = 2
