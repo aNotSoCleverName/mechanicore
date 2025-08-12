@@ -18,7 +18,7 @@ func _ShowPickOreTutorial(_inOre: Ore):
 	
 	SignalBus_Tutorial.show_tutorial.emit(
 		self,
-		"You just picked an ore. It is now stored in the drill's inventory",
+		"We just picked an ore. It is now stored in the drill's inventory",
 	);
 
 func _ShowDockTutorial(inIsDocked: bool, _inDrill: Drill):
@@ -34,7 +34,7 @@ func _ShowDockTutorial(inIsDocked: bool, _inDrill: Drill):
 	
 	SignalBus_Tutorial.show_tutorial.emit(
 		self,
-		"The ore you've collected will be transfered to the [i]base[/i] when you return to the surface",
+		"The ore we've collected will be transfered to the [i]base[/i] when we return to the surface",
 	)
 	
 	await SignalBus_Tutorial.hide_tutorial;

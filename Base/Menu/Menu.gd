@@ -19,7 +19,7 @@ func _AddCraftTab():
 	
 	SignalBus_Tutorial.show_tutorial.emit(
 		self,
-		"In the [i]base[/i], you can craft items using the ores you've collected. Different items require different ores and different amount of time to be crafted.",
+		"In the [i]base[/i], we can craft items using the ores we've collected. Different items require different ores and different amount of time to be crafted.",
 	)
 
 func _AddUpgradeTabs(_inOrderedItem: CraftItem):
