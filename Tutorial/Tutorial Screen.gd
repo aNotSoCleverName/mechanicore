@@ -148,10 +148,12 @@ func _input(event: InputEvent):
 		event.pressed &&
 		event.button_index == MOUSE_BUTTON_LEFT
 	):
+		await get_tree().process_frame;
 		SignalBus_Tutorial.hide_tutorial.emit();
 	elif (
 		event is InputEventKey &&
 		event.is_pressed() &&
 		event.is_action_pressed("ui_accept")
 	):
+		await get_tree().process_frame;
 		SignalBus_Tutorial.hide_tutorial.emit();
