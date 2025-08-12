@@ -57,7 +57,6 @@ animation = &"drill_animation"
 
 [node name="Shield" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_38bcw")
-position = Vector2(-3, 0)
 texture = ExtResource("8_tj00l")
 script = ExtResource("6_ak4na")
 

@@ -1,4 +1,5 @@
 extends VBoxContainer
+class_name UpgradeTab
 
 @export var upgradeTarget: Upgrade.EUpgradeTarget;
 @onready var _upgradeContainer: VBoxContainer = $MarginContainer/ScrollContainer/MarginContainer/Upgrades;

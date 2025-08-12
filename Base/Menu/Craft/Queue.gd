@@ -8,6 +8,10 @@ func _on_tree_entered() -> void:
 			
 			self.add_child(newQueuedItem);
 	)
+	
+	SignalBus_Base.craft_queue.connect(
+		self._ShowCraftQueueTutorial
+	)
 
 var _queueTop: CraftItemQueued;
 func _on_child_order_changed():
@@ -20,3 +24,13 @@ func _on_child_order_changed():
 	
 	self._queueTop = queuedItem;
 	queuedItem.StartCraft();
+
+func _ShowCraftQueueTutorial(_inCraftItem: CraftItem):
+	SignalBus_Base.craft_queue.disconnect(
+		self._ShowCraftQueueTutorial
+	)
+	
+	SignalBus_Tutorial.show_tutorial.emit(
+		self.get_parent().get_parent(),
+		"We can only craft 1 item at a time. To cancel crafting an item, just click the red cross."
+	)

@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Drill
 
+const DOCK_KEY: Key = KEY_R;
+
 const PX_PER_METER: float = 100;
 
 const START_SPEED: float = 500;
@@ -166,7 +168,7 @@ func _input(event: InputEvent) -> void:
 			self._directionDeg = SignalBus_EndlessRun.EDrillDirection.RIGHT;
 		return;
 	
-	if (keycode == KEY_R):
+	if (keycode == Drill.DOCK_KEY):
 		if (!self._isDocked):
 			self._isDocked = true;
 		return;

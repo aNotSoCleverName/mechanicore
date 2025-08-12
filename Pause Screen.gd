@@ -1,6 +1,7 @@
 extends PanelContainer
 
 var _isGameOver: bool = false;
+var _isShowingTutorial: bool = false;
 var _isPaused: bool = false;
 
 func _TogglePause():
@@ -19,6 +20,15 @@ func _ready():
 		func ():
 			self._isGameOver = true;
 	)
+	
+	SignalBus_Tutorial.show_tutorial.connect(
+		func (_inNode: Node, _inText: String):
+			self._isShowingTutorial = true;
+	)
+	SignalBus_Tutorial.hide_tutorial.connect(
+		func ():
+			self._isShowingTutorial = false;
+	)
 
 func _input(event: InputEvent):
 	if !(event is InputEventKey):
@@ -27,7 +37,7 @@ func _input(event: InputEvent):
 	if (event.is_pressed()):
 		return;
 	
-	if (self._isGameOver):
+	if (self._isGameOver || self._isShowingTutorial):
 		return;
 	
 	var key: Key = (event as InputEventKey).keycode;
