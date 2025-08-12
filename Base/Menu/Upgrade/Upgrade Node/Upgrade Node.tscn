@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://ca7dxk7h7lqt"]
+[gd_scene load_steps=10 format=3 uid="uid://ca7dxk7h7lqt"]
 
 [ext_resource type="Script" path="res://Base/Menu/Upgrade/Upgrade Node/Upgrade Node.gd" id="1_853dm"]
 [ext_resource type="StyleBox" uid="uid://d2kigmst2mqxx" path="res://Base/Menu/Craft/Panel.tres" id="2_ewf7v"]
 [ext_resource type="Texture2D" uid="uid://dfqm8wfkt5pfi" path="res://Base/Menu/Upgrade/Resource/Drill/Max Shield.png" id="3_e2eo4"]
-[ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Global Style/Label Style - Outline Size16.tres" id="4_mto0m"]
 [ext_resource type="Texture2D" uid="uid://dwn1v2brn8bhp" path="res://Base/Menu/Upgrade/Upgrade Node/Upgrade.png" id="5_be4bu"]
 [ext_resource type="Texture2D" uid="uid://bptr6byvokmow" path="res://Base/Money.png" id="6_ivqgv"]
 [ext_resource type="LabelSettings" uid="uid://c83ljliopp2nx" path="res://Global Style/Label Style - Outline Size12.tres" id="6_mxc43"]
@@ -12,7 +11,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mehxf"]
 
-[node name="Drill Upgrade Node" type="PanelContainer"]
+[node name="Upgrade Node" type="PanelContainer"]
 custom_minimum_size = Vector2(0, 140)
 anchors_preset = 10
 anchor_right = 1.0
@@ -34,75 +33,94 @@ theme_override_constants/margin_bottom = 5
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("3_e2eo4")
 stretch_mode = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="Name" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "[center][u]Name[/u][/center]"
+fit_content = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Name" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Name"
-label_settings = ExtResource("4_mto0m")
-
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Details" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Details" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 6
 
-[node name="Level" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Details"]
+[node name="Level" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/Details"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Level"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/Details/Level"]
 layout_mode = 2
 texture = ExtResource("5_be4bu")
 expand_mode = 2
 
-[node name="Level" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Level"]
+[node name="Level" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/Details/Level"]
 layout_mode = 2
 text = "0"
 label_settings = ExtResource("6_mxc43")
 
-[node name="Slash" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Level"]
+[node name="Slash" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/Details/Level"]
 layout_mode = 2
 text = "/"
 label_settings = ExtResource("6_mxc43")
 
-[node name="Max Level" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Level"]
+[node name="Max Level" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/Details/Level"]
 layout_mode = 2
 text = "3"
 label_settings = ExtResource("6_mxc43")
 
-[node name="Price" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Details"]
+[node name="Price" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/Details"]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Price"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/Details/Price"]
 layout_mode = 2
 texture = ExtResource("6_ivqgv")
 expand_mode = 2
 
-[node name="Price" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Price"]
+[node name="Price" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/Details/Price"]
 self_modulate = Color(1, 0, 0, 1)
 layout_mode = 2
 text = "500"
 label_settings = ExtResource("6_mxc43")
 
-[node name="Slash" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Price"]
+[node name="Slash" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/Details/Price"]
 layout_mode = 2
 text = "/"
 label_settings = ExtResource("6_mxc43")
 
-[node name="Money" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Details/Price"]
+[node name="Money" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/Details/Price"]
 layout_mode = 2
 text = "0"
 label_settings = ExtResource("6_mxc43")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Description" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "Desc"
+fit_content = true
 
 [node name="Upgrade" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2

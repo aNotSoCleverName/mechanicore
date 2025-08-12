@@ -7,7 +7,7 @@ var _alienPool: Array[Alien] = [];
 var alienQueues: Array[Alien] = [];
 var firstInQueue: Alien;
 
-@onready var _spawnTimer: Timer = $Timer;
+@onready var _spawnTimer: Timer = $"Spawn Timer";
 
 func _ResetSpawnTimer() -> void:
 	#self._spawnTimer.wait_time = randi_range(5, 15);
@@ -38,6 +38,13 @@ func _ready() -> void:
 	SignalBus_Base.shop_customer_leave.connect(
 		func ():
 			self._ExitQueue();
+	)
+	
+	SignalBus_Base.upgrade_base_mind_reader_unlocked.connect(
+		func ():
+			for i: int in range(1, self.alienQueues.size()):
+				var alien: Alien = self.alienQueues[i];
+				alien.bubbleNode.visible = true;
 	)
 
 func _on_child_entered_tree(_node):

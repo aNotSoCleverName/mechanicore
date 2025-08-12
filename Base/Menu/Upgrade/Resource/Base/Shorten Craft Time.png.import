@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6kec8w21y7p2"
-path="res://.godot/imported/Body1.png-edb6fc8dc1171de42a3dcf419d82ad2b.ctex"
+uid="uid://beuls7lac6qj5"
+path="res://.godot/imported/Shorten Craft Time.png-7ca0903a291295cd94097a56eb92e0a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Base/Shop/Alien/Sprite/Body/Body1.png"
-dest_files=["res://.godot/imported/Body1.png-edb6fc8dc1171de42a3dcf419d82ad2b.ctex"]
+source_file="res://Base/Menu/Upgrade/Resource/Base/Shorten Craft Time.png"
+dest_files=["res://.godot/imported/Shorten Craft Time.png-7ca0903a291295cd94097a56eb92e0a0.ctex"]
 
 [params]
 

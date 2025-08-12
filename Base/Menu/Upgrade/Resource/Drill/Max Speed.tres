@@ -5,9 +5,13 @@
 
 [resource]
 script = ExtResource("2_xengp")
-stats = 1
+upgradeTarget = 1
+stats = 2
 icon = ExtResource("1_joaxk")
 name = "Max Speed"
 maxLevel = 3
 statChange = Array[float]([100.0, 200.0, 300.0])
 prices = Array[int]([100, 100, 100])
+descStatUnit = "m/s"
+descStatMult = 0.01
+desc = "Increases drill's max speed by ${totalStatChange} ${statChange}. Hold W or S key to change speed."

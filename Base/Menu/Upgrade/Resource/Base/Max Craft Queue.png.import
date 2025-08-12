@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6kec8w21y7p2"
-path="res://.godot/imported/Body1.png-edb6fc8dc1171de42a3dcf419d82ad2b.ctex"
+uid="uid://5cwat140ydl8"
+path="res://.godot/imported/Max Craft Queue.png-b31c1e9454a5072dd359b496b8a4f84e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Base/Shop/Alien/Sprite/Body/Body1.png"
-dest_files=["res://.godot/imported/Body1.png-edb6fc8dc1171de42a3dcf419d82ad2b.ctex"]
+source_file="res://Base/Menu/Upgrade/Resource/Base/Max Craft Queue.png"
+dest_files=["res://.godot/imported/Max Craft Queue.png-b31c1e9454a5072dd359b496b8a4f84e.ctex"]
 
 [params]
 

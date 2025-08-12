@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dq4qkupby85t"]
+[gd_scene load_steps=15 format=3 uid="uid://dq4qkupby85t"]
 
 [ext_resource type="Script" path="res://Base/Menu/Craft/Craft Item/Craft Item Node.gd" id="1_7c14f"]
 [ext_resource type="StyleBox" uid="uid://d2kigmst2mqxx" path="res://Base/Menu/Craft/Panel.tres" id="1_rjrbv"]
@@ -8,10 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ctavnwfpqdo87" path="res://Base/Time.png" id="4_cfie2"]
 [ext_resource type="PackedScene" uid="uid://ccirx7362q0ar" path="res://Base/Menu/Craft/Craft Item/Craft Item Material.tscn" id="4_pkhi4"]
 [ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Global Style/Label Style - Outline Size16.tres" id="4_qra5k"]
-[ext_resource type="Texture2D" uid="uid://kpyugmno047" path="res://Endless Run/Ores/Ore1.png" id="5_3meuh"]
-[ext_resource type="Texture2D" uid="uid://cjhadim1ft6sj" path="res://Endless Run/Ores/Ore2.png" id="6_d6pru"]
 [ext_resource type="Script" path="res://Base/Menu/Craft/Craft Item/Stock.gd" id="6_mhem6"]
-[ext_resource type="Texture2D" uid="uid://bripmml1nnira" path="res://Endless Run/Ores/Ore3.png" id="7_flb3l"]
 [ext_resource type="Texture2D" uid="uid://by6jv4i7kl48d" path="res://Base/Menu/Craft/Craft Item/Craft.png" id="8_kdpct"]
 [ext_resource type="LabelSettings" uid="uid://c83ljliopp2nx" path="res://Global Style/Label Style - Outline Size12.tres" id="9_p3sw4"]
 [ext_resource type="Texture2D" uid="uid://cbkgfu5vs62df" path="res://Base/Menu/Craft/Craft Item/Craft Disabled.png" id="14_0lsng"]
@@ -68,13 +65,6 @@ layout_mode = 2
 texture = ExtResource("3_gta4k")
 expand_mode = 2
 
-[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Stock"]
-visible = false
-layout_mode = 2
-text = "Stock"
-label_settings = ExtResource("4_qra5k")
-script = ExtResource("6_mhem6")
-
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Stock"]
 layout_mode = 2
 text = "0
@@ -127,15 +117,14 @@ alignment = 1
 
 [node name="Ore1" parent="MarginContainer/HBoxContainer/Details/Materials" instance=ExtResource("4_pkhi4")]
 layout_mode = 2
-icon = ExtResource("5_3meuh")
 
 [node name="Ore2" parent="MarginContainer/HBoxContainer/Details/Materials" instance=ExtResource("4_pkhi4")]
 layout_mode = 2
-icon = ExtResource("6_d6pru")
+oreType = 2
 
 [node name="Ore3" parent="MarginContainer/HBoxContainer/Details/Materials" instance=ExtResource("4_pkhi4")]
 layout_mode = 2
-icon = ExtResource("7_flb3l")
+oreType = 3
 
 [node name="Craft" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -159,6 +148,5 @@ label_settings = ExtResource("15_43xx5")
 horizontal_alignment = 1
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
-[connection signal="tree_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Stock/Label2" to="MarginContainer/HBoxContainer/VBoxContainer/Stock/Label2" method="_on_tree_entered"]
 [connection signal="tree_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Stock/Label" to="MarginContainer/HBoxContainer/VBoxContainer/Stock/Label" method="_on_tree_entered"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Craft/Button" to="." method="_on_button_pressed"]

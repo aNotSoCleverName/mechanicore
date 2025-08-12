@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://cmr2ob7lv72vm"]
+
+[ext_resource type="Texture2D" uid="uid://beuls7lac6qj5" path="res://Base/Menu/Upgrade/Resource/Base/Shorten Craft Time.png" id="1_1gq7a"]
+[ext_resource type="Script" path="res://Base/Menu/Upgrade/Upgrade.gd" id="2_2oqha"]
+
+[resource]
+script = ExtResource("2_2oqha")
+upgradeTarget = 2
+stats = 7
+icon = ExtResource("1_1gq7a")
+name = "Shorten Craft Time"
+maxLevel = 4
+statChange = Array[float]([0.05, 0.05, 0.1, 0.1])
+prices = Array[int]([500, 1000, 2000, 4000])
+descStatUnit = "%"
+descStatMult = 100.0
+desc = "Shorten crafting time by ${totalStatChange} ${statChange}."
