@@ -47,5 +47,7 @@ func _ShowTutorial(_inFirstInQueue: Alien):
 	var reputation: HBoxContainer = self.get_parent().find_child("Reputation");
 	SignalBus_Tutorial.show_tutorial.emit(
 		reputation,
-		"This is our reputation bar. When we sell our item, we gain reputation. If we keep our customer waiting too long, they'll get angry and bring our reputation down! If we decline them instead, we'll lose less reputation. Once reputation reaches 0, no one would come to our shop, so we need to pay attention!"
+		"This is our reputation bar. When we sell our item, we gain reputation." +
+		"\n\nIf we keep our customer waiting too long, they'll get angry and bring our reputation down! If we decline them instead, we'll lose less reputation." +
+		"\n\nOnce reputation reaches 0, no one would come to our shop, so we need to pay attention!"
 	)
