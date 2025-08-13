@@ -47,7 +47,7 @@ func AddCraftItem(inKey: CraftItem):
 	craftItemNode.craftItem = inKey;
 	self.craftItemContainer.add_child(craftItemNode);
 
-var money: int = 100000:
+var money: int = 0:
 	get:
 		return money;
 	set(inValue):
