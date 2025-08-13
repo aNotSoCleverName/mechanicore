@@ -1,25 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2n3hom8rrhlo"]
+[gd_scene load_steps=8 format=3 uid="uid://c2n3hom8rrhlo"]
 
 [ext_resource type="AudioStream" uid="uid://cjr41hqq8thkn" path="res://Sound/BGM/loading.wav" id="1_bty5o"]
-[ext_resource type="AudioStream" uid="uid://chhxfu0pj2m17" path="res://Sound/SFX/alien-talk-1.wav" id="3_acak1"]
-[ext_resource type="AudioStream" uid="uid://dymjndyowl3mx" path="res://Sound/SFX/alien-talk-2.wav" id="4_ni063"]
+[ext_resource type="AudioStream" uid="uid://b0p4owl13yojl" path="res://Sound/SFX/sell.mp3" id="2_rl60r"]
+[ext_resource type="AudioStream" uid="uid://deyh3wfkvmvoo" path="res://Sound/SFX/discard.mp3" id="3_dd5jd"]
+[ext_resource type="AudioStream" uid="uid://d28hh1a0bxd5l" path="res://Sound/SFX/craft.mp3" id="5_b422h"]
 [ext_resource type="AudioStream" uid="uid://b38kswagqi447" path="res://Sound/SFX/mining.mp3" id="5_gb2gr"]
+[ext_resource type="AudioStream" uid="uid://bfjqsjmgkhqmj" path="res://Sound/SFX/gameOver.mp3" id="6_hrn7i"]
+[ext_resource type="AudioStream" uid="uid://wb7by24rpl4i" path="res://Sound/SFX/upgrade.mp3" id="7_ef1eg"]
 
 [node name="SoundList" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("1_bty5o")
 autoplay = true
 
+[node name="GameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_hrn7i")
+
 [node name="Alien-talk-1" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_acak1")
-pitch_scale = 2.0
+stream = ExtResource("2_rl60r")
 
 [node name="Alien-talk-2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_ni063")
-pitch_scale = 2.0
+stream = ExtResource("3_dd5jd")
 
 [node name="GetOre" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_gb2gr")
+pitch_scale = 1.2
+
+[node name="Craft" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_b422h")
+
+[node name="Upgrade" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ef1eg")
