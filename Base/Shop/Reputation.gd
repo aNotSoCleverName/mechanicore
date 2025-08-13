@@ -1,4 +1,5 @@
 extends HBoxContainer
+class_name Reputation
 
 const DEFAULT_REPUTATION = 20;
 
