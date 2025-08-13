@@ -10,8 +10,8 @@ var firstInQueue: Alien;
 @onready var _spawnTimer: Timer = $"Spawn Timer";
 
 func _ResetSpawnTimer() -> void:
-	#self._spawnTimer.wait_time = randi_range(5, 15);
-	self._spawnTimer.wait_time = 1;
+	self._spawnTimer.wait_time = randi_range(5, 15);
+	#self._spawnTimer.wait_time = 1;
 
 func _ExitQueue() -> void:
 	self.alienQueues.remove_at(0);

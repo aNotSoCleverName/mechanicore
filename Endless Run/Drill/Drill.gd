@@ -5,7 +5,7 @@ const DOCK_KEY: Key = KEY_R;
 
 const PX_PER_METER: float = 100;
 
-const START_SPEED: float = 500;
+const START_SPEED: float = 200;
 const MAX_MIN_SPEED: float = 1200;	# Maximum value of min speed. As drill gets deeper, min speed increases, but it will never be higher than this value.
 
 @onready var upgradeComponentContainer: UpgradeComponentContainer = $"Upgrade Component Container";
