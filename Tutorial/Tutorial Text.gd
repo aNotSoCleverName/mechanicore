@@ -3,7 +3,7 @@ class_name TutorialText
 
 const MAX_WIDTH: float = 400;
 
-@onready var _background: ColorRect = $ColorRect;
+@onready var _background: Panel = $Panel;
 const BACKGROUND_MARGIN: int = 3;
 
 func OnTextChanged() -> void:
@@ -23,4 +23,4 @@ func _ready():
 		"Tutorial Text's max width must be bigger than min width"
 	);
 	
-	self._background.position = -Vector2(TutorialText.BACKGROUND_MARGIN, TutorialText.BACKGROUND_MARGIN)
+	self._background.position = -Vector2(2*TutorialText.BACKGROUND_MARGIN, TutorialText.BACKGROUND_MARGIN)
