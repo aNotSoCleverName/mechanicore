@@ -10,6 +10,6 @@ price = 4000
 timeSec = 8.0
 materials = {
 1: 0,
-2: 15,
+2: 40,
 3: 5
 }
