@@ -18,6 +18,8 @@ var _opacity: float = 1:
 		else:
 			self._lostAmountLabel.self_modulate.a = 0;
 
+var _lostAmount: int = 0;
+
 func _ready():
 	self._opacity = 0;
 	
@@ -28,14 +30,16 @@ func _ready():
 	
 	SignalBus_EndlessRun.drill_explode.connect(
 		func (inLostInventory: Dictionary):
-			self._lostAmountLabel.text = str(-inLostInventory[oreInventory.oreType]);
+			self._lostAmount = inLostInventory[oreInventory.oreType];
 	);
 	SignalBus_EndlessRun.drill_change_dock.connect(
 		func (inIsDocked: bool, inDrill: Drill):
 			if (!inIsDocked):
+				self._lostAmount = 0;
 				return;
 			
 			self._gainedAmountLabel.text = "+" + str(inDrill.inventory[oreInventory.oreType]);
+			self._lostAmountLabel.text = str(-self._lostAmount);
 			
 			self._opacity = 1;
 			self._onscreenTimer.start();
