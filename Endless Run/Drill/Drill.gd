@@ -133,6 +133,9 @@ func _on_tree_entered() -> void:
 	
 	SignalBus_EndlessRun.ore_pick.connect(
 		func (inOre: Ore):
+			
+			SoundList.get_node("GetOre").play();
+			
 			var doubleOreChance: float = self.upgradeComponentContainer._stats[Upgrade.EStatsKeys.drill_DoubleOreChance];
 			if (randf() < doubleOreChance):
 				self.inventory[inOre.oreType] += 2;
