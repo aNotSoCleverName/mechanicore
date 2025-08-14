@@ -68,7 +68,7 @@ func _ready():
 	)
 
 #region Determine best position for text node
-enum ETextPosRelativeToSpotlight { up, right, down, left }
+enum ETextPosRelativeToSpotlight { up, left, right, down }
 func _DetermineBestPositionForText(inSpotlight: Rect2):
 	# Key = enum, value = area
 	var positionAndArea: Dictionary = { }
@@ -84,9 +84,8 @@ func _DetermineBestPositionForText(inSpotlight: Rect2):
 	for positionRelativeToSpotlight: ETextPosRelativeToSpotlight in positionAndArea.keys():
 		var area: float = positionAndArea[positionRelativeToSpotlight];
 		if (area > biggestArea):
-			bestPos = positionRelativeToSpotlight;
-		else:
 			biggestArea = area;
+			bestPos = positionRelativeToSpotlight;
 	
 	self._SetTextPositionRelativeToSpotlight(bestPos, inSpotlight);
 
