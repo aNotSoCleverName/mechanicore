@@ -6,13 +6,10 @@ func _ready():
 	self._base.craftItemContainer = $"Craft Items MarginContainer/ScrollContainer/MarginContainer/Craft Items";
 	
 	# Initiate craftItems
-	for filePath: String in DirAccess.open(Base.CRAFT_ITEM_RESOURCES_DIR).get_files():
-		filePath = filePath.split(".remap")[0];
-		if (!filePath.ends_with(".tres")):
-			continue;
-		
-		var fullPath: String = Base.CRAFT_ITEM_RESOURCES_DIR + filePath;
-		var craftItem: CraftItem = load(fullPath);
+	var craftItems: Array[CraftItem] = [];
+	UtilityInit.InitArrayFromFiles(craftItems, self._base.CRAFT_ITEM_RESOURCES_DIR, ".tres", true, false);
+	
+	for craftItem: CraftItem in craftItems:
 		if (
 			craftItem.materials[Ore.EOreType.Ore2] > 0 ||
 			craftItem.materials[Ore.EOreType.Ore3] > 0

@@ -26,13 +26,10 @@ func _AddCraftItemsToDict(inUnlockedOreType: Ore.EOreType):
 		if (oreType > inUnlockedOreType):
 			rarerOreTypes.append(oreType);
 	
-	for filePath: String in DirAccess.open(self._base.CRAFT_ITEM_RESOURCES_DIR).get_files():
-		filePath = filePath.split(".remap")[0];
-		if !(filePath.ends_with(".tres")):
-			continue;
-		
-		var craftItem: CraftItem = load(self._base.CRAFT_ITEM_RESOURCES_DIR + filePath);
-		
+	var craftItems: Array[CraftItem] = [];
+	UtilityInit.InitArrayFromFiles(craftItems, self._base.CRAFT_ITEM_RESOURCES_DIR, ".tres", true, false);
+	
+	for craftItem: CraftItem in craftItems:
 		if (self._base.craftItems.has(craftItem)):
 			continue;
 		
