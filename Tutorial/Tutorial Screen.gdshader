@@ -1,5 +1,6 @@
 shader_type canvas_item;
 
+uniform vec2 tutorialScreenSize;
 uniform vec2 spotlightedRectPos;
 uniform vec2 spotlightedRectSize;
 
@@ -16,7 +17,7 @@ bool IsPixelInRect(vec2 inPixelPos, vec2 inRectTopLeft, vec2 inRectSize)
 
 void fragment()
 {
-	vec2 uv = UV / SCREEN_PIXEL_SIZE;
+	vec2 uv = UV * tutorialScreenSize;
 	
 	vec2 rectPosWithMargin = spotlightedRectPos - margin;
 	vec2 rectSizeWithMargin = spotlightedRectSize + 2.0*margin;

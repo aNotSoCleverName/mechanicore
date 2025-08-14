@@ -160,3 +160,7 @@ func _input(event: InputEvent):
 	):
 		await get_tree().process_frame;
 		SignalBus_Tutorial.hide_tutorial.emit();
+
+const SELF_SIZE_KEY: String = "tutorialScreenSize";
+func _on_resized():
+	(self.material as ShaderMaterial).set_shader_parameter(SELF_SIZE_KEY, self.size);

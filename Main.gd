@@ -1,4 +1,4 @@
-extends Control
+extends PanelContainer
 
 func _on_tree_entered():
 	SignalBus_Base.game_over.connect(

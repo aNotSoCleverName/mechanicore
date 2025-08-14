@@ -21,6 +21,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qy17a"]
 shader = ExtResource("6_m1cvv")
+shader_parameter/tutorialScreenSize = null
 shader_parameter/spotlightedRectPos = Vector2(0, 0)
 shader_parameter/spotlightedRectSize = Vector2(50, 50)
 
@@ -31,8 +32,7 @@ bg_color = Color(0.0705882, 0.0705882, 0.0705882, 0.72549)
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Main" type="Control"]
-layout_mode = 3
+[node name="Main" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -48,9 +48,7 @@ autoplay = true
 
 [node name="Pause Screen" type="PanelContainer" parent="."]
 process_mode = 3
-layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 720.0
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_a8tan")
 script = ExtResource("2_emyiw")
 
@@ -90,20 +88,13 @@ text = "Continue"
 label_settings = ExtResource("3_s1mpv")
 
 [node name="Game" parent="." instance=ExtResource("2_dtcds")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
+layout_mode = 2
 
 [node name="Tutorial Screen" type="Panel" parent="."]
 process_mode = 3
 visible = false
 material = SubResource("ShaderMaterial_qy17a")
-layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 720.0
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nkyrp")
 script = ExtResource("7_3w5jr")
 
@@ -136,3 +127,4 @@ horizontal_alignment = 1
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="pressed" from="Pause Screen/VBoxContainer/Continue Button" to="Pause Screen" method="_on_continue_button_pressed"]
+[connection signal="resized" from="Tutorial Screen" to="Tutorial Screen" method="_on_resized"]
