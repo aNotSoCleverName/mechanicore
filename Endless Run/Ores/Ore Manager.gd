@@ -18,8 +18,9 @@ static func popFromPool(inOreType: Ore.EOreType) -> Ore:
 	return orePool.pop_back();
 #endregion
 
-#region Built-in functions
 var _prevLoadedChunkY: float = 0;
+
+#region Built-in functions
 func _on_tree_entered() -> void:
 	#region Handle ore pooling
 	# Initiate dictionary
@@ -38,33 +39,12 @@ func _on_tree_entered() -> void:
 			if (ore == null):
 				ore = preload("res://Endless Run/Ores/Ore.tscn").instantiate();
 				ore.oreType = inOrePlaceholder.oreType;
-			#inOrePlaceholder.add_child(ore);
+			
 			inOrePlaceholder.call_deferred("add_child", ore);
 	)
 	#endregion
 	
 	#region Handle ore generation
-	const chanceToNotGenerate: float = 0.2;
-	SignalBus_EndlessRun.drill_change_pos.connect(
-		func (inPos: Vector2):
-			# Don't generate too far away from player
-			if (self._prevLoadedChunkY > inPos.y + (2 * GlobalProperty_EndlessRun.VIEWPORT_SIZE.y)):
-				return;
-			
-			if (randf() < chanceToNotGenerate):
-				return;
-			
-			var chunkCenter: Vector2 = Vector2(
-				randf() * GlobalProperty_EndlessRun.VIEWPORT_SIZE.x,
-				GlobalProperty_EndlessRun.VIEWPORT_SIZE.y + GlobalProperty_EndlessRun.SURFACE_Y + self._prevLoadedChunkY,
-			);
-			
-			var loadedChunk: OreChunk = OreChunk.GenerateOreChunk(chunkCenter);
-			if (loadedChunk == null):
-				return;
-			self.add_child(loadedChunk);
-			self._prevLoadedChunkY += loadedChunk.height;
-	)
 	SignalBus_EndlessRun.drill_change_dock.connect(	# Reset ore generation when docking
 		func (inIsDocked: bool, _inDrill: Drill):
 			if (!inIsDocked):
@@ -77,3 +57,23 @@ func _on_tree_entered() -> void:
 func _ready() -> void:
 	self._drill = GlobalProperty_EndlessRun.GetDrillNode(self);
 #endregion
+
+const CHANCE_TO_NOT_GENERATE: float = 0.2;
+func _process(_delta):
+	# Don't generate too far away from player
+	if (self._prevLoadedChunkY > self._drill.position.y + (2 * GlobalProperty_EndlessRun.VIEWPORT_SIZE.y)):
+		return;
+	
+	if (randf() < OreManager.CHANCE_TO_NOT_GENERATE):
+		return;
+	
+	var chunkCenter: Vector2 = Vector2(
+		randf() * GlobalProperty_EndlessRun.VIEWPORT_SIZE.x,
+		GlobalProperty_EndlessRun.VIEWPORT_SIZE.y + GlobalProperty_EndlessRun.SURFACE_Y + self._prevLoadedChunkY,
+	);
+	
+	var loadedChunk: OreChunk = OreChunk.GenerateOreChunk(chunkCenter);
+	if (loadedChunk == null):
+		return;
+	self.add_child(loadedChunk);
+	self._prevLoadedChunkY += loadedChunk.height;
