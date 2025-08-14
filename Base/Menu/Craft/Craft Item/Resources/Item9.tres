@@ -1,15 +1,15 @@
 [gd_resource type="Resource" script_class="CraftItem" load_steps=3 format=3 uid="uid://d1yq8qn1anqvc"]
 
-[ext_resource type="Texture2D" uid="uid://bj4vo7nr03p3n" path="res://Base/Menu/Craft/Craft Item/Resources/Item7.png" id="1_8vf1d"]
+[ext_resource type="Texture2D" uid="uid://cnoj2elavwkou" path="res://Base/Menu/Craft/Craft Item/Resources/Item9.png" id="1_g5t54"]
 [ext_resource type="Script" path="res://Base/Craft Item.gd" id="2_4oble"]
 
 [resource]
 script = ExtResource("2_4oble")
-image = ExtResource("1_8vf1d")
-price = 5000
+image = ExtResource("1_g5t54")
+price = 6000
 timeSec = 10.0
 materials = {
-1: 15,
-2: 10,
+1: 140,
+2: 40,
 3: 10
 }

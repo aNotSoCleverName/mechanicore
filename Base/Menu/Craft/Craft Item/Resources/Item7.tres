@@ -6,10 +6,10 @@
 [resource]
 script = ExtResource("1_jeehr")
 image = ExtResource("1_38ny3")
-price = 2700
+price = 3500
 timeSec = 7.0
 materials = {
-1: 25,
+1: 170,
 2: 0,
 3: 5
 }

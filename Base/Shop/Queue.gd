@@ -9,9 +9,13 @@ var firstInQueue: Alien;
 
 @onready var _spawnTimer: Timer = $"Spawn Timer";
 
+var _reputationNode: Reputation;
 func _ResetSpawnTimer() -> void:
-	#self._spawnTimer.wait_time = randi_range(5, 15);
-	self._spawnTimer.wait_time = 1;
+	if (self._reputationNode == null):
+		self._reputationNode = self.get_parent().find_child("Reputation", true, false);
+	
+	var mult: float = (1 - 0.8 * self._reputationNode._reputation/100.0);
+	self._spawnTimer.wait_time = randi_range(7, 18) * mult;
 
 func _ExitQueue() -> void:
 	self.alienQueues.remove_at(0);

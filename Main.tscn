@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://kf4x8f2aj1c7"]
+[gd_scene load_steps=15 format=3 uid="uid://kf4x8f2aj1c7"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_r3yx1"]
 [ext_resource type="PackedScene" uid="uid://dij236dtc6ebs" path="res://Game.tscn" id="2_dtcds"]
@@ -8,6 +8,7 @@
 [ext_resource type="Shader" path="res://Tutorial/Tutorial Screen.gdshader" id="6_m1cvv"]
 [ext_resource type="Script" path="res://Tutorial/Tutorial Screen.gd" id="7_3w5jr"]
 [ext_resource type="Script" path="res://Tutorial/Tutorial Text.gd" id="8_d6amf"]
+[ext_resource type="StyleBox" uid="uid://d2kigmst2mqxx" path="res://Base/Menu/Craft/Panel.tres" id="9_iitcr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8tan"]
 bg_color = Color(0, 0, 0, 0.898039)
@@ -104,26 +105,25 @@ clip_contents = false
 layout_mode = 2
 offset_right = 720.0
 offset_bottom = 23.0
-theme_override_colors/selection_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 bbcode_enabled = true
 text = "test"
 fit_content = true
 script = ExtResource("8_d6amf")
 
-[node name="ColorRect" type="ColorRect" parent="Tutorial Screen/Text"]
+[node name="Panel" type="Panel" parent="Tutorial Screen/Text"]
 show_behind_parent = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-color = Color(0.367188, 0.367188, 0.367188, 1)
+theme_override_styles/panel = ExtResource("9_iitcr")
 
 [node name="Label" type="Label" parent="Tutorial Screen"]
 layout_mode = 0
 offset_top = 688.0
 offset_right = 1280.0
 offset_bottom = 711.0
-text = "Press [Space] key or click any where to close tutorial"
+text = "Press [Space] key or click anywhere to close tutorial"
 label_settings = SubResource("LabelSettings_bqhh1")
 horizontal_alignment = 1
 
