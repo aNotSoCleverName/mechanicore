@@ -143,6 +143,9 @@ func _GetTextNodeVisibleArea() -> float:
 #endregion
 
 func _input(event: InputEvent):
+	if (!self.visible):
+		return;
+	
 	if (
 		event is InputEventMouseButton &&
 		event.pressed &&
