@@ -54,3 +54,4 @@ func _ready() -> void:
 
 func _on_button_pressed():
 	SignalBus_Base.craft_queue.emit(self.craftItem);
+	SoundList.get_node("Craft").play();
