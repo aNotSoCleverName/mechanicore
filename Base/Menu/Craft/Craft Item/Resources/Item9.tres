@@ -9,7 +9,7 @@ image = ExtResource("1_g5t54")
 price = 6000
 timeSec = 10.0
 materials = {
-1: 190,
+1: 220,
 2: 50,
 3: 10
 }
