@@ -18,6 +18,11 @@ func _ready():
 				"Upgrade target unhandled"
 			);
 	
+	upgrades.sort_custom(
+		func (a: Upgrade, b: Upgrade):
+			return a.prices[0] < b.prices[0];
+	);
+	
 	for upgrade: Upgrade in upgrades:
 		var upgradeNode: UpgradeNode = preload("res://Base/Menu/Upgrade/Upgrade Node/Upgrade Node.tscn").instantiate();
 		upgradeNode.upgrade = upgrade;
