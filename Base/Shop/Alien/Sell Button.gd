@@ -28,4 +28,4 @@ func _ready() -> void:
 func _on_pressed():
 	SignalBus_Base.shop_sell.emit(self._orderedItem);
 	SignalBus_Base.shop_customer_leave.emit();
-	SoundList.get_node("Alien-talk-1").play();
+	SoundList.get_node("Sell").play();
