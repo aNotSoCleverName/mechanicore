@@ -1,11 +1,12 @@
 extends HBoxContainer
 class_name Order;
 
+@onready var _timer: Timer = $Timer;
+
 func _ready() -> void:
 	self.visible = false;
 	
-	var timer: Timer = $Timer;
-	timer.timeout.connect(
+	self._timer.timeout.connect(
 		func ():
 			$"Timer/SFX Wait Too Long".play();
 			SignalBus_Base.shop_leave_angry.emit();
@@ -13,7 +14,7 @@ func _ready() -> void:
 	)
 	SignalBus_Base.shop_customer_leave.connect(
 		func ():
-			timer.stop();
+			self._timer.stop();
 	)
 	
 	SignalBus_Base.shop_make_order.connect(
@@ -21,7 +22,7 @@ func _ready() -> void:
 			self.visible = true;
 			
 			$Bubble/Item.texture = inAlien.orderedItem.image;
-			timer.start(inAlien.waitTime);
+			self._timer.start(inAlien.waitTime);
 	)
 	
 	SignalBus_Base.shop_queue_empty.connect(
