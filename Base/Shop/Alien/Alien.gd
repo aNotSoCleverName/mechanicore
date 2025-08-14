@@ -2,7 +2,6 @@ extends Node2D
 class_name Alien;
 
 static var _alienBodySpriteManager: AlienBodySpriteManager;
-static var clothesSprites: Array[Texture2D] = [];
 
 static var _base: Base;
 static var _isMindReaderUnlocked: bool = false;
@@ -18,8 +17,6 @@ var orderedItem: CraftItem:
 var waitTime: float;
 
 func _on_tree_entered():
-	UtilityInit.InitArrayFromFiles(Alien.clothesSprites, "res://Base/Shop/Alien/Sprite/Clothes/", ".png", true, false);
-	
 	if (Alien._alienBodySpriteManager == null):
 		var queue: ShopQueue = self.get_parent();
 		for childNode: Node in queue.get_children():
@@ -36,8 +33,6 @@ func _on_tree_entered():
 	var bodySprite: Texture2D = self._alienBodySpriteManager.bodySprites[randi_range(0, self._alienBodySpriteManager.bodySprites.size() - 1)];
 	$Body.texture = bodySprite;
 	self.waitTime = self._alienBodySpriteManager.waitTimeBasedOnBodySprite[bodySprite.resource_path];
-	
-	$Body/Clothes.texture = Alien.clothesSprites[randi_range(0, Alien.clothesSprites.size() - 1)];
 	
 	SignalBus_Base.upgrade_base_mind_reader_unlocked.connect(
 		func ():

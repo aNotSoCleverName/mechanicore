@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://by8u3wjwdvf01"]
+[gd_scene load_steps=7 format=3 uid="uid://by8u3wjwdvf01"]
 
 [ext_resource type="Script" path="res://Base/Shop/Alien/Alien.gd" id="1_176wq"]
 [ext_resource type="Texture2D" uid="uid://ba16is6f3e6ua" path="res://Base/Shop/Alien/Sprite/Body/Body3.png" id="2_ajbgi"]
 [ext_resource type="Texture2D" uid="uid://deo8y8c744od6" path="res://Base/Shop/Alien/Sprite/Clothes/Clothes1.png" id="3_tyr6e"]
 [ext_resource type="Texture2D" uid="uid://bwkfdfd2wcpnx" path="res://Base/Shop/Alien/Sprite/Bubble - Small.png" id="4_fe0dx"]
+[ext_resource type="Script" path="res://Base/Shop/Alien/Clothes.gd" id="4_i3agx"]
 [ext_resource type="Texture2D" uid="uid://dbbqquwmlqb0q" path="res://Base/Menu/Craft/Craft Item/Resources/Item1.png" id="4_pm76f"]
 
 [node name="Alien" type="Node2D"]
@@ -15,6 +16,7 @@ texture = ExtResource("2_ajbgi")
 
 [node name="Clothes" type="Sprite2D" parent="Body"]
 texture = ExtResource("3_tyr6e")
+script = ExtResource("4_i3agx")
 
 [node name="Bubble" type="Sprite2D" parent="."]
 position = Vector2(0, -70)
@@ -25,3 +27,4 @@ scale = Vector2(0.225, 0.225)
 texture = ExtResource("4_pm76f")
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="tree_entered" from="Body/Clothes" to="Body/Clothes" method="_on_tree_entered"]
