@@ -7,6 +7,7 @@ func _ready():
 	
 	# Initiate craftItems
 	for filePath: String in DirAccess.open(Base.CRAFT_ITEM_RESOURCES_DIR).get_files():
+		filePath = filePath.split(".remap")[0];
 		if (!filePath.ends_with(".tres")):
 			continue;
 		

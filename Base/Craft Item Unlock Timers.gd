@@ -27,6 +27,7 @@ func _AddCraftItemsToDict(inUnlockedOreType: Ore.EOreType):
 			rarerOreTypes.append(oreType);
 	
 	for filePath: String in DirAccess.open(self._base.CRAFT_ITEM_RESOURCES_DIR).get_files():
+		filePath = filePath.split(".remap")[0];
 		if !(filePath.ends_with(".tres")):
 			continue;
 		

@@ -10,10 +10,13 @@ func InitArrayFromFiles(inArr: Array, inDir: String, inExtension: String, inIsLo
 		return;
 	
 	for fileName: String in DirAccess.open(inDir).get_files():
+		fileName = fileName.split(".remap")[0];
+		print(inDir + fileName);
 		if (!fileName.ends_with(inExtension)):
 			continue;
 		
 		var fullPath: String = inDir + fileName;
+		
 		if (!inIsLoad):
 			inArr.append(fullPath);
 			continue;
