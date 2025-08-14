@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://duwl2has4bgmf"
+path="res://.godot/imported/Order Wait Too Long.mp3-22a005d0fb3e1cab67a21bdb9d53d2f6.mp3str"
+
+[deps]
+
+source_file="res://Base/Shop/Order Wait Too Long.mp3"
+dest_files=["res://.godot/imported/Order Wait Too Long.mp3-22a005d0fb3e1cab67a21bdb9d53d2f6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

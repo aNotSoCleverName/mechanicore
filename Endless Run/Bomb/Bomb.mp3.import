@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c6vij7pyi4yd7"
+path="res://.godot/imported/Bomb.mp3-60db74b2edbde4019b3ba6d00a12c2fe.mp3str"
+
+[deps]
+
+source_file="res://Endless Run/Bomb/Bomb.mp3"
+dest_files=["res://.godot/imported/Bomb.mp3-60db74b2edbde4019b3ba6d00a12c2fe.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

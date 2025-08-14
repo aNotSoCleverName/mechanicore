@@ -144,6 +144,7 @@ func _on_tree_entered() -> void:
 	
 	SignalBus_EndlessRun.bomb_explode.connect(
 		func (_inBomb: Bomb):
+			$"SFX Bomb".play();
 			self.shield -= 1;
 	)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://6hg1syki30xs"]
+[gd_scene load_steps=15 format=3 uid="uid://6hg1syki30xs"]
 
 [ext_resource type="Script" path="res://Endless Run/Drill/Drill.gd" id="1_ycj8x"]
 [ext_resource type="Texture2D" uid="uid://b2b8bsgeo78gj" path="res://Endless Run/Drill/Drill[2].png" id="2_4x1dp"]
@@ -11,6 +11,7 @@
 [ext_resource type="Shader" path="res://Endless Run/Drill/Shield.gdshader" id="7_32tsk"]
 [ext_resource type="Texture2D" uid="uid://cng5mjgiplejr" path="res://Endless Run/Drill/Shield Mask.png" id="8_tj00l"]
 [ext_resource type="AudioStream" uid="uid://b38kswagqi447" path="res://Endless Run/Drill/Mining.mp3" id="11_rhaj2"]
+[ext_resource type="AudioStream" uid="uid://c6vij7pyi4yd7" path="res://Endless Run/Bomb/Bomb.mp3" id="12_bld6u"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pegmy"]
 animations = [{
@@ -73,6 +74,12 @@ polygon = PackedVector2Array(-1.774, 36.9, -1.774, -36.9, 38.82, 0)
 stream = ExtResource("11_rhaj2")
 volume_db = -20.0
 pitch_scale = 1.5
+max_polyphony = 10
+
+[node name="SFX Bomb" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_bld6u")
+volume_db = 5.0
+pitch_scale = 1.2
 max_polyphony = 10
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

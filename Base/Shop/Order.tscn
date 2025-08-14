@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://dxewdcl3yp1eo"]
+[gd_scene load_steps=18 format=3 uid="uid://dxewdcl3yp1eo"]
 
 [ext_resource type="Script" path="res://Base/Shop/Order.gd" id="1_10qyi"]
+[ext_resource type="AudioStream" uid="uid://duwl2has4bgmf" path="res://Base/Shop/Order Wait Too Long.mp3" id="2_kom7u"]
 [ext_resource type="Texture2D" uid="uid://dsdwvywljesxa" path="res://Base/Shop/Alien/Sprite/Bubble.png" id="2_o4xe1"]
 [ext_resource type="Texture2D" uid="uid://ctavnwfpqdo87" path="res://Base/Time.png" id="3_eoni4"]
 [ext_resource type="StyleBox" uid="uid://dccupfiusww5a" path="res://Global Style/ProgressBar Style - Background.tres" id="4_hcloc"]
@@ -95,6 +96,10 @@ script = ExtResource("1_10qyi")
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="SFX Wait Too Long" type="AudioStreamPlayer" parent="Timer"]
+stream = ExtResource("2_kom7u")
+volume_db = -12.0
+
 [node name="Bubble" type="TextureRect" parent="."]
 layout_mode = 2
 texture = ExtResource("2_o4xe1")
@@ -168,6 +173,7 @@ script = ExtResource("5_ttcwc")
 
 [node name="SFX" type="AudioStreamPlayer" parent="VBoxContainer/Sell Button"]
 stream = ExtResource("8_thrli")
+volume_db = -15.0
 
 [node name="Decline Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -180,6 +186,7 @@ script = ExtResource("6_1r3aw")
 
 [node name="SFX" type="AudioStreamPlayer" parent="VBoxContainer/Decline Button"]
 stream = ExtResource("10_4t42s")
+volume_db = -5.0
 
 [connection signal="pressed" from="VBoxContainer/Sell Button" to="VBoxContainer/Sell Button" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Decline Button" to="VBoxContainer/Decline Button" method="_on_pressed"]

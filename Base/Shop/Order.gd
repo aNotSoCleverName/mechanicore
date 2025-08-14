@@ -7,6 +7,7 @@ func _ready() -> void:
 	var timer: Timer = $Timer;
 	timer.timeout.connect(
 		func ():
+			$"Timer/SFX Wait Too Long".play();
 			SignalBus_Base.shop_leave_angry.emit();
 			SignalBus_Base.shop_customer_leave.emit();
 	)
