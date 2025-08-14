@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://deyh3wfkvmvoo"
-path="res://.godot/imported/discard.mp3-af5603ca80c938d30f5eb2251786d673.mp3str"
+path="res://.godot/imported/Discard.mp3-4105fba789ec2566d6177391d1088d9f.mp3str"
 
 [deps]
 
-source_file="res://Sound/SFX/discard.mp3"
-dest_files=["res://.godot/imported/discard.mp3-af5603ca80c938d30f5eb2251786d673.mp3str"]
+source_file="res://Sound/SFX/Discard.mp3"
+dest_files=["res://.godot/imported/Discard.mp3-4105fba789ec2566d6177391d1088d9f.mp3str"]
 
 [params]
 

@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://c2n3hom8rrhlo"]
 
-[ext_resource type="AudioStream" uid="uid://cjr41hqq8thkn" path="res://Sound/BGM/loading.wav" id="1_bty5o"]
-[ext_resource type="AudioStream" uid="uid://b0p4owl13yojl" path="res://Sound/SFX/sell.mp3" id="2_rl60r"]
-[ext_resource type="AudioStream" uid="uid://deyh3wfkvmvoo" path="res://Sound/SFX/discard.mp3" id="3_dd5jd"]
-[ext_resource type="AudioStream" uid="uid://d28hh1a0bxd5l" path="res://Sound/SFX/craft.mp3" id="5_b422h"]
-[ext_resource type="AudioStream" uid="uid://b38kswagqi447" path="res://Sound/SFX/mining.mp3" id="5_gb2gr"]
-[ext_resource type="AudioStream" uid="uid://bfjqsjmgkhqmj" path="res://Sound/SFX/gameOver.mp3" id="6_hrn7i"]
-[ext_resource type="AudioStream" uid="uid://wb7by24rpl4i" path="res://Sound/SFX/upgrade.mp3" id="7_ef1eg"]
+[ext_resource type="AudioStream" uid="uid://cjr41hqq8thkn" path="res://Sound/BGM/BGM.wav" id="1_bty5o"]
+[ext_resource type="AudioStream" uid="uid://b0p4owl13yojl" path="res://Sound/SFX/Sell.mp3" id="2_rl60r"]
+[ext_resource type="AudioStream" uid="uid://deyh3wfkvmvoo" path="res://Sound/SFX/Discard.mp3" id="3_dd5jd"]
+[ext_resource type="AudioStream" uid="uid://d28hh1a0bxd5l" path="res://Sound/SFX/Craft.mp3" id="5_b422h"]
+[ext_resource type="AudioStream" uid="uid://b38kswagqi447" path="res://Sound/SFX/Mining.mp3" id="5_gb2gr"]
+[ext_resource type="AudioStream" uid="uid://bfjqsjmgkhqmj" path="res://Sound/SFX/Game Over.mp3" id="6_hrn7i"]
+[ext_resource type="AudioStream" uid="uid://wb7by24rpl4i" path="res://Sound/SFX/Upgrade.mp3" id="7_ef1eg"]
 
 [node name="SoundList" type="Control"]
 layout_mode = 3

@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://da0fjfcedr3hn"
-path="res://.godot/imported/hover.mp3-1163c4a766f84ca842811dfa7ca3ae87.mp3str"
+path="res://.godot/imported/Hover.mp3-8547b92925fc3c22cf0a2a7ecb3f6e35.mp3str"
 
 [deps]
 
-source_file="res://Sound/SFX/hover.mp3"
-dest_files=["res://.godot/imported/hover.mp3-1163c4a766f84ca842811dfa7ca3ae87.mp3str"]
+source_file="res://Sound/SFX/Hover.mp3"
+dest_files=["res://.godot/imported/Hover.mp3-8547b92925fc3c22cf0a2a7ecb3f6e35.mp3str"]
 
 [params]
 

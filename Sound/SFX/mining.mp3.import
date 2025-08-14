@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://b38kswagqi447"
-path="res://.godot/imported/mining.mp3-614107bcca93727901fda0b6d726887e.mp3str"
+path="res://.godot/imported/Mining.mp3-9e8524e0dedd432b8d837ba09656773a.mp3str"
 
 [deps]
 
-source_file="res://Sound/SFX/mining.mp3"
-dest_files=["res://.godot/imported/mining.mp3-614107bcca93727901fda0b6d726887e.mp3str"]
+source_file="res://Sound/SFX/Mining.mp3"
+dest_files=["res://.godot/imported/Mining.mp3-9e8524e0dedd432b8d837ba09656773a.mp3str"]
 
 [params]
 
