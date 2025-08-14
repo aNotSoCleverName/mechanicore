@@ -23,4 +23,5 @@ func _process(_delta: float):
 		self.position.y = max(self.position.y - self.changeY[self.stageIndex], self.targetY[self.stageIndex]);
 
 func _on_play_again_button_pressed():
+	self.get_tree().paused = false;
 	get_tree().reload_current_scene();
