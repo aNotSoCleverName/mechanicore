@@ -22,12 +22,12 @@ func _on_tree_entered():
 	
 	SignalBus_Base.shop_decline.connect(
 		func ():
-			self._reputation -= 2;
+			self._reputation -= 4;
 	)
 	
 	SignalBus_Base.shop_leave_angry.connect(
 		func ():
-			self._reputation -= 5;
+			self._reputation -= 8;
 	)
 
 func _ready():
