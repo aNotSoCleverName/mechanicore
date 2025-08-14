@@ -1,6 +1,7 @@
 extends TabContainer
 
 func _ready():
+	self.self_modulate = Color.BLACK;
 	SignalBus_Tutorial.add_craft_tab.connect(
 		self._AddCraftTab
 	)
@@ -13,6 +14,7 @@ func _AddCraftTab():
 	SignalBus_Tutorial.add_craft_tab.disconnect(
 		self._AddCraftTab
 	)
+	self.self_modulate = Color.WHITE;
 	
 	var craftTab: Node = preload("res://Base/Menu/Craft/Craft Tab.tscn").instantiate();
 	self.add_child(craftTab);
