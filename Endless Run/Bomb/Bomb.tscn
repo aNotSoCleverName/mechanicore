@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://brycenawfpw5w"]
+[gd_scene load_steps=8 format=3 uid="uid://brycenawfpw5w"]
 
 [ext_resource type="Script" path="res://Endless Run/Bomb/Bomb.gd" id="1_jriji"]
 [ext_resource type="Texture2D" uid="uid://bhjnwgg33dlhm" path="res://Endless Run/Bomb/Bomb.png" id="2_5koad"]
+[ext_resource type="Script" path="res://Endless Run/Bomb/Visible Notifier.gd" id="3_uv06d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wibqe"]
 size = Vector2(64, 64)
@@ -59,4 +60,9 @@ libraries = {
 }
 autoplay = "spinning"
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-32, 32, 64, 64)
+script = ExtResource("3_uv06d")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="VisibleOnScreenNotifier2D" method="_on_screen_entered"]
