@@ -71,7 +71,9 @@ polygon = PackedVector2Array(-1.774, 36.9, -1.774, -36.9, 38.82, 0)
 
 [node name="SFX Mining" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_rhaj2")
-pitch_scale = 1.2
+volume_db = -20.0
+pitch_scale = 1.5
+max_polyphony = 10
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="timeout" from="Lock Dir Change Timer" to="Lock Dir Change Timer" method="_timeout"]

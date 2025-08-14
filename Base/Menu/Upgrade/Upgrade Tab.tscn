@@ -11,6 +11,7 @@ metadata/_tab_index = 1
 
 [node name="SFX Upgrade" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_xo1ab")
+volume_db = -5.0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

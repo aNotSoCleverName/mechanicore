@@ -43,6 +43,7 @@ script = ExtResource("1_r3yx1")
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("2_nt5gd")
+volume_db = -10.0
 autoplay = true
 
 [node name="Pause Screen" type="PanelContainer" parent="."]
