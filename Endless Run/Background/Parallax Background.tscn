@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://qh6srgn7krbr"]
+[gd_scene load_steps=11 format=3 uid="uid://qh6srgn7krbr"]
 
 [ext_resource type="Texture2D" uid="uid://v43ldt4naue8" path="res://Endless Run/Background/Dirt Dark.png" id="1_m7uyl"]
 [ext_resource type="Texture2D" uid="uid://cujhhva8rlkq5" path="res://Endless Run/Background/Dirt Light.png" id="2_y7bbx"]
 [ext_resource type="Texture2D" uid="uid://dy1ic5h5exy3f" path="res://Endless Run/Background/Sky.png" id="3_0crnc"]
+[ext_resource type="Texture2D" uid="uid://ccupi6r2smjin" path="res://Endless Run/Background/Clutter/Clutter1.png" id="3_mf3c0"]
 [ext_resource type="Shader" path="res://Endless Run/Background/Trails.gdshader" id="3_tjeuj"]
+[ext_resource type="Texture2D" uid="uid://ru32q2x22c58" path="res://Endless Run/Background/Clutter/Clutter2.png" id="4_38wno"]
 [ext_resource type="Script" path="res://Endless Run/Background/Trails.gd" id="4_wxbnv"]
 [ext_resource type="Texture2D" uid="uid://dwqae6ccfw4cl" path="res://Endless Run/Background/Trails.png" id="4_yd1i5"]
 
@@ -30,6 +32,22 @@ centered = false
 [node name="Light" type="Sprite2D" parent="Dirt"]
 self_modulate = Color(0.387338, 0.0582064, 0.197235, 1)
 texture = ExtResource("2_y7bbx")
+centered = false
+
+[node name="Clutter720" type="ParallaxLayer" parent="."]
+position = Vector2(-1, -1)
+motion_mirroring = Vector2(0, 720)
+
+[node name="Sprite2D" type="Sprite2D" parent="Clutter720"]
+texture = ExtResource("4_38wno")
+centered = false
+
+[node name="Clutter960" type="ParallaxLayer" parent="."]
+position = Vector2(-1, -1)
+motion_mirroring = Vector2(0, 960)
+
+[node name="Sprite2D" type="Sprite2D" parent="Clutter960"]
+texture = ExtResource("3_mf3c0")
 centered = false
 
 [node name="Trails Layer" type="ParallaxLayer" parent="."]
