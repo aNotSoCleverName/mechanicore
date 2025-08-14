@@ -2,7 +2,7 @@ extends Node2D
 class_name BombManager;
 
 const BOMB_START_DEPTH: float = 100;
-const BOMB_START_CHANCE: float = 0.05;
+const BOMB_START_CHANCE: float = 0.01;
 
 const BOMB_COMMON_DEPTH: float = 1000;
 const BOMB_COMMON_CHANCE: float = 0.15;
@@ -16,19 +16,25 @@ func _popFromPool() -> Bomb:
 
 @onready var _drill: Drill = GlobalProperty_EndlessRun.GetDrillNode(self);
 
+var _prevBombY: float = 0;
+
 func _on_tree_entered():
 	SignalBus_EndlessRun.drill_change_dock.connect(
 		func (inIsDocked: bool, _inDrill: Drill):
 			if (!inIsDocked):
 				return;
 			
-			# Slice because first child is spawn timer
-			for bomb: Bomb in self.get_children().slice(1) as Array[Bomb]:
+			self._prevBombY = 0;
+			for bomb: Bomb in self.get_children() as Array[Bomb]:
 				self.addToPool(bomb);
 	)
 
 func _process(_delta):
 	if (self._drill.depth < self.BOMB_START_DEPTH):
+		return;
+	
+	# Don't generate too far away from player
+	if (self._prevBombY > self._drill.position.y + (2 * GlobalProperty_EndlessRun.VIEWPORT_SIZE.y)):
 		return;
 	
 	var spawnChance: float = BOMB_COMMON_CHANCE;
@@ -48,7 +54,14 @@ func _process(_delta):
 	
 	bomb.position = Vector2(
 		randf_range(0, GlobalProperty_EndlessRun.VIEWPORT_SIZE.x),
-		self._drill.position.y + GlobalProperty_EndlessRun.VIEWPORT_SIZE.y
+		self._drill.position.y + GlobalProperty_EndlessRun.VIEWPORT_SIZE.y + self._prevBombY
+	);
+	self._prevBombY += bomb._size.y + randi_range(
+		0,
+		max(
+			bomb._size.y * (3 - max(1, BombManager.BOMB_COMMON_DEPTH - self._drill.depth)/(BombManager.BOMB_COMMON_DEPTH - BombManager.BOMB_START_DEPTH)),
+			BombManager.BOMB_COMMON_DEPTH - self._drill.depth
+		)
 	);
 	
 	self.add_child(bomb);

@@ -3,6 +3,10 @@ class_name Bomb
 
 const INVENTORY_LOST_PERCENTAGE: float = 0.2;
 
+var _size: Vector2
+func _ready():
+	self._size = ($CollisionShape2D.shape as RectangleShape2D).size;
+
 func _on_body_entered(body):
 	if !(body is Drill):
 		return;
