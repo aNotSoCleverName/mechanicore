@@ -91,6 +91,3 @@ func _on_upgrade_button_pressed():
 		SignalBus_Base.upgrade_base.emit(currentPrice, self.upgrade.stats, self.upgrade.statChange[currentLevel]);
 	else:
 		assert(false, "Upgrade target unhandled");
-	
-	
-	SoundList.get_node("Upgrade").play();

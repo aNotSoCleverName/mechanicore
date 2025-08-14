@@ -13,7 +13,6 @@ func _ready() -> void:
 	SignalBus_Base.shop_customer_leave.connect(
 		func ():
 			timer.stop();
-			SoundList.get_node("Alien-talk-2").play();
 	)
 	
 	SignalBus_Base.shop_make_order.connect(

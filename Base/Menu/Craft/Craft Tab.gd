@@ -18,3 +18,8 @@ func _ready():
 		):
 			continue;
 		self._base.AddCraftItem(craftItem);
+	
+	SignalBus_Base.craft_queue.connect(
+		func (_inCraftItem: CraftItem):
+			$"SFX Craft".play();
+	)

@@ -1,12 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0xr3eksu7r7b"]
+[gd_scene load_steps=3 format=3 uid="uid://b0xr3eksu7r7b"]
 
 [ext_resource type="Script" path="res://Base/Menu/Upgrade/Upgrade Tab.gd" id="1_d3x48"]
+[ext_resource type="AudioStream" uid="uid://wb7by24rpl4i" path="res://Base/Menu/Upgrade/Upgrade.mp3" id="2_xo1ab"]
 
 [node name="Upgrade Tab" type="VBoxContainer"]
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_d3x48")
 metadata/_tab_index = 1
+
+[node name="SFX Upgrade" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xo1ab")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

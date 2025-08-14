@@ -10,8 +10,6 @@ func _ready():
 	self.get_tree().paused = true;
 	self.position.y = -self.size.y;
 	self.gameNode = self.get_parent().get_child(0);
-	
-	SoundList.get_node("GameOver").play();
 
 func _process(_delta: float):
 	if (self.stageIndex >= self.targetY.size()):

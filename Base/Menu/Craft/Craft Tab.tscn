@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://2e7hkktrvi2e"]
+[gd_scene load_steps=8 format=3 uid="uid://2e7hkktrvi2e"]
 
 [ext_resource type="Script" path="res://Base/Menu/Craft/Craft Tab.gd" id="1_t7mhw"]
 [ext_resource type="LabelSettings" uid="uid://c83ljliopp2nx" path="res://Global Style/Label Style - Outline Size12.tres" id="1_vqmal"]
 [ext_resource type="Script" path="res://Base/Menu/Craft/Queue/Current Queue Label.gd" id="2_g4700"]
+[ext_resource type="AudioStream" uid="uid://d28hh1a0bxd5l" path="res://Base/Menu/Craft/Craft Item/Craft.mp3" id="2_ovn75"]
 [ext_resource type="Script" path="res://Base/Menu/Craft/Queue/Max Queue Label.gd" id="3_mtgi8"]
 [ext_resource type="Script" path="res://Base/Menu/Craft/Queue.gd" id="4_ag4ug"]
 [ext_resource type="Script" path="res://Base/Craft Item Unlock Timers.gd" id="6_yl5iq"]
@@ -10,6 +11,9 @@
 [node name="Craft" type="VBoxContainer"]
 script = ExtResource("1_t7mhw")
 metadata/_tab_index = 0
+
+[node name="SFX Craft" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ovn75")
 
 [node name="Queue MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dxewdcl3yp1eo"]
+[gd_scene load_steps=17 format=3 uid="uid://dxewdcl3yp1eo"]
 
 [ext_resource type="Script" path="res://Base/Shop/Order.gd" id="1_10qyi"]
 [ext_resource type="Texture2D" uid="uid://dsdwvywljesxa" path="res://Base/Shop/Alien/Sprite/Bubble.png" id="2_o4xe1"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://Base/Shop/Alien/Sell Button.gd" id="5_ttcwc"]
 [ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Global Style/Label Style - Outline Size16.tres" id="5_u5gvo"]
 [ext_resource type="Script" path="res://Base/Shop/Alien/Decline Button.gd" id="6_1r3aw"]
+[ext_resource type="AudioStream" uid="uid://b0p4owl13yojl" path="res://Base/Shop/Order Sell.mp3" id="8_thrli"]
+[ext_resource type="AudioStream" uid="uid://deyh3wfkvmvoo" path="res://Base/Shop/Order Decline.mp3" id="10_4t42s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3l8ag"]
 bg_color = Color(0, 0.737984, 1, 1)
@@ -164,6 +166,9 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_icd4k")
 text = "Sell"
 script = ExtResource("5_ttcwc")
 
+[node name="SFX" type="AudioStreamPlayer" parent="VBoxContainer/Sell Button"]
+stream = ExtResource("8_thrli")
+
 [node name="Decline Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
@@ -172,6 +177,9 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_n7dxn")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2yfyq")
 text = "Decline"
 script = ExtResource("6_1r3aw")
+
+[node name="SFX" type="AudioStreamPlayer" parent="VBoxContainer/Decline Button"]
+stream = ExtResource("10_4t42s")
 
 [connection signal="pressed" from="VBoxContainer/Sell Button" to="VBoxContainer/Sell Button" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Decline Button" to="VBoxContainer/Decline Button" method="_on_pressed"]

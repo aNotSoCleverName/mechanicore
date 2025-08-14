@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://6hg1syki30xs"]
+[gd_scene load_steps=14 format=3 uid="uid://6hg1syki30xs"]
 
 [ext_resource type="Script" path="res://Endless Run/Drill/Drill.gd" id="1_ycj8x"]
 [ext_resource type="Texture2D" uid="uid://b2b8bsgeo78gj" path="res://Endless Run/Drill/Drill[2].png" id="2_4x1dp"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Endless Run/Drill/Shield.gd" id="6_ak4na"]
 [ext_resource type="Shader" path="res://Endless Run/Drill/Shield.gdshader" id="7_32tsk"]
 [ext_resource type="Texture2D" uid="uid://cng5mjgiplejr" path="res://Endless Run/Drill/Shield Mask.png" id="8_tj00l"]
+[ext_resource type="AudioStream" uid="uid://b38kswagqi447" path="res://Endless Run/Drill/Mining.mp3" id="11_rhaj2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pegmy"]
 animations = [{
@@ -67,6 +68,10 @@ wait_time = 0.1
 position = Vector2(4.76339, 0)
 scale = Vector2(1.86607, 1)
 polygon = PackedVector2Array(-1.774, 36.9, -1.774, -36.9, 38.82, 0)
+
+[node name="SFX Mining" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_rhaj2")
+pitch_scale = 1.2
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="timeout" from="Lock Dir Change Timer" to="Lock Dir Change Timer" method="_timeout"]
