@@ -11,7 +11,11 @@ var _opacity: float = 1:
 		return _opacity;
 	set(inValue):
 		_opacity = inValue;
-		self._gainedAmountLabel.self_modulate.a = _opacity;
+		
+		if (abs(int(self._gainedAmountLabel.text)) > 0):
+			self._gainedAmountLabel.self_modulate.a = _opacity;
+		else:
+			self._gainedAmountLabel.self_modulate.a = 0;
 		
 		if (abs(int(self._lostAmountLabel.text)) > 0):
 			self._lostAmountLabel.self_modulate.a = _opacity;
