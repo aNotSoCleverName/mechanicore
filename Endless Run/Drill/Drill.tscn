@@ -1,14 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://6hg1syki30xs"]
+[gd_scene format=3 uid="uid://6hg1syki30xs"]
 
-[ext_resource type="Script" path="res://Endless Run/Drill/Drill.gd" id="1_ycj8x"]
+[ext_resource type="Script" uid="uid://b53ii2lydwd2l" path="res://Endless Run/Drill/Drill.gd" id="1_ycj8x"]
 [ext_resource type="Texture2D" uid="uid://b2b8bsgeo78gj" path="res://Endless Run/Drill/Drill[2].png" id="2_4x1dp"]
 [ext_resource type="Texture2D" uid="uid://k8vxo846yxm4" path="res://Endless Run/Drill/Drill[1].png" id="3_gu84l"]
-[ext_resource type="Script" path="res://Endless Run/Drill/Update Drill Pos.gd" id="4_1chj6"]
-[ext_resource type="Script" path="res://Endless Run/Drill/Acceleration Timer.gd" id="4_23soa"]
-[ext_resource type="Script" path="res://Endless Run/Drill/Lock Dir Change.gd" id="4_oym0k"]
-[ext_resource type="Script" path="res://Endless Run/Drill/Upgrade Components.gd" id="6_7oxkb"]
-[ext_resource type="Script" path="res://Endless Run/Drill/Shield.gd" id="6_ak4na"]
-[ext_resource type="Shader" path="res://Endless Run/Drill/Shield.gdshader" id="7_32tsk"]
+[ext_resource type="Script" uid="uid://byp2polvdmcfi" path="res://Endless Run/Drill/Update Drill Pos.gd" id="4_1chj6"]
+[ext_resource type="Script" uid="uid://usjvli3kxong" path="res://Endless Run/Drill/Acceleration Timer.gd" id="4_23soa"]
+[ext_resource type="Script" uid="uid://l0dsd2iea68v" path="res://Endless Run/Drill/Lock Dir Change.gd" id="4_oym0k"]
+[ext_resource type="Script" uid="uid://cexd86t1kfxlh" path="res://Endless Run/Drill/Upgrade Components.gd" id="6_7oxkb"]
+[ext_resource type="Script" uid="uid://besetdxykvsii" path="res://Endless Run/Drill/Shield.gd" id="6_ak4na"]
+[ext_resource type="Shader" uid="uid://ck50142ysvtp7" path="res://Endless Run/Drill/Shield.gdshader" id="7_32tsk"]
 [ext_resource type="Texture2D" uid="uid://cng5mjgiplejr" path="res://Endless Run/Drill/Shield Mask.png" id="8_tj00l"]
 [ext_resource type="AudioStream" uid="uid://b38kswagqi447" path="res://Endless Run/Drill/Mining.mp3" id="11_rhaj2"]
 [ext_resource type="AudioStream" uid="uid://c6vij7pyi4yd7" path="res://Endless Run/Bomb/Bomb.mp3" id="12_bld6u"]
@@ -32,51 +32,51 @@ shader = ExtResource("7_32tsk")
 shader_parameter/maxShield = 0
 shader_parameter/shield = 0
 
-[node name="Drill" type="CharacterBody2D"]
+[node name="Drill" type="CharacterBody2D" unique_id=1430158279]
 collision_mask = 2
 script = ExtResource("1_ycj8x")
 
-[node name="Update Drill Pos Timer" type="Timer" parent="."]
+[node name="Update Drill Pos Timer" type="Timer" parent="." unique_id=1101399110]
 wait_time = 0.1
 script = ExtResource("4_1chj6")
 
-[node name="Lock Dir Change Timer" type="Timer" parent="."]
+[node name="Lock Dir Change Timer" type="Timer" parent="." unique_id=1229242000]
 wait_time = 0.1
 script = ExtResource("4_oym0k")
 
-[node name="Acceleration Timer" type="Timer" parent="."]
+[node name="Acceleration Timer" type="Timer" parent="." unique_id=2089676040]
 wait_time = 0.05
 script = ExtResource("4_23soa")
 
-[node name="Upgrade Component Container" type="Node2D" parent="."]
+[node name="Upgrade Component Container" type="Node2D" parent="." unique_id=730649417]
 script = ExtResource("6_7oxkb")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=239146695]
 position = Vector2(0, -0.5)
 rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_pegmy")
 animation = &"drill_animation"
 
-[node name="Shield" type="Sprite2D" parent="."]
+[node name="Shield" type="Sprite2D" parent="." unique_id=1511112863]
 material = SubResource("ShaderMaterial_38bcw")
 texture = ExtResource("8_tj00l")
 script = ExtResource("6_ak4na")
 
-[node name="Turn On Timer" type="Timer" parent="Shield"]
+[node name="Turn On Timer" type="Timer" parent="Shield" unique_id=1507139944]
 wait_time = 0.1
 
-[node name="Collision Drill" type="CollisionPolygon2D" parent="."]
+[node name="Collision Drill" type="CollisionPolygon2D" parent="." unique_id=872498909]
 position = Vector2(4.76339, 0)
 scale = Vector2(1.86607, 1)
 polygon = PackedVector2Array(-1.774, 36.9, -1.774, -36.9, 38.82, 0)
 
-[node name="SFX Mining" type="AudioStreamPlayer" parent="."]
+[node name="SFX Mining" type="AudioStreamPlayer" parent="." unique_id=1931455854]
 stream = ExtResource("11_rhaj2")
 volume_db = -20.0
 pitch_scale = 1.5
 max_polyphony = 10
 
-[node name="SFX Bomb" type="AudioStreamPlayer" parent="."]
+[node name="SFX Bomb" type="AudioStreamPlayer" parent="." unique_id=1974531515]
 stream = ExtResource("12_bld6u")
 volume_db = 5.0
 pitch_scale = 1.2

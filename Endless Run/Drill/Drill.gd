@@ -18,6 +18,12 @@ var shield: int = 0:
 		shield = inValue;
 		SignalBus_EndlessRun.update_drill_shield.emit(self);
 
+var isDockTransitionPlaying: bool = false:
+	get:
+		return isDockTransitionPlaying;
+	set(inValue):
+		isDockTransitionPlaying = inValue;
+
 var _isDocked: bool = true:
 	get:
 		return _isDocked;
@@ -155,6 +161,10 @@ func _physics_process(_delta) -> void:
 func _input(event: InputEvent) -> void:
 	if (!(event is InputEventKey)):
 		return;
+	
+	if (self.isDockTransitionPlaying):
+		return;
+	
 	var keycode: Key = (event as InputEventKey).keycode;
 		
 	if (event.is_action_pressed("ui_accept")):
@@ -173,6 +183,6 @@ func _input(event: InputEvent) -> void:
 	
 	if (keycode == Drill.DOCK_KEY):
 		if (!self._isDocked):
-			self._isDocked = true;
+			SignalBus_EndlessRun.play_dock_transition_then_dock.emit(self);
 		return;
 #endregion

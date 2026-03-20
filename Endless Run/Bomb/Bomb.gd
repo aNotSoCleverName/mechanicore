@@ -59,4 +59,4 @@ func _on_body_entered(body):
 	#endregion
 	
 	SignalBus_EndlessRun.drill_explode.emit(lostOres);
-	drill._isDocked = true;
+	SignalBus_EndlessRun.play_dock_transition_then_dock.emit(drill);

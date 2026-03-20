@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://brycenawfpw5w"]
+[gd_scene format=3 uid="uid://brycenawfpw5w"]
 
-[ext_resource type="Script" path="res://Endless Run/Bomb/Bomb.gd" id="1_jriji"]
+[ext_resource type="Script" uid="uid://cy4w17lt13wa5" path="res://Endless Run/Bomb/Bomb.gd" id="1_jriji"]
 [ext_resource type="Texture2D" uid="uid://bhjnwgg33dlhm" path="res://Endless Run/Bomb/Bomb.png" id="2_5koad"]
-[ext_resource type="Script" path="res://Endless Run/Bomb/Visible Notifier.gd" id="3_uv06d"]
+[ext_resource type="Script" uid="uid://die2inknkwcf0" path="res://Endless Run/Bomb/Visible Notifier.gd" id="3_uv06d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wibqe"]
 size = Vector2(64, 64)
@@ -41,26 +41,24 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jpoo4"]
 _data = {
-"RESET": SubResource("Animation_s7tkc"),
-"spinning": SubResource("Animation_jkv7f")
+&"RESET": SubResource("Animation_s7tkc"),
+&"spinning": SubResource("Animation_jkv7f")
 }
 
-[node name="Bomb" type="Area2D"]
+[node name="Bomb" type="Area2D" unique_id=1191247140]
 script = ExtResource("1_jriji")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=742665437]
 texture = ExtResource("2_5koad")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1172807289]
 shape = SubResource("RectangleShape2D_wibqe")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_jpoo4")
-}
-autoplay = "spinning"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=953783643]
+libraries/ = SubResource("AnimationLibrary_jpoo4")
+autoplay = &"spinning"
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=463657790]
 rect = Rect2(-32, 32, 64, 64)
 script = ExtResource("3_uv06d")
 

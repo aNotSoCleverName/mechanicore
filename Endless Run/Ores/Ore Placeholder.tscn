@@ -1,11 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmr1kui5bina6"]
+[gd_scene format=3 uid="uid://bmr1kui5bina6"]
 
-[ext_resource type="Script" path="res://Endless Run/Ores/Ore Placeholder.gd" id="1_3vfb2"]
+[ext_resource type="Script" uid="uid://2hhuwfwot1tt" path="res://Endless Run/Ores/Ore Placeholder.gd" id="1_3vfb2"]
 
-[node name="Ore Placeholder" type="Node2D"]
+[node name="Ore Placeholder" type="Node2D" unique_id=202809040]
 script = ExtResource("1_3vfb2")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=998107410]
 offset_left = -32.0
 offset_top = -32.0
 offset_right = 32.0

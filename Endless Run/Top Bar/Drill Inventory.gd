@@ -32,6 +32,9 @@ func _ShowDockTutorial(inIsDocked: bool, _inDrill: Drill):
 		self._ShowDockTutorial
 	)
 	
+	var delayBeforeScreenIsNoLongerCoveredByDockTransitionScreen: float = DockTransition.TRANSITION_DURATION_SEC - DockTransition.DOCK_MID_TRANSITION_DELAY_SEC;
+	await get_tree().create_timer(delayBeforeScreenIsNoLongerCoveredByDockTransitionScreen).timeout;
+	
 	SignalBus_Tutorial.show_tutorial.emit(
 		self,
 		"The ore we've collected will be transfered to the [i]base[/i] when we return to the surface",
