@@ -7,7 +7,7 @@ func _ready() -> void:
 	
 	self.timeout.connect(
 		func ():
-			SignalBus_EndlessRun.drill_change_pos.emit(self._drill.global_position);
+			SignalBus_EndlessRun.drill_change_pos.emit(self._drill.global_position, self._drill);
 	)
 	
 	SignalBus_EndlessRun.drill_change_dock.connect(

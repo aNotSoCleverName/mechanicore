@@ -22,7 +22,7 @@ func _ready() -> void:
 	)
 	
 	SignalBus_EndlessRun.drill_change_pos.connect(
-		func (inPos: Vector2):
+		func (inPos: Vector2, _inDrill: Drill):
 			shaderMaterial.set_shader_parameter("drill_pos", inPos);
 			
 			var drillHeadPos: Vector2 = self._GetDrillHeadPos(inPos);

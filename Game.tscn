@@ -13,7 +13,16 @@
 [ext_resource type="Script" uid="uid://p7f8uvt6j0f2" path="res://Tutorial/Change Drill Direction.gd" id="8_mau23"]
 [ext_resource type="PackedScene" uid="uid://dx4xl0ya4o52y" path="res://Base/Base.tscn" id="9_0jxyd"]
 [ext_resource type="Script" uid="uid://d4ckc041rwyxi" path="res://Tutorial/Dock.gd" id="9_5ysxp"]
+[ext_resource type="Shader" uid="uid://ckodrb2yf5qpj" path="res://Endless Run/Lighting Shader.gdshader" id="12_qjyg3"]
+[ext_resource type="Script" uid="uid://cuuw7sa404hfs" path="res://Endless Run/Lighting Shader.gd" id="13_elkpi"]
 [ext_resource type="Script" uid="uid://mkrnxlk45wlg" path="res://Endless Run/Dock Transition.gd" id="13_yyih5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yyih5"]
+shader = ExtResource("12_qjyg3")
+shader_parameter/viewportSize = Vector2(896, 720)
+shader_parameter/surfaceY = 256.0
+shader_parameter/scrollOffset = 0.0
+shader_parameter/drillPosRelativeToScrolledViewport = Vector2(448, 256)
 
 [node name="Game" type="HBoxContainer" unique_id=203612939]
 anchors_preset = 15
@@ -92,6 +101,12 @@ wait_time = 0.05
 script = ExtResource("7_giktt")
 
 [node name="UI" type="CanvasLayer" parent="Endless Run Container/Endless Run" unique_id=419926050]
+
+[node name="Lighting Shader" type="ColorRect" parent="Endless Run Container/Endless Run/UI" unique_id=584509939]
+material = SubResource("ShaderMaterial_yyih5")
+offset_right = 896.0
+offset_bottom = 720.0
+script = ExtResource("13_elkpi")
 
 [node name="Dock Transition" type="ColorRect" parent="Endless Run Container/Endless Run/UI" unique_id=62695916]
 offset_right = 2000.0

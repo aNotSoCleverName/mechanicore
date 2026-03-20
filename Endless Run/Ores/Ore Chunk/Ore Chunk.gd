@@ -44,7 +44,7 @@ func _addOresToPool() -> void:
 
 func _ready() -> void:
 	SignalBus_EndlessRun.drill_change_pos.connect(
-		func (inPos: Vector2):
+		func (inPos: Vector2, _inDrill: Drill):
 			var chunkBottom: float = self.position.y + self.height;
 			var viewportTopY: float = inPos.y - GlobalProperty_EndlessRun.SURFACE_Y;
 			

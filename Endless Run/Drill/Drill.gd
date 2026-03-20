@@ -133,7 +133,7 @@ func _on_tree_entered() -> void:
 		self.inventory[type] = 0;
 	
 	SignalBus_EndlessRun.drill_change_pos.connect(
-		func (inPos: Vector2):
+		func (inPos: Vector2, _inDrill: Drill):
 			self.depth = (inPos.y - GlobalProperty_EndlessRun.SURFACE_Y) / Drill.PX_PER_METER;
 	)
 	
