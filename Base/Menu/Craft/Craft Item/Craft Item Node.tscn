@@ -1,6 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://dq4qkupby85t"]
+[gd_scene format=3 uid="uid://dq4qkupby85t"]
 
-[ext_resource type="Script" path="res://Base/Menu/Craft/Craft Item/Craft Item Node.gd" id="1_7c14f"]
+[ext_resource type="Script" uid="uid://b4q2xfw0cd34k" path="res://Base/Menu/Craft/Craft Item/Craft Item Node.gd" id="1_7c14f"]
 [ext_resource type="StyleBox" uid="uid://d2kigmst2mqxx" path="res://Base/Menu/Craft/Panel.tres" id="1_rjrbv"]
 [ext_resource type="Texture2D" uid="uid://c10vafu7ah2us" path="res://Base/Menu/Craft/Craft Item - Placeholder.png" id="2_qg6nw"]
 [ext_resource type="Texture2D" uid="uid://dud446r0i8vm" path="res://Base/Menu/Craft/Craft Item/Stock.png" id="3_gta4k"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ctavnwfpqdo87" path="res://Base/Time.png" id="4_cfie2"]
 [ext_resource type="PackedScene" uid="uid://ccirx7362q0ar" path="res://Base/Menu/Craft/Craft Item/Craft Item Material.tscn" id="4_pkhi4"]
 [ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Global Style/Label Style - Outline Size16.tres" id="4_qra5k"]
-[ext_resource type="Script" path="res://Base/Menu/Craft/Craft Item/Stock.gd" id="6_mhem6"]
+[ext_resource type="Script" uid="uid://bbaadkv16ylm3" path="res://Base/Menu/Craft/Craft Item/Stock.gd" id="6_mhem6"]
 [ext_resource type="Texture2D" uid="uid://by6jv4i7kl48d" path="res://Base/Menu/Craft/Craft Item/Craft.png" id="8_kdpct"]
 [ext_resource type="LabelSettings" uid="uid://c83ljliopp2nx" path="res://Global Style/Label Style - Outline Size12.tres" id="9_p3sw4"]
 [ext_resource type="Texture2D" uid="uid://cbkgfu5vs62df" path="res://Base/Menu/Craft/Craft Item/Craft Disabled.png" id="14_0lsng"]
@@ -20,7 +20,7 @@ font_color = Color(0.733005, 0.733005, 0.733005, 1)
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Craft Item" type="Panel"]
+[node name="Craft Item" type="Panel" unique_id=1471914753]
 custom_minimum_size = Vector2(0, 140)
 anchors_preset = 10
 anchor_right = 1.0
@@ -30,7 +30,7 @@ size_flags_horizontal = 3
 theme_override_styles/panel = ExtResource("1_rjrbv")
 script = ExtResource("1_7c14f")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1319656304]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -42,97 +42,96 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1254865306]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=288773721]
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=843083004]
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("2_qg6nw")
 stretch_mode = 2
 
-[node name="Stock" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Stock" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1701023817]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Stock"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Stock" unique_id=2065038487]
 layout_mode = 2
 texture = ExtResource("3_gta4k")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Stock"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Stock" unique_id=1145499106]
 layout_mode = 2
-text = "0
-"
+text = "0"
 label_settings = ExtResource("4_qra5k")
 script = ExtResource("6_mhem6")
 
-[node name="Details" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="Details" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1029742846]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Price" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Details"]
+[node name="Price" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Details" unique_id=2104221802]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Details/Price"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Details/Price" unique_id=1707110516]
 layout_mode = 2
 texture = ExtResource("3_xw0m5")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Details/Price"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Details/Price" unique_id=2031243562]
 layout_mode = 2
 text = "0"
 label_settings = ExtResource("9_p3sw4")
 
-[node name="Time" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Details"]
+[node name="Time" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Details" unique_id=1706055997]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Details/Time"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Details/Time" unique_id=1557462323]
 layout_mode = 2
 texture = ExtResource("4_cfie2")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Details/Time"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Details/Time" unique_id=244770397]
 layout_mode = 2
 text = "0"
 label_settings = ExtResource("9_p3sw4")
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/Details"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/Details" unique_id=1039106427]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Details"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Details" unique_id=1616485546]
 layout_mode = 2
 text = "Materials"
 label_settings = SubResource("LabelSettings_oq7r2")
 
-[node name="Materials" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Details"]
+[node name="Materials" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Details" unique_id=2064852115]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Ore1" parent="MarginContainer/HBoxContainer/Details/Materials" instance=ExtResource("4_pkhi4")]
+[node name="Ore1" parent="MarginContainer/HBoxContainer/Details/Materials" unique_id=1599817287 instance=ExtResource("4_pkhi4")]
 layout_mode = 2
 
-[node name="Ore2" parent="MarginContainer/HBoxContainer/Details/Materials" instance=ExtResource("4_pkhi4")]
+[node name="Ore2" parent="MarginContainer/HBoxContainer/Details/Materials" unique_id=1036605520 instance=ExtResource("4_pkhi4")]
 layout_mode = 2
 oreType = 2
 
-[node name="Ore3" parent="MarginContainer/HBoxContainer/Details/Materials" instance=ExtResource("4_pkhi4")]
+[node name="Ore3" parent="MarginContainer/HBoxContainer/Details/Materials" unique_id=554348909 instance=ExtResource("4_pkhi4")]
 layout_mode = 2
 oreType = 3
 
-[node name="Craft" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="Craft" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=906313339]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="Button" type="TextureButton" parent="MarginContainer/HBoxContainer/Craft"]
+[node name="Button" type="TextureButton" parent="MarginContainer/HBoxContainer/Craft" unique_id=1324010608]
 layout_mode = 2
 size_flags_vertical = 4
 focus_mode = 0
@@ -141,7 +140,7 @@ disabled = true
 texture_normal = ExtResource("8_kdpct")
 texture_disabled = ExtResource("14_0lsng")
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Craft"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Craft" unique_id=236791131]
 layout_mode = 2
 text = "CRAFT"
 label_settings = ExtResource("15_43xx5")
