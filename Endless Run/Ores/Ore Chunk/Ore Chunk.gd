@@ -22,6 +22,10 @@ static func GenerateOreChunk(inPos: Vector2) -> OreChunk:
 	
 	loadedChunk.position = inPos;
 	loadedChunk.rotation_degrees = OreChunk.EPossibleChunkRotation.values()[randi_range(0, OreChunk.EPossibleChunkRotation.values().size() - 1)];
+	
+	for orePlaceholder: OrePlaceholder in loadedChunk.get_children() as Array[OrePlaceholder]:	
+		orePlaceholder.rotation_degrees = -loadedChunk.rotation_degrees;
+	
 	if (
 		loadedChunk.rotation_degrees == OreChunk.EPossibleChunkRotation.deg90 ||
 		loadedChunk.rotation_degrees == OreChunk.EPossibleChunkRotation.deg270
