@@ -1,14 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://kf4x8f2aj1c7"]
+[gd_scene format=3 uid="uid://kf4x8f2aj1c7"]
 
-[ext_resource type="Script" path="res://Main.gd" id="1_r3yx1"]
+[ext_resource type="Script" uid="uid://bt1h8u4u4xxiy" path="res://Main.gd" id="1_r3yx1"]
 [ext_resource type="PackedScene" uid="uid://dij236dtc6ebs" path="res://Game.tscn" id="2_dtcds"]
-[ext_resource type="Script" path="res://Pause Screen.gd" id="2_emyiw"]
+[ext_resource type="Script" uid="uid://bh0kbivln4l18" path="res://Pause Screen.gd" id="2_emyiw"]
 [ext_resource type="AudioStream" uid="uid://cjr41hqq8thkn" path="res://BGM.wav" id="2_nt5gd"]
 [ext_resource type="StyleBox" uid="uid://kom6gkjk8s2e" path="res://Global Style/Button Style - Blue.tres" id="3_l7pgt"]
 [ext_resource type="LabelSettings" uid="uid://ij0ls7r7u6aq" path="res://Global Style/Label Style - Outline Size16.tres" id="3_s1mpv"]
-[ext_resource type="Shader" path="res://Tutorial/Tutorial Screen.gdshader" id="6_m1cvv"]
-[ext_resource type="Script" path="res://Tutorial/Tutorial Screen.gd" id="7_3w5jr"]
-[ext_resource type="Script" path="res://Tutorial/Tutorial Text.gd" id="8_d6amf"]
+[ext_resource type="Shader" uid="uid://73d5jkdbpbs8" path="res://Tutorial/Tutorial Screen.gdshader" id="6_m1cvv"]
+[ext_resource type="Script" uid="uid://biuifwxm6n57q" path="res://Tutorial/Tutorial Screen.gd" id="7_3w5jr"]
+[ext_resource type="Script" uid="uid://duqr6g7fjn0oc" path="res://Tutorial/Tutorial Text.gd" id="8_d6amf"]
 [ext_resource type="StyleBox" uid="uid://d2kigmst2mqxx" path="res://Base/Menu/Craft/Panel.tres" id="9_iitcr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8tan"]
@@ -21,7 +21,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qy17a"]
 shader = ExtResource("6_m1cvv")
-shader_parameter/tutorialScreenSize = null
+shader_parameter/tutorialScreenSize = Vector2(0, 0)
 shader_parameter/spotlightedRectPos = Vector2(0, 0)
 shader_parameter/spotlightedRectSize = Vector2(50, 50)
 
@@ -32,7 +32,7 @@ bg_color = Color(0.0705882, 0.0705882, 0.0705882, 0.72549)
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Main" type="PanelContainer"]
+[node name="Main" type="PanelContainer" unique_id=1935026473]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -46,30 +46,30 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_r3yx1")
 
-[node name="BGM" type="AudioStreamPlayer" parent="."]
+[node name="BGM" type="AudioStreamPlayer" parent="." unique_id=1432889818]
 process_mode = 3
 stream = ExtResource("2_nt5gd")
 volume_db = -10.0
 autoplay = true
 
-[node name="Pause Screen" type="PanelContainer" parent="."]
+[node name="Pause Screen" type="PanelContainer" parent="." unique_id=1238876268]
 process_mode = 3
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_a8tan")
 script = ExtResource("2_emyiw")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Pause Screen"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause Screen" unique_id=1459585728]
 custom_minimum_size = Vector2(1280, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Pause Screen/VBoxContainer"]
+[node name="Label" type="Label" parent="Pause Screen/VBoxContainer" unique_id=2038759283]
 layout_mode = 2
 text = "PAUSED"
 label_settings = SubResource("LabelSettings_jwsxi")
 horizontal_alignment = 1
 
-[node name="Continue Button" type="Button" parent="Pause Screen/VBoxContainer"]
+[node name="Continue Button" type="Button" parent="Pause Screen/VBoxContainer" unique_id=1545960670]
 custom_minimum_size = Vector2(112, 42)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -77,7 +77,7 @@ focus_mode = 0
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = ExtResource("3_l7pgt")
 
-[node name="Label" type="Label" parent="Pause Screen/VBoxContainer/Continue Button"]
+[node name="Label" type="Label" parent="Pause Screen/VBoxContainer/Continue Button" unique_id=118449696]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -93,10 +93,10 @@ grow_vertical = 2
 text = "Continue"
 label_settings = ExtResource("3_s1mpv")
 
-[node name="Game" parent="." instance=ExtResource("2_dtcds")]
+[node name="Game" parent="." unique_id=302141085 instance=ExtResource("2_dtcds")]
 layout_mode = 2
 
-[node name="Tutorial Screen" type="Panel" parent="."]
+[node name="Tutorial Screen" type="Panel" parent="." unique_id=1063875323]
 process_mode = 3
 visible = false
 material = SubResource("ShaderMaterial_qy17a")
@@ -104,9 +104,9 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nkyrp")
 script = ExtResource("7_3w5jr")
 
-[node name="Text" type="RichTextLabel" parent="Tutorial Screen"]
+[node name="Text" type="RichTextLabel" parent="Tutorial Screen" unique_id=1473538927]
 clip_contents = false
-layout_mode = 2
+layout_mode = 0
 offset_right = 720.0
 offset_bottom = 23.0
 theme_override_constants/outline_size = 5
@@ -115,14 +115,14 @@ text = "test"
 fit_content = true
 script = ExtResource("8_d6amf")
 
-[node name="Panel" type="Panel" parent="Tutorial Screen/Text"]
+[node name="Panel" type="Panel" parent="Tutorial Screen/Text" unique_id=52587068]
 show_behind_parent = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/panel = ExtResource("9_iitcr")
 
-[node name="Label" type="Label" parent="Tutorial Screen"]
+[node name="Label" type="Label" parent="Tutorial Screen" unique_id=1980447191]
 layout_mode = 0
 offset_top = 688.0
 offset_right = 1280.0

@@ -101,5 +101,9 @@ func _on_tree_entered() -> void:
 func _ready() -> void:
 	# Initiate ores
 	for oreType: Ore.EOreType in Ore.EOreType.values():
-		self.ores[oreType] = 0;
+		self.ores[oreType] = 999 if Main.IS_CHEAT_ORE else 0;
 	SignalBus_Base.update_inventory_ore.emit(self.ores);	# This triggers the code that checks if craft item text should be red/white depending on stock
+	
+	if (Main.IS_CHEAT_MONEY):
+		await get_tree().process_frame;
+		self.money = 99999999;

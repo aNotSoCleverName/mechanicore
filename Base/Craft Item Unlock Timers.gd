@@ -45,7 +45,7 @@ func _AddCraftItemsToDict(inUnlockedOreType: Ore.EOreType):
 		self._base.AddCraftItem(craftItem);
 
 func _ready():
-	self._ore2Timer.wait_time = self.ORE2_FORCE_UNLOCK_TIME_SEC;
+	self._ore2Timer.wait_time = 1.0 if Main.IS_CHEAT_ORE else self.ORE2_FORCE_UNLOCK_TIME_SEC;
 	self._ore2Timer.timeout.connect(
 		func ():
 			self._ore2Timer.stop();
@@ -58,7 +58,7 @@ func _ready():
 	)
 	self._ore2Timer.start();
 	
-	self._ore3Timer.wait_time = self.ORE3_FORCE_UNLOCK_TIME_SEC;
+	self._ore3Timer.wait_time = 1.0 if Main.IS_CHEAT_ORE else self.ORE3_FORCE_UNLOCK_TIME_SEC;
 	self._ore3Timer.timeout.connect(
 		func ():
 			self._ore3Timer.stop();
