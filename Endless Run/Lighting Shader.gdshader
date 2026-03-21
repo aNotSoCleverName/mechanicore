@@ -30,10 +30,5 @@ void fragment() {
 		//3.0
 	//);
 	
-	COLOR = vec4(
-		0.0/255.0,
-		0.0/255.0,
-		0.0/255.0,
-		opacity
-	);
+	COLOR = vec4(0.122, 0.098, 0.161, opacity);
 }

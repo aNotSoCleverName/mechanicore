@@ -1,68 +1,69 @@
-[gd_scene load_steps=11 format=3 uid="uid://qh6srgn7krbr"]
+[gd_scene format=3 uid="uid://qh6srgn7krbr"]
 
 [ext_resource type="Texture2D" uid="uid://v43ldt4naue8" path="res://Endless Run/Background/Dirt Dark.png" id="1_m7uyl"]
 [ext_resource type="Texture2D" uid="uid://cujhhva8rlkq5" path="res://Endless Run/Background/Dirt Light.png" id="2_y7bbx"]
 [ext_resource type="Texture2D" uid="uid://dy1ic5h5exy3f" path="res://Endless Run/Background/Sky.png" id="3_0crnc"]
 [ext_resource type="Texture2D" uid="uid://ccupi6r2smjin" path="res://Endless Run/Background/Clutter/Clutter1.png" id="3_mf3c0"]
-[ext_resource type="Shader" path="res://Endless Run/Background/Trails.gdshader" id="3_tjeuj"]
+[ext_resource type="Shader" uid="uid://bsvr25uyjv3e7" path="res://Endless Run/Background/Trails.gdshader" id="3_tjeuj"]
 [ext_resource type="Texture2D" uid="uid://ru32q2x22c58" path="res://Endless Run/Background/Clutter/Clutter2.png" id="4_38wno"]
-[ext_resource type="Script" path="res://Endless Run/Background/Trails.gd" id="4_wxbnv"]
+[ext_resource type="Script" uid="uid://d0tes73ocwn2l" path="res://Endless Run/Background/Trails.gd" id="4_wxbnv"]
 [ext_resource type="Texture2D" uid="uid://dwqae6ccfw4cl" path="res://Endless Run/Background/Trails.png" id="4_yd1i5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2mc1u"]
 shader = ExtResource("3_tjeuj")
-shader_parameter/drill_pos = null
 shader_parameter/image_texture = ExtResource("4_yd1i5")
+shader_parameter/drill_pos = Vector2(0, 0)
 
 [sub_resource type="Curve" id="Curve_0jw7f"]
-max_value = 12.0
+_limits = [0.0, 12.0, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 16.5135, 0, 0, Vector2(0.304813, 11.5165), 11.958, 11.958, 0, 0, Vector2(0.882353, 11.5165), -11.4805, -11.4805, 0, 0, Vector2(1, 0), -134.671, 0.0, 0, 0]
 point_count = 4
 
-[node name="ParallaxBackground" type="ParallaxBackground"]
+[node name="ParallaxBackground" type="ParallaxBackground" unique_id=1008753107]
 
-[node name="Dirt" type="ParallaxLayer" parent="."]
+[node name="Dirt" type="ParallaxLayer" parent="." unique_id=1432942877]
 position = Vector2(-1, -1)
 motion_mirroring = Vector2(0, 720)
 
-[node name="Dark" type="Sprite2D" parent="Dirt"]
+[node name="Dark" type="Sprite2D" parent="Dirt" unique_id=681836155]
 texture = ExtResource("1_m7uyl")
 centered = false
 
-[node name="Light" type="Sprite2D" parent="Dirt"]
+[node name="Light" type="Sprite2D" parent="Dirt" unique_id=1755244557]
+visible = false
 self_modulate = Color(0.387338, 0.0582064, 0.197235, 1)
 texture = ExtResource("2_y7bbx")
 centered = false
 
-[node name="Clutter720" type="ParallaxLayer" parent="."]
+[node name="Clutter720" type="ParallaxLayer" parent="." unique_id=781977273]
 position = Vector2(-1, -1)
 motion_mirroring = Vector2(0, 720)
 
-[node name="Sprite2D" type="Sprite2D" parent="Clutter720"]
+[node name="Sprite2D" type="Sprite2D" parent="Clutter720" unique_id=1809406647]
 texture = ExtResource("4_38wno")
 centered = false
 
-[node name="Clutter960" type="ParallaxLayer" parent="."]
+[node name="Clutter960" type="ParallaxLayer" parent="." unique_id=2059979574]
 position = Vector2(-1, -1)
 motion_mirroring = Vector2(0, 960)
 
-[node name="Sprite2D" type="Sprite2D" parent="Clutter960"]
+[node name="Sprite2D" type="Sprite2D" parent="Clutter960" unique_id=845983527]
 texture = ExtResource("3_mf3c0")
 centered = false
 
-[node name="Trails Layer" type="ParallaxLayer" parent="."]
+[node name="Trails Layer" type="ParallaxLayer" parent="." unique_id=1953573940]
 position = Vector2(-1, -1)
 
-[node name="Trails" type="Line2D" parent="Trails Layer"]
+[node name="Trails" type="Line2D" parent="Trails Layer" unique_id=2111247384]
 show_behind_parent = true
 material = SubResource("ShaderMaterial_2mc1u")
 width_curve = SubResource("Curve_0jw7f")
 joint_mode = 2
 script = ExtResource("4_wxbnv")
 
-[node name="Sky" type="ParallaxLayer" parent="."]
+[node name="Sky" type="ParallaxLayer" parent="." unique_id=411062767]
 position = Vector2(-1, -1)
 
-[node name="Sprite2D" type="Sprite2D" parent="Sky"]
+[node name="Sprite2D" type="Sprite2D" parent="Sky" unique_id=1980319725]
 texture = ExtResource("3_0crnc")
 centered = false
