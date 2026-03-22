@@ -1,28 +1,29 @@
-[gd_scene load_steps=7 format=3 uid="uid://by8u3wjwdvf01"]
+[gd_scene format=3 uid="uid://by8u3wjwdvf01"]
 
-[ext_resource type="Script" path="res://Base/Shop/Alien/Alien.gd" id="1_176wq"]
+[ext_resource type="Script" uid="uid://cqoee7ta32dgd" path="res://Base/Shop/Alien/Alien.gd" id="1_176wq"]
 [ext_resource type="Texture2D" uid="uid://ba16is6f3e6ua" path="res://Base/Shop/Alien/Sprite/Body/Body3.png" id="2_ajbgi"]
 [ext_resource type="Texture2D" uid="uid://deo8y8c744od6" path="res://Base/Shop/Alien/Sprite/Clothes/Clothes1.png" id="3_tyr6e"]
 [ext_resource type="Texture2D" uid="uid://bwkfdfd2wcpnx" path="res://Base/Shop/Alien/Sprite/Bubble - Small.png" id="4_fe0dx"]
-[ext_resource type="Script" path="res://Base/Shop/Alien/Clothes.gd" id="4_i3agx"]
+[ext_resource type="Script" uid="uid://dbyn8hckbj6kx" path="res://Base/Shop/Alien/Clothes.gd" id="4_i3agx"]
 [ext_resource type="Texture2D" uid="uid://dbbqquwmlqb0q" path="res://Base/Menu/Craft/Craft Item/Resources/Item1.png" id="4_pm76f"]
 
-[node name="Alien" type="Node2D"]
+[node name="Alien" type="Node2D" unique_id=480820292]
 script = ExtResource("1_176wq")
 
-[node name="Body" type="Sprite2D" parent="."]
+[node name="Body" type="Sprite2D" parent="." unique_id=1449853634]
 position = Vector2(0, -32)
 texture = ExtResource("2_ajbgi")
 
-[node name="Clothes" type="Sprite2D" parent="Body"]
+[node name="Clothes" type="Sprite2D" parent="Body" unique_id=407802215]
+visible = false
 texture = ExtResource("3_tyr6e")
 script = ExtResource("4_i3agx")
 
-[node name="Bubble" type="Sprite2D" parent="."]
+[node name="Bubble" type="Sprite2D" parent="." unique_id=502369941]
 position = Vector2(0, -70)
 texture = ExtResource("4_fe0dx")
 
-[node name="Item" type="Sprite2D" parent="Bubble"]
+[node name="Item" type="Sprite2D" parent="Bubble" unique_id=743084058]
 scale = Vector2(0.225, 0.225)
 texture = ExtResource("4_pm76f")
 
